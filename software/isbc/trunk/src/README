@@ -1,0 +1,18 @@
+Requires boost 1.35 or higher, just apt-get install it...
+
+Run prepare_build.sh for the automake stuff, then make to compile the isbc
+executable.
+
+
+Examples
+========
+
+# Sending switch on/off packet
+# ./isbc --host localhost --port 4723 --user user --pass 1234 --mulid 1 --srcid 1 --switch on
+# ./isbc --host localhost --port 4723 --user user --pass 1234 --mulid 1 --srcid 1 --switch off
+
+# Sending switch on packet in raw-multicast mode
+# echo -e -n "\x01\x80\x01\x01" | ./isbc --host localhost --port 4723 --user user --pass 1234 --mulid 1 --srcid 1 --multicast-raw --srcport 1 --numbytes 4
+
+# Run isbc in monitor/sniffer mode
+# ./isbc --host localhost --port 4723 --user user --pass 1234 --monitor

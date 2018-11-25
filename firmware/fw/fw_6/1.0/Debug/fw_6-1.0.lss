@@ -1,0 +1,1590 @@
+
+fw_6-1.0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000034  00800100  00000606  0000067a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000606  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000006  00800134  0000063a  000006ae  2**0
+                  ALLOC
+  3 .stab         0000204c  00000000  00000000  000006b0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      000013cc  00000000  00000000  000026fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d4 e0       	ldi	r29, 0x04	; 4
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e6 e0       	ldi	r30, 0x06	; 6
+  7c:	f6 e0       	ldi	r31, 0x06	; 6
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <.do_copy_data_start>
+
+00000080 <.do_copy_data_loop>:
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+
+00000084 <.do_copy_data_start>:
+  84:	a4 33       	cpi	r26, 0x34	; 52
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <.do_copy_data_loop>
+
+0000008a <__do_clear_bss>:
+  8a:	11 e0       	ldi	r17, 0x01	; 1
+  8c:	a4 e3       	ldi	r26, 0x34	; 52
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	aa 33       	cpi	r26, 0x3A	; 58
+  96:	b1 07       	cpc	r27, r17
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 39 02 	call	0x472	; 0x472 <main>
+  9e:	0c 94 01 03 	jmp	0x602	; 0x602 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__heap_end>
+
+000000a6 <eeprom_read_byte>:
+
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+  a6:	9c 01       	movw	r18, r24
+    do {} while (!eeprom_is_ready ());
+  a8:	f9 99       	sbic	0x1f, 1	; 31
+  aa:	fe cf       	rjmp	.-4      	; 0xa8 <eeprom_read_byte+0x2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  ac:	32 bd       	out	0x22, r19	; 34
+  ae:	21 bd       	out	0x21, r18	; 33
+#endif
+    EECR |= (1 << EERE);
+  b0:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+  b2:	80 b5       	in	r24, 0x20	; 32
+}
+  b4:	08 95       	ret
+
+000000b6 <lib_eep_read_byte>:
+#ifndef LIB_EEP_C_
+	#define LIB_EEP_C_
+
+
+
+	uint8_t __attribute__((always_inline)) lib_eep_read_byte(uint8_t * aAddr) {
+  b6:	9c 01       	movw	r18, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  b8:	f9 99       	sbic	0x1f, 1	; 31
+  ba:	fe cf       	rjmp	.-4      	; 0xb8 <lib_eep_read_byte+0x2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  bc:	32 bd       	out	0x22, r19	; 34
+  be:	21 bd       	out	0x21, r18	; 33
+#endif
+    EECR |= (1 << EERE);
+  c0:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+  c2:	80 b5       	in	r24, 0x20	; 32
+		return eeprom_read_byte(aAddr);;
+	}
+  c4:	08 95       	ret
+
+000000c6 <lib_eep_write_byte>:
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  c6:	f9 99       	sbic	0x1f, 1	; 31
+  c8:	fe cf       	rjmp	.-4      	; 0xc6 <lib_eep_write_byte>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  ca:	9c 01       	movw	r18, r24
+  cc:	92 bd       	out	0x22, r25	; 34
+  ce:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+  d0:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+  d2:	80 b5       	in	r24, 0x20	; 32
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+  d4:	86 17       	cp	r24, r22
+  d6:	59 f0       	breq	.+22     	; 0xee <lib_eep_write_byte+0x28>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+  d8:	f9 99       	sbic	0x1f, 1	; 31
+  da:	fe cf       	rjmp	.-4      	; 0xd8 <lib_eep_write_byte+0x12>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+  dc:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  de:	32 bd       	out	0x22, r19	; 34
+  e0:	21 bd       	out	0x21, r18	; 33
+#endif
+    EEDR = __value;
+  e2:	60 bd       	out	0x20, r22	; 32
+
+    __asm__ __volatile__ (
+  e4:	0f b6       	in	r0, 0x3f	; 63
+  e6:	f8 94       	cli
+  e8:	fa 9a       	sbi	0x1f, 2	; 31
+  ea:	f9 9a       	sbi	0x1f, 1	; 31
+  ec:	0f be       	out	0x3f, r0	; 63
+  ee:	08 95       	ret
+
+000000f0 <lib_eep_fw_read_byte>:
+	}
+
+
+
+	uint8_t __attribute__((always_inline)) lib_eep_fw_read_byte(uint8_t * aAddr) {
+		return eeprom_read_byte(Isb_Firmware_Offset + aAddr);;
+  f0:	20 91 36 01 	lds	r18, 0x0136
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  f4:	f9 99       	sbic	0x1f, 1	; 31
+  f6:	fe cf       	rjmp	.-4      	; 0xf4 <lib_eep_fw_read_byte+0x4>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  f8:	82 0f       	add	r24, r18
+  fa:	91 1d       	adc	r25, r1
+  fc:	92 bd       	out	0x22, r25	; 34
+  fe:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 100:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 102:	80 b5       	in	r24, 0x20	; 32
+	}
+ 104:	08 95       	ret
+
+00000106 <lib_eep_fw_write_byte>:
+		return eeprom_read_word(Isb_Firmware_Offset + aAddr);;
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_fw_write_byte(uint8_t * aAddr, uint8_t aData) {
+ 106:	ac 01       	movw	r20, r24
+		if (eeprom_read_byte(Isb_Firmware_Offset + aAddr) != aData) {
+ 108:	80 91 36 01 	lds	r24, 0x0136
+ 10c:	28 2f       	mov	r18, r24
+ 10e:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 110:	f9 99       	sbic	0x1f, 1	; 31
+ 112:	fe cf       	rjmp	.-4      	; 0x110 <lib_eep_fw_write_byte+0xa>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 114:	ca 01       	movw	r24, r20
+ 116:	82 0f       	add	r24, r18
+ 118:	93 1f       	adc	r25, r19
+ 11a:	92 bd       	out	0x22, r25	; 34
+ 11c:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 11e:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 120:	80 b5       	in	r24, 0x20	; 32
+ 122:	86 17       	cp	r24, r22
+ 124:	69 f0       	breq	.+26     	; 0x140 <lib_eep_fw_write_byte+0x3a>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 126:	f9 99       	sbic	0x1f, 1	; 31
+ 128:	fe cf       	rjmp	.-4      	; 0x126 <lib_eep_fw_write_byte+0x20>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 12a:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 12c:	24 0f       	add	r18, r20
+ 12e:	35 1f       	adc	r19, r21
+ 130:	32 bd       	out	0x22, r19	; 34
+ 132:	21 bd       	out	0x21, r18	; 33
+#endif
+    EEDR = __value;
+ 134:	60 bd       	out	0x20, r22	; 32
+
+    __asm__ __volatile__ (
+ 136:	0f b6       	in	r0, 0x3f	; 63
+ 138:	f8 94       	cli
+ 13a:	fa 9a       	sbi	0x1f, 2	; 31
+ 13c:	f9 9a       	sbi	0x1f, 1	; 31
+ 13e:	0f be       	out	0x3f, r0	; 63
+ 140:	08 95       	ret
+
+00000142 <Lib_Pin_Get>:
+	#endif
+
+
+
+	uint8_t Lib_Pin_Get(const uint8_t aPort, const uint8_t aPin) {
+		return (*(PINx[aPort]) >> aPin) & 1;
+ 142:	e8 2f       	mov	r30, r24
+ 144:	f0 e0       	ldi	r31, 0x00	; 0
+ 146:	ee 0f       	add	r30, r30
+ 148:	ff 1f       	adc	r31, r31
+ 14a:	ec 5d       	subi	r30, 0xDC	; 220
+ 14c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 14e:	01 90       	ld	r0, Z+
+ 150:	f0 81       	ld	r31, Z
+ 152:	e0 2d       	mov	r30, r0
+ 154:	80 81       	ld	r24, Z
+ 156:	90 e0       	ldi	r25, 0x00	; 0
+ 158:	02 c0       	rjmp	.+4      	; 0x15e <Lib_Pin_Get+0x1c>
+ 15a:	95 95       	asr	r25
+ 15c:	87 95       	ror	r24
+ 15e:	6a 95       	dec	r22
+ 160:	e2 f7       	brpl	.-8      	; 0x15a <Lib_Pin_Get+0x18>
+	}
+ 162:	81 70       	andi	r24, 0x01	; 1
+ 164:	08 95       	ret
+
+00000166 <Lib_Pin_Set>:
+
+
+
+	void __attribute__((noinline)) Lib_Pin_Set(const uint8_t aPort, const uint8_t aPin, const uint8_t aCmd) {
+ 166:	91 e0       	ldi	r25, 0x01	; 1
+ 168:	02 c0       	rjmp	.+4      	; 0x16e <Lib_Pin_Set+0x8>
+		uint8_t mask;
+		uint8_t tmp;
+		volatile uint8_t *reg;
+		uint8_t Pxx = aPin;
+		for (mask = 1; Pxx--; mask <<= 1) ;
+ 16a:	99 0f       	add	r25, r25
+ 16c:	61 50       	subi	r22, 0x01	; 1
+ 16e:	66 23       	and	r22, r22
+ 170:	e1 f7       	brne	.-8      	; 0x16a <Lib_Pin_Set+0x4>
+		reg = PORTx[aPort];
+ 172:	a8 2f       	mov	r26, r24
+ 174:	b0 e0       	ldi	r27, 0x00	; 0
+ 176:	fd 01       	movw	r30, r26
+ 178:	ee 0f       	add	r30, r30
+ 17a:	ff 1f       	adc	r31, r31
+ 17c:	ec 5e       	subi	r30, 0xEC	; 236
+ 17e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 180:	01 90       	ld	r0, Z+
+ 182:	f0 81       	ld	r31, Z
+ 184:	e0 2d       	mov	r30, r0
+		tmp = *reg | mask;
+ 186:	80 81       	ld	r24, Z
+ 188:	89 2b       	or	r24, r25
+		if (! (aCmd & 2)) {
+ 18a:	41 ff       	sbrs	r20, 1
+			tmp ^= mask;
+ 18c:	89 27       	eor	r24, r25
+		}
+		*reg = tmp;
+ 18e:	80 83       	st	Z, r24
+		reg = DDRx[aPort];
+ 190:	aa 0f       	add	r26, r26
+ 192:	bb 1f       	adc	r27, r27
+ 194:	ac 5f       	subi	r26, 0xFC	; 252
+ 196:	be 4f       	sbci	r27, 0xFE	; 254
+ 198:	ed 91       	ld	r30, X+
+ 19a:	fc 91       	ld	r31, X
+		tmp = *reg | mask;
+ 19c:	80 81       	ld	r24, Z
+ 19e:	89 2b       	or	r24, r25
+		if (! (aCmd & 1)) {
+ 1a0:	40 ff       	sbrs	r20, 0
+			tmp ^= mask;
+ 1a2:	89 27       	eor	r24, r25
+		}
+		*reg = tmp;
+ 1a4:	80 83       	st	Z, r24
+	}
+ 1a6:	08 95       	ret
+
+000001a8 <Isb_Config_Rx>:
+#ifndef ISB_SRV_CONFIG_C_
+	#define ISB_SRV_CONFIG_C_
+
+
+
+	void Isb_Config_Rx(Isb_Msg_t * aIsb_Msg) {
+ 1a8:	dc 01       	movw	r26, r24
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+ 1aa:	3c 91       	ld	r19, X
+ 1ac:	3f 70       	andi	r19, 0x0F	; 15
+		MsgTx.DestId = aIsb_Msg->SourceId;
+		MsgTx.SourceId = Isb_Node_Id;
+		for (uint8_t i = 0; i < Dlc; i++) {
+			MsgTx.Data[i] = aIsb_Msg->Data[i];
+		}
+		if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_SETMODE) {
+ 1ae:	15 96       	adiw	r26, 0x05	; 5
+ 1b0:	8c 91       	ld	r24, X
+ 1b2:	15 97       	sbiw	r26, 0x05	; 5
+ 1b4:	82 30       	cpi	r24, 0x02	; 2
+ 1b6:	09 f0       	breq	.+2      	; 0x1ba <Isb_Config_Rx+0x12>
+ 1b8:	93 c0       	rjmp	.+294    	; 0x2e0 <Isb_Config_Rx+0x138>
+			if (Dlc == ISB_MSG_FLAGS_DLC_2) {
+ 1ba:	32 30       	cpi	r19, 0x02	; 2
+ 1bc:	09 f0       	breq	.+2      	; 0x1c0 <Isb_Config_Rx+0x18>
+ 1be:	45 c1       	rjmp	.+650    	; 0x44a <Isb_Config_Rx+0x2a2>
+				MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_2;
+				MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__BL_NORM) {
+ 1c0:	16 96       	adiw	r26, 0x06	; 6
+ 1c2:	2c 91       	ld	r18, X
+ 1c4:	22 23       	and	r18, r18
+ 1c6:	c9 f4       	brne	.+50     	; 0x1fa <Isb_Config_Rx+0x52>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 1c8:	f9 99       	sbic	0x1f, 1	; 31
+ 1ca:	fe cf       	rjmp	.-4      	; 0x1c8 <Isb_Config_Rx+0x20>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 1cc:	82 e1       	ldi	r24, 0x12	; 18
+ 1ce:	90 e0       	ldi	r25, 0x00	; 0
+ 1d0:	92 bd       	out	0x22, r25	; 34
+ 1d2:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 1d4:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 1d6:	80 b5       	in	r24, 0x20	; 32
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+ 1d8:	88 23       	and	r24, r24
+ 1da:	09 f4       	brne	.+2      	; 0x1de <Isb_Config_Rx+0x36>
+ 1dc:	66 c0       	rjmp	.+204    	; 0x2aa <Isb_Config_Rx+0x102>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 1de:	f9 99       	sbic	0x1f, 1	; 31
+ 1e0:	fe cf       	rjmp	.-4      	; 0x1de <Isb_Config_Rx+0x36>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 1e2:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 1e4:	82 e1       	ldi	r24, 0x12	; 18
+ 1e6:	90 e0       	ldi	r25, 0x00	; 0
+ 1e8:	92 bd       	out	0x22, r25	; 34
+ 1ea:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 1ec:	10 bc       	out	0x20, r1	; 32
+
+    __asm__ __volatile__ (
+ 1ee:	0f b6       	in	r0, 0x3f	; 63
+ 1f0:	f8 94       	cli
+ 1f2:	fa 9a       	sbi	0x1f, 2	; 31
+ 1f4:	f9 9a       	sbi	0x1f, 1	; 31
+ 1f6:	0f be       	out	0x3f, r0	; 63
+ 1f8:	72 c0       	rjmp	.+228    	; 0x2de <Isb_Config_Rx+0x136>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+ 1fa:	21 30       	cpi	r18, 0x01	; 1
+ 1fc:	d1 f4       	brne	.+52     	; 0x232 <Isb_Config_Rx+0x8a>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 1fe:	f9 99       	sbic	0x1f, 1	; 31
+ 200:	fe cf       	rjmp	.-4      	; 0x1fe <Isb_Config_Rx+0x56>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 202:	82 e1       	ldi	r24, 0x12	; 18
+ 204:	90 e0       	ldi	r25, 0x00	; 0
+ 206:	92 bd       	out	0x22, r25	; 34
+ 208:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 20a:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 20c:	80 b5       	in	r24, 0x20	; 32
+ 20e:	81 30       	cpi	r24, 0x01	; 1
+ 210:	09 f4       	brne	.+2      	; 0x214 <Isb_Config_Rx+0x6c>
+ 212:	65 c0       	rjmp	.+202    	; 0x2de <Isb_Config_Rx+0x136>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 214:	f9 99       	sbic	0x1f, 1	; 31
+ 216:	fe cf       	rjmp	.-4      	; 0x214 <Isb_Config_Rx+0x6c>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 218:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 21a:	82 e1       	ldi	r24, 0x12	; 18
+ 21c:	90 e0       	ldi	r25, 0x00	; 0
+ 21e:	92 bd       	out	0x22, r25	; 34
+ 220:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 222:	81 e0       	ldi	r24, 0x01	; 1
+ 224:	80 bd       	out	0x20, r24	; 32
+
+    __asm__ __volatile__ (
+ 226:	0f b6       	in	r0, 0x3f	; 63
+ 228:	f8 94       	cli
+ 22a:	fa 9a       	sbi	0x1f, 2	; 31
+ 22c:	f9 9a       	sbi	0x1f, 1	; 31
+ 22e:	0f be       	out	0x3f, r0	; 63
+ 230:	56 c0       	rjmp	.+172    	; 0x2de <Isb_Config_Rx+0x136>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_FLASH);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__FW_NORM) {
+ 232:	28 30       	cpi	r18, 0x08	; 8
+ 234:	09 f0       	breq	.+2      	; 0x238 <Isb_Config_Rx+0x90>
+ 236:	39 c0       	rjmp	.+114    	; 0x2aa <Isb_Config_Rx+0x102>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 238:	f9 99       	sbic	0x1f, 1	; 31
+ 23a:	fe cf       	rjmp	.-4      	; 0x238 <Isb_Config_Rx+0x90>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 23c:	8b e1       	ldi	r24, 0x1B	; 27
+ 23e:	90 e0       	ldi	r25, 0x00	; 0
+ 240:	92 bd       	out	0x22, r25	; 34
+ 242:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 244:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 246:	20 b5       	in	r18, 0x20	; 32
+					uint8_t crc = lib_eep_read_byte((uint8_t *)EEP__ISB_CONFIG_CRC);
+					crc++;
+ 248:	2f 5f       	subi	r18, 0xFF	; 255
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 24a:	f9 99       	sbic	0x1f, 1	; 31
+ 24c:	fe cf       	rjmp	.-4      	; 0x24a <Isb_Config_Rx+0xa2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 24e:	8b e1       	ldi	r24, 0x1B	; 27
+ 250:	90 e0       	ldi	r25, 0x00	; 0
+ 252:	92 bd       	out	0x22, r25	; 34
+ 254:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 256:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 258:	80 b5       	in	r24, 0x20	; 32
+ 25a:	82 17       	cp	r24, r18
+ 25c:	69 f0       	breq	.+26     	; 0x278 <Isb_Config_Rx+0xd0>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 25e:	f9 99       	sbic	0x1f, 1	; 31
+ 260:	fe cf       	rjmp	.-4      	; 0x25e <Isb_Config_Rx+0xb6>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 262:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 264:	8b e1       	ldi	r24, 0x1B	; 27
+ 266:	90 e0       	ldi	r25, 0x00	; 0
+ 268:	92 bd       	out	0x22, r25	; 34
+ 26a:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 26c:	20 bd       	out	0x20, r18	; 32
+
+    __asm__ __volatile__ (
+ 26e:	0f b6       	in	r0, 0x3f	; 63
+ 270:	f8 94       	cli
+ 272:	fa 9a       	sbi	0x1f, 2	; 31
+ 274:	f9 9a       	sbi	0x1f, 1	; 31
+ 276:	0f be       	out	0x3f, r0	; 63
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 278:	f9 99       	sbic	0x1f, 1	; 31
+ 27a:	fe cf       	rjmp	.-4      	; 0x278 <Isb_Config_Rx+0xd0>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 27c:	82 e1       	ldi	r24, 0x12	; 18
+ 27e:	90 e0       	ldi	r25, 0x00	; 0
+ 280:	92 bd       	out	0x22, r25	; 34
+ 282:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 284:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 286:	80 b5       	in	r24, 0x20	; 32
+ 288:	88 30       	cpi	r24, 0x08	; 8
+ 28a:	49 f1       	breq	.+82     	; 0x2de <Isb_Config_Rx+0x136>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 28c:	f9 99       	sbic	0x1f, 1	; 31
+ 28e:	fe cf       	rjmp	.-4      	; 0x28c <Isb_Config_Rx+0xe4>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 290:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 292:	82 e1       	ldi	r24, 0x12	; 18
+ 294:	90 e0       	ldi	r25, 0x00	; 0
+ 296:	92 bd       	out	0x22, r25	; 34
+ 298:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 29a:	88 e0       	ldi	r24, 0x08	; 8
+ 29c:	80 bd       	out	0x20, r24	; 32
+
+    __asm__ __volatile__ (
+ 29e:	0f b6       	in	r0, 0x3f	; 63
+ 2a0:	f8 94       	cli
+ 2a2:	fa 9a       	sbi	0x1f, 2	; 31
+ 2a4:	f9 9a       	sbi	0x1f, 1	; 31
+ 2a6:	0f be       	out	0x3f, r0	; 63
+ 2a8:	1a c0       	rjmp	.+52     	; 0x2de <Isb_Config_Rx+0x136>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_CONFIG_CRC, crc);
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__FW_NORM);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 2aa:	29 30       	cpi	r18, 0x09	; 9
+ 2ac:	c1 f4       	brne	.+48     	; 0x2de <Isb_Config_Rx+0x136>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 2ae:	f9 99       	sbic	0x1f, 1	; 31
+ 2b0:	fe cf       	rjmp	.-4      	; 0x2ae <Isb_Config_Rx+0x106>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 2b2:	82 e1       	ldi	r24, 0x12	; 18
+ 2b4:	90 e0       	ldi	r25, 0x00	; 0
+ 2b6:	92 bd       	out	0x22, r25	; 34
+ 2b8:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 2ba:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 2bc:	80 b5       	in	r24, 0x20	; 32
+ 2be:	89 30       	cpi	r24, 0x09	; 9
+ 2c0:	71 f0       	breq	.+28     	; 0x2de <Isb_Config_Rx+0x136>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 2c2:	f9 99       	sbic	0x1f, 1	; 31
+ 2c4:	fe cf       	rjmp	.-4      	; 0x2c2 <Isb_Config_Rx+0x11a>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 2c6:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 2c8:	82 e1       	ldi	r24, 0x12	; 18
+ 2ca:	90 e0       	ldi	r25, 0x00	; 0
+ 2cc:	92 bd       	out	0x22, r25	; 34
+ 2ce:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 2d0:	89 e0       	ldi	r24, 0x09	; 9
+ 2d2:	80 bd       	out	0x20, r24	; 32
+
+    __asm__ __volatile__ (
+ 2d4:	0f b6       	in	r0, 0x3f	; 63
+ 2d6:	f8 94       	cli
+ 2d8:	fa 9a       	sbi	0x1f, 2	; 31
+ 2da:	f9 9a       	sbi	0x1f, 1	; 31
+ 2dc:	0f be       	out	0x3f, r0	; 63
+ 2de:	ff cf       	rjmp	.-2      	; 0x2de <Isb_Config_Rx+0x136>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__FW_CFG);
+				}
+				Node_Reboot();
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_INITEEPROM) {
+ 2e0:	86 30       	cpi	r24, 0x06	; 6
+ 2e2:	09 f0       	breq	.+2      	; 0x2e6 <Isb_Config_Rx+0x13e>
+ 2e4:	45 c0       	rjmp	.+138    	; 0x370 <Isb_Config_Rx+0x1c8>
+			if (Dlc == ISB_MSG_FLAGS_DLC_1) {
+ 2e6:	31 30       	cpi	r19, 0x01	; 1
+ 2e8:	09 f0       	breq	.+2      	; 0x2ec <Isb_Config_Rx+0x144>
+ 2ea:	af c0       	rjmp	.+350    	; 0x44a <Isb_Config_Rx+0x2a2>
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 2ec:	80 91 37 01 	lds	r24, 0x0137
+ 2f0:	89 30       	cpi	r24, 0x09	; 9
+ 2f2:	09 f0       	breq	.+2      	; 0x2f6 <Isb_Config_Rx+0x14e>
+ 2f4:	aa c0       	rjmp	.+340    	; 0x44a <Isb_Config_Rx+0x2a2>
+					MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_1;
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+ 2f6:	80 91 36 01 	lds	r24, 0x0136
+ 2fa:	28 2f       	mov	r18, r24
+ 2fc:	30 e0       	ldi	r19, 0x00	; 0
+						wdt_reset();
+ 2fe:	a8 95       	wdr
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 300:	f9 99       	sbic	0x1f, 1	; 31
+ 302:	fe cf       	rjmp	.-4      	; 0x300 <Isb_Config_Rx+0x158>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 304:	32 bd       	out	0x22, r19	; 34
+ 306:	21 bd       	out	0x21, r18	; 33
+#endif
+    EECR |= (1 << EERE);
+ 308:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 30a:	80 b5       	in	r24, 0x20	; 32
+ 30c:	88 23       	and	r24, r24
+ 30e:	59 f0       	breq	.+22     	; 0x326 <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 310:	f9 99       	sbic	0x1f, 1	; 31
+ 312:	fe cf       	rjmp	.-4      	; 0x310 <Isb_Config_Rx+0x168>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 314:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 316:	32 bd       	out	0x22, r19	; 34
+ 318:	21 bd       	out	0x21, r18	; 33
+#endif
+    EEDR = __value;
+ 31a:	10 bc       	out	0x20, r1	; 32
+
+    __asm__ __volatile__ (
+ 31c:	0f b6       	in	r0, 0x3f	; 63
+ 31e:	f8 94       	cli
+ 320:	fa 9a       	sbi	0x1f, 2	; 31
+ 322:	f9 9a       	sbi	0x1f, 1	; 31
+ 324:	0f be       	out	0x3f, r0	; 63
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_INITEEPROM) {
+			if (Dlc == ISB_MSG_FLAGS_DLC_1) {
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+					MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_1;
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+ 326:	2f 5f       	subi	r18, 0xFF	; 255
+ 328:	3f 4f       	sbci	r19, 0xFF	; 255
+ 32a:	82 e0       	ldi	r24, 0x02	; 2
+ 32c:	20 30       	cpi	r18, 0x00	; 0
+ 32e:	38 07       	cpc	r19, r24
+ 330:	30 f3       	brcs	.-52     	; 0x2fe <Isb_Config_Rx+0x156>
+ 332:	2c e1       	ldi	r18, 0x1C	; 28
+ 334:	30 e0       	ldi	r19, 0x00	; 0
+						wdt_reset();
+						lib_eep_write_byte((uint8_t *) ee_Addr, 0x00);
+					}
+					for (uint8_t i = 0; i < 4; i++) {
+						lib_eep_write_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i), Isb_Firmware_Code[i]);
+ 336:	f9 01       	movw	r30, r18
+ 338:	ec 51       	subi	r30, 0x1C	; 28
+ 33a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 33c:	e0 81       	ld	r30, Z
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 33e:	f9 99       	sbic	0x1f, 1	; 31
+ 340:	fe cf       	rjmp	.-4      	; 0x33e <Isb_Config_Rx+0x196>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 342:	32 bd       	out	0x22, r19	; 34
+ 344:	21 bd       	out	0x21, r18	; 33
+#endif
+    EECR |= (1 << EERE);
+ 346:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 348:	80 b5       	in	r24, 0x20	; 32
+ 34a:	8e 17       	cp	r24, r30
+ 34c:	59 f0       	breq	.+22     	; 0x364 <Isb_Config_Rx+0x1bc>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 34e:	f9 99       	sbic	0x1f, 1	; 31
+ 350:	fe cf       	rjmp	.-4      	; 0x34e <Isb_Config_Rx+0x1a6>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 352:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 354:	32 bd       	out	0x22, r19	; 34
+ 356:	21 bd       	out	0x21, r18	; 33
+#endif
+    EEDR = __value;
+ 358:	e0 bd       	out	0x20, r30	; 32
+
+    __asm__ __volatile__ (
+ 35a:	0f b6       	in	r0, 0x3f	; 63
+ 35c:	f8 94       	cli
+ 35e:	fa 9a       	sbi	0x1f, 2	; 31
+ 360:	f9 9a       	sbi	0x1f, 1	; 31
+ 362:	0f be       	out	0x3f, r0	; 63
+ 364:	2f 5f       	subi	r18, 0xFF	; 255
+ 366:	3f 4f       	sbci	r19, 0xFF	; 255
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+						wdt_reset();
+						lib_eep_write_byte((uint8_t *) ee_Addr, 0x00);
+					}
+					for (uint8_t i = 0; i < 4; i++) {
+ 368:	20 32       	cpi	r18, 0x20	; 32
+ 36a:	31 05       	cpc	r19, r1
+ 36c:	21 f7       	brne	.-56     	; 0x336 <Isb_Config_Rx+0x18e>
+ 36e:	ff cf       	rjmp	.-2      	; 0x36e <Isb_Config_Rx+0x1c6>
+					}
+					Node_Reboot();
+				}
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+ 370:	87 30       	cpi	r24, 0x07	; 7
+ 372:	39 f5       	brne	.+78     	; 0x3c2 <Isb_Config_Rx+0x21a>
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+ 374:	34 30       	cpi	r19, 0x04	; 4
+ 376:	08 f4       	brcc	.+2      	; 0x37a <Isb_Config_Rx+0x1d2>
+ 378:	68 c0       	rjmp	.+208    	; 0x44a <Isb_Config_Rx+0x2a2>
+				Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+ 37a:	17 96       	adiw	r26, 0x07	; 7
+ 37c:	9c 91       	ld	r25, X
+ 37e:	17 97       	sbiw	r26, 0x07	; 7
+ 380:	80 e0       	ldi	r24, 0x00	; 0
+ 382:	16 96       	adiw	r26, 0x06	; 6
+ 384:	2c 91       	ld	r18, X
+ 386:	bc 01       	movw	r22, r24
+ 388:	62 0f       	add	r22, r18
+ 38a:	71 1d       	adc	r23, r1
+				if (Addr < EEP_SIZE) {
+ 38c:	82 e0       	ldi	r24, 0x02	; 2
+ 38e:	60 30       	cpi	r22, 0x00	; 0
+ 390:	78 07       	cpc	r23, r24
+ 392:	08 f0       	brcs	.+2      	; 0x396 <Isb_Config_Rx+0x1ee>
+ 394:	5a c0       	rjmp	.+180    	; 0x44a <Isb_Config_Rx+0x2a2>
+ 396:	40 e0       	ldi	r20, 0x00	; 0
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ 398:	23 2f       	mov	r18, r19
+ 39a:	30 e0       	ldi	r19, 0x00	; 0
+ 39c:	23 50       	subi	r18, 0x03	; 3
+ 39e:	30 40       	sbci	r19, 0x00	; 0
+ 3a0:	0a c0       	rjmp	.+20     	; 0x3b6 <Isb_Config_Rx+0x20e>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 3a2:	f9 99       	sbic	0x1f, 1	; 31
+ 3a4:	fe cf       	rjmp	.-4      	; 0x3a2 <Isb_Config_Rx+0x1fa>
+						MsgTx.Data[3 + i] = lib_eep_read_byte((uint8_t *)(Addr + i));
+ 3a6:	cb 01       	movw	r24, r22
+ 3a8:	84 0f       	add	r24, r20
+ 3aa:	91 1d       	adc	r25, r1
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 3ac:	92 bd       	out	0x22, r25	; 34
+ 3ae:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 3b0:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 3b2:	80 b5       	in	r24, 0x20	; 32
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+				Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+				if (Addr < EEP_SIZE) {
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ 3b4:	4f 5f       	subi	r20, 0xFF	; 255
+ 3b6:	84 2f       	mov	r24, r20
+ 3b8:	90 e0       	ldi	r25, 0x00	; 0
+ 3ba:	82 17       	cp	r24, r18
+ 3bc:	93 07       	cpc	r25, r19
+ 3be:	8c f3       	brlt	.-30     	; 0x3a2 <Isb_Config_Rx+0x1fa>
+ 3c0:	08 95       	ret
+						MsgTx.Data[3 + i] = lib_eep_read_byte((uint8_t *)(Addr + i));
+					}
+				}
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_WRITEEEPROMBLOCK) {
+ 3c2:	88 30       	cpi	r24, 0x08	; 8
+ 3c4:	09 f0       	breq	.+2      	; 0x3c8 <Isb_Config_Rx+0x220>
+ 3c6:	41 c0       	rjmp	.+130    	; 0x44a <Isb_Config_Rx+0x2a2>
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+ 3c8:	34 30       	cpi	r19, 0x04	; 4
+ 3ca:	08 f4       	brcc	.+2      	; 0x3ce <Isb_Config_Rx+0x226>
+ 3cc:	3e c0       	rjmp	.+124    	; 0x44a <Isb_Config_Rx+0x2a2>
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 3ce:	80 91 37 01 	lds	r24, 0x0137
+ 3d2:	89 30       	cpi	r24, 0x09	; 9
+ 3d4:	09 f0       	breq	.+2      	; 0x3d8 <Isb_Config_Rx+0x230>
+ 3d6:	39 c0       	rjmp	.+114    	; 0x44a <Isb_Config_Rx+0x2a2>
+					Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+ 3d8:	17 96       	adiw	r26, 0x07	; 7
+ 3da:	9c 91       	ld	r25, X
+ 3dc:	17 97       	sbiw	r26, 0x07	; 7
+ 3de:	80 e0       	ldi	r24, 0x00	; 0
+ 3e0:	16 96       	adiw	r26, 0x06	; 6
+ 3e2:	2c 91       	ld	r18, X
+ 3e4:	16 97       	sbiw	r26, 0x06	; 6
+ 3e6:	ac 01       	movw	r20, r24
+ 3e8:	42 0f       	add	r20, r18
+ 3ea:	51 1d       	adc	r21, r1
+					if ((Addr >= Isb_Firmware_Offset) & (Addr < EEP_SIZE)) {
+ 3ec:	80 91 36 01 	lds	r24, 0x0136
+ 3f0:	90 e0       	ldi	r25, 0x00	; 0
+ 3f2:	48 17       	cp	r20, r24
+ 3f4:	59 07       	cpc	r21, r25
+ 3f6:	48 f1       	brcs	.+82     	; 0x44a <Isb_Config_Rx+0x2a2>
+ 3f8:	82 e0       	ldi	r24, 0x02	; 2
+ 3fa:	40 30       	cpi	r20, 0x00	; 0
+ 3fc:	58 07       	cpc	r21, r24
+ 3fe:	28 f5       	brcc	.+74     	; 0x44a <Isb_Config_Rx+0x2a2>
+ 400:	90 e0       	ldi	r25, 0x00	; 0
+						MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+						for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ 402:	23 2f       	mov	r18, r19
+ 404:	30 e0       	ldi	r19, 0x00	; 0
+ 406:	23 50       	subi	r18, 0x03	; 3
+ 408:	30 40       	sbci	r19, 0x00	; 0
+ 40a:	1a c0       	rjmp	.+52     	; 0x440 <Isb_Config_Rx+0x298>
+							lib_eep_write_byte((uint8_t *)(Addr + i), aIsb_Msg->Data[3 + i]);
+ 40c:	bf 01       	movw	r22, r30
+ 40e:	64 0f       	add	r22, r20
+ 410:	75 1f       	adc	r23, r21
+ 412:	ea 0f       	add	r30, r26
+ 414:	fb 1f       	adc	r31, r27
+ 416:	e0 85       	ldd	r30, Z+8	; 0x08
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 418:	f9 99       	sbic	0x1f, 1	; 31
+ 41a:	fe cf       	rjmp	.-4      	; 0x418 <Isb_Config_Rx+0x270>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 41c:	72 bd       	out	0x22, r23	; 34
+ 41e:	61 bd       	out	0x21, r22	; 33
+#endif
+    EECR |= (1 << EERE);
+ 420:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 422:	80 b5       	in	r24, 0x20	; 32
+ 424:	8e 17       	cp	r24, r30
+ 426:	59 f0       	breq	.+22     	; 0x43e <Isb_Config_Rx+0x296>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 428:	f9 99       	sbic	0x1f, 1	; 31
+ 42a:	fe cf       	rjmp	.-4      	; 0x428 <Isb_Config_Rx+0x280>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 42c:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 42e:	72 bd       	out	0x22, r23	; 34
+ 430:	61 bd       	out	0x21, r22	; 33
+#endif
+    EEDR = __value;
+ 432:	e0 bd       	out	0x20, r30	; 32
+
+    __asm__ __volatile__ (
+ 434:	0f b6       	in	r0, 0x3f	; 63
+ 436:	f8 94       	cli
+ 438:	fa 9a       	sbi	0x1f, 2	; 31
+ 43a:	f9 9a       	sbi	0x1f, 1	; 31
+ 43c:	0f be       	out	0x3f, r0	; 63
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+					Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+					if ((Addr >= Isb_Firmware_Offset) & (Addr < EEP_SIZE)) {
+						MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+						for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ 43e:	9f 5f       	subi	r25, 0xFF	; 255
+ 440:	e9 2f       	mov	r30, r25
+ 442:	f0 e0       	ldi	r31, 0x00	; 0
+ 444:	e2 17       	cp	r30, r18
+ 446:	f3 07       	cpc	r31, r19
+ 448:	0c f3       	brlt	.-62     	; 0x40c <Isb_Config_Rx+0x264>
+ 44a:	08 95       	ret
+
+0000044c <Node_Reboot>:
+	#include "./../lib/isb_config.h"
+	#include "./../lib/isb_config.c"
+
+
+
+	void Node_Reboot(void) {
+ 44c:	ff cf       	rjmp	.-2      	; 0x44c <Node_Reboot>
+
+0000044e <Isb_SendMsg>:
+		#endif /* ISB_INF_CAN2 == 1 */
+//		if ((aMsg->Flags & ISB_MSG_FLAGS_TOF_MASK) == ISB_MSG_FLAGS_TOF_MULTICAST) {
+//			if (Error == 0) {
+//			}
+//		}
+	}
+ 44e:	08 95       	ret
+
+00000450 <lib_eep_fw_read_word>:
+/** \ingroup avr_eeprom
+    Read one 16-bit word (little endian) from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint16_t eeprom_read_word (const uint16_t *__p)
+{
+    return __eerd_word (__p, eeprom_read_byte);
+ 450:	20 91 36 01 	lds	r18, 0x0136
+ 454:	30 e0       	ldi	r19, 0x00	; 0
+ 456:	22 0f       	add	r18, r18
+ 458:	33 1f       	adc	r19, r19
+ 45a:	82 0f       	add	r24, r18
+ 45c:	93 1f       	adc	r25, r19
+ 45e:	63 e5       	ldi	r22, 0x53	; 83
+ 460:	70 e0       	ldi	r23, 0x00	; 0
+ 462:	0e 94 eb 02 	call	0x5d6	; 0x5d6 <__eerd_word>
+
+
+
+	uint16_t __attribute__((always_inline)) lib_eep_fw_read_word(uint16_t * aAddr) {
+		return eeprom_read_word(Isb_Firmware_Offset + aAddr);;
+	}
+ 466:	08 95       	ret
+
+00000468 <lib_eep_read_word>:
+ 468:	63 e5       	ldi	r22, 0x53	; 83
+ 46a:	70 e0       	ldi	r23, 0x00	; 0
+ 46c:	0e 94 eb 02 	call	0x5d6	; 0x5d6 <__eerd_word>
+
+
+
+	uint16_t __attribute__((always_inline)) lib_eep_read_word(uint16_t * aAddr) {
+		return eeprom_read_word(aAddr);;
+	}
+ 470:	08 95       	ret
+
+00000472 <main>:
+
+
+
+	int main(void) {
+		wdt_enable(WDTO_500MS);
+ 472:	2d e0       	ldi	r18, 0x0D	; 13
+ 474:	88 e1       	ldi	r24, 0x18	; 24
+ 476:	90 e0       	ldi	r25, 0x00	; 0
+ 478:	0f b6       	in	r0, 0x3f	; 63
+ 47a:	f8 94       	cli
+ 47c:	a8 95       	wdr
+ 47e:	80 93 60 00 	sts	0x0060, r24
+ 482:	0f be       	out	0x3f, r0	; 63
+ 484:	20 93 60 00 	sts	0x0060, r18
+		wdt_reset();
+ 488:	a8 95       	wdr
+ 48a:	80 e1       	ldi	r24, 0x10	; 16
+ 48c:	90 e0       	ldi	r25, 0x00	; 0
+ 48e:	63 e5       	ldi	r22, 0x53	; 83
+ 490:	70 e0       	ldi	r23, 0x00	; 0
+ 492:	0e 94 eb 02 	call	0x5d6	; 0x5d6 <__eerd_word>
+		Isb_Node_Id = lib_eep_read_word((uint16_t *)EEP__ISB_NODE_ID_0);
+ 496:	90 93 35 01 	sts	0x0135, r25
+ 49a:	80 93 34 01 	sts	0x0134, r24
+		if ((Isb_Node_Id == 0) | (Isb_Node_Id > 2047)) {
+ 49e:	01 97       	sbiw	r24, 0x01	; 1
+ 4a0:	8f 5f       	subi	r24, 0xFF	; 255
+ 4a2:	97 40       	sbci	r25, 0x07	; 7
+ 4a4:	c0 f0       	brcs	.+48     	; 0x4d6 <main+0x64>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 4a6:	f9 99       	sbic	0x1f, 1	; 31
+ 4a8:	fe cf       	rjmp	.-4      	; 0x4a6 <main+0x34>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 4aa:	82 e1       	ldi	r24, 0x12	; 18
+ 4ac:	90 e0       	ldi	r25, 0x00	; 0
+ 4ae:	92 bd       	out	0x22, r25	; 34
+ 4b0:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 4b2:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 4b4:	80 b5       	in	r24, 0x20	; 32
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+ 4b6:	88 23       	and	r24, r24
+ 4b8:	69 f0       	breq	.+26     	; 0x4d4 <main+0x62>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 4ba:	f9 99       	sbic	0x1f, 1	; 31
+ 4bc:	fe cf       	rjmp	.-4      	; 0x4ba <main+0x48>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 4be:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 4c0:	82 e1       	ldi	r24, 0x12	; 18
+ 4c2:	90 e0       	ldi	r25, 0x00	; 0
+ 4c4:	92 bd       	out	0x22, r25	; 34
+ 4c6:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 4c8:	10 bc       	out	0x20, r1	; 32
+
+    __asm__ __volatile__ (
+ 4ca:	0f b6       	in	r0, 0x3f	; 63
+ 4cc:	f8 94       	cli
+ 4ce:	fa 9a       	sbi	0x1f, 2	; 31
+ 4d0:	f9 9a       	sbi	0x1f, 1	; 31
+ 4d2:	0f be       	out	0x3f, r0	; 63
+ 4d4:	ff cf       	rjmp	.-2      	; 0x4d4 <main+0x62>
+ 4d6:	2c e0       	ldi	r18, 0x0C	; 12
+ 4d8:	30 e0       	ldi	r19, 0x00	; 0
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+			Node_Reboot();
+		}
+		for (uint8_t i = 0; i < 4; i++) {
+			lib_eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), Isb_Firmware_Code[i]);
+ 4da:	f9 01       	movw	r30, r18
+ 4dc:	ec 50       	subi	r30, 0x0C	; 12
+ 4de:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4e0:	e0 81       	ld	r30, Z
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 4e2:	f9 99       	sbic	0x1f, 1	; 31
+ 4e4:	fe cf       	rjmp	.-4      	; 0x4e2 <main+0x70>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 4e6:	32 bd       	out	0x22, r19	; 34
+ 4e8:	21 bd       	out	0x21, r18	; 33
+#endif
+    EECR |= (1 << EERE);
+ 4ea:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 4ec:	80 b5       	in	r24, 0x20	; 32
+ 4ee:	8e 17       	cp	r24, r30
+ 4f0:	59 f0       	breq	.+22     	; 0x508 <__stack+0x9>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 4f2:	f9 99       	sbic	0x1f, 1	; 31
+ 4f4:	fe cf       	rjmp	.-4      	; 0x4f2 <main+0x80>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 4f6:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 4f8:	32 bd       	out	0x22, r19	; 34
+ 4fa:	21 bd       	out	0x21, r18	; 33
+#endif
+    EEDR = __value;
+ 4fc:	e0 bd       	out	0x20, r30	; 32
+
+    __asm__ __volatile__ (
+ 4fe:	0f b6       	in	r0, 0x3f	; 63
+ 500:	f8 94       	cli
+ 502:	fa 9a       	sbi	0x1f, 2	; 31
+ 504:	f9 9a       	sbi	0x1f, 1	; 31
+ 506:	0f be       	out	0x3f, r0	; 63
+ 508:	2f 5f       	subi	r18, 0xFF	; 255
+ 50a:	3f 4f       	sbci	r19, 0xFF	; 255
+		Isb_Node_Id = lib_eep_read_word((uint16_t *)EEP__ISB_NODE_ID_0);
+		if ((Isb_Node_Id == 0) | (Isb_Node_Id > 2047)) {
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+			Node_Reboot();
+		}
+		for (uint8_t i = 0; i < 4; i++) {
+ 50c:	20 31       	cpi	r18, 0x10	; 16
+ 50e:	31 05       	cpc	r19, r1
+ 510:	21 f7       	brne	.-56     	; 0x4da <main+0x68>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 512:	f9 99       	sbic	0x1f, 1	; 31
+ 514:	fe cf       	rjmp	.-4      	; 0x512 <__stack+0x13>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 516:	8a e1       	ldi	r24, 0x1A	; 26
+ 518:	90 e0       	ldi	r25, 0x00	; 0
+ 51a:	92 bd       	out	0x22, r25	; 34
+ 51c:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 51e:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 520:	80 b5       	in	r24, 0x20	; 32
+			lib_eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), Isb_Firmware_Code[i]);
+		}
+		Isb_Firmware_Offset = lib_eep_read_byte((uint8_t *)EEP__ISB_FIRMWARE_OFFSET);
+ 522:	80 93 36 01 	sts	0x0136, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 526:	f9 99       	sbic	0x1f, 1	; 31
+ 528:	fe cf       	rjmp	.-4      	; 0x526 <__stack+0x27>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 52a:	82 e1       	ldi	r24, 0x12	; 18
+ 52c:	90 e0       	ldi	r25, 0x00	; 0
+ 52e:	92 bd       	out	0x22, r25	; 34
+ 530:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 532:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 534:	80 b5       	in	r24, 0x20	; 32
+		Isb_Node_Operating_Mode = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+ 536:	80 93 37 01 	sts	0x0137, r24
+		if ((Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_NORM) & (Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_CFG))
+ 53a:	88 50       	subi	r24, 0x08	; 8
+ 53c:	82 30       	cpi	r24, 0x02	; 2
+ 53e:	68 f0       	brcs	.+26     	; 0x55a <__stack+0x5b>
+		{
+			Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__FW_NORM;
+ 540:	88 e0       	ldi	r24, 0x08	; 8
+ 542:	80 93 37 01 	sts	0x0137, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 546:	f9 99       	sbic	0x1f, 1	; 31
+ 548:	fe cf       	rjmp	.-4      	; 0x546 <__stack+0x47>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 54a:	82 e1       	ldi	r24, 0x12	; 18
+ 54c:	90 e0       	ldi	r25, 0x00	; 0
+ 54e:	92 bd       	out	0x22, r25	; 34
+ 550:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 552:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 554:	80 b5       	in	r24, 0x20	; 32
+ 556:	88 30       	cpi	r24, 0x08	; 8
+ 558:	29 f4       	brne	.+10     	; 0x564 <__stack+0x65>
+ 55a:	40 91 38 01 	lds	r20, 0x0138
+ 55e:	2c e1       	ldi	r18, 0x1C	; 28
+ 560:	30 e0       	ldi	r19, 0x00	; 0
+ 562:	0f c0       	rjmp	.+30     	; 0x582 <__stack+0x83>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 564:	f9 99       	sbic	0x1f, 1	; 31
+ 566:	fe cf       	rjmp	.-4      	; 0x564 <__stack+0x65>
+
+#if	defined(EEPM0) && defined(EEPM1)
+    EECR = 0;		/* Set programming mode: erase and write.	*/
+ 568:	1f ba       	out	0x1f, r1	; 31
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 56a:	82 e1       	ldi	r24, 0x12	; 18
+ 56c:	90 e0       	ldi	r25, 0x00	; 0
+ 56e:	92 bd       	out	0x22, r25	; 34
+ 570:	81 bd       	out	0x21, r24	; 33
+#endif
+    EEDR = __value;
+ 572:	88 e0       	ldi	r24, 0x08	; 8
+ 574:	80 bd       	out	0x20, r24	; 32
+
+    __asm__ __volatile__ (
+ 576:	0f b6       	in	r0, 0x3f	; 63
+ 578:	f8 94       	cli
+ 57a:	fa 9a       	sbi	0x1f, 2	; 31
+ 57c:	f9 9a       	sbi	0x1f, 1	; 31
+ 57e:	0f be       	out	0x3f, r0	; 63
+ 580:	ec cf       	rjmp	.-40     	; 0x55a <__stack+0x5b>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 582:	f9 99       	sbic	0x1f, 1	; 31
+ 584:	fe cf       	rjmp	.-4      	; 0x582 <__stack+0x83>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 586:	32 bd       	out	0x22, r19	; 34
+ 588:	21 bd       	out	0x21, r18	; 33
+#endif
+    EECR |= (1 << EERE);
+ 58a:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 58c:	80 b5       	in	r24, 0x20	; 32
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Node_Operating_Mode);
+		}
+		for (uint8_t i = 0; i < 4; i++)
+		{
+			if (lib_eep_read_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i)) != Isb_Firmware_Code[i])
+ 58e:	f9 01       	movw	r30, r18
+ 590:	ec 51       	subi	r30, 0x1C	; 28
+ 592:	ff 4f       	sbci	r31, 0xFF	; 255
+ 594:	90 81       	ld	r25, Z
+ 596:	89 13       	cpse	r24, r25
+			{
+				Error |= ERROR__CONFIG_CODE;
+ 598:	41 60       	ori	r20, 0x01	; 1
+ 59a:	2f 5f       	subi	r18, 0xFF	; 255
+ 59c:	3f 4f       	sbci	r19, 0xFF	; 255
+		if ((Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_NORM) & (Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_CFG))
+		{
+			Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__FW_NORM;
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Node_Operating_Mode);
+		}
+		for (uint8_t i = 0; i < 4; i++)
+ 59e:	20 32       	cpi	r18, 0x20	; 32
+ 5a0:	31 05       	cpc	r19, r1
+ 5a2:	79 f7       	brne	.-34     	; 0x582 <__stack+0x83>
+ 5a4:	40 93 38 01 	sts	0x0138, r20
+			if (lib_eep_read_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i)) != Isb_Firmware_Code[i])
+			{
+				Error |= ERROR__CONFIG_CODE;
+			}
+		}
+		sei();
+ 5a8:	78 94       	sei
+ 5aa:	84 e0       	ldi	r24, 0x04	; 4
+ 5ac:	90 e0       	ldi	r25, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 5ae:	f9 99       	sbic	0x1f, 1	; 31
+ 5b0:	fe cf       	rjmp	.-4      	; 0x5ae <__stack+0xaf>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 5b2:	92 bd       	out	0x22, r25	; 34
+ 5b4:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 5b6:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 5b8:	20 b5       	in	r18, 0x20	; 32
+ 5ba:	01 96       	adiw	r24, 0x01	; 1
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+		Isb_Msg.Data[0] = ISB_MSG_TOP__SERIAL_NUMBER__MODE__ERROR;
+		for (uint8_t i = 0; i < 4; i++) {
+ 5bc:	88 30       	cpi	r24, 0x08	; 8
+ 5be:	91 05       	cpc	r25, r1
+ 5c0:	b1 f7       	brne	.-20     	; 0x5ae <__stack+0xaf>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 5c2:	f9 99       	sbic	0x1f, 1	; 31
+ 5c4:	fe cf       	rjmp	.-4      	; 0x5c2 <__stack+0xc3>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 5c6:	82 e1       	ldi	r24, 0x12	; 18
+ 5c8:	90 e0       	ldi	r25, 0x00	; 0
+ 5ca:	92 bd       	out	0x22, r25	; 34
+ 5cc:	81 bd       	out	0x21, r24	; 33
+#endif
+    EECR |= (1 << EERE);
+ 5ce:	f8 9a       	sbi	0x1f, 0	; 31
+    return EEDR;
+ 5d0:	80 b5       	in	r24, 0x20	; 32
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+		Isb_Msg.Data[6] = Error;
+		Isb_SendMsg(&Isb_Msg);
+		for (;;) {
+			wdt_reset();
+ 5d2:	a8 95       	wdr
+ 5d4:	fe cf       	rjmp	.-4      	; 0x5d2 <__stack+0xd3>
+
+000005d6 <__eerd_word>:
+ 5d6:	df 92       	push	r13
+ 5d8:	ef 92       	push	r14
+ 5da:	ff 92       	push	r15
+ 5dc:	0f 93       	push	r16
+ 5de:	1f 93       	push	r17
+ 5e0:	7b 01       	movw	r14, r22
+ 5e2:	8c 01       	movw	r16, r24
+ 5e4:	fb 01       	movw	r30, r22
+ 5e6:	09 95       	icall
+ 5e8:	d8 2e       	mov	r13, r24
+ 5ea:	c8 01       	movw	r24, r16
+ 5ec:	01 96       	adiw	r24, 0x01	; 1
+ 5ee:	f7 01       	movw	r30, r14
+ 5f0:	09 95       	icall
+ 5f2:	98 2f       	mov	r25, r24
+ 5f4:	8d 2d       	mov	r24, r13
+ 5f6:	1f 91       	pop	r17
+ 5f8:	0f 91       	pop	r16
+ 5fa:	ff 90       	pop	r15
+ 5fc:	ef 90       	pop	r14
+ 5fe:	df 90       	pop	r13
+ 600:	08 95       	ret
+
+00000602 <_exit>:
+ 602:	f8 94       	cli
+
+00000604 <__stop_program>:
+ 604:	ff cf       	rjmp	.-2      	; 0x604 <__stop_program>

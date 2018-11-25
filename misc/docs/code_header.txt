@@ -1,0 +1,38 @@
+/**
+==================================================
+
+	filename.ext
+	
+Version: $Rev$
+Last Modification: $Id$
+
+Module: <module_name>
+Created: <date>
+Author: <shortcut of initial author>
+
+Copyright 2006 by iSysBus
+
+==================================================
+*/
+
+--------
+Example:
+
+/**
+==================================================
+
+	tools.c
+	
+Version: 25
+Last Modification: $Id: tools.c 148 2002-07-28 21:30:43Z antimon $
+
+Module: general
+Created: 2006-05-24
+Author: ig
+
+Copyright 2006 by iSysBus
+
+==================================================
+*/
+
+ATTENTION: You have to enable svn:keywords in the properties of the file to enable keyword substitution!!

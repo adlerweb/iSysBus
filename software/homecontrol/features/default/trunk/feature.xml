@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.isysbus.homecontrol.feature.default"
+      label="HomeControl Default"
+      version="0.8.8"
+      provider-name="iSysBus.org"
+      plugin="org.isysbus.homecontrol.product.installation"
+      nl="de,en">
+
+   <description>
+      This feature contains basic plugins for configuring nodes in the bus
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui" version="3.5.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.dom4j" version="1.6.1" match="greaterOrEqual"/>
+      <import plugin="org.dom4j" version="1.6.1" match="compatible"/>
+      <import plugin="org.isysbus.homecontrol.core" version="0.8.2" match="equivalent"/>
+      <import plugin="com.ibm.icu"/>
+      <import plugin="org.eclipse.core.commands"/>
+      <import plugin="org.eclipse.equinox.preferences"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.isysbus.homecontrol.core" version="0.8.3" match="greaterOrEqual"/>
+      <import plugin="org.isysbus.homecontrol.core" version="0.8.3" match="compatible"/>
+      <import plugin="org.json.simple" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="com.sun.jersey" version="1.2.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.isysbus.homecontrol.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.isysbus.homecontrol.node_configurator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.isysbus.homecontrol.connections.interface.tcp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.isysbus.homecontrol.connections.interfaces.serial"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.isysbus.homecontrol.webclient"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.rcp"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.sun.jersey"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.dom4j"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.json.simple"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="gnu.io.rxtx"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

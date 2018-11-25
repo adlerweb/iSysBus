@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf8"?>
+<Fw>
+	<Xmlfile version="1"/>
+	<CreationDate>2011-10-11 21:31:13</CreationDate>
+	<LastModified>2012-02-06 03:19:18</LastModified>
+	<Firmware code="38-0.0" name="Tasterknoten" stable="0" crc="b73abade8b03993695b5e3fa78704a7c">
+		<Description><![CDATA[]]></Description>
+		<EEPROM/>
+		<Busvariable/>
+		<Config/>
+	</Firmware>
+</Fw>

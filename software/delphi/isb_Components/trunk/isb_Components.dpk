@@ -1,0 +1,60 @@
+package isb_Components;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  CPortLib9,
+  vclx,
+  JvSystemD9R,
+  vcljpg,
+  Jcl,
+  JvCoreD9R,
+  JclVcl;
+
+contains
+  isb_Types in 'src\isb_Types.pas',
+  isb_Conn in 'src\isb_Conn.pas',
+  isb_Consts in 'src\isb_Consts.pas',
+  isb_Item in 'src\isb_Item.pas',
+  isb_ConnRs232 in 'src\isb_ConnRs232.pas',
+  isb_Item_Line in 'src\isb_Item_Line.pas',
+  isb_Item_Rectangle in 'src\isb_Item_Rectangle.pas',
+  isb_Item_Circle in 'src\isb_Item_Circle.pas',
+  isb_Item_Picture in 'src\isb_Item_Picture.pas',
+  isb_Item_Text in 'src\isb_Item_Text.pas',
+  isb_Item_Woodboiler in 'src\isb_Item_Woodboiler.pas',
+  isb_Item_Bufferstorage in 'src\isb_Item_Bufferstorage.pas',
+  isb_Item_Lamp in 'src\isb_Item_Lamp.pas',
+  isb_Item_Mixer in 'src\isb_Item_Mixer.pas',
+  isb_Item_Oilboiler in 'src\isb_Item_Oilboiler.pas',
+  isb_Item_Pipe in 'src\isb_Item_Pipe.pas',
+  isb_Item_Pump in 'src\isb_Item_Pump.pas',
+  isb_Item_Switch in 'src\isb_Item_Switch.pas',
+  isb_Item_Temperaturesensor in 'src\isb_Item_Temperaturesensor.pas',
+  isb_Item_Waterstorage in 'src\isb_Item_Waterstorage.pas';
+
+end.

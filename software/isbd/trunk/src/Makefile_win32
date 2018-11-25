@@ -1,0 +1,30 @@
+#
+# Makefile for isbd (WIN32)
+#
+BIN = ../bin/win32/isbd.exe
+CC	= g++
+CFLAGS = -O0 -g3 -Wall -D_WIN32 -I"D:\Freeware\MinGW\lib" 
+LDFLAGS = -lwsock32
+
+# Required object files
+OBJ = ../obj/win32/main.o ../obj/win32/ParamContainer.o ../obj/win32/Parameters.o \
+		../obj/win32/Logger.o ../obj/win32/Settings.o ../obj/win32/server_layer.o \
+		../obj/win32/Connection.o ../obj/win32/rlSerial.o ../obj/win32/rlThread.o \
+		../obj/win32/rlWthread.o ../obj/win32/BusDevice.o ../obj/win32/md5.o \
+		../obj/win32/tools.o ../obj/win32/win32_server.o ../obj/win32/frame_tools.o
+
+# Main target
+all: $(OBJ)
+	$(CC) $(CFLAGS) -o $(BIN) $(OBJ) $(LDFLAGS)
+
+../obj/win32/%.o: %.cpp
+	$(CC) $(CFLAGS) -g -c -o $@ $<
+	
+# clean target
+.PHONY: clean
+clean:
+	del $(BIN) $(OBJ)
+
+.PHONY: run
+run:
+	$(BIN)

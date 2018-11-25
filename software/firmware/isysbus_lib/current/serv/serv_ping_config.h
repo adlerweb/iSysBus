@@ -1,0 +1,8 @@
+#ifndef SERV_PING_CONFIG_H_
+#define SERV_PING_CONFIG_H_
+
+#define SERV_PING
+
+#define SERV_PING_PORT 150
+
+#endif /*SERV_PING_CONFIG_H_*/

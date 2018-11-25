@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="6.2">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<description>iSysBus - Hausautomation - Knoten
+&lt;author&gt;LucasK&lt;/author&gt;</description>
+<packages>
+<package name="THR_6TE">
+<wire x1="-52.5" y1="45" x2="52.5" y2="45" width="0.127" layer="21"/>
+<wire x1="52.5" y1="45" x2="52.5" y2="22.5" width="0.127" layer="21"/>
+<wire x1="52.5" y1="22.5" x2="52.5" y2="-22.5" width="0.127" layer="21"/>
+<wire x1="52.5" y1="-22.5" x2="52.5" y2="-45" width="0.127" layer="21"/>
+<wire x1="52.5" y1="-45" x2="-52.5" y2="-45" width="0.127" layer="21"/>
+<wire x1="-52.5" y1="-45" x2="-52.5" y2="-22.5" width="0.127" layer="21"/>
+<wire x1="-52.5" y1="-22.5" x2="-52.5" y2="22.5" width="0.127" layer="21"/>
+<wire x1="-52.5" y1="22.5" x2="-52.5" y2="45" width="0.127" layer="21"/>
+<wire x1="-50" y1="20.25" x2="50" y2="20.25" width="0.127" layer="21"/>
+<wire x1="-52.5" y1="22.5" x2="52.5" y2="22.5" width="0.127" layer="21"/>
+<wire x1="52.5" y1="-22.5" x2="-52.5" y2="-22.5" width="0.127" layer="21"/>
+<wire x1="-50" y1="-20.25" x2="50" y2="-20.25" width="0.127" layer="21"/>
+<wire x1="-50" y1="20.25" x2="-50" y2="-20.25" width="0.127" layer="21"/>
+<wire x1="50" y1="20.25" x2="50" y2="-20.25" width="0.127" layer="21"/>
+<pad name="18" x="-43.18" y="40.64" drill="0.8" shape="square" rot="R270"/>
+<pad name="19" x="-38.1" y="40.64" drill="0.8" shape="square"/>
+<pad name="20" x="-33.02" y="40.64" drill="0.8" shape="square"/>
+<pad name="21" x="-27.94" y="40.64" drill="0.8" shape="square"/>
+<pad name="22" x="-22.86" y="40.64" drill="0.8" shape="square"/>
+<pad name="23" x="-17.78" y="40.64" drill="0.8" shape="square"/>
+<pad name="24" x="-12.7" y="40.64" drill="0.8" shape="square"/>
+<pad name="25" x="-7.62" y="40.64" drill="0.8" shape="square"/>
+<pad name="26" x="-2.54" y="40.64" drill="0.8" shape="square"/>
+<pad name="27" x="2.54" y="40.64" drill="0.8" shape="square"/>
+<pad name="28" x="7.62" y="40.64" drill="0.8" shape="square"/>
+<pad name="29" x="12.7" y="40.64" drill="0.8" shape="square"/>
+<pad name="30" x="17.78" y="40.64" drill="0.8" shape="square"/>
+<pad name="31" x="22.86" y="40.64" drill="0.8" shape="square"/>
+<pad name="32" x="27.94" y="40.64" drill="0.8" shape="square"/>
+<pad name="33" x="33.02" y="40.64" drill="0.8" shape="square"/>
+<pad name="34" x="38.1" y="40.64" drill="0.8" shape="square"/>
+<pad name="35" x="43.18" y="40.64" drill="0.8" shape="square"/>
+<pad name="1" x="-41.91" y="-40.64" drill="0.8" shape="square" rot="R270"/>
+<pad name="2" x="-36.83" y="-40.64" drill="0.8" shape="square"/>
+<pad name="3" x="-31.75" y="-40.64" drill="0.8" shape="square"/>
+<pad name="4" x="-26.67" y="-40.64" drill="0.8" shape="square"/>
+<pad name="5" x="-21.59" y="-40.64" drill="0.8" shape="square"/>
+<pad name="6" x="-16.51" y="-40.64" drill="0.8" shape="square"/>
+<pad name="7" x="-11.43" y="-40.64" drill="0.8" shape="square"/>
+<pad name="8" x="-6.35" y="-40.64" drill="0.8" shape="square"/>
+<pad name="9" x="-1.27" y="-40.64" drill="0.8" shape="square"/>
+<pad name="10" x="6.35" y="-40.64" drill="0.8" shape="square"/>
+<pad name="11" x="11.43" y="-40.64" drill="0.8" shape="square"/>
+<pad name="12" x="16.51" y="-40.64" drill="0.8" shape="square"/>
+<pad name="13" x="21.59" y="-40.64" drill="0.8" shape="square"/>
+<pad name="14" x="26.67" y="-40.64" drill="0.8" shape="square"/>
+<pad name="15" x="31.75" y="-40.64" drill="0.8" shape="square"/>
+<pad name="16" x="36.83" y="-40.64" drill="0.8" shape="square"/>
+<pad name="17" x="41.91" y="-40.64" drill="0.8" shape="square"/>
+<text x="0" y="0" size="5.08" layer="27" align="bottom-center">&gt;VALUE</text>
+</package>
+<package name="RELAIS-WECHSLER">
+<wire x1="-5.08" y1="3.81" x2="5.08" y2="3.81" width="0.127" layer="21"/>
+<wire x1="5.08" y1="3.81" x2="5.08" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-3.81" x2="-5.08" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-3.81" x2="-5.08" y2="3.81" width="0.127" layer="21"/>
+<pad name="IN" x="-2.54" y="2.54" drill="0.8" shape="square"/>
+<pad name="V+" x="-2.54" y="-2.54" drill="0.8" shape="square"/>
+<pad name="STR1" x="1.27" y="2.54" drill="0.8" shape="square"/>
+<pad name="STR2" x="3.81" y="2.54" drill="0.8" shape="square"/>
+<pad name="STR" x="2.54" y="-2.54" drill="0.8" shape="square"/>
+</package>
+<package name="LAMPE">
+<wire x1="-1.27" y1="-5.08" x2="0" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="0" y1="-5.08" x2="1.27" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-5.08" x2="1.27" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-4.445" x2="1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.81" x2="1.27" y2="-3.175" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.175" x2="1.27" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-2.54" x2="-1.27" y2="-3.175" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-3.175" x2="-1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-3.81" x2="-1.27" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-4.445" x2="-1.27" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-2.54" x2="1.27" y2="-2.54" width="0.127" layer="21" curve="-323.130102"/>
+<pad name="V+" x="0" y="3.81" drill="0.8" shape="square"/>
+<pad name="IN" x="0" y="-3.81" drill="0.8" shape="square"/>
+<wire x1="-1.27" y1="-2.54" x2="0" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="0" y1="-2.54" x2="1.27" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-2.54" x2="-1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.81" x2="-1.27" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.175" x2="-1.27" y2="-4.445" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-4.445" x2="0" y2="-5.08" width="0.127" layer="21"/>
+<wire x1="0" y1="-2.54" x2="-1.27" y2="-3.175" width="0.127" layer="21"/>
+</package>
+<package name="RELAIS-STROMST">
+<wire x1="-3.81" y1="3.81" x2="3.81" y2="3.81" width="0.127" layer="21"/>
+<wire x1="3.81" y1="3.81" x2="3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-3.81" x2="-3.81" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-3.81" y1="-3.81" x2="-3.81" y2="3.81" width="0.127" layer="21"/>
+<pad name="IN" x="-2.54" y="2.54" drill="0.8" shape="square"/>
+<pad name="STR1" x="2.54" y="2.54" drill="0.8" shape="square"/>
+<pad name="V+" x="-2.54" y="-2.54" drill="0.8" shape="square"/>
+<pad name="STR" x="2.54" y="-2.54" drill="0.8" shape="square"/>
+</package>
+<package name="NETZTEIL">
+<wire x1="-2.54" y1="3.81" x2="1.27" y2="3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="3.81" x2="1.27" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-3.81" x2="0" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="0" y1="-3.81" x2="-2.54" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-3.81" x2="-2.54" y2="-2.54" width="0.127" layer="21"/>
+<pad name="GND" x="-0.635" y="3.81" drill="0.8" shape="square"/>
+<pad name="+5" x="1.27" y="1.27" drill="0.8" shape="square"/>
+<pad name="+12" x="1.27" y="-1.27" drill="0.8" shape="square"/>
+<pad name="230" x="-1.27" y="-3.81" drill="0.8" shape="square"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-2.54" x2="0" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-3.81" width="0.127" layer="21"/>
+</package>
+<package name="THR_4TE">
+<wire x1="-36" y1="45.5" x2="-36" y2="-45.5" width="0.127" layer="21"/>
+<wire x1="36" y1="45.5" x2="36" y2="-45.5" width="0.127" layer="21"/>
+<wire x1="36" y1="45.5" x2="-36" y2="45.5" width="0.127" layer="21"/>
+<wire x1="-36" y1="-45.5" x2="36" y2="-45.5" width="0.127" layer="21"/>
+<pad name="1" x="-30.48" y="-38.1" drill="0.8" shape="square"/>
+<pad name="2" x="-25.4" y="-38.1" drill="0.8" shape="square"/>
+<pad name="3" x="-20.32" y="-38.1" drill="0.8" shape="square"/>
+<pad name="4" x="-15.24" y="-38.1" drill="0.8" shape="square"/>
+<pad name="5" x="-10.16" y="-38.1" drill="0.8" shape="square"/>
+<pad name="6" x="-5.08" y="-38.1" drill="0.8" shape="square"/>
+<pad name="7" x="0" y="-38.1" drill="0.8" shape="square"/>
+<pad name="8" x="5.08" y="-38.1" drill="0.8" shape="square"/>
+<pad name="9" x="10.16" y="-38.1" drill="0.8" shape="square"/>
+<pad name="10" x="15.24" y="-38.1" drill="0.8" shape="square"/>
+<pad name="11" x="20.32" y="-38.1" drill="0.8" shape="square"/>
+<pad name="12" x="25.4" y="-38.1" drill="0.8" shape="square"/>
+<pad name="13" x="30.48" y="-38.1" drill="0.8" shape="square"/>
+<pad name="14" x="-27.94" y="38.1" drill="0.8" shape="square"/>
+<pad name="15" x="-22.86" y="38.1" drill="0.8" shape="square"/>
+<pad name="16" x="-17.78" y="38.1" drill="0.8" shape="square"/>
+<pad name="17" x="-12.7" y="38.1" drill="0.8" shape="square"/>
+<pad name="18" x="-7.62" y="38.1" drill="0.8" shape="square"/>
+<pad name="19" x="-2.54" y="38.1" drill="0.8" shape="square"/>
+<pad name="20" x="2.54" y="38.1" drill="0.8" shape="square"/>
+<pad name="21" x="7.62" y="38.1" drill="0.8" shape="square"/>
+<pad name="22" x="12.7" y="38.1" drill="0.8" shape="square"/>
+<pad name="23" x="17.78" y="38.1" drill="0.8" shape="square"/>
+<pad name="24" x="22.86" y="38.1" drill="0.8" shape="square"/>
+<pad name="25" x="27.94" y="38.1" drill="0.8" shape="square"/>
+<text x="0" y="0" size="5.08" layer="27" align="bottom-center">&gt;VALUE</text>
+</package>
+<package name="DEF_2POL_ACTOR">
+<wire x1="-1.27" y1="2.54" x2="1.27" y2="2.54" width="0.127" layer="21"/>
+<wire x1="1.27" y1="2.54" x2="1.27" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-2.54" x2="-1.27" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-2.54" x2="-1.27" y2="2.54" width="0.127" layer="21"/>
+<pad name="IN" x="0" y="2.54" drill="0.8" shape="square"/>
+<pad name="V+" x="0" y="-2.54" drill="0.8" shape="square"/>
+</package>
+<package name="DEF_2POL_SENSOR">
+<wire x1="-1.27" y1="2.54" x2="1.27" y2="2.54" width="0.127" layer="21"/>
+<wire x1="1.27" y1="2.54" x2="1.27" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-2.54" x2="-1.27" y2="-2.54" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-2.54" x2="-1.27" y2="2.54" width="0.127" layer="21"/>
+<pad name="OUT" x="0" y="2.54" drill="0.8" shape="square"/>
+<pad name="GND" x="0" y="-2.54" drill="0.8" shape="square"/>
+</package>
+<package name="THR_1TE">
+<pad name="VO" x="0" y="2.54" drill="0.8" shape="square"/>
+<pad name="V" x="0" y="-2.54" drill="0.8" shape="square"/>
+<wire x1="-2.54" y1="3.81" x2="2.54" y2="3.81" width="0.127" layer="21"/>
+<wire x1="2.54" y1="3.81" x2="2.54" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="2.54" y1="-3.81" x2="-2.54" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="-3.81" x2="-2.54" y2="3.81" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="THR-IO">
+<description>THR-IO
+
+Der Knoten stellt 8 Ein- und Ausgänge zur Verfügung und besitzt einen Anschluss an den CAN-Bus.</description>
+<wire x1="-30.48" y1="17.78" x2="-30.48" y2="-15.24" width="0.254" layer="94"/>
+<pin name="CD+_OUT" x="33.02" y="-17.78" length="middle" direction="pwr" rot="R90"/>
+<pin name="GND_OUT" x="30.48" y="-17.78" length="middle" direction="pwr" rot="R90"/>
+<pin name="V+" x="-5.08" y="20.32" length="middle" direction="pwr" rot="R270"/>
+<pin name="GND" x="-2.54" y="20.32" length="middle" direction="pwr" rot="R270"/>
+<pin name="CAN_H" x="0" y="20.32" length="middle" rot="R270"/>
+<pin name="CAN_L" x="2.54" y="20.32" length="middle" rot="R270"/>
+<pin name="CD+_IN" x="-27.94" y="-17.78" length="middle" direction="pwr" rot="R90"/>
+<pin name="GND_IN" x="-25.4" y="-17.78" length="middle" direction="pwr" rot="R90"/>
+<wire x1="-30.48" y1="17.78" x2="35.56" y2="17.78" width="0.254" layer="94"/>
+<pin name="I7" x="-20.32" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I6" x="-17.78" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I5" x="-15.24" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I4" x="-12.7" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I3" x="-10.16" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I2" x="-7.62" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I1" x="-5.08" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="I0" x="-2.54" y="-17.78" length="middle" direction="in" swaplevel="2" rot="R90"/>
+<pin name="Q0" x="7.62" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q1" x="10.16" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q2" x="12.7" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q3" x="15.24" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q4" x="17.78" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q5" x="20.32" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q6" x="22.86" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<pin name="Q7" x="25.4" y="-17.78" length="middle" direction="out" swaplevel="1" rot="R90"/>
+<wire x1="-30.48" y1="-15.24" x2="35.56" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="35.56" y1="-15.24" x2="35.56" y2="17.78" width="0.254" layer="94"/>
+<text x="-25.4" y="5.08" size="1.778" layer="95">THR-IO</text>
+<text x="-25.4" y="0" size="1.778" layer="96">&gt;Value</text>
+</symbol>
+<symbol name="RELAIS-STROMST">
+<wire x1="-8.255" y1="1.27" x2="3.175" y2="1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="1.27" x2="3.175" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-1.27" x2="3.175" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-3.81" x2="-8.255" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-8.255" y1="-3.81" x2="-8.255" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-5.715" y1="-1.905" x2="-2.54" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.905" x2="-2.54" y2="-0.635" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-0.635" x2="0.635" y2="-0.635" width="0.254" layer="94"/>
+<pin name="IN" x="-2.54" y="6.35" visible="pad" length="middle" direction="in" rot="R270"/>
+<pin name="V+" x="-2.54" y="-8.89" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<pin name="STR" x="7.62" y="-8.89" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<pin name="STR1" x="7.62" y="6.35" visible="pad" length="middle" direction="pwr" rot="R270"/>
+<wire x1="7.62" y1="-3.81" x2="8.89" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="8.89" y1="-1.27" x2="10.16" y2="1.27" width="0.254" layer="94"/>
+<wire x1="3.175" y1="-1.27" x2="8.89" y2="-1.27" width="0.127" layer="94" style="shortdash"/>
+<text x="-2.54" y="-5.715" size="1.4224" layer="95" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="RELAIS-WECHSLER">
+<wire x1="-10.795" y1="1.27" x2="0.635" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.27" x2="0.635" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-3.81" x2="-10.795" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-10.795" y1="-3.81" x2="-10.795" y2="1.27" width="0.254" layer="94"/>
+<pin name="IN" x="-5.08" y="6.35" visible="pad" length="middle" direction="in" rot="R270"/>
+<pin name="V+" x="-5.08" y="-8.89" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<pin name="STR" x="7.62" y="-8.89" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<pin name="STR1" x="3.81" y="6.35" visible="pad" length="middle" direction="pwr" rot="R270"/>
+<pin name="STR2" x="9.525" y="6.35" visible="pad" length="middle" direction="pwr" rot="R270"/>
+<wire x1="3.81" y1="1.27" x2="5.715" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0.635" y1="-1.27" x2="6.35" y2="-1.27" width="0.254" layer="94" style="shortdash"/>
+<wire x1="7.62" y1="-3.81" x2="4.445" y2="2.54" width="0.254" layer="94"/>
+<text x="-5.08" y="-5.715" size="1.4224" layer="95" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="LAMPE">
+<pin name="IN" x="0" y="6.35" visible="pad" length="middle" direction="in" rot="R270"/>
+<pin name="V+" x="0" y="-6.35" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<circle x="0" y="0" radius="1.79605" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<text x="0" y="-2.54" size="1.4224" layer="95" align="top-center">&gt;NAME</text>
+</symbol>
+<symbol name="TASTER">
+<pin name="OUT" x="0" y="7.62" visible="pad" length="middle" direction="out" rot="R270"/>
+<pin name="GND" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<wire x1="0" y1="-2.54" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<text x="0" y="-5.08" size="1.4224" layer="95" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="NETZTEIL">
+<wire x1="-10.16" y1="7.62" x2="2.54" y2="7.62" width="0.254" layer="94"/>
+<wire x1="2.54" y1="7.62" x2="2.54" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-7.62" x2="-10.16" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-7.62" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
+<pin name="GND" x="5.08" y="5.08" visible="pin" length="middle" direction="sup" rot="R180"/>
+<pin name="+5V" x="5.08" y="2.54" visible="pin" length="middle" direction="sup" rot="R180"/>
+<pin name="+12V" x="5.08" y="0" visible="pin" length="middle" direction="sup" rot="R180"/>
+<pin name="+230V" x="5.08" y="-5.08" visible="pin" length="middle" direction="sup" rot="R180"/>
+</symbol>
+<symbol name="THR-IN">
+<wire x1="-15.24" y1="7.62" x2="15.24" y2="7.62" width="0.254" layer="94"/>
+<wire x1="15.24" y1="7.62" x2="15.24" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-7.62" x2="-15.24" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="-7.62" x2="-15.24" y2="7.62" width="0.254" layer="94"/>
+<pin name="CD+_IN" x="-12.7" y="-10.16" length="middle" direction="pwr" rot="R90"/>
+<pin name="GND_IN" x="-10.16" y="-10.16" length="middle" direction="pwr" rot="R90"/>
+<pin name="I7" x="12.7" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I6" x="10.16" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I5" x="7.62" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I4" x="5.08" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I3" x="2.54" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I2" x="0" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I1" x="-2.54" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+<pin name="I0" x="-5.08" y="-10.16" length="middle" direction="in" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="THR-OUT">
+<wire x1="-15.24" y1="7.62" x2="15.24" y2="7.62" width="0.254" layer="94"/>
+<wire x1="15.24" y1="7.62" x2="15.24" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-7.62" x2="-15.24" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="-7.62" x2="-15.24" y2="7.62" width="0.254" layer="94"/>
+<pin name="CD+_OUT" x="-12.7" y="-10.16" length="middle" direction="pwr" rot="R90"/>
+<pin name="GND_OUT" x="-10.16" y="-10.16" length="middle" direction="pwr" rot="R90"/>
+<pin name="Q0" x="-5.08" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q1" x="-2.54" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q2" x="0" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q3" x="2.54" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q4" x="5.08" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q5" x="7.62" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q6" x="10.16" y="-10.16" length="middle" direction="out" rot="R90"/>
+<pin name="Q7" x="12.7" y="-10.16" length="middle" direction="out" rot="R90"/>
+</symbol>
+<symbol name="THR-CAN">
+<wire x1="-40.64" y1="-27.94" x2="40.64" y2="-27.94" width="0.254" layer="94"/>
+<wire x1="40.64" y1="-27.94" x2="40.64" y2="20.32" width="0.254" layer="94"/>
+<wire x1="40.64" y1="20.32" x2="-40.64" y2="20.32" width="0.254" layer="94"/>
+<wire x1="-40.64" y1="20.32" x2="-40.64" y2="-27.94" width="0.254" layer="94"/>
+<pin name="V+" x="-27.94" y="22.86" length="middle" direction="pwr" rot="R270"/>
+<pin name="GND" x="-25.4" y="22.86" length="middle" direction="pwr" rot="R270"/>
+<pin name="CAN_H" x="-20.32" y="22.86" length="middle" rot="R270"/>
+<pin name="CAN_L" x="-17.78" y="22.86" length="middle" rot="R270"/>
+<text x="0" y="2.54" size="2.1844" layer="96" align="bottom-center">&gt;VALUE</text>
+</symbol>
+<symbol name="THR-IN2">
+<pin name="I*" x="0" y="-2.54" visible="pad" length="middle" direction="in" rot="R90"/>
+<text x="0" y="2.54" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+</symbol>
+<symbol name="THR-OUT2">
+<pin name="Q*" x="0" y="-2.54" visible="pad" length="middle" direction="out" rot="R90"/>
+<text x="0" y="2.54" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+</symbol>
+<symbol name="THR-PWR">
+<pin name="PWR" x="0" y="-2.54" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<text x="0" y="2.54" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+</symbol>
+<symbol name="THR-CAN2">
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-7.62" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<pin name="V+" x="-5.08" y="7.62" visible="pin" length="middle" direction="pwr" rot="R270"/>
+<pin name="GND" x="-2.54" y="7.62" visible="pin" length="middle" direction="pwr" rot="R270"/>
+<pin name="CAN_H" x="2.54" y="7.62" visible="pin" length="middle" rot="R270"/>
+<pin name="CAN_L" x="5.08" y="7.62" visible="pin" length="middle" rot="R270"/>
+</symbol>
+<symbol name="TÜRÖFFNER">
+<wire x1="-5.08" y1="-2.54" x2="6.35" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="6.35" y1="-2.54" x2="6.35" y2="2.54" width="0.254" layer="94"/>
+<wire x1="6.35" y1="2.54" x2="-5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="-6.35" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="2.54" x2="-6.35" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-6.35" y1="-2.54" x2="-5.08" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-1.27" x2="0" y2="-1.27" width="0.254" layer="94" curve="-180"/>
+<wire x1="0" y1="-1.27" x2="5.08" y2="-1.27" width="0.254" layer="94" curve="-180"/>
+<wire x1="6.35" y1="-2.54" x2="11.43" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="11.43" y1="-2.54" x2="6.35" y2="2.54" width="0.254" layer="94"/>
+<pin name="V+" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<pin name="IN" x="0" y="7.62" visible="pad" length="middle" direction="in" rot="R270"/>
+<text x="0" y="-5.08" size="1.4224" layer="95" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="TRANSFORMATOR">
+<wire x1="-2.54" y1="5.08" x2="-2.54" y2="2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="-2.54" y1="2.54" x2="-2.54" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="-2.54" y1="0" x2="-2.54" y2="-2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="-5.08" width="0.254" layer="94" curve="-180"/>
+<wire x1="-0.635" y1="5.08" x2="-0.635" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="0.635" y1="5.08" x2="0.635" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-5.08" x2="2.54" y2="-2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="2.54" width="0.254" layer="94" curve="-180"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="5.08" width="0.254" layer="94" curve="-180"/>
+<pin name="P$1" x="-7.62" y="5.08" visible="pad" length="middle" direction="in"/>
+<pin name="P$2" x="-7.62" y="-5.08" visible="pad" length="middle" direction="in"/>
+<pin name="P$3" x="7.62" y="-5.08" visible="pad" length="middle" direction="in" rot="R180"/>
+<pin name="P$4" x="7.62" y="5.08" visible="pad" length="middle" direction="in" rot="R180"/>
+<text x="0" y="5.08" size="1.4224" layer="95" align="bottom-center">&gt;NAME</text>
+</symbol>
+<symbol name="SCHMELZSICHERUNG">
+<wire x1="-7.62" y1="0" x2="7.62" y2="0" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="7.62" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="2.54" width="0.254" layer="94"/>
+<wire x1="7.62" y1="2.54" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
+<pin name="V" x="-12.7" y="0" visible="pad" length="middle" direction="pwr"/>
+<pin name="VO" x="12.7" y="0" visible="pad" length="middle" direction="sup" rot="R180"/>
+<rectangle x1="-7.62" y1="-2.54" x2="-6.35" y2="2.54" layer="94"/>
+</symbol>
+<symbol name="ÖFFNER">
+<pin name="OUT" x="0" y="7.62" visible="pad" length="middle" direction="out" rot="R270"/>
+<pin name="GND" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<wire x1="0" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-2.54" x2="2.54" y2="5.08" width="0.254" layer="94"/>
+</symbol>
+<symbol name="SCHLIESSER">
+<pin name="GND" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
+<pin name="OUT" x="0" y="7.62" visible="pad" length="middle" direction="out" rot="R270"/>
+<wire x1="0" y1="-2.54" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+</symbol>
+<symbol name="LS">
+<wire x1="-10.16" y1="0" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<pin name="VO" x="15.24" y="0" visible="pad" length="middle" direction="sup" rot="R180"/>
+<pin name="V" x="-15.24" y="0" visible="pad" length="middle" direction="pwr"/>
+<wire x1="6.0325" y1="4.1275" x2="5.08" y2="7.3025" width="0.254" layer="94"/>
+<wire x1="5.08" y1="7.3025" x2="6.35" y2="6.0325" width="0.254" layer="94"/>
+<wire x1="6.35" y1="6.0325" x2="6.6675" y2="5.715" width="0.254" layer="94"/>
+<wire x1="6.6675" y1="5.715" x2="4.7625" y2="5.08" width="0.254" layer="94"/>
+<wire x1="4.7625" y1="5.08" x2="5.08" y2="7.3025" width="0.254" layer="94"/>
+<polygon width="0.254" layer="94">
+<vertex x="4.7625" y="5.08"/>
+<vertex x="6.6675" y="5.715"/>
+<vertex x="5.08" y="7.3025"/>
+</polygon>
+</symbol>
+<symbol name="FI/RCD">
+<wire x1="-10.16" y1="0" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<pin name="VO" x="15.24" y="0" visible="pad" length="middle" direction="sup" rot="R180"/>
+<pin name="V" x="-15.24" y="0" visible="pad" length="middle" direction="pwr"/>
+<wire x1="6.0325" y1="4.1275" x2="5.08" y2="7.3025" width="0.254" layer="94"/>
+<wire x1="5.08" y1="7.3025" x2="6.35" y2="6.0325" width="0.254" layer="94"/>
+<wire x1="6.35" y1="6.0325" x2="6.6675" y2="5.715" width="0.254" layer="94"/>
+<wire x1="6.6675" y1="5.715" x2="4.7625" y2="5.08" width="0.254" layer="94"/>
+<wire x1="4.7625" y1="5.08" x2="5.08" y2="7.3025" width="0.254" layer="94"/>
+<polygon width="0.254" layer="94">
+<vertex x="4.7625" y="5.08"/>
+<vertex x="6.6675" y="5.715"/>
+<vertex x="5.08" y="7.3025"/>
+</polygon>
+<text x="-2.8575" y="4.1275" size="1.27" layer="96" align="bottom-center">&gt;VALUE</text>
+<wire x1="-2.54" y1="3.81" x2="-0.3175" y2="1.5875" width="0.254" layer="94"/>
+</symbol>
+<symbol name="SICHERUNGSSCHALTER">
+<wire x1="-4.1275" y1="0.3175" x2="-4.7625" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-4.7625" y1="2.54" x2="6.0325" y2="5.3975" width="0.254" layer="94"/>
+<wire x1="6.0325" y1="5.3975" x2="6.6675" y2="3.175" width="0.254" layer="94"/>
+<wire x1="6.6675" y1="3.175" x2="-4.1275" y2="0.3175" width="0.254" layer="94"/>
+<pin name="V" x="-15.24" y="0" visible="pad" length="middle" direction="pwr"/>
+<pin name="VO" x="15.24" y="0" visible="pad" length="middle" direction="sup" rot="R180"/>
+<wire x1="-10.16" y1="0" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="THR-IO" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="THR-IO" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THR_6TE">
+<connects>
+<connect gate="G$1" pin="CAN_H" pad="3"/>
+<connect gate="G$1" pin="CAN_L" pad="4"/>
+<connect gate="G$1" pin="CD+_IN" pad="8"/>
+<connect gate="G$1" pin="CD+_OUT" pad="26"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="GND_IN" pad="9"/>
+<connect gate="G$1" pin="GND_OUT" pad="27"/>
+<connect gate="G$1" pin="I0" pad="10"/>
+<connect gate="G$1" pin="I1" pad="11"/>
+<connect gate="G$1" pin="I2" pad="12"/>
+<connect gate="G$1" pin="I3" pad="13"/>
+<connect gate="G$1" pin="I4" pad="14"/>
+<connect gate="G$1" pin="I5" pad="15"/>
+<connect gate="G$1" pin="I6" pad="16"/>
+<connect gate="G$1" pin="I7" pad="17"/>
+<connect gate="G$1" pin="Q0" pad="28"/>
+<connect gate="G$1" pin="Q1" pad="29"/>
+<connect gate="G$1" pin="Q2" pad="30"/>
+<connect gate="G$1" pin="Q3" pad="31"/>
+<connect gate="G$1" pin="Q4" pad="32"/>
+<connect gate="G$1" pin="Q5" pad="33"/>
+<connect gate="G$1" pin="Q6" pad="34"/>
+<connect gate="G$1" pin="Q7" pad="35"/>
+<connect gate="G$1" pin="V+" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LAMPE">
+<gates>
+<gate name="G$1" symbol="LAMPE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LAMPE">
+<connects>
+<connect gate="G$1" pin="IN" pad="IN"/>
+<connect gate="G$1" pin="V+" pad="V+"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RELAIS-WECHSLER">
+<gates>
+<gate name="G$1" symbol="RELAIS-WECHSLER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RELAIS-WECHSLER">
+<connects>
+<connect gate="G$1" pin="IN" pad="IN"/>
+<connect gate="G$1" pin="STR" pad="STR"/>
+<connect gate="G$1" pin="STR1" pad="STR1"/>
+<connect gate="G$1" pin="STR2" pad="STR2"/>
+<connect gate="G$1" pin="V+" pad="V+"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RELAIS-STROMSTOß">
+<gates>
+<gate name="G$1" symbol="RELAIS-STROMST" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RELAIS-STROMST">
+<connects>
+<connect gate="G$1" pin="IN" pad="IN"/>
+<connect gate="G$1" pin="STR" pad="STR"/>
+<connect gate="G$1" pin="STR1" pad="STR1"/>
+<connect gate="G$1" pin="V+" pad="V+"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TASTER">
+<gates>
+<gate name="G$1" symbol="TASTER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DEF_2POL_SENSOR">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="OUT" pad="OUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="NETZTEIL">
+<gates>
+<gate name="G$1" symbol="NETZTEIL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="NETZTEIL">
+<connects>
+<connect gate="G$1" pin="+12V" pad="+12"/>
+<connect gate="G$1" pin="+230V" pad="230"/>
+<connect gate="G$1" pin="+5V" pad="+5"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="THR-IO2" uservalue="yes">
+<gates>
+<gate name="OUT" symbol="THR-OUT" x="20.32" y="-10.16"/>
+<gate name="IN" symbol="THR-IN" x="-20.32" y="-10.16"/>
+<gate name="CAN" symbol="THR-CAN2" x="0" y="12.7"/>
+</gates>
+<devices>
+<device name="" package="THR_6TE">
+<connects>
+<connect gate="CAN" pin="CAN_H" pad="3"/>
+<connect gate="CAN" pin="CAN_L" pad="4"/>
+<connect gate="CAN" pin="GND" pad="2"/>
+<connect gate="CAN" pin="V+" pad="1"/>
+<connect gate="IN" pin="CD+_IN" pad="8"/>
+<connect gate="IN" pin="GND_IN" pad="9"/>
+<connect gate="IN" pin="I0" pad="10"/>
+<connect gate="IN" pin="I1" pad="11"/>
+<connect gate="IN" pin="I2" pad="12"/>
+<connect gate="IN" pin="I3" pad="13"/>
+<connect gate="IN" pin="I4" pad="14"/>
+<connect gate="IN" pin="I5" pad="15"/>
+<connect gate="IN" pin="I6" pad="16"/>
+<connect gate="IN" pin="I7" pad="17"/>
+<connect gate="OUT" pin="CD+_OUT" pad="26"/>
+<connect gate="OUT" pin="GND_OUT" pad="27"/>
+<connect gate="OUT" pin="Q0" pad="28"/>
+<connect gate="OUT" pin="Q1" pad="29"/>
+<connect gate="OUT" pin="Q2" pad="30"/>
+<connect gate="OUT" pin="Q3" pad="31"/>
+<connect gate="OUT" pin="Q4" pad="32"/>
+<connect gate="OUT" pin="Q5" pad="33"/>
+<connect gate="OUT" pin="Q6" pad="34"/>
+<connect gate="OUT" pin="Q7" pad="35"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="THR-IO3" uservalue="yes">
+<gates>
+<gate name="CAN" symbol="THR-CAN" x="0" y="15.24"/>
+<gate name="_I0" symbol="THR-IN2" x="-27.94" y="-12.7"/>
+<gate name="_I1" symbol="THR-IN2" x="-25.4" y="-12.7"/>
+<gate name="_I2" symbol="THR-IN2" x="-22.86" y="-12.7"/>
+<gate name="_I3" symbol="THR-IN2" x="-20.32" y="-12.7"/>
+<gate name="_I4" symbol="THR-IN2" x="-17.78" y="-12.7"/>
+<gate name="_I5" symbol="THR-IN2" x="-15.24" y="-12.7"/>
+<gate name="_I6" symbol="THR-IN2" x="-12.7" y="-12.7"/>
+<gate name="_I7" symbol="THR-IN2" x="-10.16" y="-12.7"/>
+<gate name="_QGND" symbol="THR-PWR" x="10.16" y="-12.7" addlevel="must"/>
+<gate name="_QV+" symbol="THR-PWR" x="7.62" y="-12.7" addlevel="must"/>
+<gate name="_IGND" symbol="THR-PWR" x="-33.02" y="-12.7" addlevel="must"/>
+<gate name="_Q0" symbol="THR-OUT2" x="15.24" y="-12.7"/>
+<gate name="_Q1" symbol="THR-OUT2" x="17.78" y="-12.7"/>
+<gate name="_Q2" symbol="THR-OUT2" x="20.32" y="-12.7"/>
+<gate name="_Q3" symbol="THR-OUT2" x="22.86" y="-12.7"/>
+<gate name="_Q4" symbol="THR-OUT2" x="25.4" y="-12.7"/>
+<gate name="_Q5" symbol="THR-OUT2" x="27.94" y="-12.7"/>
+<gate name="_Q6" symbol="THR-OUT2" x="30.48" y="-12.7"/>
+<gate name="_Q7" symbol="THR-OUT2" x="33.02" y="-12.7"/>
+</gates>
+<devices>
+<device name="" package="THR_6TE">
+<connects>
+<connect gate="CAN" pin="CAN_H" pad="3"/>
+<connect gate="CAN" pin="CAN_L" pad="4"/>
+<connect gate="CAN" pin="GND" pad="2"/>
+<connect gate="CAN" pin="V+" pad="1"/>
+<connect gate="_I0" pin="I*" pad="10"/>
+<connect gate="_I1" pin="I*" pad="11"/>
+<connect gate="_I2" pin="I*" pad="12"/>
+<connect gate="_I3" pin="I*" pad="13"/>
+<connect gate="_I4" pin="I*" pad="14"/>
+<connect gate="_I5" pin="I*" pad="15"/>
+<connect gate="_I6" pin="I*" pad="16"/>
+<connect gate="_I7" pin="I*" pad="17"/>
+<connect gate="_IGND" pin="PWR" pad="9"/>
+<connect gate="_Q0" pin="Q*" pad="28"/>
+<connect gate="_Q1" pin="Q*" pad="29"/>
+<connect gate="_Q2" pin="Q*" pad="30"/>
+<connect gate="_Q3" pin="Q*" pad="31"/>
+<connect gate="_Q4" pin="Q*" pad="32"/>
+<connect gate="_Q5" pin="Q*" pad="33"/>
+<connect gate="_Q6" pin="Q*" pad="34"/>
+<connect gate="_Q7" pin="Q*" pad="35"/>
+<connect gate="_QGND" pin="PWR" pad="27"/>
+<connect gate="_QV+" pin="PWR" pad="26"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TÜRÖFFNER">
+<gates>
+<gate name="G$1" symbol="TÜRÖFFNER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DEF_2POL_ACTOR">
+<connects>
+<connect gate="G$1" pin="IN" pad="IN"/>
+<connect gate="G$1" pin="V+" pad="V+"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TRANSFORMATOR">
+<gates>
+<gate name="G$1" symbol="TRANSFORMATOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THR_4TE">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+<connect gate="G$1" pin="P$2" pad="13"/>
+<connect gate="G$1" pin="P$3" pad="14"/>
+<connect gate="G$1" pin="P$4" pad="25"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SCHLIEßER">
+<gates>
+<gate name="G$1" symbol="SCHLIESSER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DEF_2POL_SENSOR">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="OUT" pad="OUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ÖFFNER">
+<gates>
+<gate name="G$1" symbol="ÖFFNER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DEF_2POL_SENSOR">
+<connects>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="OUT" pad="OUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SCHMELZSICHERUNG">
+<gates>
+<gate name="G$1" symbol="SCHMELZSICHERUNG" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THR_1TE">
+<connects>
+<connect gate="G$1" pin="V" pad="V"/>
+<connect gate="G$1" pin="VO" pad="VO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FI/RCD-*">
+<gates>
+<gate name="G$1" symbol="FI/RCD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THR_1TE">
+<connects>
+<connect gate="G$1" pin="V" pad="V"/>
+<connect gate="G$1" pin="VO" pad="VO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LS">
+<gates>
+<gate name="G$1" symbol="LS" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THR_1TE">
+<connects>
+<connect gate="G$1" pin="V" pad="V"/>
+<connect gate="G$1" pin="VO" pad="VO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SICHERUNGSSCHALTER">
+<gates>
+<gate name="G$1" symbol="SICHERUNGSSCHALTER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="THR_1TE">
+<connects>
+<connect gate="G$1" pin="V" pad="V"/>
+<connect gate="G$1" pin="VO" pad="VO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>

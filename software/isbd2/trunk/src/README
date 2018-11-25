@@ -1,0 +1,19 @@
+Run prepare_build.sh for the automake stuff, then make to compile the isbd2
+executable.
+
+
+Building
+========
+To specify include and or library directories (e.g. for boost) use the
+configure script:
+# CPPFLAGS="-I/path/to/boost/include/" LDFLAGS="-L/path/to/boost/lib/" ./configure
+
+
+Examples
+========
+
+# Run isbd2 on tcp port 4723 whith usb2ser adapter on /dev/ttyUSB0 (linux)
+# ./isbd2 --port 4723 --device /dev/ttyUSB0
+
+# Run isbd2 on tcp port 4723 on COM1 (windows)
+# isbd2.exe --port 4723 --device COM1

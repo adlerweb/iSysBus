@@ -1,0 +1,358 @@
+Two Delphi functions for building an own FlashDownloader.
+No support !!
+
+function IntelHex(FName : string; eep : boolean) : integer;
+var ready,
+    fault     : boolean;
+    chk       : byte;
+    n, i, adr,
+    zeile     : integer;
+    anz, typ  : byte;
+    st        : string;
+    hexfil    : textfile;
+    hexpage   : integer;
+
+ function gethex(ziffern : byte) : word;
+ var st1   : string;
+     x     : word;
+     y     : integer;
+ begin
+   st1:= '$'+copy(st, n, ziffern);
+   val(st1, x, y);
+   if y <> 0 then begin
+      Beep;
+      MessageDlg('Error in Hex-File!', mtError, [ mbAbort],0);
+      try
+        closeFile(hexfil);
+        fault:= true;
+      except
+      end;
+      ready:= true;
+      result:= 0;
+      exit;
+    end;
+   inc(n, ziffern);
+   chk:= chk+lo(x)+hi(x);
+   result:= x;
+ end;
+
+begin
+  ready:= false;
+  zeile:= 0;
+  hexpage:= 0;
+  bytes:= 0;
+  fault:= false;
+  chksum:= 0;
+  Result:= -1;
+  assignFile(hexfil, FName);
+  try
+    reset(hexfil);
+  except
+    Beep;
+    MessageDlg('File '+FName+' not found!', mtError, [ mbAbort],0);
+    exit;
+  end;
+  result:= 0;
+  if eof(hexfil) then begin
+    Beep;
+    MessageDlg('unexpected end of file!', mtError, [ mbAbort],0);
+    try
+      closeFile(hexfil);
+    except
+    end;
+    exit;
+  end;
+  while not ready do begin
+    if eof(hexfil) then begin
+      Beep;
+      MessageDlg('unexpected end of file!', mtError, [ mbAbort],0);
+      try
+        closeFile(hexfil);
+      except
+      end;
+      exit;
+    end;
+    readln(hexfil, st);
+    inc(zeile);
+    if length(st) = 0 then continue;
+    if st[1] = ':' then begin
+      n:= 2;
+      chk:= 0;
+      anz:= gethex(2);
+      if fault then exit;
+      adr:= gethex(4);
+      if fault then exit;
+      adr:= adr + (hexpage shl 4);
+      if adr > arrSize then begin
+        closeFile(hexfil);
+        st:= ExtractFileName(FName);
+        if adr > 0 then;
+        Beep;
+        MessageDlg('Buffer overflow!'^M'File :'^M
+                    +st+^M+'Line : '+IntToStr(zeile),
+                    mtError, [ mbAbort],0);
+        exit;
+      end;
+      typ:= gethex(2);
+      if fault then exit;
+      case typ of
+        0    : begin
+                 for i:= 1 to anz do begin
+                    if eep then begin
+                      EEpromArr[adr]:= byte(gethex(2));
+                      chksum:= chksum+EEpromArr[adr];
+                    end
+                    else begin
+                      FlashArr[adr]:= byte(gethex(2));
+                      chksum:= chksum+FlashArr[adr];
+                    end;
+                    if fault then exit;
+                    inc(bytes);
+                    inc(adr);
+                    if ((adr) >= arrSize) and (i < anz) then begin
+                      Beep;
+                      closeFile(hexfil);
+                      st:= ExtractFileName(FName);
+                      MessageDlg('Buffer overflow!'^M'File :'^M
+                                  +st+^M+'Line : '+IntToStr(zeile),
+                                  mtError, [ mbAbort],0);
+                      exit;
+                    end;
+                  end;
+                 if adr > result then result:= adr;
+               end;
+        1    : ready:= true;
+        2    : begin
+                 hexpage:= word(gethex(4));
+                 if fault then exit;
+               end;
+        3    : begin
+                 for i:= 1 to anz do begin
+                   gethex(2);
+                   if fault then exit;
+                 end;
+//                 MessageDlg('segmented hex-format!', mtError, [ mbAbort],0);
+//                 closeFile(hexfil);
+//                 Result:= -1;
+//                 exit;
+               end;
+      else
+        st:= ExtractFileName(FName);
+        Beep;
+        MessageDlg('Error in Hex-File!'^M'File :'^M
+                    +st+^M+'Line : '+IntToStr(zeile),
+                    mtError, [ mbAbort],0);
+        closeFile(hexfil);
+        Result:= -1;
+        exit;
+      end;  (* case *)
+    end;    (* if s[1] = ':' *)
+    i:= gethex(2);
+    if fault then exit;
+    if chk <> 0 then begin
+      st:= ExtractFileName(FName);
+      Beep;
+      MessageDlg('checksum error!'^M'File :'^M
+                    +st+^M+'Line : '+IntToStr(zeile),
+                    mtError, [ mbAbort],0);
+      try
+        closeFile(hexfil);
+      except
+      end;
+      Result:= -1;
+      exit;
+    end;
+  end;       (* while not ready *)
+  try
+    closeFile(hexfil);
+   except
+   end;
+end;
+
+
+procedure TMainForm.DownLdBtnClick(Sender: TObject);
+var idx, max,
+    idy      : integer;
+    chk, bb  : byte;
+    ch       : char;
+    SendIt   : boolean;
+    bArr     : array[0..255] of byte;
+begin
+  Gauge.Value:= 0;
+  Gauge.Repaint;
+  CheckComPort;
+  if not COMok then exit;
+  modus:= modProgram;
+  UpdateButtons;
+  if ProgFlashChk.Checked and (FBytesRead > 0) then begin
+    StatusLine.Panels[0].Text:= 'programming Flash';
+
+    // erase last flash block below loader which may contain bootcheck bytes
+    idx:= FlashEnd - BlockSize;
+    COMdlg.SendChar('A');                     // Address
+    bb:= (idx and $FF);
+    COMdlg.SendChar(char(bb));                // lo byte
+    bb:= (idx shr 8);
+    COMdlg.SendChar(char(bb));                // hi byte
+    if OrgFlashEnd > $20000 then begin
+      bb:= (idx shr 16);
+      COMdlg.SendChar(char(bb));              // ext byte
+    end;
+    StartTimer;
+    repeat
+      Application.Processmessages;
+    until COMdlg.RecvChar(ch) or Stopped;
+    if stopped or (ch <> #13) then begin
+      modus:= modConnected;
+      UpdateButtons;
+      Beep;
+      MessageDlg('Communication error', mtError, [ mbAbort],0);
+      exit;
+    end;
+    COMdlg.SendChar('E');                     // Erase page
+    ch:= #0;
+    StartTimer;
+    repeat
+      Application.Processmessages;
+    until COMdlg.RecvChar(ch) or Stopped;
+    if stopped or (ch <> #13) then begin
+      modus:= modConnected;
+      UpdateButtons;
+      Beep;
+      MessageDlg('Communication error', mtError, [ mbAbort],0);
+      exit;
+    end;
+
+    if FlashEnd > (FBytesRead div 2) then begin
+      max:= FBytesRead;
+    end
+    else begin
+      max:= FlashEnd * 2;
+    end;
+    idx:= 0;
+    repeat
+      SendIt:= false;
+      FillChar(bArr, sizeOf(bArr), $FF);
+      for idy:= 0 to (BlockSize *2) -1 do begin
+        bb:= FlashArr[idx+idy];
+        if bb <> $ff then SendIt:= true;
+        bArr[idy]:= bb;
+      end;
+      COMdlg.SendChar('A');                     // Address
+      bb:= (idx shr 1);                  // div 2
+      COMdlg.SendChar(char(bb));                // lo byte
+      bb:= (idx shr 9);                  // div 2
+      COMdlg.SendChar(char(bb));                // hi byte
+      if OrgFlashEnd > $20000 then begin
+        bb:= (idx shr 17);
+        COMdlg.SendChar(char(bb));              // ext byte
+      end;
+      StartTimer;
+      repeat
+        Application.Processmessages;
+      until COMdlg.RecvChar(ch) or Stopped;
+      if stopped or (ch <> #13) then begin
+        modus:= modConnected;
+        UpdateButtons;
+        Beep;
+        MessageDlg('Communication error', mtError, [ mbAbort],0);
+        exit;
+      end;
+      COMdlg.SendChar('E');                       // Erase page
+      StartTimer;
+      repeat
+        Application.Processmessages;
+      until COMdlg.RecvChar(ch) or Stopped;
+      if stopped or (ch <> #13) then begin
+        modus:= modConnected;
+        UpdateButtons;
+        Beep;
+        MessageDlg('Communication error', mtError, [ mbAbort],0);
+        if idx > 0 then;
+        exit;
+      end;
+      if sendIt then begin
+        COMdlg.SendChar('D');                     // download Block
+        chk:= 0;
+        idy:= 0;
+        // UDP
+        COMdlg.BlockMode:= true;
+        repeat
+          bb:= bArr[idy];
+          COMdlg.SendChar(char(bb));
+          chk:= chk + bb;
+          inc(idy);
+        until idy >= (BlockSize *2);
+        COMdlg.BlockMode:= false;
+        COMdlg.SendBlock(@bArr, BlockSize *2);
+        // UDP
+        StartTimer;
+        repeat
+          Application.Processmessages;
+        until COMdlg.RecvChar(ch) or Stopped;
+        bb:= ord(ch);
+        if stopped or (bb <> chk) then begin
+          modus:= modConnected;
+          UpdateButtons;
+          Beep;
+          MessageDlg('Communication error', mtError, [ mbAbort],0);
+          exit;
+        end;
+        COMdlg.SendChar('P');                     // programm page
+        StartTimer;
+        repeat
+          Application.Processmessages;
+        until COMdlg.RecvChar(ch) or Stopped;
+        if stopped or (ch <> #13) then begin
+          modus:= modConnected;
+          UpdateButtons;
+          Beep;
+          MessageDlg('Communication error', mtError, [ mbAbort],0);
+          if idx > 0 then;
+          exit;
+        end;
+      end;
+      inc(idx, BlockSize *2);
+      Gauge.value:= idx / max * 100.0;
+    until idx >= max;
+  end;
+  if ProgEEpChk.Checked and (EBytesRead > 0) then begin
+    StatusLine.Panels[0].Text:= 'programming EEprom';
+    if OrgEEpEnd <= 0 then begin
+      max:= EBytesRead;
+    end
+    else if OrgEEpEnd > EBytesRead then begin
+      max:= EBytesRead;
+    end
+    else begin
+      max:= OrgEEpEnd;
+    end;
+    idx:= 0;
+    repeat
+      COMdlg.SendChar('B');                     // cmd write EEp
+      bb:= idx;                                 // Address
+      COMdlg.SendChar(char(bb));                // lo byte
+      bb:= (idx shr 8);
+      COMdlg.SendChar(char(bb));                // hi byte
+      bb:= EEpromArr[idx];
+      COMdlg.SendChar(char(bb));                // data byte
+      StartTimer;
+      repeat
+        Application.Processmessages;
+      until COMdlg.RecvChar(ch) or Stopped;
+      if stopped or (ch <> #13) then begin
+        modus:= modConnected;
+        UpdateButtons;
+        Beep;
+        MessageDlg('Communication error', mtError, [ mbAbort],0);
+        exit;
+      end;
+      inc(idx);
+      Gauge.value:= idx / max * 100.0;
+    until idx >= max;
+  end;
+  modus:= modConnected;
+  UpdateButtons;
+  Beep;
+end;
+

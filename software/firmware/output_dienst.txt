@@ -1,0 +1,110 @@
+OUTPUT:
+=======
+
+Konfiguration Hardware (EEPROM):
+--------------------------------
+
+Byte 0:		Bit 7:		0 = hw_port ist local, 1 = hw_port ist auf NodeExt
+		Bit 6-0:	local 0-5 = PORTA-F, NodeExt 0-127 = twi-Adresse
+Byte 1:		Bit 5-7:	7-0 = PIN0-7
+		Bit 4:		
+		Bit 3:
+		Bit 2:
+		Bit 1:		
+		Bit 0:		Zustand nach Reset (0 = Aus, 1 = Ein)
+
+Konfiguration Address (EEPROM):
+-------------------------------
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	KnotenId
+Byte 2:		Bit 7-6:	KnotenId
+		Bit 5:		
+		Bit 4:		
+		Bit 3:		Action bei Klick > 2s
+		Bit 2:		Action bei DoppelKlick
+		Bit 1:		Action bei Klick
+Byte 3:		Bit 7-0:	Action
+
+Konfiguration Event (EEPROM):
+-----------------------------
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	EreignisId
+Byte 2:		Bit 7:		EreignisId
+		Bit 6:		
+		Bit 5:		
+		Bit 4:		
+		Bit 3:		Action bei Klick > 2s
+		Bit 2:		Action bei DoppelKlick
+		Bit 1:		Action bei Klick
+Byte 3:		Bit 7-0:	Action
+
+Konfiguration Group (EEPROM):
+-----------------------------
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	GruppenId
+Byte 2:		Bit 7:		GruppenId
+		Bit 6:		
+		Bit 5:		
+		Bit 4:		
+		Bit 3:		Action bei LangemKlick > 1s
+		Bit 2:		Action bei DoppelKlick
+		Bit 1:		Action bei Klick
+Byte 3:		Bit 7-0:	Anzahl Knoten in der Gruppe (max 255)
+Byte 4:		Bit 7-0:	Action
+
+Sende-/Empfangspuffer (SRAM):
+-----------------------------
+
+Der Sende-/Empfangspuffer wird bei eingehenden als auch bei ausgehenden
+Nachrichten verwendet. Dabei wird er zyklisch in der Hauptschleife für
+das Senden, bzw. durch Interrupt beim Empfangen abgearbeitet.
+Für den Puffer sollte ein Array von 20 vorgesehen werden.
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	KnotenId, EventId, GroupId
+Byte 2:		Bit 7:		KnotenId, EventId, GroupId
+		Bit 6:		KnotenId, Frei, Frei
+		Bit 5-0:	Absender-KnotenId
+Byte 3:		Bit 7-4:	Absender-KnotenId
+		Bit 3:		Broadcast-Flag
+		Bit 2:		Event-/Group-Flag
+		Bit 1-0:
+Byte 4:		Bit 7-0:	Anzahl Gruppenknoten
+Byte 5:		Bit 7-0:	Anzahl Gruppenknoten die geantwortet haben
+Byte 6:		Bit 7:		Puffer ist belegt
+		Bit 6:
+		Bit 5:
+		Bit 4:
+		Bit 3:
+		Bit 2-0:	Anzahl Wiederholungen
+
+Anleitung:
+==========
+
+- Alle Listen werden als dynamische Arrays im EEPROM abgelegt.
+
+- Eine Überlegung ist zwecks Geschwindigkeit bei der Suche in den Arrays
+  diese beim Booten des Knoten in das SRAM zu laden.
+
+- Der Knoten fragt anhand des Array "Hardware-Konfiguration" ständig
+  seinen Sende-/Empfangspuffer ab. Dies ist nötig, da eine Änderung
+  keinen Interrupt auslöst.
+
+- Sobald sich eine Nachricht im Puffer befindet, wird diese Ausgewertet
+  und das entsprechende Array "Konfiguration Address",
+  "Konfiguration Event" oder "Konfiguration Group" durchsucht. Beim
+  Durchsuchen wird auch Klick, DoppelKlick oder langer Klick ausgewertet.
+
+- Nach dem der Mikrocontroller die Art der Nachricht bestimmt hat,
+  und die Action bestimmt hat, durchsucht er das Array
+  "Konfiguration Hardware" bestimmt das PIN und führt die gewünschte
+  Action aus. Handelt es sich dabei um ein PIN einer KnotenErweiterung,
+  so wird eine entsprechende twi-Nachricht an die KnotenErweiterung
+  gesendet. Wenn die KnotenErweiterung den erhalt der Nachricht bestätigt
+  hat, wird die Nachricht gelöscht.
+  
+- Handelt es sich dabei um eine Adress- oder Group-Nachricht, wird
+  eine entsprechende Antwort in den Puffer geschrieben und versendet.  

@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf8"?>
+<Fw>
+	<Xmlfile version="1"/>
+	<CreationDate>2011-10-01 00:00:00</CreationDate>
+	<LastModified>2012-05-03 16:56:17</LastModified>
+	<Firmware code="30-1.0" name="Switch-Firmware" stable="0" crc="c49265fee2a7ce4bc294e8e632701386">
+		<Description><![CDATA[]]></Description>
+		<EEPROM>
+			<Variable name="ChannelControl" index="0" addr="0x0000" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig0" index="0" addr="0x0001" length="1" type="bitfield" access="rw">
+				<BitField name="Mode" position="0" length="2"/>
+				<BitField name="Pin0Inverted" position="2" length="1"/>
+			</Variable>
+			<Variable name="AppConfig1" index="0" addr="0x0002" length="1" type="bitfield" access="rw">
+				<BitField name="Mode" position="0" length="3"/>
+				<BitField name="OperatingFunction" position="3" length="3"/>
+			</Variable>
+			<Variable name="AppConfig2" index="0" addr="0x0003" length="1" type="bitfield" access="rw">
+				<BitField name="ActionA" position="0" length="4"/>
+				<BitField name="ActionB" position="4" length="4"/>
+			</Variable>
+			<Variable name="AppConfig3" index="0" addr="0x0004" length="1" type="bitfield" access="rw">
+				<BitField name="Step" position="0" length="3"/>
+				<BitField name="Direction" position="3" length="1"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="0" addr="0x0005" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="0" addr="0x0006" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="0" addr="0x0007" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="1" addr="0x0008" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="1" addr="0x0009" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="1" addr="0x000A" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="2" addr="0x000B" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="2" addr="0x000C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="2" addr="0x000D" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="3" addr="0x000E" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="3" addr="0x000F" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="3" addr="0x0010" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="4" addr="0x0011" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="4" addr="0x0012" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="4" addr="0x0013" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="0" addr="0x0014" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="1" addr="0x0015" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig0" index="1" addr="0x0016" length="1" type="bitfield" access="rw">
+				<BitField name="Mode" position="0" length="2"/>
+				<BitField name="Pin0Inverted" position="2" length="1"/>
+			</Variable>
+			<Variable name="AppConfig1" index="1" addr="0x0017" length="1" type="bitfield" access="rw">
+				<BitField name="Mode" position="0" length="3"/>
+				<BitField name="OperatingFunction" position="3" length="3"/>
+			</Variable>
+			<Variable name="AppConfig2" index="1" addr="0x0018" length="1" type="bitfield" access="rw">
+				<BitField name="ActionA" position="0" length="4"/>
+				<BitField name="ActionB" position="4" length="4"/>
+			</Variable>
+			<Variable name="AppConfig3" index="1" addr="0x0019" length="1" type="bitfield" access="rw">
+				<BitField name="Step" position="0" length="3"/>
+				<BitField name="Direction" position="3" length="1"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="5" addr="0x001A" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="5" addr="0x001B" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="5" addr="0x001C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="6" addr="0x001D" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="6" addr="0x001E" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="6" addr="0x001F" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="7" addr="0x0020" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="7" addr="0x0021" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="7" addr="0x0022" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="8" addr="0x0023" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="8" addr="0x0024" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="8" addr="0x0025" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="9" addr="0x0026" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="9" addr="0x0027" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="9" addr="0x0028" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="1" addr="0x0029" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="2" addr="0x002A" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig0" index="2" addr="0x002B" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="2"/>
+				<BitField name="Pin0Inverted" position="2" length="1"/>
+				<BitField name="Pin1Inverted" position="3" length="1"/>
+				<BitField name="Pin1Pullup" position="4" length="1"/>
+				<BitField name="LogicMode" position="5" length="2"/>
+			</Variable>
+			<Variable name="AppConfig1" index="2" addr="0x002C" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig2" index="2" addr="0x002D" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig3" index="2" addr="0x002E" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig4" index="2" addr="0x002F" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig5" index="2" addr="0x0030" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig6" index="2" addr="0x0031" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig7" index="2" addr="0x0032" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig8" index="2" addr="0x0033" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig9" index="2" addr="0x0034" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="10" addr="0x0035" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="10" addr="0x0036" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="10" addr="0x0037" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="11" addr="0x0038" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="11" addr="0x0039" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="11" addr="0x003A" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="12" addr="0x003B" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="12" addr="0x003C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="12" addr="0x003D" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="13" addr="0x003E" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="13" addr="0x003F" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="13" addr="0x0040" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="2" addr="0x0041" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="3" addr="0x0042" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig0" index="3" addr="0x0043" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="2"/>
+				<BitField name="Pin0Inverted" position="2" length="1"/>
+				<BitField name="Pin1Inverted" position="3" length="1"/>
+				<BitField name="Pin1Pullup" position="4" length="1"/>
+				<BitField name="LogicMode" position="5" length="2"/>
+			</Variable>
+			<Variable name="AppConfig1" index="3" addr="0x0044" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig2" index="3" addr="0x0045" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig3" index="3" addr="0x0046" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig4" index="3" addr="0x0047" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig5" index="3" addr="0x0048" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig6" index="3" addr="0x0049" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig7" index="3" addr="0x004A" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig8" index="3" addr="0x004B" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig9" index="3" addr="0x004C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="14" addr="0x004D" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="14" addr="0x004E" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="14" addr="0x004F" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="15" addr="0x0050" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="15" addr="0x0051" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="15" addr="0x0052" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="16" addr="0x0053" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="16" addr="0x0054" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="16" addr="0x0055" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="17" addr="0x0056" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="17" addr="0x0057" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="17" addr="0x0058" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="3" addr="0x0059" length="1" type="integer" access="rw"/>
+			<Variable name="GroupLink" index="0" addr="0x005A" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="1" addr="0x005D" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="2" addr="0x0060" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="3" addr="0x0063" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="4" addr="0x0066" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="5" addr="0x0069" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="6" addr="0x006C" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="7" addr="0x006F" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="8" addr="0x0072" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="9" addr="0x0075" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="10" addr="0x0078" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="11" addr="0x007B" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="12" addr="0x007E" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="13" addr="0x0081" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="14" addr="0x0084" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="15" addr="0x0087" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+		</EEPROM>
+		<BusVariables>
+			<BusVariable id="0" name="Blocking[0]" variable="BusVariableControl[0]" var_type="0x01" tov="BusVariableTOV[0]" internal_id="0"/>
+			<BusVariable id="1" name="Switch[0]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[1]" internal_id="1">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="0"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="2" name="SwitchLong[0]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[2]" internal_id="2">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="0"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="3" name="Switch[0]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[1]" internal_id="1">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="4" name="Dimmer[0]" variable="BusVariableControl[3]" var_type="0x01" tov="BusVariableTOV[3]" internal_id="3">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="5" name="UpDown[0]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[1]" internal_id="1">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="2"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="6" name="BladeAdjustment[0]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[2]" internal_id="2">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="2"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="7" name="Blocking[1]" variable="BusVariableControl[5]" var_type="0x01" tov="BusVariableTOV[5]" internal_id="5"/>
+			<BusVariable id="8" name="Switch[1]" variable="BusVariableControl[6]" var_type="0x01" tov="BusVariableTOV[6]" internal_id="6">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="0"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="9" name="SwitchLong[1]" variable="BusVariableControl[7]" var_type="0x01" tov="BusVariableTOV[7]" internal_id="7">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="0"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="10" name="Switch[1]" variable="BusVariableControl[6]" var_type="0x01" tov="BusVariableTOV[6]" internal_id="6">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="11" name="Dimmer[1]" variable="BusVariableControl[8]" var_type="0x01" tov="BusVariableTOV[8]" internal_id="8">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="12" name="UpDown[1]" variable="BusVariableControl[6]" var_type="0x01" tov="BusVariableTOV[6]" internal_id="6">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="2"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="13" name="BladeAdjustment[1]" variable="BusVariableControl[7]" var_type="0x01" tov="BusVariableTOV[7]" internal_id="7">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="2"/>
+					</With>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="14" name="Schalten[2]" variable="BusVariableControl[10]" var_type="0x01" tov="BusVariableTOV[10]" internal_id="10"/>
+			<BusVariable id="15" name="Logikfunktion[2]" variable="BusVariableControl[11]" var_type="0x01" tov="BusVariableTOV[11]" internal_id="11">
+				<VisibleWhen>
+					<Not>
+						<With variable="AppConfig0[2].LogicMode">
+							<Equals value="0"/>
+						</With>
+					</Not>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="16" name="Sonderfunktion[2]" variable="BusVariableControl[12]" var_type="0x01" tov="BusVariableTOV[12]" internal_id="12"/>
+			<BusVariable id="17" name="Rückmeldung[2]" variable="BusVariableControl[13]" var_type="0x01" tov="BusVariableTOV[13]" internal_id="13"/>
+			<BusVariable id="18" name="Schalten[3]" variable="BusVariableControl[14]" var_type="0x01" tov="BusVariableTOV[14]" internal_id="14"/>
+			<BusVariable id="19" name="Logikfunktion[3]" variable="BusVariableControl[15]" var_type="0x01" tov="BusVariableTOV[15]" internal_id="15">
+				<VisibleWhen>
+					<Not>
+						<With variable="AppConfig0[3].LogicMode">
+							<Equals value="0"/>
+						</With>
+					</Not>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="20" name="Sonderfunktion[3]" variable="BusVariableControl[16]" var_type="0x01" tov="BusVariableTOV[16]" internal_id="16"/>
+			<BusVariable id="21" name="Rückmeldung[3]" variable="BusVariableControl[17]" var_type="0x01" tov="BusVariableTOV[17]" internal_id="17"/>
+		</BusVariables>
+		<Config>
+			<ConfigPage name="Eingang 0 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[0].Enabled">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Eingang ist bei Betätigung" variable="AppConfig0[0].Pin0Inverted">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="geöffnet" value="0"/>
+					<Option name="geschlossen" value="1"/>
+				</SelectBox>
+				<SelectBox name="Betriebsart" variable="AppConfig1[0].Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Schaltsensor/Störmeldeeingang" value="0"/>
+					<Option name="Schalt-/Dimmsensor" value="1"/>
+					<Option name="Jalousiesensor" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 0 - Schaltsensor/Störmeldeeingang">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="0"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Bedienfunktion" variable="AppConfig1[0].OperatingFunction">
+					<Option name="1 Schaltobjekt - Ohne Unterscheidung Kurz/Lang - Ohne Repeat" value="0"/>
+					<Option name="1 Schaltobjekt - Ohne Unterscheidung Kurz/Lang - Mit Repeat" value="1"/>
+					<Option name="2 Schaltobjekte - Mit Unterscheidung Kurz/Lang - Ohne Repeat" value="2"/>
+					<Option name="2 Schaltobjekte - Mit Unterscheidung Kurz/Lang - Mit Repeat" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Schließen des Kontakts (Pressed)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Öffnen des Kontakts (Released)" variable="AppConfig2[0].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Schließen des Kontakts (Pressed)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Öffnen des Kontakts (Released)" variable="AppConfig2[0].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei langer Betätigung (PressedLong)" variable="AppConfig2[0].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="3"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei langer Betätigung (PressedLong)" variable="AppConfig2[0].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="3"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 0 - Schalt-/Dimmsensor">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Bedienfunktion" variable="AppConfig1[0].OperatingFunction">
+					<Option name="Dimmen und Schalten" value="0"/>
+					<Option name="Nur Dimmen" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedLong)" variable="AppConfig2[0].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Dimmen Heller" value="0"/>
+					<Option name="Dimmen Dunkler" value="1"/>
+					<Option name="Dimmen Heller/Dunkler" value="2"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Dimmen Heller" value="0"/>
+					<Option name="Dimmen Dunkler" value="1"/>
+					<Option name="Dimmen Heller/Dunkler" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 0 - Jalousiesensor">
+				<VisibleWhen>
+					<With variable="AppConfig1[0].Mode">
+						<Equals value="2"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Bedienfunktion" variable="AppConfig1[0].OperatingFunction">
+					<Option name="1-Taster-Betrieb (Kurz=Lamelle, Lang=Fahren)" value="0"/>
+					<Option name="1-Taster-Betrieb (Kurz=Fahren, Lang=Lamelle)" value="1"/>
+					<Option name="1-Taster-Betrieb (nur Fahren - Stop)" value="2"/>
+					<Option name="1-Schalter-Betrieb (nur Fahren)" value="3"/>
+					<Option name="2-Taster-Betrieb (Kurz=Lamelle, Lang=Fahren)" value="4"/>
+					<Option name="2-Schalter/Taster-Betrieb (nur Fahren)" value="5"/>
+					<Option name="2-Taster-Betrieb (nur Fahren - Stop)" value="6"/>
+					<Option name="2-Taster-Betrieb (nur Lamelle)" value="7"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="4"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Stopp / Lamelle Auf" value="0"/>
+					<Option name="Stopp / Lamelle Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei langer Betätigung (PressedLong)" variable="AppConfig2[0].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="4"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Fahren Auf" value="0"/>
+					<Option name="Fahren Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="5"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Fahren Auf" value="0"/>
+					<Option name="Fahren Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="6"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Fahren Auf" value="0"/>
+					<Option name="Fahren Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[0].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[0].OperatingFunction">
+							<Equals value="7"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Lamelle Auf" value="0"/>
+					<Option name="Lamelle Zu" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 1 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[1].Enabled">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Eingang ist bei Betätigung" variable="AppConfig0[1].Pin0Inverted">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="geöffnet" value="0"/>
+					<Option name="geschlossen" value="1"/>
+				</SelectBox>
+				<SelectBox name="Betriebsart" variable="AppConfig1[1].Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Schaltsensor/Störmeldeeingang" value="0"/>
+					<Option name="Schalt-/Dimmsensor" value="1"/>
+					<Option name="Jalousiesensor" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 1 - Schaltsensor/Störmeldeeingang">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="0"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Bedienfunktion" variable="AppConfig1[1].OperatingFunction">
+					<Option name="1 Schaltobjekt - Ohne Unterscheidung Kurz/Lang - Ohne Repeat" value="0"/>
+					<Option name="1 Schaltobjekt - Ohne Unterscheidung Kurz/Lang - Mit Repeat" value="1"/>
+					<Option name="2 Schaltobjekte - Mit Unterscheidung Kurz/Lang - Ohne Repeat" value="2"/>
+					<Option name="2 Schaltobjekte - Mit Unterscheidung Kurz/Lang - Mit Repeat" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Schließen des Kontakts (Pressed)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Öffnen des Kontakts (Released)" variable="AppConfig2[1].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Schließen des Kontakts (Pressed)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion beim Öffnen des Kontakts (Released)" variable="AppConfig2[1].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei langer Betätigung (PressedLong)" variable="AppConfig2[1].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="3"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei langer Betätigung (PressedLong)" variable="AppConfig2[1].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="3"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 1 - Schalt-/Dimmsensor">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Bedienfunktion" variable="AppConfig1[1].OperatingFunction">
+					<Option name="Dimmen und Schalten" value="0"/>
+					<Option name="Nur Dimmen" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Ausschalten" value="1"/>
+					<Option name="Einschalten" value="2"/>
+					<Option name="Umschalten" value="3"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedLong)" variable="AppConfig2[1].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="0"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Dimmen Heller" value="0"/>
+					<Option name="Dimmen Dunkler" value="1"/>
+					<Option name="Dimmen Heller/Dunkler" value="2"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Dimmen Heller" value="0"/>
+					<Option name="Dimmen Dunkler" value="1"/>
+					<Option name="Dimmen Heller/Dunkler" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Eingang 1 - Jalousiesensor">
+				<VisibleWhen>
+					<With variable="AppConfig1[1].Mode">
+						<Equals value="2"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Bedienfunktion" variable="AppConfig1[1].OperatingFunction">
+					<Option name="1-Taster-Betrieb (Kurz=Lamelle, Lang=Fahren)" value="0"/>
+					<Option name="1-Taster-Betrieb (Kurz=Fahren, Lang=Lamelle)" value="1"/>
+					<Option name="1-Taster-Betrieb (nur Fahren - Stop)" value="2"/>
+					<Option name="1-Schalter-Betrieb (nur Fahren)" value="3"/>
+					<Option name="2-Taster-Betrieb (Kurz=Lamelle, Lang=Fahren)" value="4"/>
+					<Option name="2-Schalter/Taster-Betrieb (nur Fahren)" value="5"/>
+					<Option name="2-Taster-Betrieb (nur Fahren - Stop)" value="6"/>
+					<Option name="2-Taster-Betrieb (nur Lamelle)" value="7"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei kurzer Betätigung (PressedShort)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="4"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Stopp / Lamelle Auf" value="0"/>
+					<Option name="Stopp / Lamelle Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei langer Betätigung (PressedLong)" variable="AppConfig2[1].ActionB">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="4"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Fahren Auf" value="0"/>
+					<Option name="Fahren Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="5"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Fahren Auf" value="0"/>
+					<Option name="Fahren Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="6"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Fahren Auf" value="0"/>
+					<Option name="Fahren Zu" value="1"/>
+				</SelectBox>
+				<SelectBox name="Reaktion bei Betätigung (Pressed)" variable="AppConfig2[1].ActionA">
+					<VisibleWhen>
+						<With variable="AppConfig1[1].OperatingFunction">
+							<Equals value="7"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Lamelle Auf" value="0"/>
+					<Option name="Lamelle Zu" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 0 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[2].Enabled">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Operation" variable="AppConfig0[2].Operation">
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+					<Option name="SlaveUsart0" value="2"/>
+					<Option name="SlaveUsart1" value="3"/>
+				</SelectBox>
+				<SelectBox name="Pin0 Inverted" variable="AppConfig0[2].Pin0Inverted">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pin1 Inverted" variable="AppConfig0[2].Pin1Inverted">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pin1 Pullup" variable="AppConfig0[2].Pin1Pullup">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 0 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig0[2].LogicMode">
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 0 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig1[2].Time_Mode">
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig1[2].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig2[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_PowerUpDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig3[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_PowerUpDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig4[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_PowerUpDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig1[2].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig5[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_PowerDownDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig6[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_PowerDownDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig7[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_PowerDownDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig2[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig3[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig4[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig1[2].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig1[2].Time_Pump_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[2].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 0 - Sperrfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 0 - Zwangsstellungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 0 - Rückmeldeobjekt">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 1 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[3].Enabled">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Operation" variable="AppConfig0[3].Operation">
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+					<Option name="SlaveUsart0" value="2"/>
+					<Option name="SlaveUsart1" value="3"/>
+				</SelectBox>
+				<SelectBox name="Pin0 Inverted" variable="AppConfig0[3].Pin0Inverted">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pin1 Inverted" variable="AppConfig0[3].Pin1Inverted">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pin1 Pullup" variable="AppConfig0[3].Pin1Pullup">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 1 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig0[3].LogicMode">
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 1 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig1[3].Time_Mode">
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig1[3].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig2[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_PowerUpDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig3[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_PowerUpDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig4[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_PowerUpDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig1[3].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig5[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_PowerDownDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig6[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_PowerDownDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig7[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_PowerDownDelay_Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig2[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig3[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig4[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig1[3].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig1[3].Time_Pump_Enabled">
+					<VisibleWhen>
+						<With variable="AppConfig1[3].Time_Mode">
+							<Equals value="2"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 1 - Sperrfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 1 - Zwangsstellungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</ConfigPage>
+			<ConfigPage name="Ausgang 1 - Rückmeldeobjekt">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+			</ConfigPage>
+		</Config>
+	</Firmware>
+</Fw>

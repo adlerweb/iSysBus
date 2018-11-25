@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<BusConfig>
+  <Global>
+    <ProjectData>
+      <ProjectName>Projektname</ProjectName>
+      <ProjectAddress>Projektadresse</ProjectAddress>
+      <ProjectPostalCode>p12345</ProjectPostalCode>
+      <ProjectCity>Projektort</ProjectCity>
+      <ProjectTel>Projekttelefon</ProjectTel>
+      <ProjectFax>Projektfax</ProjectFax>
+      <ProjectNotes>Dies ist eine Notiz</ProjectNotes>
+    </ProjectData>
+    <CustomerData>
+      <CustomerName>Kundenname</CustomerName>
+      <CustomerAddress>Kundenadresse</CustomerAddress>
+      <CustomerPostalCode>K12345</CustomerPostalCode>
+      <CustomerCity>Kundenort</CustomerCity>
+      <CustomerTel>Kundentelefon</CustomerTel>
+      <CustomerFax>Kundenfax</CustomerFax>
+      <CustomerEmail>Kundenmail</CustomerEmail>
+    </CustomerData>
+    <LastChange>2010-03-27 11:40:21</LastChange>
+    <RemoteData override_global="true"/>
+    <SerialNumberBlock first_id="01=00=00=1D" last_id="01=00=00=FF"/>
+    <Settings>
+      <global>
+        <AutoSyncNode/>
+        <AutoUpdateNodeStatus/>
+        <AutoOnlineSyncNode/>
+        <AutoOnlineUpdateNodeStatus/>
+        <AutoSyncClock/>
+        <AutoAddNewNodes/>
+        <AutoLoadNodeWizard/>
+      </global>
+      <global>
+        <AutoOnlineSyncNode/>
+      </global>
+    </Settings>
+  </Global>
+  <Devices>
+    <Node node_id="2" serial_number="01=00=00=15" hardware_code="1-3.0" bootloader_code="4-0.0" firmware_code="24-0.0" name="Schalter">
+      <EEPROM config_crc="5">
+        <Variable name="ChannelControl" type="bitfield" index="0" access="rw" value="1" length="1"/>
+        <Variable name="ContactOutControl" type="bitfield" index="0" access="rw" value="1" length="1"/>
+        <Variable name="ApplicationControl" type="integer" index="0" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="0" access="rw" value="5" length="1"/>
+        <Variable name="BusVariableTOV" type="integer" index="0" access="rw" value="1" length="1"/>
+        <Variable name="BusVariableInitValue" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="1" access="rw" value="11" length="1"/>
+        <Variable name="BusVariableTOV" type="integer" index="1" access="rw" value="1" length="1"/>
+        <Variable name="BusVariableInitValue" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="ChannelCrc" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="ChannelControl" type="bitfield" index="1" access="rw" value="1" length="1"/>
+        <Variable name="ContactOutControl" type="bitfield" index="1" access="rw" value="1" length="1"/>
+        <Variable name="ApplicationControl" type="bitfield" index="1" access="rw" value="1"/>
+        <Variable name="BusVariableTOV" type="integer" index="2" access="rw" value="1" length="1"/>
+        <Variable name="BusVariableInitValue" type="integer" index="2" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="2" access="rw" value="5" length="1"/>
+        <Variable name="BusVariableTOV" type="integer" index="3" access="rw" value="1" length="1"/>
+        <Variable name="BusVariableInitValue" type="integer" index="3" access="rw" value="0" length="1"/>
+        <Variable name="GroupLink" type="integer" index="0" access="rw" value="131075" length="3"/>
+        <Variable name="GroupLink" type="integer" index="1" access="rw" value="1" length="3"/>
+        <Variable name="GroupLink" type="integer" index="2" access="rw" value="65538" length="3"/>
+        <Variable name="GroupLink" type="integer" index="3" access="rw" value="196612" length="3"/>
+        <Variable name="GroupLink" type="integer" index="4" access="rw" value="262145" length="3"/>
+        <Variable name="GroupLink" type="integer" index="5" access="rw" value="327683" length="3"/>
+        <Variable name="GroupLink" type="integer" index="6" access="rw" value="393219" length="3"/>
+        <Variable name="GroupLink" type="integer" index="7" access="rw" value="458753" length="3"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="0" access="rw" value="1" length="1"/>
+        <Variable name="BusVariableSwitchTOV" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableSwitchInitValue" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableResultTOV" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableResultInitValue" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="1" access="rw" value="1" length="1"/>
+        <Variable name="BusVariableSwitchTOV" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableSwitchInitValue" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="3" access="rw" value="11" length="1"/>
+        <Variable name="BusVariableResultTOV" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableResultInitValue" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="ChannelCrc" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="ChannelControl" type="bitfield" index="2" access="rw" value="1" length="1"/>
+        <Variable name="ContactInControl" type="bitfield" index="0" access="rw" value="1" length="1"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="0" access="rw" value="1" length="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="0" access="rw" value="3" length="1"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="4" access="rw" value="13" length="1"/>
+        <Variable name="BusVariableAktionATOV" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableAktionAInitValue" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="5" access="rw" value="13" length="1"/>
+        <Variable name="BusVariableAktionBTOV" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableAktionBInitValue" type="integer" index="0" access="rw" value="0" length="1"/>
+        <Variable name="ChannelCrc" type="integer" index="2" access="rw" value="0" length="1"/>
+        <Variable name="ChannelControl" type="bitfield" index="3" access="rw" value="1" length="1"/>
+        <Variable name="ContactInControl" type="bitfield" index="1" access="rw" value="1" length="1"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="1" access="rw" value="1" length="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="1" access="rw" value="3" length="1"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="6" access="rw" value="13" length="1"/>
+        <Variable name="BusVariableAktionATOV" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableAktionAInitValue" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="7" access="rw" value="13" length="1"/>
+        <Variable name="BusVariableAktionBTOV" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableAktionBInitValue" type="integer" index="1" access="rw" value="0" length="1"/>
+        <Variable name="ChannelCrc" type="integer" index="3" access="rw" value="0" length="1"/>
+        <Variable name="BusVariableTOV" type="integer" index="4" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="4" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="5" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="5" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="6" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="6" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="7" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="7" length="1" access="rw"/>
+      </EEPROM>
+    </Node>
+    <Node node_id="1" serial_number="01=00=00=14" hardware_code="1-3.0" bootloader_code="1-0.0" firmware_code="17-0.0" name="Router">
+      <EEPROM config_crc="1">
+        <Variable name="ChannelControl" type="bitfield" index="0" access="rw" value="0"/>
+        <Variable name="ContactOutControl" type="bitfield" index="0" access="rw" value="0"/>
+        <Variable name="ApplicationControl" type="bitfield" index="0" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="0" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="0" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="0" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="0" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="bitfield" index="1" access="rw" value="0"/>
+        <Variable name="ContactOutControl" type="bitfield" index="1" access="rw" value="0"/>
+        <Variable name="ApplicationControl" type="bitfield" index="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="2" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="2" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="2" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="3" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="0" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="1" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="2" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="4" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="5" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="6" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="7" access="rw" value="0"/>
+      </EEPROM>
+    </Node>
+    <Node hardware_code="3-0.0" bootloader_code="7-0.0" serial_number="01=00=00=16" name="thr" node_id="3" firmware_code="22-0.0">
+      <EEPROM>
+        <Variable name="ChannelControl" type="bitfield" index="0" length="1" access="rw"/>
+        <Variable name="ContactOutControl" type="bitfield" index="0" length="1" access="rw"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="0" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="0" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="0" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="0" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="1" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="1" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="1" length="1" access="rw"/>
+        <Variable name="ChannelCrc" type="integer" index="0" length="1" access="rw"/>
+        <Variable name="ChannelControl" type="bitfield" index="1" length="1" access="rw"/>
+        <Variable name="ContactOutControl" type="bitfield" index="1" length="1" access="rw"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="1" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="2" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="2" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="2" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="3" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="3" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="3" length="1" access="rw"/>
+        <Variable name="ChannelCrc" type="integer" index="1" length="1" access="rw"/>
+        <Variable name="ChannelControl" type="bitfield" index="2" length="1" access="rw"/>
+        <Variable name="ContactInControl" type="bitfield" index="0" length="1" access="rw"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="0" length="1" access="rw"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="0" length="1" access="rw"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="0" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="4" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="4" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="4" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="5" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="5" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="5" length="1" access="rw"/>
+        <Variable name="ChannelCrc" type="integer" index="2" length="1" access="rw"/>
+        <Variable name="ChannelControl" type="bitfield" index="3" length="1" access="rw"/>
+        <Variable name="ContactInControl" type="bitfield" index="1" length="1" access="rw"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="1" length="1" access="rw"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="1" length="1" access="rw"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="1" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="6" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="6" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="6" length="1" access="rw"/>
+        <Variable name="BusVariableControl" type="bitfield" index="7" length="1" access="rw"/>
+        <Variable name="BusVariableTOV" type="integer" index="7" length="1" access="rw"/>
+        <Variable name="BusVariableInitValue" type="integer" index="7" length="1" access="rw"/>
+        <Variable name="ChannelCrc" type="integer" index="3" length="1" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="0" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="1" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="2" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="3" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="4" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="5" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="6" length="3" access="rw"/>
+        <Variable name="GroupLink" type="bitfield" index="7" length="3" access="rw"/>
+      </EEPROM>
+    </Node>
+    <Node hardware_code="1-2.0" bootloader_code="3-0.0" serial_number="01=00=00=19" name="Dev 2">
+      <EEPROM/>
+    </Node>
+    <Node node_id="4" serial_number="01=00=00=1A" hardware_code="3-2.1" bootloader_code="9-0.0" firmware_code="29-0.0" name="thr_test">
+      <EEPROM config_crc="2">
+        <Variable name="ChannelControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="0" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="0" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="1" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="0" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="2" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="2" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="3" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="3" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="4" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="4" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="4" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="5" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="5" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="2" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="6" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="6" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="6" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="7" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="3" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="4" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="4" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="4" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="8" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="8" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="8" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="9" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="9" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="9" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="5" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="5" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="5" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="10" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="10" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="10" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="11" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="11" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="11" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="6" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="6" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="6" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="12" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="12" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="12" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="13" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="13" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="13" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="7" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="7" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="7" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="14" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="14" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="14" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="bitfield" index="15" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="15" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="15" length="1" access="rw" value="1"/>
+        <Variable name="ChannelCrc" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="8" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="0" length="1" access="rw" value="5"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="0" length="1" access="rw" value="7"/>
+        <Variable name="BusVariableControl" type="bitfield" index="16" length="1" access="rw" value="11"/>
+        <Variable name="BusVariableTOV" type="integer" index="16" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="16" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="17" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="17" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="17" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="8" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="9" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="1" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="18" length="1" access="rw" value="11"/>
+        <Variable name="BusVariableTOV" type="integer" index="18" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="18" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="19" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="19" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="19" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="9" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="10" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="2" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="2" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="20" length="1" access="rw" value="11"/>
+        <Variable name="BusVariableTOV" type="integer" index="20" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="20" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="21" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="21" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="21" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="10" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="11" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="3" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="3" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="22" length="1" access="rw" value="11"/>
+        <Variable name="BusVariableTOV" type="integer" index="22" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="22" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="23" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="23" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="23" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="11" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="12" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="4" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="4" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="4" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="24" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="24" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="24" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="25" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="25" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="25" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="12" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="13" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="5" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="5" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="5" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="26" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="26" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="26" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="27" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="27" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="27" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="13" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="14" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="6" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="6" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="6" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="28" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="28" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="28" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="29" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="29" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="29" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="14" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="15" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="7" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="7" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="7" length="1" access="rw" value="3"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="30" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="30" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="30" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="31" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="31" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="31" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="15" length="1" access="rw" value="0"/>
+        <Variable name="GroupLink" type="integer" index="0" length="3" access="rw" value="1"/>
+        <Variable name="GroupLink" type="integer" index="1" length="3" access="rw" value="65538"/>
+        <Variable name="GroupLink" type="integer" index="2" length="3" access="rw" value="131075"/>
+        <Variable name="GroupLink" type="integer" index="3" length="3" access="rw" value="196612"/>
+        <Variable name="GroupLink" type="integer" index="4" length="3" access="rw" value="262149"/>
+        <Variable name="GroupLink" type="integer" index="5" length="3" access="rw" value="327686"/>
+        <Variable name="GroupLink" type="integer" index="6" length="3" access="rw" value="393223"/>
+        <Variable name="GroupLink" type="integer" index="7" length="3" access="rw" value="458760"/>
+        <Variable name="GroupLink" type="integer" index="8" length="3" access="rw" value="524297"/>
+        <Variable name="GroupLink" type="integer" index="9" length="3" access="rw" value="589834"/>
+        <Variable name="GroupLink" type="integer" index="10" length="3" access="rw" value="655371"/>
+        <Variable name="GroupLink" type="integer" index="11" length="3" access="rw" value="720908"/>
+        <Variable name="GroupLink" type="integer" index="12" length="3" access="rw" value="786445"/>
+        <Variable name="GroupLink" type="integer" index="13" length="3" access="rw" value="851982"/>
+        <Variable name="GroupLink" type="integer" index="14" length="3" access="rw" value="917519"/>
+        <Variable name="GroupLink" type="integer" index="15" length="3" access="rw" value="983056"/>
+        <Variable name="GroupLink" type="integer" index="16" length="3" access="rw" value="1048577"/>
+        <Variable name="GroupLink" type="integer" index="17" length="3" access="rw" value="1179651"/>
+        <Variable name="GroupLink" type="integer" index="18" length="3" access="rw" value="1310725"/>
+        <Variable name="GroupLink" type="integer" index="19" length="3" access="rw" value="1441799"/>
+        <Variable name="GroupLink" type="integer" index="20" length="3" access="rw" value="1572873"/>
+        <Variable name="GroupLink" type="integer" index="21" length="3" access="rw" value="1703947"/>
+        <Variable name="GroupLink" type="integer" index="22" length="3" access="rw" value="1835021"/>
+        <Variable name="GroupLink" type="integer" index="23" length="3" access="rw" value="1966095"/>
+        <Variable name="GroupLink" type="integer" index="24" length="3" access="rw" value="1114115"/>
+        <Variable name="GroupLink" type="bitfield" index="25" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="26" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="27" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="28" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="29" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="30" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="31" length="3" access="rw" value="0"/>
+      </EEPROM>
+    </Node>
+    <Node node_id="101" serial_number="01=00=00=1C" hardware_code="3-2.1" bootloader_code="9-0.0" firmware_code="29-0.0" name="Arbeitszimmer">
+      <EEPROM config_crc="1">
+        <Variable name="ChannelControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="integer" index="0" length="1" access="rw" value="4"/>
+        <Variable name="BusVariableTOV" type="integer" index="0" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="0" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="1" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="0" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="1" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="integer" index="2" length="1" access="rw" value="5"/>
+        <Variable name="BusVariableTOV" type="integer" index="2" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="2" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="3" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="3" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="3" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="2" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="integer" index="4" length="1" access="rw" value="5"/>
+        <Variable name="BusVariableTOV" type="integer" index="4" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="5" length="1" access="rw" value="11"/>
+        <Variable name="BusVariableTOV" type="integer" index="5" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="2" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ContactOutControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationSwitchControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="BusVariableControl" type="integer" index="6" length="1" access="rw" value="5"/>
+        <Variable name="BusVariableTOV" type="integer" index="6" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="3" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ContactOutControl" type="bitfield" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="4" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="8" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="8" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="8" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="9" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="9" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="9" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ContactOutControl" type="bitfield" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="5" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="10" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="10" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="10" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="11" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="11" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="11" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ContactOutControl" type="bitfield" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="6" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="12" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="12" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="12" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="13" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="13" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="13" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ContactOutControl" type="bitfield" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationSwitchControl" type="bitfield" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="14" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="14" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="14" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="15" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="15" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="15" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="8" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="0" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="0" length="1" access="rw" value="6"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="0" length="1" access="rw" value="8"/>
+        <Variable name="BusVariableControl" type="integer" index="16" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="16" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="16" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="17" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="17" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="17" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="8" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="9" length="1" access="rw" value="0"/>
+        <Variable name="ContactInControl" type="bitfield" index="1" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="1" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="1" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="18" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="18" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="18" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="19" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="19" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="19" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="9" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="10" length="1" access="rw" value="0"/>
+        <Variable name="ContactInControl" type="bitfield" index="2" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="2" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="2" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="2" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="20" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="20" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="20" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="21" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="21" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="21" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="10" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="11" length="1" access="rw" value="1"/>
+        <Variable name="ContactInControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInControl" type="integer" index="3" length="1" access="rw" value="1"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="3" length="1" access="rw" value="6"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="3" length="1" access="rw" value="8"/>
+        <Variable name="BusVariableControl" type="integer" index="22" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="22" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="22" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="integer" index="23" length="1" access="rw" value="13"/>
+        <Variable name="BusVariableTOV" type="integer" index="23" length="1" access="rw" value="2"/>
+        <Variable name="BusVariableInitValue" type="integer" index="23" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="11" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="12" length="1" access="rw" value="0"/>
+        <Variable name="ContactInControl" type="bitfield" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="4" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="24" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="24" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="24" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="25" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="25" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="25" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="12" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="13" length="1" access="rw" value="0"/>
+        <Variable name="ContactInControl" type="bitfield" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="5" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="26" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="26" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="26" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="27" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="27" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="27" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="13" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="14" length="1" access="rw" value="0"/>
+        <Variable name="ContactInControl" type="bitfield" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="6" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="28" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="28" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="28" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="29" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="29" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="29" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="14" length="1" access="rw" value="0"/>
+        <Variable name="ChannelControl" type="integer" index="15" length="1" access="rw" value="0"/>
+        <Variable name="ContactInControl" type="bitfield" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInControl" type="bitfield" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionA" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="ApplicationInAktionB" type="integer" index="7" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="30" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="30" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="30" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableControl" type="bitfield" index="31" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableTOV" type="integer" index="31" length="1" access="rw" value="0"/>
+        <Variable name="BusVariableInitValue" type="integer" index="31" length="1" access="rw" value="0"/>
+        <Variable name="ChannelCrc" type="integer" index="15" length="1" access="rw" value="0"/>
+        <Variable name="GroupLink" type="integer" index="0" length="3" access="rw" value="131137"/>
+        <Variable name="GroupLink" type="integer" index="1" length="3" access="rw" value="262210"/>
+        <Variable name="GroupLink" type="integer" index="2" length="3" access="rw" value="1048643"/>
+        <Variable name="GroupLink" type="integer" index="3" length="3" access="rw" value="1114753"/>
+        <Variable name="GroupLink" type="integer" index="4" length="3" access="rw" value="1441857"/>
+        <Variable name="GroupLink" type="integer" index="5" length="3" access="rw" value="1507394"/>
+        <Variable name="GroupLink" type="integer" index="6" length="3" access="rw" value="393283"/>
+        <Variable name="GroupLink" type="integer" index="7" length="3" access="rw" value="327746"/>
+        <Variable name="GroupLink" type="bitfield" index="8" length="3" access="rw" value="131072"/>
+        <Variable name="GroupLink" type="bitfield" index="9" length="3" access="rw" value="262144"/>
+        <Variable name="GroupLink" type="integer" index="10" length="3" access="rw" value="393216"/>
+        <Variable name="GroupLink" type="bitfield" index="11" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="12" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="13" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="14" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="15" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="16" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="17" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="18" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="19" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="20" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="21" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="22" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="23" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="24" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="25" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="26" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="27" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="28" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="29" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="30" length="3" access="rw" value="0"/>
+        <Variable name="GroupLink" type="bitfield" index="31" length="3" access="rw" value="0"/>
+      </EEPROM>
+    </Node>
+  </Devices>
+  <MulticastGroups>
+    <Group id="1"/>
+  </MulticastGroups>
+  <Visu>
+    <View id="0" name="Standard" offset_x="-100.0" offset_y="249.0">
+      <LEDItem border_width="1.0"/>
+      <LEDItem border_width="1.0" pos_x="226.0" pos_y="625.0" width="16.0" height="16.0" angle="0.0" color="#ff3399" color_on="#00ff00" color_off="#808080"/>
+    </View>
+  </Visu>
+</BusConfig>

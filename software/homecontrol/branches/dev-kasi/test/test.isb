@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<BusConfig>
+  <Global>
+    <ProjectData>
+      <ProjectName>Projektname</ProjectName>
+      <ProjectAddress>Projektadresse</ProjectAddress>
+      <ProjectPostalCode>p12345</ProjectPostalCode>
+      <ProjectCity>Projektort</ProjectCity>
+      <ProjectTel>Projekttelefon</ProjectTel>
+      <ProjectFax>Projektfax</ProjectFax>
+      <ProjectNotes>Dies ist eine Notiz</ProjectNotes>
+    </ProjectData>
+    <CustomerData>
+      <CustomerName>Kundenname</CustomerName>
+      <CustomerAddress>Kundenadresse</CustomerAddress>
+      <CustomerPostalCode>K12345</CustomerPostalCode>
+      <CustomerCity>Kundenort</CustomerCity>
+      <CustomerTel>Kundentelefon</CustomerTel>
+      <CustomerFax>Kundenfax</CustomerFax>
+      <CustomerEmail>Kundenmail</CustomerEmail>
+    </CustomerData>
+    <LastChange>2008-10-14 12:51:11</LastChange>
+    <RemoteData override_global="true"/>
+    <SerialNumberBlock first_id="00=00=00=00=00=11" last_id="00=00=00=00=FF"/>
+  </Global>
+  <Devices>
+    <Node id="1" hardware_id="1.2.0" name="Devnode" serial_id="00=00=00=00=ff=43" bootloader_id="1.0.0" firmware_id="0.0.19">
+      <Input id="0" name="Taster 1"/>
+      <Input id="1" name="Taster 2"/>
+      <Output id="0" name="LED 1" broadcast_id="1"/>
+      <Output id="1" name="Test123" broadcast_id="2"/>
+      <EEPROM config_crc="65535">
+        <WatchdogCTRL value="255"/>
+        <WatchdogResetCounter value="255"/>
+        <BootloaderID value="83886081"/>
+        <Error value="0"/>
+        <NodeID value="1"/>
+        <FirmwareID value="318767104"/>
+        <ConfigCRC value="65535"/>
+        <SerialID1 value="-188"/>
+        <SerialID2 value="65535"/>
+        <HardwareID value="-1"/>
+        <InputPinCFGIN value="194"/>
+      </EEPROM>
+    </Node>
+    <Node id="2" name="in_wall_input" serial_id="00=00=00=00=00=03" hardware_id="2.0.0">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node id="3" hardware_id="3" name="top_hat_rail_io">
+      <Output id="0" name="Neonröhre kalt"/>
+      <Output id="1" name="Neonröhre warm"/>
+      <Output id="2" name="Halogenlampe"/>
+      <Output id="3"/>
+      <Output id="4"/>
+      <Output id="5"/>
+      <Output id="6"/>
+      <Output id="7"/>
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+    </Node>
+    <Node id="5" name="Kueche" parent_id="1234" serial_id="00=00=00=00=00=04" hardware_id="2.0.0">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node id="456" name="Bad" parent_id="1234" serial_id="00=00=00=00=00=05" hardware_id="2.0.0">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node id="8" name="Badezimmerlampe" parent_id="1234" serial_id="00=00=00=00=00=06" hardware_id="2.0.0">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node id="987" name="Keller" parent_id="123" serial_id="00=00=00=00=00=07" hardware_id="2.0.0">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node id="9">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node serial_id="16=15=14=13=12=11">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node serial_id="16=15=14=13=12=11">
+      <EEPROM/>
+      <Input id="0"/>
+      <Input id="1"/>
+      <Output id="0"/>
+      <Output id="1"/>
+    </Node>
+    <Node serial_id="ff=ff=ff=ff=ff=ff" id="4" name="Testknotn">
+      <EEPROM/>
+    </Node>
+    <Node serial_id="00=00=00=00=00=0e">
+      <EEPROM/>
+    </Node>
+    <Node serial_id="00=00=00=00=00=0f">
+      <EEPROM/>
+    </Node>
+  </Devices>
+  <MulticastGroups>
+    <Group id="1"/>
+  </MulticastGroups>
+  <Visu>
+    <View id="0" name="Standard">
+      <LineItem id="55" name="Linie 1" pos_x="649.0" pos_y="229.0" width="100" height="100" color="#ff0000"/>
+      <TextValueItem id="1" name="Text" pos_x="329" pos_y="269" width="150" height="20" node_id="1" fgcolor="#FF0000" bgcolor="#000000" color="#33ff33" border_color="#ff3333"/>
+      <BargraphItem id="6" name="Testitem3" pos_x="738" pos_y="478" width="0" height="0" node_id="1" min_value="0" max_value="100" bar_count="25" area_count="3" orientation="up" limit1="25" limit2="75" bgcolor="#000000" barcolor1="#00FF00" barcolor2="#FFFF00" barcolor3="#FF0000" bar_spacing="2" padding="2"/>
+      <ImageItem id="2" name="Item 2" pos_x="495" pos_y="206" width="32" height="32" node_id="5"/>
+      <ImageItem id="10" name="Testitem2" pos_x="460" pos_y="274" width="16" height="16" node_id="1"/>
+      <ItemGroup>
+        <TextValueItem id="1" name="Text" pos_x="538" pos_y="83" width="150" height="20" node_id="1" fgcolor="#FF0000" bgcolor="#000000"/>
+        <LEDItem id="9" name="Testitem2" pos_x="575" pos_y="119" width="16" height="16" node_id="1" color="#cccccc" color_on="#00cc66" color_off="#ff0099" port_type="out" port_id="0" priority="off"/>
+      </ItemGroup>
+      <ImageItem id="10" name="Testitem2" pos_x="395.0" pos_y="307.0" width="16" height="16" node_id="1" color="#00ffcc"/>
+      <ImageItem id="10" name="Testitem2" pos_x="334.0" pos_y="306.0" width="16" height="16" node_id="1" port_type="out" port_id="0" color="#00ffcc"/>
+      <ImageItem id="10" name="Testitem2" pos_x="395.0" pos_y="307.0" width="16" height="16" node_id="1" color="#00ffcc"/>
+      <ImageItem id="10" name="Testitem2" pos_x="334.0" pos_y="306.0" width="16" height="16" node_id="1" port_type="out" port_id="0" color="#00ffcc"/>
+      <ItemGroup>
+        <ImageItem id="10" name="Testitem3" pos_x="342.0" pos_y="460.0" width="16" height="16" node_id="1" port_type="out" port_id="0" color="#00ffcc"/>
+        <ImageItem id="10" name="Testitem3" pos_x="404.0" pos_y="463.0" width="16" height="16" node_id="1" color="#00ffcc"/>
+      </ItemGroup>
+      <ImageItem id="2" name="Item 4" pos_x="181" pos_y="297" width="32" height="32" node_id="5"/>
+      <ImageItem id="3" name="Item 4" pos_x="161" pos_y="297" width="32" height="32" node_id="555"/>
+      <ButtonItem id="54" name="UP" pos_x="100" pos_y="200" width="80" height="22" node_id="1" color="#404040" type="up"/>
+      <LEDItem id="9" name="Testitem2" pos_x="350" pos_y="144" width="16" height="16" node_id="1" color="#00ffcc" color_on="#ffff00" color_off="#666600" port_type="out" port_id="0" priority="on"/>
+      <LEDItem id="9" name="Testitem2" pos_x="282.0" pos_y="230.0" width="16" height="16" node_id="1" color_on="#ff0000" color_off="#990000" port_type="out" port_id="1" color="#00ffcc" priority="on"/>
+      <ItemGroup/>
+    </View>
+    <View id="1" name="1. Stock">
+      <ImageItem id="1" name="Testitem" pos_x="374" pos_y="308" width="32" height="32" node_id="1"/>
+      <ItemGroup id="1" name="Gruppe 1">
+        <ImageItem id="2" name="Item 2" pos_x="07" pos_y="7" width="32" height="32" node_id="5"/>
+        <ImageItem id="3" name="Item 3" pos_x="7" pos_y="7" width="32" height="32" node_id="555"/>
+      </ItemGroup>
+    </View>
+    <View id="2" name="Test123"/>
+    <View id="3" name="Test-Tab"/>
+  </Visu>
+</BusConfig>

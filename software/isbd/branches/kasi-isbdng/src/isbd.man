@@ -1,0 +1,30 @@
+1  .TH KAFFEE 1 "9. September 97"   
+2  .SH NAME  
+3  kaffee \- Netzwerk-Kaffeemaschine steuern 
+4  .SH SYNOPSIS  
+5  \fBkaffee\fP [ -h | -b ] [ -t \fItyp\fP ] \fImenge\fP  
+6  .SH BESCHREIBUNG  
+7  \fIkaffee\fP schickt eine Anforderung an die Netzwerk-Kaffeemaschine 
+8  \fB/dev/kf0\fR. Der obligatorische Parameter \fImenge\fP gibt die 
+9  verlangte Menge an Kaffee an. Auf Standard-Kaffeemaschinen koennen 
+10 Werte zwischen 0 und 15 gewaehlt werden. 
+11 .SS Optionen  
+12 .TP  
+13 \fB-h\fP  
+14 Heissen Kaffee kochen. Der Default ist kalter Kaffee. 
+15 .TP  
+16 \fB-b\fP  
+17 Kaffee verbrennen. Besonders nuetzlich, wenn Sie \fIkaffee\fP fuer 
+18 Ihren Chef ausfuehren. 
+19 .TP  
+20 \fB-t \fItyp\fR  
+21 Den gewuenschten Kaffeetyp angeben. Erlaubte Werte fuer \fItyp\fP  
+22 sind \fBnormal\fP, \fBschonend\fP und \fBentkoffeiniert\fP.   
+23 .SH DATEIEN 
+24 .TP  
+25 \fI/dev/kf0\fR  
+26 Die Geraetedatei fuer die Netzwerk-Kaffeemaschine 
+27 .SH "SIEHE AUCH"  
+28 milch(5), zucker(5)  
+29 .SH FEHLER  
+30 Benutzereingriff erforderlich, wenn das Kaffeemehl alle ist.

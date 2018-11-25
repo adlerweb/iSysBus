@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf8"?>
+<Bl>
+	<Xmlfile version="1"/>
+	<CreationDate>2011-10-01 00:00:00</CreationDate>
+	<LastModified>2012-02-06 03:02:02</LastModified>
+	<Bootloader code="17-1.0" name="Entwicklerbootloader" stable="1" crc="c1c6d7ee36d83b89ddd9a029116e3293">
+		<Description><![CDATA[]]></Description>
+		<EEPROM/>
+		<Busvariable/>
+		<Config/>
+	</Bootloader>
+</Bl>

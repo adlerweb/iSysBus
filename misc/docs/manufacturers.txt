@@ -1,0 +1,10 @@
+National Semiconductor	http://www.national.com/
+ON Semiconductor	http://www.onsemi.com/
+Toshiba	http://www.semicon.toshiba.co.jp/eng/index.html
+Philips Semiconductor	http://www.semiconductors.philips.com/
+Atmel	http://www.atmel.com/
+Vishay	http://www.vishay.com/
+Microchip	http://www.microchip.com/
+FTDI	http://www.ftdichip.com/
+STMicroelectronics	http://www.st.com/
+Analog Devices	http://www.analog.com/

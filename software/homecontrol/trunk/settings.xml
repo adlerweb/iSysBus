@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+<preferences EXTERNAL_XML_VERSION="1.0">
+  <root type="user">
+    <map/>
+    <node name="org">
+      <map/>
+      <node name="isysbus">
+        <map/>
+        <node name="config">
+          <map/>
+          <node name=".">
+            <map/>
+          </node>
+          <node name="connections">
+            <map>
+              <entry key="ConnectionType" value="serial"/>
+              <entry key="Hostname" value="192.168.101.90"/>
+              <entry key="Password" value=""/>
+              <entry key="Port" value="7970"/>
+              <entry key="SerialPort" value="/dev/ttyUSB0"/>
+              <entry key="Username" value=""/>
+            </map>
+          </node>
+          <node name="global">
+            <map>
+              <entry key="ConsoleLogEnabled" value="true"/>
+              <entry key="LastOpenedProject1" value="/home/adlerweb/prod.isb"/>
+              <entry key="LastOpenedProject2" value="/home/adlerweb/testbus.isb"/>
+              <entry key="LastOpenedProject3" value="/home/adlerweb/Desktop/prod.isb"/>
+              <entry key="LastOpenedProject4" value="/home/adlerweb/Desktop/test.isb"/>
+              <entry key="LastOpenedProject5" value="/media/FB_KNODT_M4/isys.isb"/>
+              <entry key="LastOpenedProject6" value="- leer -"/>
+              <entry key="LogLevel" value="7"/>
+              <entry key="RestoreLastProject" value="true"/>
+            </map>
+          </node>
+          <node name="misc">
+            <map>
+              <entry key="AutoLoadNodeWizard" value="true"/>
+              <entry key="ProgrammerBinary" value="/usr/bin/avrdude"/>
+              <entry key="ProgrammerPort" value="/dev/parport0"/>
+              <entry key="ProgrammerSudo" value="false"/>
+              <entry key="ProgrammerType" value="sp12"/>
+            </map>
+          </node>
+          <node name="program">
+            <map>
+              <entry key="DebugMode" value="true"/>
+              <entry key="ExpertMode" value="true"/>
+              <entry key="MainWinHeight" value="501"/>
+              <entry key="MainWinMaximized" value="true"/>
+              <entry key="MainWinPosX" value="0"/>
+              <entry key="MainWinPosY" value="25"/>
+              <entry key="MainWinWidth" value="893"/>
+              <entry key="MinimizeToTray" value="false"/>
+              <entry key="ShowTrayIcon" value="true"/>
+            </map>
+          </node>
+          <node name="update">
+            <map>
+              <entry key="UpdateServer" value="http://sync.isysbus.org"/>
+            </map>
+          </node>
+        </node>
+      </node>
+    </node>
+  </root>
+</preferences>

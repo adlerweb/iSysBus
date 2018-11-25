@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ProjectSupport>
+  <SupportedProjects>
+    <ProjectName>Project1</ProjectName>
+    <ProjectName>ModTest</ProjectName>
+    <ProjectName>MiniTerm</ProjectName>
+    <ProjectName>ComExample</ProjectName>
+  </SupportedProjects>
+</ProjectSupport>

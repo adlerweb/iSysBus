@@ -1,0 +1,57 @@
+#
+# Sample configuration file for the isb daemon
+#
+
+################################################################################
+# General options
+################################################################################
+
+# Bind Address (0.0.0.0 means ALL IPv4 addresses ) 
+interface=0.0.0.0
+
+# Port to listen on
+port=4723
+
+#
+# Timeout if nothing is typed during the login process
+#
+idle_timeout=10
+
+# Username for remote user connecting to daemon
+username=user
+# Password
+password=pass
+
+#UID=500
+#GID=500
+#
+loglevel=5
+
+################################################################################
+# Interface options
+################################################################################
+
+# Device for communication
+# currently only serial
+device=serial
+
+# Which serial port should be used?
+# Linux:   COMPORT=(/dev/ttyS0|/dev/ttyS1|ttyUSB0/...)
+# Windows: COMPORT=(COM1|COM2|COM3|...)
+comport=/dev/ttyUSB0
+
+# Baudrate of the port
+# BAUDRATE=(9600|38400|115200|250000)
+#baudrate=230400
+baudrate=115200
+
+# which protocol version to use ( very old ISB nodes had a different checksum algorithm, for such buses specify "1" otherwise "2"
+protocol=2
+
+# logging configuration for the log4cxx system
+loggercfg = /opt/isysbus/logger.cfg
+
+# database for Packet logging and multicast state ( e.g. for web-display of output states ) 
+# WARNING: when configuring the bus deactivate the logging as that slows the flashing process massively
+dbname=/opt/isysbus/log.db
+

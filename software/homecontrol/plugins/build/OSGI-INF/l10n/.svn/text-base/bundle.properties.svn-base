@@ -1,0 +1,3 @@
+#Properties file for org.isysbus.homecontrol.compatibility_pack
+command_settings.label = Settings (old)
+command_settings.name = Edit node

@@ -1,0 +1,95 @@
+SOF	1
+ID10..0	11
+SRR	1
+IDE	1
+EID17..0	18
+RTR	1=0
+RB1..0	2=0
+DLC3..0	4
+DATA1..0	16
+CRC	15
+CRC Del	1=1
+Ack	1=?
+//Ack	1=1
+//EOF	7=1
+//IFS	3
+sum=72
+
+1.	dom	SOF
+2.	dom	ID10
+3.	dom
+4.	dom
+5.	dom
+6.	rec
+7.	rec
+8.	rec
+9.	dom
+10.	dom
+11.	dom
+12.	dom	ID0
+13.	dom	SRR
+14.	rec	IDE
+15.	rec	EID17
+16.	rec
+17.	dom
+18.	rec
+19.	rec
+20.	rec
+21.	rec
+22.	dom
+23.	rec
+24.	rec
+25.	rec
+26.	rec
+27.	rec
+28.	dom
+29.	rec
+30.	rec
+31.	rec
+32.	dom	EID0
+33.	dom	RTR
+34.	rec	RB1
+35.	dom	RB0
+36.	dom	DLC3
+37.	dom
+38.	dom
+39.	dom	DLC0
+40.	rec
+41.	dom
+42.	rec
+43.	dom
+44.	dom	DATA7!
+45.	rec
+46.	rec
+47.	rec	DATA4!
+48.	dom	DATA3!
+49.	rec
+50.	rec
+51.	dom	DATA0!
+52.	dom	DATA7!
+53.	dom
+54.	rec
+55.	rec	DATA4!
+56.	dom	DATA3!
+57.	dom
+58.	rec
+59.	dom	DATA0!
+60.	rec
+61.	rec
+62.	rec	CRC14
+63.	rec	CRC13
+64.	rec	CRC12
+65.	dom	CRC11
+66.	rec	CRC10
+67.	rec	CRC9
+68.	dom	CRC8
+69.	dom	CRC7
+70.	dom	CRC6
+71.	dom	CRC5	
+72.	dom	CRC4	ACK
+73.	rec	CRC3
+74.	rec	CRC2
+75.	dom	CRC1
+76.	dom	CRC0
+77.	rec	CRC del
+78-	dom swingout	ACK

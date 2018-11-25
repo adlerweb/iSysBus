@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="utf8"?>
+<Fw>
+	<Xmlfile version="1"/>
+	<CreationDate>2012-05-01 00:00:00</CreationDate>
+	<LastModified>2012-06-08 15:46:49</LastModified>
+	<Firmware code="41-0.0" name="Dummy-Entwicklerfirmware" stable="0" crc="07d111d27ad5e907cc9f4408fd46cc42">
+		<Description><![CDATA[]]></Description>
+		<EEPROM>
+			<Variable name="ChannelControl" index="0" addr="0x0000" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="0" addr="0x0001" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="0" addr="0x0002" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="0" addr="0x0003" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="0" addr="0x0004" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="0" addr="0x0006" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="0" addr="0x0008" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="0" addr="0x000A" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="0" addr="0x000C" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="0" addr="0x000D" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="0" addr="0x000E" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="1" addr="0x0013" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="1" addr="0x0014" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="1" addr="0x0015" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="2" addr="0x001A" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="2" addr="0x001B" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="2" addr="0x001C" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="0" addr="0x0021" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="1" addr="0x0022" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="1" addr="0x0023" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="1" addr="0x0024" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="1" addr="0x0025" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="1" addr="0x0026" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="1" addr="0x0028" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="1" addr="0x002A" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="1" addr="0x002C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="3" addr="0x002E" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="3" addr="0x002F" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="3" addr="0x0030" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="4" addr="0x0035" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="4" addr="0x0036" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="4" addr="0x0037" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="5" addr="0x003C" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="5" addr="0x003D" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="5" addr="0x003E" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="1" addr="0x0043" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="2" addr="0x0044" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="2" addr="0x0045" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="2" addr="0x0046" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="2" addr="0x0047" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="2" addr="0x0048" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="2" addr="0x004A" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="2" addr="0x004C" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="2" addr="0x004E" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="6" addr="0x0050" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="6" addr="0x0051" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="6" addr="0x0052" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="7" addr="0x0057" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="7" addr="0x0058" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="7" addr="0x0059" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="8" addr="0x005E" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="8" addr="0x005F" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="8" addr="0x0060" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="2" addr="0x0065" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="3" addr="0x0066" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="3" addr="0x0067" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="3" addr="0x0068" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="3" addr="0x0069" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="3" addr="0x006A" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="3" addr="0x006C" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="3" addr="0x006E" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="3" addr="0x0070" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="9" addr="0x0072" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="9" addr="0x0073" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="9" addr="0x0074" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="10" addr="0x0079" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="10" addr="0x007A" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="10" addr="0x007B" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="11" addr="0x0080" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="11" addr="0x0081" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="11" addr="0x0082" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="3" addr="0x0087" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="4" addr="0x0088" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="4" addr="0x0089" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="4" addr="0x008A" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="4" addr="0x008B" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="4" addr="0x008C" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="4" addr="0x008E" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="4" addr="0x0090" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="4" addr="0x0092" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="12" addr="0x0094" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="12" addr="0x0095" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="12" addr="0x0096" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="13" addr="0x009B" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="13" addr="0x009C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="13" addr="0x009D" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="14" addr="0x00A2" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="14" addr="0x00A3" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="14" addr="0x00A4" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="4" addr="0x00A9" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="5" addr="0x00AA" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="5" addr="0x00AB" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="5" addr="0x00AC" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="5" addr="0x00AD" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="5" addr="0x00AE" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="5" addr="0x00B0" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="5" addr="0x00B2" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="5" addr="0x00B4" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="15" addr="0x00B6" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="15" addr="0x00B7" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="15" addr="0x00B8" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="16" addr="0x00BD" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="16" addr="0x00BE" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="16" addr="0x00BF" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="17" addr="0x00C4" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="17" addr="0x00C5" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="17" addr="0x00C6" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="5" addr="0x00CB" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="6" addr="0x00CC" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="6" addr="0x00CD" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="6" addr="0x00CE" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="6" addr="0x00CF" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="6" addr="0x00D0" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="6" addr="0x00D2" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="6" addr="0x00D4" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="6" addr="0x00D6" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="18" addr="0x00D8" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="18" addr="0x00D9" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="18" addr="0x00DA" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="19" addr="0x00DF" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="19" addr="0x00E0" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="19" addr="0x00E1" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="20" addr="0x00E6" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="20" addr="0x00E7" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="20" addr="0x00E8" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="6" addr="0x00ED" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="7" addr="0x00EE" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="7" addr="0x00EF" length="1" type="bitfield" access="rw">
+				<BitField name="Source" position="0" length="4"/>
+				<BitField name="Switch1_Enabled" position="4" length="1"/>
+				<BitField name="Switch2_Enabled" position="5" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="7" addr="0x00F0" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_2" index="7" addr="0x00F1" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_Switch1On" index="7" addr="0x00F2" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch1Off" index="7" addr="0x00F4" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2On" index="7" addr="0x00F6" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_Switch2Off" index="7" addr="0x00F8" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="21" addr="0x00FA" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="21" addr="0x00FB" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="21" addr="0x00FC" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="22" addr="0x0101" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="22" addr="0x0102" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="22" addr="0x0103" length="5" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="23" addr="0x0108" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="23" addr="0x0109" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableInitValue" index="23" addr="0x010A" length="5" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="7" addr="0x010F" length="1" type="integer" access="rw"/>
+			<Variable name="GroupLink" index="0" addr="0x0110" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="1" addr="0x0113" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="2" addr="0x0116" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="3" addr="0x0119" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="4" addr="0x011C" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="5" addr="0x011F" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="6" addr="0x0122" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="7" addr="0x0125" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="8" addr="0x0128" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="9" addr="0x012B" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="10" addr="0x012E" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="11" addr="0x0131" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="12" addr="0x0134" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="13" addr="0x0137" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="14" addr="0x013A" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="15" addr="0x013D" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="16" addr="0x0140" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="17" addr="0x0143" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="18" addr="0x0146" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="19" addr="0x0149" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="20" addr="0x014C" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="21" addr="0x014F" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="22" addr="0x0152" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="23" addr="0x0155" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+		</EEPROM>
+		<BusVariables>
+			<BusVariable id="0" name="I0 - Sensor[0]" variable="BusVariableControl[0]" var_type="0x01" tov="BusVariableTOV[0]" internal_id="0"/>
+			<BusVariable id="1" name="I0 - Schalter 1[0]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[1]" internal_id="1"/>
+			<BusVariable id="2" name="I0 - Schalter 2[0]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[2]" internal_id="2"/>
+			<BusVariable id="3" name="I1 - Sensor[1]" variable="BusVariableControl[3]" var_type="0x01" tov="BusVariableTOV[3]" internal_id="3"/>
+			<BusVariable id="4" name="I1 - Schalter 1[1]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[4]" internal_id="4"/>
+			<BusVariable id="5" name="I1 - Schalter 2[1]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[5]" internal_id="5"/>
+			<BusVariable id="6" name="I2 - Sensor[2]" variable="BusVariableControl[6]" var_type="0x01" tov="BusVariableTOV[6]" internal_id="6"/>
+			<BusVariable id="7" name="I2 - Schalter 1[2]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[7]" internal_id="7"/>
+			<BusVariable id="8" name="I2 - Schalter 2[2]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[8]" internal_id="8"/>
+			<BusVariable id="9" name="I3 - Sensor[3]" variable="BusVariableControl[9]" var_type="0x01" tov="BusVariableTOV[9]" internal_id="9"/>
+			<BusVariable id="10" name="I3 - Schalter 1[3]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[10]" internal_id="10"/>
+			<BusVariable id="11" name="I3 - Schalter 2[3]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[11]" internal_id="11"/>
+			<BusVariable id="12" name="I4 - Sensor[4]" variable="BusVariableControl[12]" var_type="0x01" tov="BusVariableTOV[12]" internal_id="12"/>
+			<BusVariable id="13" name="I4 - Schalter 1[4]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[13]" internal_id="13"/>
+			<BusVariable id="14" name="I4 - Schalter 2[4]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[14]" internal_id="14"/>
+			<BusVariable id="15" name="I5 - Sensor[5]" variable="BusVariableControl[15]" var_type="0x01" tov="BusVariableTOV[15]" internal_id="15"/>
+			<BusVariable id="16" name="I5 - Schalter 1[5]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[16]" internal_id="16"/>
+			<BusVariable id="17" name="I5 - Schalter 2[5]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[17]" internal_id="17"/>
+			<BusVariable id="18" name="I6 - Sensor[6]" variable="BusVariableControl[18]" var_type="0x01" tov="BusVariableTOV[18]" internal_id="18"/>
+			<BusVariable id="19" name="I6 - Schalter 1[6]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[19]" internal_id="19"/>
+			<BusVariable id="20" name="I6 - Schalter 2[6]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[20]" internal_id="20"/>
+			<BusVariable id="21" name="I7 - Sensor[7]" variable="BusVariableControl[21]" var_type="0x01" tov="BusVariableTOV[21]" internal_id="21"/>
+			<BusVariable id="22" name="I7 - Schalter 1[7]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[22]" internal_id="22"/>
+			<BusVariable id="23" name="I7 - Schalter 2[7]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[23]" internal_id="23"/>
+		</BusVariables>
+		<Config>
+			<ConfigPage name="Kanal 0 - Analogeingang A0 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[0].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[0].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[0]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[0].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[0]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[0]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[0].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[0]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[0]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[0].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 1 - Analogeingang A1 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[1].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[1].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[1]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[1].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[1]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[1]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[1].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[1]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[1]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[1].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 2 - Analogeingang A2 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[2].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[2].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[2]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[2].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[2]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[2]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[2].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[2]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[2]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[2].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 3 - Analogeingang A3 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[3].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[3].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[3]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[3].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[3]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[3]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[3].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[3]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[3]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[3].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 4 - Analogeingang A4 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[4].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[4].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[4]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[4].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[4]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[4]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[4].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[4]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[4]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[4].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 5 - Analogeingang A5 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[5].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[5].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[5]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[5].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[5]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[5]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[5].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[5]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[5]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[5].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 6 - Analogeingang A6 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[6].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[6].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[6]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[6].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[6]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[6]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[6].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[6]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[6]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[6].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 7 - Analogeingang A7 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[7].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensortyp" variable="AppConfig_0[7].Source" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="twi - DS1621" value="1"/>
+				</SelectBox>
+				<SelectBox name="Sensoradresse" variable="AppConfig_1[7]" default_value="72">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="72" value="72"/>
+					<Option name="73" value="73"/>
+					<Option name="74" value="74"/>
+					<Option name="75" value="75"/>
+					<Option name="76" value="76"/>
+					<Option name="77" value="77"/>
+					<Option name="78" value="78"/>
+					<Option name="79" value="79"/>
+				</SelectBox>
+				<SelectBox name="Temperaturschalter 1" variable="AppConfig_0[7].Switch1_Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch1On[7]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch1Off[7]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Switch1_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<SelectBox name="Temperaturschalter 2" variable="AppConfig_0[7].Switch2_Enaqbled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Deaktiviert" value="0"/>
+					<Option name="Aktiviert" value="1"/>
+				</SelectBox>
+				<FloatBox name="Oberer Grenzwert (Ein)" variable="AppConfig_Switch2On[7]" min_value="0" max_value="255" default_value="19">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+				<FloatBox name="Unterer Grenzwert (Aus)" variable="AppConfig_Switch2Off[7]" min_value="0" max_value="255" default_value="21">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Source">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_0[7].Switch2_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</FloatBox>
+			</ConfigPage>
+		</Config>
+	</Firmware>
+</Fw>

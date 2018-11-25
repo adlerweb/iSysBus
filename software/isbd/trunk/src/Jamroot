@@ -1,0 +1,10 @@
+project : 
+	requirements <include>/opt/macports/include <threading>multi <library-path>/opt/macports/lib/ 
+	: 
+	;
+
+lib boost_system-mt ;
+lib boost_thread-mt ;
+lib boost_program_options-mt ;
+lib log4cxx ; 
+exe isbd : BusDevice.cpp Connection.cpp server.cpp Settings.cpp frame_tools.cpp linux_server.cpp main.cpp md5.cpp tools.cpp boost_system-mt log4cxx boost_program_options-mt boost_thread-mt ;

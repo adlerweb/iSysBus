@@ -1,0 +1,1 @@
+.:lib/cambozola.jar:lib/dom4j-1.6.1.jar:lib/jaxen-1.1.1.jar:lib/jcommon-1.0.16.jar:lib/jersey-client-1.2.jar:lib/jersey-core-1.2.jar:lib/jfreechart-1.0.13.jar:lib/jpf.jar:lib/jsmoothgen-ant.jar:lib/json_simple-1.1.jar:lib/jsr173_1.0_api.jar:lib/jsr311-api-1.1.jar:lib/jxp.jar:lib/nsisant-1.2.jar:lib/RXTXcomm.jar:

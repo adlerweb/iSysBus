@@ -1,0 +1,103 @@
+<project name="HomeControl" default="release">
+	<property name="ApplicationName" value="homecontrol" />
+	<property name="MainClass" value="org.isysbus.homecontrol.gui.HomeControl" />
+	<property file="resources/version.property"/>
+	<property name="ApplicationVersion" value="${program.version}"/>
+	<property file="resources/build.property"/>
+	<property name="ApplicationBuild" value="${build.number}"/>
+    <property name="jsmooth.dir" value="D:/Programme/JSmooth 0.9.9-7" />
+	<property name="nsis.dir" value="D:/Programme/nsis" />
+	
+	<taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpath="lib/jsmoothgen-ant.jar"/>
+	<taskdef name="nsis" classname="net.sf.nsisant.Task" classpath="lib/nsisant-1.2.jar" />
+
+	<path id="compile.classpath">
+		<fileset dir="lib" />
+		<pathelement path="bin" />
+	</path>
+
+	<target name="clean">
+		<delete dir="release/${ApplicationVersion}" failonerror="false"/>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="src" destdir="bin">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="create_directories" depends="clean">
+		<mkdir dir="release" />
+		<mkdir dir="release/${ApplicationVersion}" />
+		<mkdir dir="release/${ApplicationVersion}/lib" />
+		<mkdir dir="release/${ApplicationVersion}/repository" />
+		<copy todir="release/${ApplicationVersion}/lib">
+			<fileset dir="lib" includes="*.jar"/>
+		</copy>
+		<jar jarfile="release/${ApplicationVersion}/lib/resources.jar" basedir="resources" />
+		<copy todir="release/${ApplicationVersion}/3rdparty">
+			<fileset dir="3rdparty"/>
+		</copy>
+
+		<copy todir="release/${ApplicationVersion}">
+			<fileset dir="resources/images/icons/" includes="house.png" />
+			<fileset dir="." includes="rxtxSerial.dll" />
+		</copy>
+
+		<path id="build-classpath">
+			<fileset dir="release/${ApplicationVersion}/lib">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+
+		<manifestclasspath property="lib.list" jarfile="release/${ApplicationVersion}/${ApplicationName}.jar">
+			<classpath refid="build-classpath" />
+		</manifestclasspath>
+
+	</target>
+
+	<target name="create_jar" depends="compile,create_directories">
+		<jar jarfile="release/${ApplicationVersion}/${ApplicationName}.jar" basedir="bin">
+			<fileset dir="." includes="resources/" />
+			<manifest>
+				<attribute name="Main-Class" value="${MainClass}"/>
+				<attribute name="Class-Path" value=". ${lib.list}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="create_wrapper" depends="create_jar">
+		<replaceregexp file="homecontrol.jsmooth" match="(release\\)([^\\]*)(\\homecontrol)" replace="\1${ApplicationVersion}\3" flags="i" byline="true" />
+		<jsmoothgen project="homecontrol.jsmooth" skeletonroot="${jsmooth.dir}/skeletons"/>
+	</target>
+
+	<target name="create_zip" depends="create_wrapper">
+		<zip destfile="release/${ApplicationVersion}/${ApplicationName}_${ApplicationVersion}.zip">
+			<fileset dir="release/${ApplicationVersion}" includes="${ApplicationName}.jar"/>
+			<fileset dir="release/${ApplicationVersion}" includes="${ApplicationName}.exe"/>
+			<fileset dir="release/${ApplicationVersion}" includes="rxtxSerial.dll" />
+			<zipfileset dir="lib" includes="*.jar" prefix="lib" />
+			<zipfileset dir="3rdparty" prefix="3rdparty" />
+		</zip>
+	</target>
+
+	<target name="create_tar_gz">
+		<tar destfile="release/${ApplicationVersion}/${ApplicationName}_${ApplicationVersion}.tar.gz" compression="gzip">
+			<zipfileset src="release/${ApplicationVersion}/${ApplicationName}_${ApplicationVersion}.zip" />
+		</tar>
+	</target>
+
+	<!-- Create installer for application -->
+	<target name="create_installer">
+		<replaceregexp file="setup.nsi" match="(!define VERSION )(.*)$" replace="\1${ApplicationVersion}" flags="i" byline="true" />
+		<nsis script="setup.nsi" path="${nsis.dir}" verbosity="4" out="build.log">
+			<define name="VERSION" value="${ApplicationVersion}"/>
+			<define name="BUILD" value="${ApplicationBuild}"/>
+			<scriptcmd cmd="AutoCloseWindow true"/>
+		</nsis>
+	</target>
+
+	<!-- Create binary distribution -->
+	<target name="release" depends="create_zip,create_tar_gz,create_installer">
+	</target>
+</project>

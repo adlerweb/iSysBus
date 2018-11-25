@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Metadata>
+  <Directory name="repository">
+    <Directory name="bootloader">
+      <File name="bl_16-0.0.xml" crc="c44361220ff6395d2e4398980364baee" timestamp="1276698798"/>
+      <File name="bl_16-0.0.xml"/>
+      <File name="bl_16-0.0.xml"/>
+      <File name="bl_16-0.0.xml" crc="4f437d0b615a31c74085fe7320a3c42" timestamp="5"/>
+      <File name="bl_16-0.0.xml" crc="f015292b60b273c3559b1ffc7b7546d2" timestamp="5"/>
+      <File name="bl_1-1.0.hex" crc="16b09263ed76bb7430b12f2810c15fa8" timestamp="1276698798"/>
+      <File name="bl_0-0.0.xml" crc="2b5d190aa4e8db2679df6b87818f4c80" timestamp="1276698798"/>
+      <File name="bl_1-0.0.xml" crc="f51ebd804b911f64a130c9ef8a8aa7ee" timestamp="1276698798"/>
+      <File name="bl_1-1.0.xml" crc="e15309c87f5721be46431b35ccadfda6" timestamp="1276698798"/>
+      <File name="bl_2-0.0.xml" crc="af9a23b9a56cb5fd00ca2b8f6463fce7" timestamp="1276698798"/>
+      <File name="bl_2-1.0.xml" crc="83e5b3d5cf460306e18af0e11f7a9896" timestamp="1276698798"/>
+      <File name="bl_3-0.0.xml" crc="94d090fbf5a70def2c55ce103cee7843" timestamp="1276698798"/>
+      <File name="bl_3-1.0.xml" crc="143dc1b8c44d6df2e28040bc99ffd7b4" timestamp="1276698799"/>
+      <File name="bl_4-0.0.xml" crc="4bf9b2227479d66094fbb53e9f0ba6ae" timestamp="1276698799"/>
+      <File name="bl_4-1.0.xml" crc="87a49af91c5e924fa4fcf6fa098dc424" timestamp="1276698799"/>
+      <File name="bl_5-0.0.xml" crc="2a934a9da15879121c09dc4f88883578" timestamp="1276698799"/>
+      <File name="bl_5-1.0.xml" crc="45fa3055d0872174d3eb10d02c89e812" timestamp="1276698799"/>
+      <File name="bl_6-0.0.xml" crc="cdf975ac2ee02cfd163ea84cabd68693" timestamp="1276698799"/>
+      <File name="bl_6-1.0.xml" crc="f42a5e6fa9a7ceb75adea9c165637fbb" timestamp="1276698799"/>
+      <File name="bl_7-0.0.xml" crc="6aa32de8fd19696efd49ed4070ac918c" timestamp="1276698799"/>
+      <File name="bl_7-1.0.xml" crc="1267f17e66dd972df2d559f17e326798" timestamp="1276698799"/>
+      <File name="bl_8-0.0.xml" crc="60775fb6089aa94fcc89dde92cd95872" timestamp="1276698799"/>
+      <File name="bl_8-1.0.xml" crc="ef914b3814d3c01f4d902174e79d8973" timestamp="1276698799"/>
+      <File name="bl_9-0.0.xml" crc="134e20577fb4d0495e5332e740f304c9" timestamp="1276698799"/>
+      <File name="bl_9-1.0.xml" crc="e5362d8a2d01a0dd175b9a892ffda14e" timestamp="1276698799"/>
+      <File name="bl_10-0.0.xml" crc="6f4ea401a339657a57017a4ba0e2ca8a" timestamp="1276698799"/>
+      <File name="bl_10-1.0.xml" crc="9d49a811c81c015cb61686a619881e4a" timestamp="1276698799"/>
+      <File name="bl_11-0.0.xml" crc="49420eb28c829970c7119287e47556ab" timestamp="1276698799"/>
+      <File name="bl_11-1.0.xml" crc="99a835a154564e8879cf589c070cabcc" timestamp="1276698799"/>
+      <File name="bl_12-0.0.xml" crc="25c9a2b742127bf69551c3c40e4a3b81" timestamp="1276698799"/>
+      <File name="bl_12-1.0.xml" crc="12dbf732e003127e0f151e28c81f7d44" timestamp="1276698799"/>
+      <File name="bl_13-0.0.xml" crc="b9a7c6c4ec32c5f389ef578118d8ed3d" timestamp="1276698799"/>
+      <File name="bl_13-1.0.xml" crc="edc964f8cfd89b6fcde8d7c6c6dcda0b" timestamp="1276698799"/>
+      <File name="bl_14-0.0.xml" crc="1e6eb6130a175ff239dbd408e9900987" timestamp="1276698799"/>
+      <File name="bl_14-1.0.xml" crc="30ac98e45e1254de8f6d70170e5b1c76" timestamp="1276698799"/>
+      <File name="bl_15-0.0.xml" crc="84c3ad1978c2cc83cb53f501d3b6df1e" timestamp="1276698800"/>
+      <File name="bl_15-1.0.xml" crc="d8868aed54657c73613c6de5c9c894c5" timestamp="1276698800"/>
+      <File name="bl_1-0.0.hex" crc="69b06fe6604a50fc7b6b8a8d73da952f" timestamp="5"/>
+      <File name="bl_2-1.0.hex" crc="5d182f55e17874eb2e196ebdb1d192b3" timestamp="5"/>
+      <File name="bl_3-1.0.hex" crc="64f2a4ccab65887dead2fae6e4a6afde" timestamp="5"/>
+      <File name="bl_4-1.0.hex" crc="8e54bdd56b6e76d8fa6bff93ff68e245" timestamp="5"/>
+      <File name="bl_5-1.0.hex" crc="c750c8a4be484104971a66fc1cda0cd9" timestamp="5"/>
+      <File name="bl_6-1.0.hex" crc="68540d2c749d413c29cb7fb1f62e2006" timestamp="5"/>
+      <File name="bl_7-1.0.hex" crc="8964f2d515e83540a0ac626b98f1e34f" timestamp="5"/>
+      <File name="bl_8-1.0.hex" crc="917d9a3fe01ea0456d8c8fb813ac950f" timestamp="5"/>
+      <File name="bl_9-1.0.hex" crc="feaa4af54dc0b19dc0a9ae9caa9b2554" timestamp="5"/>
+      <File name="bl_10-1.0.hex" crc="d444f77d9cbfdcecd61d8d0565f63c56" timestamp="5"/>
+      <File name="bl_11-1.0.hex" crc="649b46628917c89c32b62f27869cfb18" timestamp="5"/>
+      <File name="bl_12-1.0.hex" crc="e9175ac6168b4e8a3264086af413eb91" timestamp="5"/>
+      <File name="bl_13-1.0.hex" crc="19e8c5f1ff409febb9feb3da6b9f19f4" timestamp="5"/>
+      <File name="bl_14-1.0.hex" crc="9cea44f0f21d4cf4926d5cf06771d1fd" timestamp="5"/>
+      <File name="bl_15-1.0.hex" crc="d7f3b34143af907e168dbaaac8edd537" timestamp="5"/>
+    </Directory>
+    <Directory name="firmware">
+      <Directory name="test"/>
+    </Directory>
+    <File name="map.xml" crc="1e3a8298e9c369e294e680e29dd3283" timestamp="1276698800"/>
+    <File name="programmers.xml" crc="4a213f721cd28b7d38d8d02f306be91f" timestamp="1276698800"/>
+    <File name="map.xml"/>
+    <File name="programmers.xml"/>
+    <File name="map.xml"/>
+    <File name="programmers.xml"/>
+    <File name="map.xml" crc="381bd1a6b493460189e11c3dcafef8a2" timestamp="5"/>
+    <File name="programmers.xml" crc="4a213f721cd28b7d38d8d02f306be91f" timestamp="5"/>
+    <File name="map.xml" crc="381bd1a6b493460189e11c3dcafef8a2" timestamp="5"/>
+    <File name="programmers.xml" crc="4a213f721cd28b7d38d8d02f306be91f" timestamp="5"/>
+    <Directory name="hardware">
+      <File name="hw_1-1.0.xml" crc="2d607b8888b4c4b5ce0a132dca039c5a" timestamp="5"/>
+      <File name="hw_1-2.0.xml" crc="d7ae8dedf1fb6af7b810cbc6f48d00d" timestamp="5"/>
+      <File name="hw_2-0.0.xml" crc="9152ee35bd4695dd253c452d14c0b76a" timestamp="5"/>
+      <File name="hw_2-1.0.xml" crc="3548ff51df474fef6457a5137864d2bd" timestamp="5"/>
+      <File name="hw_3-0.0.xml" crc="6c45a7058593b3e4a0c8da885e6ba6d7" timestamp="5"/>
+      <File name="hw_3-1.0.xml" crc="2d2d3be8c16feaa5bff5b6fdb25b5575" timestamp="5"/>
+      <File name="hw_3-1.1.xml" crc="c48ad429d27455bd87461df15fbb27fd" timestamp="5"/>
+      <File name="hw_4-0.0.xml" crc="33fda348c28a485849a4c7d0d3f7a386" timestamp="5"/>
+      <File name="hw_4-1.0.xml" crc="535282232c4f4442397750254c4c448" timestamp="5"/>
+      <File name="hw_5-0.0.xml" crc="a3556111077084cd75f0f0a7114f40e3" timestamp="1276698800"/>
+      <File name="hw_5-1.0.xml" crc="3e7322303b59374823b61306ac644ee8" timestamp="5"/>
+      <File name="hw_5-2.0.xml" crc="c47a59150f2e5f997e29d6b62da5e4b9" timestamp="5"/>
+      <File name="hw_5-3.0.xml" crc="a0c4446d24bf8f5a0d5f8345edc9fbcc" timestamp="5"/>
+      <File name="hw_6-0.1.xml" crc="653f7e00181601b333a862fa7e07b8ea" timestamp="5"/>
+      <File name="hw_1-3.0.xml" crc="7506bd83cf9c11465580bffaaef2a356" timestamp="5"/>
+      <File name="hw_1-0.0.xml" crc="ace67ac40015e8cd0e5747f58e81595c" timestamp="5"/>
+      <File name="hw_3-2.0.xml" crc="2860b8a219bc4ba2239804d60073be4a" timestamp="5"/>
+      <File name="hw_3-2.1.xml" crc="47ba5bff7fe7e0cbf60eb496d66782a0" timestamp="5"/>
+    </Directory>
+    <File name="isysbus_sync.key" crc="ab25be0b47546e408f49e9f144b78c23" timestamp="5"/>
+    <File name="isb_sync.der" crc="aaea8d4fd5564d311fcd327de927b999" timestamp="1276698800"/>
+  </Directory>
+</Metadata>

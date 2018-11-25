@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.isysbus.homecontrol.core.views.NodeListView?after=org.isysbus.homecontrol.nc.commands.EditNodeSettings">
+         <command
+               commandId="org.isysbus.homecontrol.compatibility_pack.commands.EditNodeSettings"
+               label="%command_settings.label" style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.isysbus.homecontrol.compatibility_pack.commands.EditNodeSettings"
+            id="org.isysbus.homecontrol.compatibility_pack.commands.EditNodeSettings"
+            name="%command_settings.name">
+      </command>
+   </extension>
+   <extension
+         point="org.isysbus.homecontrol.core.connections.buslistener">
+      <buslistener
+            class="org.isysbus.homecontrol.compatibility_pack.Activator">
+      </buslistener>
+   </extension>
+
+</plugin>

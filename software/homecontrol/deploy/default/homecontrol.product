@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="HomeControl" uid="org.isysbus.homecontrol.product.default" id="org.isysbus.homecontrol.core.product" application="org.isysbus.homecontrol.core.application" version="0.8.8" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <text>
+         HomeControl Standardversion
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-consoleLog -console</programArgs>
+      <vmArgs>-Xms40m -Xmx256m</vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/HomeControl Core/icons/homecontrol_16x16.png" i32="/HomeControl Core/icons/homecontrol_32x32.png" i48="/HomeControl Core/icons/homecontrol_48x48.png" i64="/HomeControl Core/icons/homecontrol_64x64.png" i128="/HomeControl Core/icons/homecontrol_128x128.png"/>
+
+   <splash
+      location="org.isysbus.homecontrol.core"
+      startupProgressRect="0,185,300,15"
+      startupMessageRect="10,165,280,15"
+      startupForegroundColor="00FFFF" />
+   <launcher name="homecontrol">
+      <solaris/>
+      <win useIco="true">
+         <ico path="/HomeControl Deploy Default/icons/homecontrol.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="com.sun.jersey"/>
+      <plugin id="gnu.io.rxtx"/>
+      <plugin id="org.dom4j"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filesystem" fragment=""/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.p2.core" fragment=""/>
+      <plugin id="org.eclipse.equinox.p2.engine" fragment=""/>
+      <plugin id="org.eclipse.equinox.p2.metadata" fragment=""/>
+      <plugin id="org.eclipse.equinox.p2.metadata.repository" fragment=""/>
+      <plugin id="org.eclipse.equinox.p2.repository" fragment=""/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security" fragment=""/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text" fragment=""/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.text" fragment=""/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.ide" fragment=""/>
+      <plugin id="org.eclipse.ui.win32" fragment="true"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.isysbus.homecontrol.connections.interface.tcp"/>
+      <plugin id="org.isysbus.homecontrol.connections.interfaces.serial" fragment=""/>
+      <plugin id="org.isysbus.homecontrol.core"/>
+      <plugin id="org.isysbus.homecontrol.node_configurator"/>
+      <plugin id="org.isysbus.homecontrol.webclient"/>
+      <plugin id="org.json.simple"/>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.rcp" version="3.7.1.r37x_v20110729-9DB5FmNFnFLSFCtLxnRfMqt15A4A"/>
+   </features>
+
+
+</product>

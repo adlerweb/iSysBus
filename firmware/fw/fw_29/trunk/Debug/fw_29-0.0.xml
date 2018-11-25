@@ -1,0 +1,4287 @@
+<?xml version="1.0" encoding="utf8"?>
+<Fw>
+	<Xmlfile version="1"/>
+	<CreationDate>2012-05-01 00:00:00</CreationDate>
+	<LastModified>2012-06-08 15:45:35</LastModified>
+	<Firmware code="29-0.0" name="Switch-Entwicklerfirmware" stable="0" crc="3fa47301b5f462ec49138f2b2f2828f4">
+		<Description><![CDATA[]]></Description>
+		<EEPROM>
+			<Variable name="ChannelControl" index="0" addr="0x0000" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="0" addr="0x0001" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="0" addr="0x0009" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="0" addr="0x0011" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="0" addr="0x0019" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="0" addr="0x001A" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="0" addr="0x001B" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="0" addr="0x001C" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="0" addr="0x001D" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="0" addr="0x001E" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="0" addr="0x001F" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="0" addr="0x0020" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="0" addr="0x0002" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="0" addr="0x0003" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="1" addr="0x000A" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="1" addr="0x000B" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="2" addr="0x0012" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="2" addr="0x0013" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="3" addr="0x0021" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="3" addr="0x0022" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="0" addr="0x0028" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="1" addr="0x0029" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="1" addr="0x002A" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="1" addr="0x0032" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="1" addr="0x003A" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="1" addr="0x0042" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="1" addr="0x0043" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="1" addr="0x0044" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="1" addr="0x0045" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="1" addr="0x0046" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="1" addr="0x0047" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="1" addr="0x0048" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="1" addr="0x0049" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="4" addr="0x002B" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="4" addr="0x002C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="5" addr="0x0033" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="5" addr="0x0034" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="6" addr="0x003B" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="6" addr="0x003C" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="7" addr="0x004A" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="7" addr="0x004B" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="1" addr="0x0051" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="2" addr="0x0052" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="2" addr="0x0053" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="2" addr="0x005B" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="2" addr="0x0063" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="2" addr="0x006B" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="2" addr="0x006C" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="2" addr="0x006D" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="2" addr="0x006E" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="2" addr="0x006F" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="2" addr="0x0070" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="2" addr="0x0071" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="2" addr="0x0072" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="8" addr="0x0054" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="8" addr="0x0055" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="9" addr="0x005C" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="9" addr="0x005D" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="10" addr="0x0064" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="10" addr="0x0065" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="11" addr="0x0073" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="11" addr="0x0074" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="2" addr="0x007A" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="3" addr="0x007B" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="3" addr="0x007C" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="3" addr="0x0084" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="3" addr="0x008C" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="3" addr="0x0094" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="3" addr="0x0095" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="3" addr="0x0096" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="3" addr="0x0097" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="3" addr="0x0098" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="3" addr="0x0099" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="3" addr="0x009A" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="3" addr="0x009B" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="12" addr="0x007D" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="12" addr="0x007E" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="13" addr="0x0085" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="13" addr="0x0086" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="14" addr="0x008D" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="14" addr="0x008E" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="15" addr="0x009C" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="15" addr="0x009D" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="3" addr="0x00A3" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="4" addr="0x00A4" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="4" addr="0x00A5" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="4" addr="0x00AD" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="4" addr="0x00B5" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="4" addr="0x00BD" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="4" addr="0x00BE" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="4" addr="0x00BF" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="4" addr="0x00C0" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="4" addr="0x00C1" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="4" addr="0x00C2" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="4" addr="0x00C3" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="4" addr="0x00C4" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="16" addr="0x00A6" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="16" addr="0x00A7" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="17" addr="0x00AE" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="17" addr="0x00AF" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="18" addr="0x00B6" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="18" addr="0x00B7" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="19" addr="0x00C5" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="19" addr="0x00C6" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="4" addr="0x00CC" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="5" addr="0x00CD" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="5" addr="0x00CE" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="5" addr="0x00D6" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="5" addr="0x00DE" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="5" addr="0x00E6" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="5" addr="0x00E7" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="5" addr="0x00E8" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="5" addr="0x00E9" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="5" addr="0x00EA" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="5" addr="0x00EB" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="5" addr="0x00EC" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="5" addr="0x00ED" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="20" addr="0x00CF" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="20" addr="0x00D0" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="21" addr="0x00D7" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="21" addr="0x00D8" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="22" addr="0x00DF" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="22" addr="0x00E0" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="23" addr="0x00EE" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="23" addr="0x00EF" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="5" addr="0x00F5" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="6" addr="0x00F6" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="6" addr="0x00F7" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="6" addr="0x00FF" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="6" addr="0x0107" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="6" addr="0x010F" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="6" addr="0x0110" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="6" addr="0x0111" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="6" addr="0x0112" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="6" addr="0x0113" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="6" addr="0x0114" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="6" addr="0x0115" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="6" addr="0x0116" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="24" addr="0x00F8" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="24" addr="0x00F9" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="25" addr="0x0100" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="25" addr="0x0101" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="26" addr="0x0108" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="26" addr="0x0109" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="27" addr="0x0117" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="27" addr="0x0118" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="6" addr="0x011E" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelControl" index="7" addr="0x011F" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_0" index="7" addr="0x0120" length="1" type="bitfield" access="rw">
+				<BitField name="Operation" position="0" length="3"/>
+				<BitField name="Pin0Inverted" position="4" length="1"/>
+				<BitField name="Pin1Enabled" position="5" length="1"/>
+				<BitField name="Pin1Inverted" position="6" length="1"/>
+				<BitField name="Pin1Pullup" position="7" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_1" index="7" addr="0x0128" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_2" index="7" addr="0x0130" length="1" type="bitfield" access="rw">
+				<BitField name="LogicMode" position="0" length="3"/>
+			</Variable>
+			<Variable name="AppConfig_3" index="7" addr="0x0138" length="1" type="bitfield" access="rw">
+				<BitField name="Time_Mode" position="0" length="2"/>
+				<BitField name="Time_PowerUpDelay_Enabled" position="2" length="1"/>
+				<BitField name="Time_PowerDownDelay_Enabled" position="3" length="1"/>
+				<BitField name="Time_Retrigger_Enabled" position="2" length="1"/>
+				<BitField name="Time_Pump_Enabled" position="3" length="1"/>
+			</Variable>
+			<Variable name="AppConfig_4" index="7" addr="0x0139" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_5" index="7" addr="0x013A" length="1" type="bitfield" access="rw"/>
+			<Variable name="AppConfig_6" index="7" addr="0x013B" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_7" index="7" addr="0x013C" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_8" index="7" addr="0x013D" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_9" index="7" addr="0x013E" length="1" type="integer" access="rw"/>
+			<Variable name="AppConfig_10" index="7" addr="0x013F" length="1" type="bitfield" access="rw">
+				<BitField name="Special_Mode" position="0" length="2"/>
+				<BitField name="Special_Object_Inverted" position="2" length="1"/>
+				<BitField name="Special_Blocking_Action_On" position="3" length="2"/>
+				<BitField name="Special_Blocking_Action_Off" position="5" length="3"/>
+				<BitField name="Special_Bondage_Action_Off" position="3" length="2"/>
+			</Variable>
+			<Variable name="BusVariableControl" index="28" addr="0x0121" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="28" addr="0x0122" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="29" addr="0x0129" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="29" addr="0x012A" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="30" addr="0x0131" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="30" addr="0x0132" length="1" type="integer" access="rw"/>
+			<Variable name="BusVariableControl" index="31" addr="0x0140" length="1" type="bitfield" access="rw">
+				<BitField name="Enabled" position="0" length="1"/>
+				<BitField name="Read" position="1" length="1"/>
+				<BitField name="Write" position="2" length="1"/>
+				<BitField name="Send" position="3" length="1"/>
+				<BitField name="Update" position="4" length="1"/>
+				<BitField name="ReadOnInit" position="5" length="1"/>
+			</Variable>
+			<Variable name="BusVariableTOV" index="31" addr="0x0141" length="1" type="integer" access="rw"/>
+			<Variable name="ChannelCrc" index="7" addr="0x0147" length="1" type="integer" access="rw"/>
+			<Variable name="GroupLink" index="0" addr="0x0148" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="1" addr="0x014B" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="2" addr="0x014E" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="3" addr="0x0151" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="4" addr="0x0154" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="5" addr="0x0157" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="6" addr="0x015A" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="7" addr="0x015D" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="8" addr="0x0160" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="9" addr="0x0163" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="10" addr="0x0166" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="11" addr="0x0169" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="12" addr="0x016C" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="13" addr="0x016F" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="14" addr="0x0172" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="15" addr="0x0175" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="16" addr="0x0178" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="17" addr="0x017B" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="18" addr="0x017E" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="19" addr="0x0181" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="20" addr="0x0184" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="21" addr="0x0187" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="22" addr="0x018A" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="23" addr="0x018D" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="24" addr="0x0190" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="25" addr="0x0193" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="26" addr="0x0196" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="27" addr="0x0199" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="28" addr="0x019C" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="29" addr="0x019F" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="30" addr="0x01A2" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+			<Variable name="GroupLink" index="31" addr="0x01A5" length="3" type="bitfield" access="rw">
+				<BitField name="GroupID" position="0" length="16"/>
+				<BitField name="BusVariableID" position="16" length="8"/>
+			</Variable>
+		</EEPROM>
+		<BusVariables>
+			<BusVariable id="0" name="Q0 - Schaltobjekt[0]" variable="BusVariableControl[0]" var_type="0x01" tov="BusVariableTOV[0]" internal_id="0">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="1" name="Q0 - Rückmeldeobjekt[0]" variable="BusVariableControl[1]" var_type="0x01" tov="BusVariableTOV[1]" internal_id="1">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="2" name="Q0 - Logikobjekt[0]" variable="BusVariableControl[2]" var_type="0x01" tov="BusVariableTOV[2]" internal_id="2">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[0].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="3" name="Q0 - Specialobjekt[0]" variable="BusVariableControl[3]" var_type="0x01" tov="BusVariableTOV[3]" internal_id="3">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[0].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="4" name="Q1 - Schaltobjekt[1]" variable="BusVariableControl[4]" var_type="0x01" tov="BusVariableTOV[4]" internal_id="4">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="5" name="Q1 - Rückmeldeobjekt[1]" variable="BusVariableControl[5]" var_type="0x01" tov="BusVariableTOV[5]" internal_id="5">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="6" name="Q1 - Logikobjekt[1]" variable="BusVariableControl[6]" var_type="0x01" tov="BusVariableTOV[6]" internal_id="6">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[1].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="7" name="Q1 - Specialobjekt[1]" variable="BusVariableControl[7]" var_type="0x01" tov="BusVariableTOV[7]" internal_id="7">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[1].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="8" name="Q2 - Schaltobjekt[2]" variable="BusVariableControl[8]" var_type="0x01" tov="BusVariableTOV[8]" internal_id="8">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="9" name="Q2 - Rückmeldeobjekt[2]" variable="BusVariableControl[9]" var_type="0x01" tov="BusVariableTOV[9]" internal_id="9">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="10" name="Q2 - Logikobjekt[2]" variable="BusVariableControl[10]" var_type="0x01" tov="BusVariableTOV[10]" internal_id="10">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[2].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="11" name="Q2 - Specialobjekt[2]" variable="BusVariableControl[11]" var_type="0x01" tov="BusVariableTOV[11]" internal_id="11">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[2].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="12" name="Q3 - Schaltobjekt[3]" variable="BusVariableControl[12]" var_type="0x01" tov="BusVariableTOV[12]" internal_id="12">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="13" name="Q3 - Rückmeldeobjekt[3]" variable="BusVariableControl[13]" var_type="0x01" tov="BusVariableTOV[13]" internal_id="13">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="14" name="Q3 - Logikobjekt[3]" variable="BusVariableControl[14]" var_type="0x01" tov="BusVariableTOV[14]" internal_id="14">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[3].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="15" name="Q3 - Specialobjekt[3]" variable="BusVariableControl[15]" var_type="0x01" tov="BusVariableTOV[15]" internal_id="15">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[3].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="16" name="Q4 - Schaltobjekt[4]" variable="BusVariableControl[16]" var_type="0x01" tov="BusVariableTOV[16]" internal_id="16">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="17" name="Q4 - Rückmeldeobjekt[4]" variable="BusVariableControl[17]" var_type="0x01" tov="BusVariableTOV[17]" internal_id="17">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="18" name="Q4 - Logikobjekt[4]" variable="BusVariableControl[18]" var_type="0x01" tov="BusVariableTOV[18]" internal_id="18">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[4].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="19" name="Q4 - Specialobjekt[4]" variable="BusVariableControl[19]" var_type="0x01" tov="BusVariableTOV[19]" internal_id="19">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[4].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="20" name="Q5 - Schaltobjekt[5]" variable="BusVariableControl[20]" var_type="0x01" tov="BusVariableTOV[20]" internal_id="20">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="21" name="Q5 - Rückmeldeobjekt[5]" variable="BusVariableControl[21]" var_type="0x01" tov="BusVariableTOV[21]" internal_id="21">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="22" name="Q5 - Logikobjekt[5]" variable="BusVariableControl[22]" var_type="0x01" tov="BusVariableTOV[22]" internal_id="22">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[5].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="23" name="Q5 - Specialobjekt[5]" variable="BusVariableControl[23]" var_type="0x01" tov="BusVariableTOV[23]" internal_id="23">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[5].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="24" name="Q6 - Schaltobjekt[6]" variable="BusVariableControl[24]" var_type="0x01" tov="BusVariableTOV[24]" internal_id="24">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="25" name="Q6 - Rückmeldeobjekt[6]" variable="BusVariableControl[25]" var_type="0x01" tov="BusVariableTOV[25]" internal_id="25">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="26" name="Q6 - Logikobjekt[6]" variable="BusVariableControl[26]" var_type="0x01" tov="BusVariableTOV[26]" internal_id="26">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[6].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="27" name="Q6 - Specialobjekt[6]" variable="BusVariableControl[27]" var_type="0x01" tov="BusVariableTOV[27]" internal_id="27">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[6].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="28" name="Q7 - Schaltobjekt[7]" variable="BusVariableControl[28]" var_type="0x01" tov="BusVariableTOV[28]" internal_id="28">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="29" name="Q7 - Rückmeldeobjekt[7]" variable="BusVariableControl[29]" var_type="0x01" tov="BusVariableTOV[29]" internal_id="29">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="30" name="Q7 - Logikobjekt[7]" variable="BusVariableControl[30]" var_type="0x01" tov="BusVariableTOV[30]" internal_id="30">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_2[7].LogicMode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+			<BusVariable id="31" name="Q7 - Specialobjekt[7]" variable="BusVariableControl[31]" var_type="0x01" tov="BusVariableTOV[31]" internal_id="31">
+				<VisibleWhen>
+					<And>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+						<Not>
+							<With variable="AppConfig_10[7].Special_Mode">
+								<Equals value="0"/>
+							</With>
+						</Not>
+					</And>
+				</VisibleWhen>
+			</BusVariable>
+		</BusVariables>
+		<Config>
+			<ConfigPage name="Kanal 0 - Digitalausgang Q0 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[0].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[0].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[0].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[0].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[0].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[0].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[0].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 0 - Digitalausgang Q0 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[0].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[0].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 0 - Digitalausgang Q0 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[0].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[0].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[0].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[0].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[0]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[0].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[0].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[0].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 0 - Digitalausgang Q0 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[0].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[0].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[0].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[0].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[0].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[0].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[0].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[0].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[0].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[0].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[0].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[0].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[0].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[0].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 1 - Digitalausgang Q1 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[1].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[1].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[1].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[1].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[1].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[1].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[1].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 1 - Digitalausgang Q1 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[1].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[1].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 1 - Digitalausgang Q1 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[1].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[1].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[1].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[1].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[1]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[1].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[1].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[1].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 1 - Digitalausgang Q1 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[1].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[1].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[1].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[1].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[1].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[1].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[1].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[1].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[1].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[1].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[1].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[1].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[1].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[1].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 2 - Digitalausgang Q2 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[2].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[2].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[2].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[2].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[2].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[2].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[2].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 2 - Digitalausgang Q2 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[2].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 2 - Digitalausgang Q2 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[2].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[2].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[2].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[2]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[2].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[2].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[2].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 2 - Digitalausgang Q2 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[2].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[2].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[2].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[2].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[2].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[2].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[2].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[2].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[2].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[2].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[2].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[2].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[2].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[2].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 3 - Digitalausgang Q3 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[3].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[3].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[3].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[3].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[3].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[3].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[3].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 3 - Digitalausgang Q3 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[3].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 3 - Digitalausgang Q3 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[3].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[3].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[3].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[3]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[3].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[3].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[3].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 3 - Digitalausgang Q3 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[3].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[3].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[3].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[3].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[3].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[3].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[3].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[3].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[3].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[3].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[3].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[3].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[3].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[3].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 4 - Digitalausgang Q4 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[4].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[4].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[4].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[4].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[4].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[4].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[4].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 4 - Digitalausgang Q4 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[4].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[4].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 4 - Digitalausgang Q4 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[4].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[4].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[4].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[4].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[4]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[4].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[4].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[4].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 4 - Digitalausgang Q4 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[4].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[4].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[4].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[4].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[4].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[4].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[4].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[4].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[4].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[4].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[4].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[4].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[4].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[4].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 5 - Digitalausgang Q5 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[5].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[5].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[5].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[5].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[5].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[5].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[5].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 5 - Digitalausgang Q5 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[5].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[5].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 5 - Digitalausgang Q5 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[5].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[5].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[5].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[5].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[5]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[5].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[5].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[5].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 5 - Digitalausgang Q5 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[5].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[5].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[5].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[5].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[5].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[5].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[5].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[5].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[5].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[5].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[5].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[5].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[5].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[5].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 6 - Digitalausgang Q6 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[6].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[6].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[6].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[6].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[6].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[6].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[6].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 6 - Digitalausgang Q6 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[6].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[6].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 6 - Digitalausgang Q6 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[6].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[6].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[6].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[6].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[6]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[6].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[6].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[6].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 6 - Digitalausgang Q6 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[6].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[6].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[6].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[6].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[6].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[6].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[6].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[6].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[6].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[6].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[6].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[6].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[6].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[6].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 7 - Digitalausgang Q7 - Allgemein">
+				<SelectBox name="Aktiv" variable="ChannelControl[7].Enabled" default_value="0">
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Aktortyp" variable="AppConfig_0[7].Operation" default_value="0">
+					<VisibleWhen>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Standard" value="0"/>
+					<Option name="SSR" value="1"/>
+				</SelectBox>
+				<SelectBox name="Ausgang Invertiert" variable="AppConfig_0[7].Pin0Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Enabled" variable="AppConfig_0[7].Pin1Enabled" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Invertiert" variable="AppConfig_0[7].Pin1Inverted" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Kontrolleingang Pullup" variable="AppConfig_0[7].Pin1Pullup" default_value="0">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<Or>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="0"/>
+								</With>
+								<With variable="AppConfig_0[7].Operation">
+									<Equals value="1"/>
+								</With>
+							</Or>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 7 - Digitalausgang Q7 - Verknüpfungsfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[7].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Logikfunktion" variable="AppConfig_2[7].LogicMode">
+					<VisibleWhen>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="UND" value="1"/>
+					<Option name="ODER" value="2"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 7 - Digitalausgang Q7 - Zeitfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[7].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Zeitfunktion" variable="AppConfig_3[7].Time_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Zeitrelaisfunktion" value="1"/>
+					<Option name="Treppenhausfunktion" value="2"/>
+				</SelectBox>
+				<SelectBox name="Einschaltverzögerung" variable="AppConfig_3[7].Time_PowerUpDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_PowerUpDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Ausschaltverzögerung" variable="AppConfig_3[7].Time_PowerDownDelay_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<NumberBox name="Sekunden" variable="AppConfig_7[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_8[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_9[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_PowerDownDelay_Enabled">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Sekunden" variable="AppConfig_4[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Minuten" variable="AppConfig_5[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<NumberBox name="Stunden" variable="AppConfig_6[7]" min_value="0" max_value="255">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+				</NumberBox>
+				<SelectBox name="Nachtriggerbar" variable="AppConfig_3[7].Time_Retrigger_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+				<SelectBox name="Pumpfunktion" variable="AppConfig_3[7].Time_Pump_Enabled">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_3[7].Time_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="Nein" value="0"/>
+					<Option name="Ja" value="1"/>
+				</SelectBox>
+			</ConfigPage>
+			<ConfigPage name="Kanal 7 - Digitalausgang Q7 - Spezialfunktion">
+				<VisibleWhen>
+					<With variable="ChannelControl[7].Enabled">
+						<Equals value="1"/>
+					</With>
+				</VisibleWhen>
+				<SelectBox name="Auswahl der Spezialfunktion" variable="AppConfig_10[7].Special_Mode">
+					<VisibleWhen>
+						<With variable="ChannelControl[7].Enabled">
+							<Equals value="1"/>
+						</With>
+					</VisibleWhen>
+					<Option name="Keine" value="0"/>
+					<Option name="Sperrfunktion" value="1"/>
+					<Option name="Zwangsstellung" value="2"/>
+				</SelectBox>
+				<SelectBox name="Polarität Spezialobjekt" variable="AppConfig_10[7].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[7].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten zu Beginn der Sperrfunktion" variable="AppConfig_10[7].Special_Blocking_Action_On">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[7].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="blinken" value="3"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Sperrfunktion" variable="AppConfig_10[7].Special_Blocking_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[7].Special_Mode">
+								<Equals value="1"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="nachgeführten Zustand einstellen" value="3"/>
+					<Option name="blinken" value="4"/>
+				</SelectBox>
+				<SelectBox name="Polarität Zwangsstellungsobjekt" variable="AppConfig_10[7].Special_Object_Inverted">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[7].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="0=freigegeben 1=gesperrt" value="0"/>
+					<Option name="1=freigegeben 0=gesperrt" value="1"/>
+				</SelectBox>
+				<SelectBox name="Verhalten am Ende der Zwangsstellung" variable="AppConfig1[7].Special_Bondage_Action_Off">
+					<VisibleWhen>
+						<And>
+							<With variable="ChannelControl[7].Enabled">
+								<Equals value="1"/>
+							</With>
+							<With variable="AppConfig_10[7].Special_Mode">
+								<Equals value="2"/>
+							</With>
+						</And>
+					</VisibleWhen>
+					<Option name="keine Änderung des Schaltzustandes" value="0"/>
+					<Option name="ausschalten" value="1"/>
+					<Option name="einschalten" value="2"/>
+					<Option name="Schaltzustand nachführen" value="3"/>
+				</SelectBox>
+			</ConfigPage>
+		</Config>
+	</Firmware>
+</Fw>

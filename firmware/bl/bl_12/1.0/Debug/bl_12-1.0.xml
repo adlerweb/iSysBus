@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf8"?>
+<Bl>
+	<Xmlfile version="1"/>
+	<CreationDate>2011-10-01 00:00:00</CreationDate>
+	<LastModified>2012-02-06 03:00:06</LastModified>
+	<Bootloader code="12-1.0" name="Bootloader" stable="1" crc="e61b307bd1e1d4be9780c957cfd1519a">
+		<Description><![CDATA[<p>Bauteile:</p>
+<p>- ATmega16 (14,7456 MHz, Usart 0)</p>
+<p>- NodeIdentify PB0</p>]]></Description>
+		<EEPROM/>
+		<Busvariable/>
+		<Config/>
+	</Bootloader>
+</Bl>

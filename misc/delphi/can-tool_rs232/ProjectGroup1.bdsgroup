@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{D028BD74-2F73-4D97-9DBF-8E3F6EE0D37F}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="Project1.exe">Project1.bdsproj</Projects>
+      <Projects Name="ComExample.exe">D:\Tools\Delphi\cport310\examples\examples\delphi\ComExample.bdsproj</Projects>
+      <Projects Name="ModTest.exe">D:\Tools\Delphi\cport310\examples\examples\delphi\ModTest.bdsproj</Projects>
+      <Projects Name="MiniTerm.exe">D:\Tools\Delphi\cport310\examples\examples\delphi\MiniTerm.bdsproj</Projects>
+      <Projects Name="Targets">Project1.exe ComExample.exe ModTest.exe MiniTerm.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

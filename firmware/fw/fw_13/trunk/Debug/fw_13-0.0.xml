@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf8"?>
+<Fw>
+	<Xmlfile version="1"/>
+	<CreationDate>2012-05-01 00:00:00</CreationDate>
+	<LastModified>2012-06-08 15:43:52</LastModified>
+	<Firmware code="13-0.0" name="Dummy-Entwicklerfirmware" stable="0" crc="31c24aff19de9342aec714293e94b6e3">
+		<Description><![CDATA[]]></Description>
+		<EEPROM/>
+		<Busvariable/>
+		<Config/>
+	</Firmware>
+</Fw>

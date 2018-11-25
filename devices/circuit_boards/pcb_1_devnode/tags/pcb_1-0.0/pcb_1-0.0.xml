@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Pcb>
+	<Xmlfile version="1"/>
+	<CreationDate>2009-02-16 12:00:00</CreationDate>
+	<LastModified>2009-03-18 12:00:00</LastModified>
+	<Board code="1-0.0" name="TODO">
+		<Description>TODO</Description>
+		<Microcontroller type="ATmega16" clock="internal" clockfreq="1000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega16" clock="internal" clockfreq="8000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega16" clock="external" clockfreq="16000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega32" clock="internal" clockfreq="1000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega32" clock="internal" clockfreq="8000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega32" clock="external" clockfreq="16000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega644" clock="internal" clockfreq="1000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega644" clock="internal" clockfreq="8000000" fuse_h="0xD8" fuse_l="0x3F"/>
+		<Microcontroller type="ATmega644" clock="external" clockfreq="16000000" fuse_h="0xD8" fuse_l="0x3F"/>
+
+
+
+		<Interface type="usart" index="0" ubrr="0x0010" ucsra="0x03" ucsrb="0xB8" ucsrc="0x86"/>
+		<Interface type="can" index="0" ss_port="PORTB" ss_pin="PIN4" cnf1="0x01" cnf2="0xBC" cnf3="0x01"/>
+
+
+
+		<IO ADMUX="0x00" index="0" inverted="true" pin="PIN0" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x01" index="1" inverted="true" pin="PIN1" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x02" index="2" inverted="true" pin="PIN2" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x03" index="3" inverted="true" pin="PIN3" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x04" index="4" inverted="true" pin="PIN4" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x05" index="5" inverted="true" pin="PIN5" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x06" index="6" inverted="true" pin="PIN6" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO ADMUX="0x07" index="7" inverted="true" pin="PIN7" port="PORTA" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+			<TypeOfApplication>0x41</TypeOfApplication>
+		</IO>
+		<IO index="8" inverted="true" pin="PIN0" port="PORTB" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+		</IO>
+		<IO index="9" inverted="true" pin="PIN1" port="PORTB" pullup="true" type="in">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+			<TypeOfApplication>0x03</TypeOfApplication>
+			<TypeOfApplication>0x04</TypeOfApplication>
+		</IO>
+		<IO index="0" inverted="false" pin="PIN0" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="1" inverted="false" pin="PIN1" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="2" inverted="false" pin="PIN2" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="3" inverted="false" pin="PIN3" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="4" inverted="false" pin="PIN4" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="5" inverted="false" pin="PIN5" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="6" inverted="false" pin="PIN6" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="7" inverted="false" pin="PIN7" port="PORTD" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="8" inverted="false" pin="PIN6" port="PORTC" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<IO index="9" inverted="false" pin="PIN7" port="PORTC" type="out">
+			<TypeOfApplication>0x01</TypeOfApplication>
+			<TypeOfApplication>0x02</TypeOfApplication>
+		</IO>
+		<NodeIdentify pin_index="8"/>
+		<Input index="0">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="1">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="2">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="3">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="4">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="5">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="6">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="7">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+			<TypeOfApplication cfg0_type="ADMUX" cfg1_type="Anzahl zusätzlicher Messu" cfg2_type="ParallelverschiebungL" cfg3_type="ParallelverschiebungH" cfg4_type="NeigungskorrekturL" cfg5_type="NeigungskorrekturH" id="0x41" time0="ZeitL" time1="ZeitH"/>
+		</Input>
+		<Input index="8">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+		</Input>
+		<Input index="9">
+			<TypeOfApplication cfg0_type="in" id="0x01"/>
+			<TypeOfApplication cfg0_type="in" id="0x02"/>
+			<TypeOfApplication cfg0_type="in" id="0x03"/>
+			<TypeOfApplication cfg0_type="in" id="0x04"/>
+		</Input>
+		<Output index="0">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="1">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="2">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="3">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="4">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="5">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="6">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="7">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="8">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+		<Output index="9">
+			<TypeOfApplication cfg0_type="out" id="0x01"/>
+			<TypeOfApplication cfg0_type="out" cfg1_type="in" id="0x02"/>
+		</Output>
+	</Hardware>
+</Hw>
+

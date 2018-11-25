@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HomeControl
+Bundle-SymbolicName: org.isysbus.homecontrol.deploy.default;singleton:=true
+Bundle-Version: 0.8.7
+Bundle-Vendor: iSysBus.org

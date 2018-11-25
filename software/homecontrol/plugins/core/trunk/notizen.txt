@@ -1,0 +1,26 @@
+
+// Mit Fenster...
+ProgressMonitorDialog dialog = new ProgressMonitorDialog(shell);
+dialog.run(true, true, new IRunnableWithProgress(){
+    public void run(IProgressMonitor monitor) {
+        monitor.beginTask("Some nice progress message here ...", 100);
+        // execute the task ...
+        monitor.done();
+    }
+});
+
+
+// Im Hintergrund...
+Job job = new Job("My new job") {
+    @Override
+    protected IStatus run(IProgressMonitor monitor) {
+        monitor.beginTask("Some nice progress message here ...", 100);
+        // execute the task ...
+        monitor.done();
+        return Status.OK_STATUS;
+    }
+};
+job.schedule();
+
+// Mehr Infos...
+http://blog.eclipse-tips.com/2009/02/using-progress-bars.html

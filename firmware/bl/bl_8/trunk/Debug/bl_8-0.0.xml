@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf8"?>
+<Bl>
+	<Xmlfile version="1"/>
+	<CreationDate>2011-06-01 00:00:00</CreationDate>
+	<LastModified>2012-02-06 03:07:30</LastModified>
+	<Bootloader code="8-0.0" name="Entwicklerbootloader" stable="0" crc="167c28cd40139d279ced8e422ffbec21">
+		<Description><![CDATA[<p>Bauteile:</p>
+<p>- ATmega16 (8 MHz)</p>
+<p>- MCP2515 (4 MHz, SS PB4,&nbsp;RS RX1BF, Int PD2)</p>
+<p>- NodeIdentify PA7</p>]]></Description>
+		<EEPROM/>
+		<Busvariable/>
+		<Config/>
+	</Bootloader>
+</Bl>

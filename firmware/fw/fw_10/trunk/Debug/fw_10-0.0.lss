@@ -1,0 +1,3252 @@
+
+fw_10-0.0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000dac  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000034  00800060  00000dac  00000e20  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000006  00800094  00000de0  00000e54  2**0
+                  ALLOC
+  3 .stab         0000321c  00000000  00000000  00000e54  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      0000182f  00000000  00000000  00004070  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ec ea       	ldi	r30, 0xAC	; 172
+  68:	fd e0       	ldi	r31, 0x0D	; 13
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a4 39       	cpi	r26, 0x94	; 148
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a4 e9       	ldi	r26, 0x94	; 148
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	aa 39       	cpi	r26, 0x9A	; 154
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 ce 05 	call	0xb9c	; 0xb9c <main>
+  8a:	0c 94 d4 06 	jmp	0xda8	; 0xda8 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__heap_end>
+
+00000092 <eeprom_read_byte>:
+
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+  92:	9c 01       	movw	r18, r24
+    do {} while (!eeprom_is_ready ());
+  94:	e1 99       	sbic	0x1c, 1	; 28
+  96:	fe cf       	rjmp	.-4      	; 0x94 <eeprom_read_byte+0x2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  98:	3f bb       	out	0x1f, r19	; 31
+  9a:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+  9c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  9e:	8d b3       	in	r24, 0x1d	; 29
+}
+  a0:	08 95       	ret
+
+000000a2 <lib_eep_read_byte>:
+#ifndef LIB_EEP_C_
+	#define LIB_EEP_C_
+
+
+
+	uint8_t __attribute__((always_inline)) lib_eep_read_byte(uint8_t * aAddr) {
+  a2:	9c 01       	movw	r18, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  a4:	e1 99       	sbic	0x1c, 1	; 28
+  a6:	fe cf       	rjmp	.-4      	; 0xa4 <lib_eep_read_byte+0x2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  a8:	3f bb       	out	0x1f, r19	; 31
+  aa:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+  ac:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  ae:	8d b3       	in	r24, 0x1d	; 29
+		return eeprom_read_byte(aAddr);;
+	}
+  b0:	08 95       	ret
+
+000000b2 <lib_eep_write_byte>:
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  b2:	e1 99       	sbic	0x1c, 1	; 28
+  b4:	fe cf       	rjmp	.-4      	; 0xb2 <lib_eep_write_byte>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  b6:	9c 01       	movw	r18, r24
+  b8:	9f bb       	out	0x1f, r25	; 31
+  ba:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+  bc:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  be:	8d b3       	in	r24, 0x1d	; 29
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+  c0:	86 17       	cp	r24, r22
+  c2:	51 f0       	breq	.+20     	; 0xd8 <lib_eep_write_byte+0x26>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+  c4:	e1 99       	sbic	0x1c, 1	; 28
+  c6:	fe cf       	rjmp	.-4      	; 0xc4 <lib_eep_write_byte+0x12>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  c8:	3f bb       	out	0x1f, r19	; 31
+  ca:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+  cc:	6d bb       	out	0x1d, r22	; 29
+
+    __asm__ __volatile__ (
+  ce:	0f b6       	in	r0, 0x3f	; 63
+  d0:	f8 94       	cli
+  d2:	e2 9a       	sbi	0x1c, 2	; 28
+  d4:	e1 9a       	sbi	0x1c, 1	; 28
+  d6:	0f be       	out	0x3f, r0	; 63
+  d8:	08 95       	ret
+
+000000da <lib_eep_fw_read_byte>:
+	}
+
+
+
+	uint8_t __attribute__((always_inline)) lib_eep_fw_read_byte(uint8_t * aAddr) {
+		return eeprom_read_byte(Isb_Firmware_Offset + aAddr);;
+  da:	20 91 96 00 	lds	r18, 0x0096
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  de:	e1 99       	sbic	0x1c, 1	; 28
+  e0:	fe cf       	rjmp	.-4      	; 0xde <lib_eep_fw_read_byte+0x4>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  e2:	82 0f       	add	r24, r18
+  e4:	91 1d       	adc	r25, r1
+  e6:	9f bb       	out	0x1f, r25	; 31
+  e8:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+  ea:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  ec:	8d b3       	in	r24, 0x1d	; 29
+	}
+  ee:	08 95       	ret
+
+000000f0 <lib_eep_fw_write_byte>:
+		return eeprom_read_word(Isb_Firmware_Offset + aAddr);;
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_fw_write_byte(uint8_t * aAddr, uint8_t aData) {
+  f0:	ac 01       	movw	r20, r24
+		if (eeprom_read_byte(Isb_Firmware_Offset + aAddr) != aData) {
+  f2:	80 91 96 00 	lds	r24, 0x0096
+  f6:	28 2f       	mov	r18, r24
+  f8:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  fa:	e1 99       	sbic	0x1c, 1	; 28
+  fc:	fe cf       	rjmp	.-4      	; 0xfa <lib_eep_fw_write_byte+0xa>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  fe:	ca 01       	movw	r24, r20
+ 100:	82 0f       	add	r24, r18
+ 102:	93 1f       	adc	r25, r19
+ 104:	9f bb       	out	0x1f, r25	; 31
+ 106:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 108:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 10a:	8d b3       	in	r24, 0x1d	; 29
+ 10c:	86 17       	cp	r24, r22
+ 10e:	61 f0       	breq	.+24     	; 0x128 <lib_eep_fw_write_byte+0x38>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 110:	e1 99       	sbic	0x1c, 1	; 28
+ 112:	fe cf       	rjmp	.-4      	; 0x110 <lib_eep_fw_write_byte+0x20>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 114:	24 0f       	add	r18, r20
+ 116:	35 1f       	adc	r19, r21
+ 118:	3f bb       	out	0x1f, r19	; 31
+ 11a:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ 11c:	6d bb       	out	0x1d, r22	; 29
+
+    __asm__ __volatile__ (
+ 11e:	0f b6       	in	r0, 0x3f	; 63
+ 120:	f8 94       	cli
+ 122:	e2 9a       	sbi	0x1c, 2	; 28
+ 124:	e1 9a       	sbi	0x1c, 1	; 28
+ 126:	0f be       	out	0x3f, r0	; 63
+ 128:	08 95       	ret
+
+0000012a <Lib_Pin_Get>:
+	#endif
+
+
+
+	uint8_t Lib_Pin_Get(const uint8_t aPort, const uint8_t aPin) {
+		return (*(PINx[aPort]) >> aPin) & 1;
+ 12a:	e8 2f       	mov	r30, r24
+ 12c:	f0 e0       	ldi	r31, 0x00	; 0
+ 12e:	ee 0f       	add	r30, r30
+ 130:	ff 1f       	adc	r31, r31
+ 132:	ec 57       	subi	r30, 0x7C	; 124
+ 134:	ff 4f       	sbci	r31, 0xFF	; 255
+ 136:	01 90       	ld	r0, Z+
+ 138:	f0 81       	ld	r31, Z
+ 13a:	e0 2d       	mov	r30, r0
+ 13c:	80 81       	ld	r24, Z
+ 13e:	90 e0       	ldi	r25, 0x00	; 0
+ 140:	02 c0       	rjmp	.+4      	; 0x146 <Lib_Pin_Get+0x1c>
+ 142:	95 95       	asr	r25
+ 144:	87 95       	ror	r24
+ 146:	6a 95       	dec	r22
+ 148:	e2 f7       	brpl	.-8      	; 0x142 <Lib_Pin_Get+0x18>
+	}
+ 14a:	81 70       	andi	r24, 0x01	; 1
+ 14c:	08 95       	ret
+
+0000014e <Lib_Pin_Set>:
+
+
+
+	void __attribute__((noinline)) Lib_Pin_Set(const uint8_t aPort, const uint8_t aPin, const uint8_t aCmd) {
+ 14e:	91 e0       	ldi	r25, 0x01	; 1
+ 150:	02 c0       	rjmp	.+4      	; 0x156 <Lib_Pin_Set+0x8>
+		uint8_t mask;
+		uint8_t tmp;
+		volatile uint8_t *reg;
+		uint8_t Pxx = aPin;
+		for (mask = 1; Pxx--; mask <<= 1) ;
+ 152:	99 0f       	add	r25, r25
+ 154:	61 50       	subi	r22, 0x01	; 1
+ 156:	66 23       	and	r22, r22
+ 158:	e1 f7       	brne	.-8      	; 0x152 <Lib_Pin_Set+0x4>
+		reg = PORTx[aPort];
+ 15a:	a8 2f       	mov	r26, r24
+ 15c:	b0 e0       	ldi	r27, 0x00	; 0
+ 15e:	fd 01       	movw	r30, r26
+ 160:	ee 0f       	add	r30, r30
+ 162:	ff 1f       	adc	r31, r31
+ 164:	ec 58       	subi	r30, 0x8C	; 140
+ 166:	ff 4f       	sbci	r31, 0xFF	; 255
+ 168:	01 90       	ld	r0, Z+
+ 16a:	f0 81       	ld	r31, Z
+ 16c:	e0 2d       	mov	r30, r0
+		tmp = *reg | mask;
+ 16e:	80 81       	ld	r24, Z
+ 170:	89 2b       	or	r24, r25
+		if (! (aCmd & 2)) {
+ 172:	41 ff       	sbrs	r20, 1
+			tmp ^= mask;
+ 174:	89 27       	eor	r24, r25
+		}
+		*reg = tmp;
+ 176:	80 83       	st	Z, r24
+		reg = DDRx[aPort];
+ 178:	aa 0f       	add	r26, r26
+ 17a:	bb 1f       	adc	r27, r27
+ 17c:	ac 59       	subi	r26, 0x9C	; 156
+ 17e:	bf 4f       	sbci	r27, 0xFF	; 255
+ 180:	ed 91       	ld	r30, X+
+ 182:	fc 91       	ld	r31, X
+		tmp = *reg | mask;
+ 184:	80 81       	ld	r24, Z
+ 186:	89 2b       	or	r24, r25
+		if (! (aCmd & 1)) {
+ 188:	40 ff       	sbrs	r20, 0
+			tmp ^= mask;
+ 18a:	89 27       	eor	r24, r25
+		}
+		*reg = tmp;
+ 18c:	80 83       	st	Z, r24
+	}
+ 18e:	08 95       	ret
+
+00000190 <Inf_Spi_Init>:
+	#endif /* ISYSBUS_LIB */
+
+
+
+	void Inf_Spi_Init(const unsigned char aCfg)
+	{
+ 190:	df 93       	push	r29
+ 192:	cf 93       	push	r28
+ 194:	0f 92       	push	r0
+ 196:	cd b7       	in	r28, 0x3d	; 61
+ 198:	de b7       	in	r29, 0x3e	; 62
+ 19a:	89 83       	std	Y+1, r24	; 0x01
+
+		if (bit_is_set(aCfg, SPE))
+ 19c:	89 81       	ldd	r24, Y+1	; 0x01
+ 19e:	86 ff       	sbrs	r24, 6
+ 1a0:	0c c0       	rjmp	.+24     	; 0x1ba <Inf_Spi_Init+0x2a>
+		{
+			if (bit_is_set(aCfg, MSTR))
+ 1a2:	89 81       	ldd	r24, Y+1	; 0x01
+ 1a4:	84 ff       	sbrs	r24, 4
+ 1a6:	05 c0       	rjmp	.+10     	; 0x1b2 <Inf_Spi_Init+0x22>
+			{
+				INF_SPI_DDR |= (1 << INF_SPI_DD_MOSI) | (1 << INF_SPI_DD_SCK);
+ 1a8:	87 b3       	in	r24, 0x17	; 23
+ 1aa:	80 6a       	ori	r24, 0xA0	; 160
+ 1ac:	87 bb       	out	0x17, r24	; 23
+				INF_SPI_DDR &= ~(1 << INF_SPI_DD_MISO);
+ 1ae:	be 98       	cbi	0x17, 6	; 23
+ 1b0:	07 c0       	rjmp	.+14     	; 0x1c0 <Inf_Spi_Init+0x30>
+			}
+			else
+			{
+				INF_SPI_DDR |= (1 << INF_SPI_DD_MISO);
+ 1b2:	be 9a       	sbi	0x17, 6	; 23
+				INF_SPI_DDR &= ~(1 << INF_SPI_DD_MOSI) & ~(1 << INF_SPI_DD_SCK);
+ 1b4:	87 b3       	in	r24, 0x17	; 23
+ 1b6:	8f 75       	andi	r24, 0x5F	; 95
+ 1b8:	02 c0       	rjmp	.+4      	; 0x1be <Inf_Spi_Init+0x2e>
+			}
+		}
+		else
+		{
+			INF_SPI_DDR &= ~(1 << INF_SPI_DD_MISO) & ~(1 << INF_SPI_DD_MOSI) & ~(1 << INF_SPI_DD_SCK);
+ 1ba:	87 b3       	in	r24, 0x17	; 23
+ 1bc:	8f 71       	andi	r24, 0x1F	; 31
+ 1be:	87 bb       	out	0x17, r24	; 23
+		}
+
+		SPCR = aCfg;
+ 1c0:	89 81       	ldd	r24, Y+1	; 0x01
+ 1c2:	8d b9       	out	0x0d, r24	; 13
+		SPSR = 0;
+ 1c4:	1e b8       	out	0x0e, r1	; 14
+
+	}
+ 1c6:	0f 90       	pop	r0
+ 1c8:	cf 91       	pop	r28
+ 1ca:	df 91       	pop	r29
+ 1cc:	08 95       	ret
+
+000001ce <Inf_Spi_Rx>:
+
+
+	unsigned char Inf_Spi_Rx(void)
+	{
+
+		SPDR = 0;
+ 1ce:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 1d0:	77 9b       	sbis	0x0e, 7	; 14
+ 1d2:	fe cf       	rjmp	.-4      	; 0x1d0 <Inf_Spi_Rx+0x2>
+		return SPDR;
+ 1d4:	8f b1       	in	r24, 0x0f	; 15
+
+	}
+ 1d6:	08 95       	ret
+
+000001d8 <Inf_Spi_Tx>:
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 1d8:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 1da:	77 9b       	sbis	0x0e, 7	; 14
+ 1dc:	fe cf       	rjmp	.-4      	; 0x1da <Inf_Spi_Tx+0x2>
+
+	}
+ 1de:	08 95       	ret
+
+000001e0 <Inf_Spi_TxRx>:
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 1e0:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 1e2:	77 9b       	sbis	0x0e, 7	; 14
+ 1e4:	fe cf       	rjmp	.-4      	; 0x1e2 <Inf_Spi_TxRx+0x2>
+		return SPDR;
+ 1e6:	8f b1       	in	r24, 0x0f	; 15
+
+	}
+ 1e8:	08 95       	ret
+
+000001ea <Lib_Mcp2515_Read>:
+#ifndef LIB_MCP2515_C_
+	#define LIB_MCP2515_C_
+
+
+
+	uint8_t Lib_Mcp2515_Read(const uint8_t aSSPort, const uint8_t aSSPin, const uint8_t aAddr) {
+ 1ea:	ff 92       	push	r15
+ 1ec:	0f 93       	push	r16
+ 1ee:	1f 93       	push	r17
+ 1f0:	08 2f       	mov	r16, r24
+ 1f2:	f6 2e       	mov	r15, r22
+ 1f4:	14 2f       	mov	r17, r20
+		uint8_t aData;
+		Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 1f6:	41 e0       	ldi	r20, 0x01	; 1
+ 1f8:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 1fc:	83 e0       	ldi	r24, 0x03	; 3
+ 1fe:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 200:	77 9b       	sbis	0x0e, 7	; 14
+ 202:	fe cf       	rjmp	.-4      	; 0x200 <Lib_Mcp2515_Read+0x16>
+		return SPDR;
+ 204:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 206:	1f b9       	out	0x0f, r17	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 208:	77 9b       	sbis	0x0e, 7	; 14
+ 20a:	fe cf       	rjmp	.-4      	; 0x208 <Lib_Mcp2515_Read+0x1e>
+		return SPDR;
+ 20c:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 20e:	8f ef       	ldi	r24, 0xFF	; 255
+ 210:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 212:	77 9b       	sbis	0x0e, 7	; 14
+ 214:	fe cf       	rjmp	.-4      	; 0x212 <Lib_Mcp2515_Read+0x28>
+		return SPDR;
+ 216:	1f b1       	in	r17, 0x0f	; 15
+		Inf_Spi_TxRx(LIB_MCP2515_READ);
+		Inf_Spi_TxRx(aAddr);
+		aData = Inf_Spi_TxRx(0xff);
+		Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 218:	80 2f       	mov	r24, r16
+ 21a:	6f 2d       	mov	r22, r15
+ 21c:	43 e0       	ldi	r20, 0x03	; 3
+ 21e:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+		return aData;
+	}
+ 222:	81 2f       	mov	r24, r17
+ 224:	1f 91       	pop	r17
+ 226:	0f 91       	pop	r16
+ 228:	ff 90       	pop	r15
+ 22a:	08 95       	ret
+
+0000022c <Lib_Mcp2515_Write>:
+
+
+
+	void Lib_Mcp2515_Write(const uint8_t aSSPort, const uint8_t aSSPin, const uint8_t aAddr, const uint8_t aData) {
+ 22c:	ef 92       	push	r14
+ 22e:	ff 92       	push	r15
+ 230:	0f 93       	push	r16
+ 232:	1f 93       	push	r17
+ 234:	08 2f       	mov	r16, r24
+ 236:	f6 2e       	mov	r15, r22
+ 238:	14 2f       	mov	r17, r20
+ 23a:	e2 2e       	mov	r14, r18
+		Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 23c:	41 e0       	ldi	r20, 0x01	; 1
+ 23e:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 242:	82 e0       	ldi	r24, 0x02	; 2
+ 244:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 246:	77 9b       	sbis	0x0e, 7	; 14
+ 248:	fe cf       	rjmp	.-4      	; 0x246 <Lib_Mcp2515_Write+0x1a>
+		return SPDR;
+ 24a:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 24c:	1f b9       	out	0x0f, r17	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 24e:	77 9b       	sbis	0x0e, 7	; 14
+ 250:	fe cf       	rjmp	.-4      	; 0x24e <Lib_Mcp2515_Write+0x22>
+		return SPDR;
+ 252:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 254:	ef b8       	out	0x0f, r14	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 256:	77 9b       	sbis	0x0e, 7	; 14
+ 258:	fe cf       	rjmp	.-4      	; 0x256 <Lib_Mcp2515_Write+0x2a>
+		return SPDR;
+ 25a:	8f b1       	in	r24, 0x0f	; 15
+		Inf_Spi_TxRx(LIB_MCP2515_WRITE);
+		Inf_Spi_TxRx(aAddr);
+		Inf_Spi_TxRx(aData);
+		Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 25c:	80 2f       	mov	r24, r16
+ 25e:	6f 2d       	mov	r22, r15
+ 260:	43 e0       	ldi	r20, 0x03	; 3
+ 262:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+	}
+ 266:	1f 91       	pop	r17
+ 268:	0f 91       	pop	r16
+ 26a:	ff 90       	pop	r15
+ 26c:	ef 90       	pop	r14
+ 26e:	08 95       	ret
+
+00000270 <Lib_Mcp2515_Modify>:
+
+
+
+	void Lib_Mcp2515_Modify(const uint8_t aSSPort, const uint8_t aSSPin, const uint8_t aAddr, const uint8_t aMask, const uint8_t aData) {
+ 270:	df 92       	push	r13
+ 272:	ef 92       	push	r14
+ 274:	ff 92       	push	r15
+ 276:	0f 93       	push	r16
+ 278:	1f 93       	push	r17
+ 27a:	e8 2e       	mov	r14, r24
+ 27c:	d6 2e       	mov	r13, r22
+ 27e:	14 2f       	mov	r17, r20
+ 280:	f2 2e       	mov	r15, r18
+		Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 282:	41 e0       	ldi	r20, 0x01	; 1
+ 284:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 288:	85 e0       	ldi	r24, 0x05	; 5
+ 28a:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 28c:	77 9b       	sbis	0x0e, 7	; 14
+ 28e:	fe cf       	rjmp	.-4      	; 0x28c <Lib_Mcp2515_Modify+0x1c>
+		return SPDR;
+ 290:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 292:	1f b9       	out	0x0f, r17	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 294:	77 9b       	sbis	0x0e, 7	; 14
+ 296:	fe cf       	rjmp	.-4      	; 0x294 <Lib_Mcp2515_Modify+0x24>
+		return SPDR;
+ 298:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 29a:	ff b8       	out	0x0f, r15	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 29c:	77 9b       	sbis	0x0e, 7	; 14
+ 29e:	fe cf       	rjmp	.-4      	; 0x29c <Lib_Mcp2515_Modify+0x2c>
+		return SPDR;
+ 2a0:	8f b1       	in	r24, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 2a2:	0f b9       	out	0x0f, r16	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 2a4:	77 9b       	sbis	0x0e, 7	; 14
+ 2a6:	fe cf       	rjmp	.-4      	; 0x2a4 <Lib_Mcp2515_Modify+0x34>
+		return SPDR;
+ 2a8:	8f b1       	in	r24, 0x0f	; 15
+		Inf_Spi_TxRx(LIB_MCP2515_BIT_MODIFY);
+		Inf_Spi_TxRx(aAddr);
+		Inf_Spi_TxRx(aMask);
+		Inf_Spi_TxRx(aData);
+		Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 2aa:	8e 2d       	mov	r24, r14
+ 2ac:	6d 2d       	mov	r22, r13
+ 2ae:	43 e0       	ldi	r20, 0x03	; 3
+ 2b0:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+	}
+ 2b4:	1f 91       	pop	r17
+ 2b6:	0f 91       	pop	r16
+ 2b8:	ff 90       	pop	r15
+ 2ba:	ef 90       	pop	r14
+ 2bc:	df 90       	pop	r13
+ 2be:	08 95       	ret
+
+000002c0 <Inf_Can_Init>:
+	#define INF_CAN_C_
+
+
+
+	#if defined(INF_CAN0_TX) || defined(INF_CAN0_RX) || defined(INF_CAN1_TX) || defined(INF_CAN1_RX) || defined(INF_CAN2_TX) || defined(INF_CAN2_RX)
+		uint8_t Inf_Can_Init(const uint8_t aSSPort, const uint8_t aSSPin, const uint8_t aSpiCfg, const uint8_t aCnf1, const uint8_t aCnf2, const uint8_t aCnf3, const uint8_t aRSPort, const uint8_t aRSPin, const uint8_t aMode) {
+ 2c0:	8f 92       	push	r8
+ 2c2:	9f 92       	push	r9
+ 2c4:	af 92       	push	r10
+ 2c6:	bf 92       	push	r11
+ 2c8:	cf 92       	push	r12
+ 2ca:	df 92       	push	r13
+ 2cc:	ef 92       	push	r14
+ 2ce:	ff 92       	push	r15
+ 2d0:	0f 93       	push	r16
+ 2d2:	1f 93       	push	r17
+ 2d4:	df 93       	push	r29
+ 2d6:	cf 93       	push	r28
+ 2d8:	cd b7       	in	r28, 0x3d	; 61
+ 2da:	de b7       	in	r29, 0x3e	; 62
+ 2dc:	f8 2e       	mov	r15, r24
+ 2de:	d6 2e       	mov	r13, r22
+ 2e0:	14 2f       	mov	r17, r20
+ 2e2:	b2 2e       	mov	r11, r18
+ 2e4:	90 2e       	mov	r9, r16
+ 2e6:	0c 2d       	mov	r16, r12
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 2e8:	43 e0       	ldi	r20, 0x03	; 3
+ 2ea:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+			Inf_Spi_Init(aSpiCfg);
+ 2ee:	81 2f       	mov	r24, r17
+ 2f0:	0e 94 c8 00 	call	0x190	; 0x190 <Inf_Spi_Init>
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 2f4:	8f 2d       	mov	r24, r15
+ 2f6:	6d 2d       	mov	r22, r13
+ 2f8:	41 e0       	ldi	r20, 0x01	; 1
+ 2fa:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 2fe:	80 ec       	ldi	r24, 0xC0	; 192
+ 300:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 302:	77 9b       	sbis	0x0e, 7	; 14
+ 304:	fe cf       	rjmp	.-4      	; 0x302 <Inf_Can_Init+0x42>
+		return SPDR;
+ 306:	8f b1       	in	r24, 0x0f	; 15
+			Inf_Spi_TxRx(LIB_MCP2515_RESET);
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 308:	8f 2d       	mov	r24, r15
+ 30a:	6d 2d       	mov	r22, r13
+ 30c:	43 e0       	ldi	r20, 0x03	; 3
+ 30e:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 312:	80 e4       	ldi	r24, 0x40	; 64
+ 314:	9f e1       	ldi	r25, 0x1F	; 31
+ 316:	01 97       	sbiw	r24, 0x01	; 1
+ 318:	f1 f7       	brne	.-4      	; 0x316 <Inf_Can_Init+0x56>
+			_delay_ms(2);
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_CNF1, aCnf1);
+ 31a:	8f 2d       	mov	r24, r15
+ 31c:	6d 2d       	mov	r22, r13
+ 31e:	4a e2       	ldi	r20, 0x2A	; 42
+ 320:	2b 2d       	mov	r18, r11
+ 322:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_CNF2, aCnf2);
+ 326:	8f 2d       	mov	r24, r15
+ 328:	6d 2d       	mov	r22, r13
+ 32a:	49 e2       	ldi	r20, 0x29	; 41
+ 32c:	29 2d       	mov	r18, r9
+ 32e:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_CNF3, aCnf3);
+ 332:	8f 2d       	mov	r24, r15
+ 334:	6d 2d       	mov	r22, r13
+ 336:	48 e2       	ldi	r20, 0x28	; 40
+ 338:	2e 2d       	mov	r18, r14
+ 33a:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_RXB0CTRL, 0x64);
+ 33e:	8f 2d       	mov	r24, r15
+ 340:	6d 2d       	mov	r22, r13
+ 342:	40 e6       	ldi	r20, 0x60	; 96
+ 344:	24 e6       	ldi	r18, 0x64	; 100
+ 346:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_RXB1CTRL, 0x60);
+ 34a:	8f 2d       	mov	r24, r15
+ 34c:	6d 2d       	mov	r22, r13
+ 34e:	40 e7       	ldi	r20, 0x70	; 112
+ 350:	20 e6       	ldi	r18, 0x60	; 96
+ 352:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_CANINTE, 0x03);
+ 356:	8f 2d       	mov	r24, r15
+ 358:	6d 2d       	mov	r22, r13
+ 35a:	4b e2       	ldi	r20, 0x2B	; 43
+ 35c:	23 e0       	ldi	r18, 0x03	; 3
+ 35e:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			if (aRSPort != 0) {
+ 362:	00 23       	and	r16, r16
+ 364:	c9 f0       	breq	.+50     	; 0x398 <Inf_Can_Init+0xd8>
+				if (aRSPort < 8) {
+ 366:	08 30       	cpi	r16, 0x08	; 8
+ 368:	30 f4       	brcc	.+12     	; 0x376 <Inf_Can_Init+0xb6>
+					Lib_Pin_Set(aRSPort, aRSPin, LIB_PIN_OUTPUT_LOW);
+ 36a:	80 2f       	mov	r24, r16
+ 36c:	6a 2d       	mov	r22, r10
+ 36e:	41 e0       	ldi	r20, 0x01	; 1
+ 370:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+ 374:	11 c0       	rjmp	.+34     	; 0x398 <Inf_Can_Init+0xd8>
+				}
+//				else if (aRSPort < 16) {
+//					Lib_Pin_Set(aRSPort, aRSPin, LIB_PIN_OUTPUT_HIGH);
+//				}
+				else if (aRSPort == 0xFC) {
+ 376:	0c 3f       	cpi	r16, 0xFC	; 252
+ 378:	31 f4       	brne	.+12     	; 0x386 <Inf_Can_Init+0xc6>
+					Lib_Mcp2515_Modify(aSSPort, aSSPin, LIB_MCP2515_BFPCTRL, 0x14, 0x04);
+ 37a:	8f 2d       	mov	r24, r15
+ 37c:	6d 2d       	mov	r22, r13
+ 37e:	4c e0       	ldi	r20, 0x0C	; 12
+ 380:	24 e1       	ldi	r18, 0x14	; 20
+ 382:	04 e0       	ldi	r16, 0x04	; 4
+ 384:	07 c0       	rjmp	.+14     	; 0x394 <Inf_Can_Init+0xd4>
+				}
+				else if (aRSPort == 0xFD) {
+ 386:	0d 3f       	cpi	r16, 0xFD	; 253
+ 388:	39 f4       	brne	.+14     	; 0x398 <Inf_Can_Init+0xd8>
+					Lib_Mcp2515_Modify(aSSPort, aSSPin, LIB_MCP2515_BFPCTRL, 0x28, 0x08);
+ 38a:	8f 2d       	mov	r24, r15
+ 38c:	6d 2d       	mov	r22, r13
+ 38e:	4c e0       	ldi	r20, 0x0C	; 12
+ 390:	28 e2       	ldi	r18, 0x28	; 40
+ 392:	08 e0       	ldi	r16, 0x08	; 8
+ 394:	0e 94 38 01 	call	0x270	; 0x270 <Lib_Mcp2515_Modify>
+//				}
+//				else if (aRSPort == 0xFF) {
+//					Lib_Mcp2515_Modify(aSSPort, aSSPin, LIB_MCP2515_BFPCTRL, 0x28, 0x28);
+//				}
+			}
+			Lib_Mcp2515_Write(aSSPort, aSSPin, LIB_MCP2515_BFPCTRL, 0x0C);
+ 398:	8f 2d       	mov	r24, r15
+ 39a:	6d 2d       	mov	r22, r13
+ 39c:	4c e0       	ldi	r20, 0x0C	; 12
+ 39e:	2c e0       	ldi	r18, 0x0C	; 12
+ 3a0:	0e 94 16 01 	call	0x22c	; 0x22c <Lib_Mcp2515_Write>
+			Lib_Mcp2515_Modify(aSSPort, aSSPin, LIB_MCP2515_CANCTRL, 0xE0, aMode);
+ 3a4:	8f 2d       	mov	r24, r15
+ 3a6:	6d 2d       	mov	r22, r13
+ 3a8:	4f e0       	ldi	r20, 0x0F	; 15
+ 3aa:	20 ee       	ldi	r18, 0xE0	; 224
+ 3ac:	08 2d       	mov	r16, r8
+ 3ae:	0e 94 38 01 	call	0x270	; 0x270 <Lib_Mcp2515_Modify>
+			if (((Lib_Mcp2515_Read(aSSPort, aSSPin, LIB_MCP2515_CANCTRL)) & 0xE0) == aMode) {
+ 3b2:	8f 2d       	mov	r24, r15
+ 3b4:	6d 2d       	mov	r22, r13
+ 3b6:	4f e0       	ldi	r20, 0x0F	; 15
+ 3b8:	0e 94 f5 00 	call	0x1ea	; 0x1ea <Lib_Mcp2515_Read>
+ 3bc:	40 e0       	ldi	r20, 0x00	; 0
+ 3be:	90 e0       	ldi	r25, 0x00	; 0
+ 3c0:	80 7e       	andi	r24, 0xE0	; 224
+ 3c2:	90 70       	andi	r25, 0x00	; 0
+ 3c4:	28 2d       	mov	r18, r8
+ 3c6:	30 e0       	ldi	r19, 0x00	; 0
+ 3c8:	82 17       	cp	r24, r18
+ 3ca:	93 07       	cpc	r25, r19
+ 3cc:	09 f4       	brne	.+2      	; 0x3d0 <Inf_Can_Init+0x110>
+ 3ce:	41 e0       	ldi	r20, 0x01	; 1
+				return TRUE;
+			}
+			return FALSE;
+		}
+ 3d0:	84 2f       	mov	r24, r20
+ 3d2:	cf 91       	pop	r28
+ 3d4:	df 91       	pop	r29
+ 3d6:	1f 91       	pop	r17
+ 3d8:	0f 91       	pop	r16
+ 3da:	ff 90       	pop	r15
+ 3dc:	ef 90       	pop	r14
+ 3de:	df 90       	pop	r13
+ 3e0:	cf 90       	pop	r12
+ 3e2:	bf 90       	pop	r11
+ 3e4:	af 90       	pop	r10
+ 3e6:	9f 90       	pop	r9
+ 3e8:	8f 90       	pop	r8
+ 3ea:	08 95       	ret
+
+000003ec <Inf_Can_Rx>:
+	#endif /* INF_CAN0_TX || INF_CAN0_RX || INF_CAN1_TX || INF_CAN1_RX || INF_CAN2_TX || INF_CAN2_RX */
+
+
+
+	#if defined(INF_CAN0_RX) || defined(INF_CAN1_RX) || defined(INF_CAN2_RX)
+		uint8_t Inf_Can_Rx(const uint8_t aSSPort, const uint8_t aSSPin, const uint8_t aSpiCfg, const uint8_t aRSPort, const uint8_t aRSPin, Inf_Can_Msg_t * aInf_Can_Msg) {
+ 3ec:	df 92       	push	r13
+ 3ee:	ef 92       	push	r14
+ 3f0:	ff 92       	push	r15
+ 3f2:	0f 93       	push	r16
+ 3f4:	1f 93       	push	r17
+ 3f6:	df 93       	push	r29
+ 3f8:	cf 93       	push	r28
+ 3fa:	0f 92       	push	r0
+ 3fc:	cd b7       	in	r28, 0x3d	; 61
+ 3fe:	de b7       	in	r29, 0x3e	; 62
+ 400:	08 2f       	mov	r16, r24
+ 402:	d6 2e       	mov	r13, r22
+ 404:	14 2f       	mov	r17, r20
+			uint8_t State = 0;
+ 406:	19 82       	std	Y+1, r1	; 0x01
+			uint8_t CmdSave = 0;
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 408:	43 e0       	ldi	r20, 0x03	; 3
+ 40a:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+			Inf_Spi_Init(aSpiCfg);
+ 40e:	81 2f       	mov	r24, r17
+ 410:	0e 94 c8 00 	call	0x190	; 0x190 <Inf_Spi_Init>
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 414:	80 2f       	mov	r24, r16
+ 416:	6d 2d       	mov	r22, r13
+ 418:	41 e0       	ldi	r20, 0x01	; 1
+ 41a:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 41e:	80 eb       	ldi	r24, 0xB0	; 176
+ 420:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 422:	77 9b       	sbis	0x0e, 7	; 14
+ 424:	fe cf       	rjmp	.-4      	; 0x422 <Inf_Can_Rx+0x36>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 426:	8f ef       	ldi	r24, 0xFF	; 255
+ 428:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 42a:	77 9b       	sbis	0x0e, 7	; 14
+ 42c:	fe cf       	rjmp	.-4      	; 0x42a <Inf_Can_Rx+0x3e>
+		return SPDR;
+ 42e:	9f b1       	in	r25, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 430:	8f ef       	ldi	r24, 0xFF	; 255
+ 432:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 434:	77 9b       	sbis	0x0e, 7	; 14
+ 436:	fe cf       	rjmp	.-4      	; 0x434 <Inf_Can_Rx+0x48>
+		return SPDR;
+ 438:	8f b1       	in	r24, 0x0f	; 15
+			Inf_Spi_Tx(LIB_MCP2515_RX_STATUS);
+			State = Inf_Spi_TxRx(0xFF);
+ 43a:	99 83       	std	Y+1, r25	; 0x01
+			Inf_Spi_TxRx(0xFF);
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 43c:	80 2f       	mov	r24, r16
+ 43e:	6d 2d       	mov	r22, r13
+ 440:	43 e0       	ldi	r20, 0x03	; 3
+ 442:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+			if (bit_is_set(State, LIB_MCP2515_RX_STATUS_INSTRUCTION_CANINTF_RX0IF)) {
+ 446:	89 81       	ldd	r24, Y+1	; 0x01
+ 448:	86 ff       	sbrs	r24, 6
+ 44a:	02 c0       	rjmp	.+4      	; 0x450 <Inf_Can_Rx+0x64>
+ 44c:	10 e9       	ldi	r17, 0x90	; 144
+ 44e:	06 c0       	rjmp	.+12     	; 0x45c <Inf_Can_Rx+0x70>
+				CmdSave = LIB_MCP2515_READ_RX_BUFFER0;
+			}
+			else if (bit_is_set(State, LIB_MCP2515_RX_STATUS_INSTRUCTION_CANINTF_RX1IF)) {
+ 450:	89 81       	ldd	r24, Y+1	; 0x01
+ 452:	87 fd       	sbrc	r24, 7
+ 454:	02 c0       	rjmp	.+4      	; 0x45a <Inf_Can_Rx+0x6e>
+ 456:	80 e0       	ldi	r24, 0x00	; 0
+ 458:	47 c0       	rjmp	.+142    	; 0x4e8 <__stack+0x89>
+ 45a:	14 e9       	ldi	r17, 0x94	; 148
+				CmdSave = LIB_MCP2515_READ_RX_BUFFER1;
+			}
+			else {
+				return FALSE;
+			}
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 45c:	80 2f       	mov	r24, r16
+ 45e:	6d 2d       	mov	r22, r13
+ 460:	41 e0       	ldi	r20, 0x01	; 1
+ 462:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 466:	1f b9       	out	0x0f, r17	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 468:	77 9b       	sbis	0x0e, 7	; 14
+ 46a:	fe cf       	rjmp	.-4      	; 0x468 <__stack+0x9>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 46c:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 46e:	77 9b       	sbis	0x0e, 7	; 14
+ 470:	fe cf       	rjmp	.-4      	; 0x46e <__stack+0xf>
+		return SPDR;
+ 472:	8f b1       	in	r24, 0x0f	; 15
+			Inf_Spi_Tx(CmdSave);
+			aInf_Can_Msg->SIdH = Inf_Spi_TxRx(0x00);
+ 474:	f7 01       	movw	r30, r14
+ 476:	81 83       	std	Z+1, r24	; 0x01
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 478:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 47a:	77 9b       	sbis	0x0e, 7	; 14
+ 47c:	fe cf       	rjmp	.-4      	; 0x47a <__stack+0x1b>
+		return SPDR;
+ 47e:	8f b1       	in	r24, 0x0f	; 15
+			aInf_Can_Msg->SIdL = Inf_Spi_TxRx(0x00);
+ 480:	f7 01       	movw	r30, r14
+ 482:	80 83       	st	Z, r24
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 484:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 486:	77 9b       	sbis	0x0e, 7	; 14
+ 488:	fe cf       	rjmp	.-4      	; 0x486 <__stack+0x27>
+		return SPDR;
+ 48a:	8f b1       	in	r24, 0x0f	; 15
+			aInf_Can_Msg->EIdH = Inf_Spi_TxRx(0x00);
+ 48c:	f7 01       	movw	r30, r14
+ 48e:	83 83       	std	Z+3, r24	; 0x03
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 490:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 492:	77 9b       	sbis	0x0e, 7	; 14
+ 494:	fe cf       	rjmp	.-4      	; 0x492 <__stack+0x33>
+		return SPDR;
+ 496:	8f b1       	in	r24, 0x0f	; 15
+			aInf_Can_Msg->EIdL = Inf_Spi_TxRx(0x00);
+ 498:	f7 01       	movw	r30, r14
+ 49a:	82 83       	std	Z+2, r24	; 0x02
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 49c:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 49e:	77 9b       	sbis	0x0e, 7	; 14
+ 4a0:	fe cf       	rjmp	.-4      	; 0x49e <__stack+0x3f>
+		return SPDR;
+ 4a2:	8f b1       	in	r24, 0x0f	; 15
+			aInf_Can_Msg->Dlc = Inf_Spi_TxRx(0x00);
+ 4a4:	f7 01       	movw	r30, r14
+ 4a6:	84 83       	std	Z+4, r24	; 0x04
+			if (bit_is_clear(aInf_Can_Msg->Dlc, 6)) {
+ 4a8:	84 81       	ldd	r24, Z+4	; 0x04
+ 4aa:	86 fd       	sbrc	r24, 6
+ 4ac:	10 c0       	rjmp	.+32     	; 0x4ce <__stack+0x6f>
+ 4ae:	90 e0       	ldi	r25, 0x00	; 0
+ 4b0:	09 c0       	rjmp	.+18     	; 0x4c4 <__stack+0x65>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 4b2:	1f b8       	out	0x0f, r1	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 4b4:	77 9b       	sbis	0x0e, 7	; 14
+ 4b6:	fe cf       	rjmp	.-4      	; 0x4b4 <__stack+0x55>
+		return SPDR;
+ 4b8:	8f b1       	in	r24, 0x0f	; 15
+				for (uint8_t i = 0; i < aInf_Can_Msg->Dlc; i++) {
+					aInf_Can_Msg->Data[i] = Inf_Spi_TxRx(0x00);
+ 4ba:	f7 01       	movw	r30, r14
+ 4bc:	e9 0f       	add	r30, r25
+ 4be:	f1 1d       	adc	r31, r1
+ 4c0:	85 83       	std	Z+5, r24	; 0x05
+			aInf_Can_Msg->SIdL = Inf_Spi_TxRx(0x00);
+			aInf_Can_Msg->EIdH = Inf_Spi_TxRx(0x00);
+			aInf_Can_Msg->EIdL = Inf_Spi_TxRx(0x00);
+			aInf_Can_Msg->Dlc = Inf_Spi_TxRx(0x00);
+			if (bit_is_clear(aInf_Can_Msg->Dlc, 6)) {
+				for (uint8_t i = 0; i < aInf_Can_Msg->Dlc; i++) {
+ 4c2:	9f 5f       	subi	r25, 0xFF	; 255
+ 4c4:	f7 01       	movw	r30, r14
+ 4c6:	84 81       	ldd	r24, Z+4	; 0x04
+ 4c8:	98 17       	cp	r25, r24
+ 4ca:	98 f3       	brcs	.-26     	; 0x4b2 <__stack+0x53>
+ 4cc:	07 c0       	rjmp	.+14     	; 0x4dc <__stack+0x7d>
+ 4ce:	f7 01       	movw	r30, r14
+ 4d0:	80 e0       	ldi	r24, 0x00	; 0
+					aInf_Can_Msg->Data[i] = Inf_Spi_TxRx(0x00);
+				}
+			}
+			else {
+				for (uint8_t i = 0; i < 8; i++) {
+					aInf_Can_Msg->Data[i] = 0x00;
+ 4d2:	15 82       	std	Z+5, r1	; 0x05
+				for (uint8_t i = 0; i < aInf_Can_Msg->Dlc; i++) {
+					aInf_Can_Msg->Data[i] = Inf_Spi_TxRx(0x00);
+				}
+			}
+			else {
+				for (uint8_t i = 0; i < 8; i++) {
+ 4d4:	8f 5f       	subi	r24, 0xFF	; 255
+ 4d6:	31 96       	adiw	r30, 0x01	; 1
+ 4d8:	88 30       	cpi	r24, 0x08	; 8
+ 4da:	d9 f7       	brne	.-10     	; 0x4d2 <__stack+0x73>
+					aInf_Can_Msg->Data[i] = 0x00;
+				}
+			}
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 4dc:	80 2f       	mov	r24, r16
+ 4de:	6d 2d       	mov	r22, r13
+ 4e0:	43 e0       	ldi	r20, 0x03	; 3
+ 4e2:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+ 4e6:	81 e0       	ldi	r24, 0x01	; 1
+			return TRUE;
+		}
+ 4e8:	0f 90       	pop	r0
+ 4ea:	cf 91       	pop	r28
+ 4ec:	df 91       	pop	r29
+ 4ee:	1f 91       	pop	r17
+ 4f0:	0f 91       	pop	r16
+ 4f2:	ff 90       	pop	r15
+ 4f4:	ef 90       	pop	r14
+ 4f6:	df 90       	pop	r13
+ 4f8:	08 95       	ret
+
+000004fa <Inf_Can_Tx>:
+	#endif /* INF_CAN0_RX || INF_CAN1_RX || INF_CAN2_RX */
+
+
+
+	#if defined(INF_CAN0_TX) || defined(INF_CAN1_TX) || defined(INF_CAN2_TX)
+		uint8_t Inf_Can_Tx(const uint8_t aSSPort, const uint8_t aSSPin, const uint8_t aSpiCfg, const uint8_t aRSPort, const uint8_t aRSPin, Inf_Can_Msg_t * aInf_Can_Msg) {
+ 4fa:	cf 92       	push	r12
+ 4fc:	df 92       	push	r13
+ 4fe:	ef 92       	push	r14
+ 500:	ff 92       	push	r15
+ 502:	0f 93       	push	r16
+ 504:	1f 93       	push	r17
+ 506:	df 93       	push	r29
+ 508:	cf 93       	push	r28
+ 50a:	0f 92       	push	r0
+ 50c:	cd b7       	in	r28, 0x3d	; 61
+ 50e:	de b7       	in	r29, 0x3e	; 62
+ 510:	08 2f       	mov	r16, r24
+ 512:	d6 2e       	mov	r13, r22
+ 514:	14 2f       	mov	r17, r20
+			uint8_t State = 0;
+ 516:	19 82       	std	Y+1, r1	; 0x01
+			uint8_t CmdLoad = 0;
+			uint8_t CmdSend = 0;
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 518:	43 e0       	ldi	r20, 0x03	; 3
+ 51a:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+			Inf_Spi_Init(aSpiCfg);
+ 51e:	81 2f       	mov	r24, r17
+ 520:	0e 94 c8 00 	call	0x190	; 0x190 <Inf_Spi_Init>
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 524:	80 2f       	mov	r24, r16
+ 526:	6d 2d       	mov	r22, r13
+ 528:	41 e0       	ldi	r20, 0x01	; 1
+ 52a:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 52e:	80 ea       	ldi	r24, 0xA0	; 160
+ 530:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 532:	77 9b       	sbis	0x0e, 7	; 14
+ 534:	fe cf       	rjmp	.-4      	; 0x532 <Inf_Can_Tx+0x38>
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 536:	8f ef       	ldi	r24, 0xFF	; 255
+ 538:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 53a:	77 9b       	sbis	0x0e, 7	; 14
+ 53c:	fe cf       	rjmp	.-4      	; 0x53a <Inf_Can_Tx+0x40>
+		return SPDR;
+ 53e:	9f b1       	in	r25, 0x0f	; 15
+
+
+	unsigned char Inf_Spi_TxRx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 540:	8f ef       	ldi	r24, 0xFF	; 255
+ 542:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 544:	77 9b       	sbis	0x0e, 7	; 14
+ 546:	fe cf       	rjmp	.-4      	; 0x544 <Inf_Can_Tx+0x4a>
+		return SPDR;
+ 548:	8f b1       	in	r24, 0x0f	; 15
+			Inf_Spi_Tx(LIB_MCP2515_READ_STATUS);
+			State = Inf_Spi_TxRx(0xFF);
+ 54a:	99 83       	std	Y+1, r25	; 0x01
+			Inf_Spi_TxRx(0xFF);
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 54c:	80 2f       	mov	r24, r16
+ 54e:	6d 2d       	mov	r22, r13
+ 550:	43 e0       	ldi	r20, 0x03	; 3
+ 552:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+			if (bit_is_clear(State, LIB_MCP2515_READ_STATUS_TXB0CTRL_TXREQ)) {
+ 556:	89 81       	ldd	r24, Y+1	; 0x01
+ 558:	82 fd       	sbrc	r24, 2
+ 55a:	04 c0       	rjmp	.+8      	; 0x564 <Inf_Can_Tx+0x6a>
+ 55c:	10 e4       	ldi	r17, 0x40	; 64
+ 55e:	61 e8       	ldi	r22, 0x81	; 129
+ 560:	c6 2e       	mov	r12, r22
+ 562:	0f c0       	rjmp	.+30     	; 0x582 <Inf_Can_Tx+0x88>
+				CmdLoad = LIB_MCP2515_LOAD_TX_BUFFER0;
+				CmdSend = LIB_MCP2515_RTS_TX0;
+			}
+			else if (bit_is_clear(State, LIB_MCP2515_READ_STATUS_TXB1CTRL_TXREQ)) {
+ 564:	89 81       	ldd	r24, Y+1	; 0x01
+ 566:	84 fd       	sbrc	r24, 4
+ 568:	04 c0       	rjmp	.+8      	; 0x572 <Inf_Can_Tx+0x78>
+ 56a:	12 e4       	ldi	r17, 0x42	; 66
+ 56c:	52 e8       	ldi	r21, 0x82	; 130
+ 56e:	c5 2e       	mov	r12, r21
+ 570:	08 c0       	rjmp	.+16     	; 0x582 <Inf_Can_Tx+0x88>
+				CmdLoad = LIB_MCP2515_LOAD_TX_BUFFER1;
+				CmdSend = LIB_MCP2515_RTS_TX1;
+			}
+			else if (bit_is_clear(State, LIB_MCP2515_READ_STATUS_TXB2CTRL_TXREQ)) {
+ 572:	89 81       	ldd	r24, Y+1	; 0x01
+ 574:	86 ff       	sbrs	r24, 6
+ 576:	02 c0       	rjmp	.+4      	; 0x57c <Inf_Can_Tx+0x82>
+ 578:	80 e0       	ldi	r24, 0x00	; 0
+ 57a:	48 c0       	rjmp	.+144    	; 0x60c <Inf_Can_Tx+0x112>
+ 57c:	14 e4       	ldi	r17, 0x44	; 68
+ 57e:	44 e8       	ldi	r20, 0x84	; 132
+ 580:	c4 2e       	mov	r12, r20
+				CmdSend = LIB_MCP2515_RTS_TX2;
+			}
+			else {
+				return FALSE;
+			}
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 582:	80 2f       	mov	r24, r16
+ 584:	6d 2d       	mov	r22, r13
+ 586:	41 e0       	ldi	r20, 0x01	; 1
+ 588:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 58c:	1f b9       	out	0x0f, r17	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 58e:	77 9b       	sbis	0x0e, 7	; 14
+ 590:	fe cf       	rjmp	.-4      	; 0x58e <Inf_Can_Tx+0x94>
+			Inf_Spi_Tx(CmdLoad);
+			Inf_Spi_Tx(aInf_Can_Msg->SIdH);
+ 592:	f7 01       	movw	r30, r14
+ 594:	81 81       	ldd	r24, Z+1	; 0x01
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 596:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 598:	77 9b       	sbis	0x0e, 7	; 14
+ 59a:	fe cf       	rjmp	.-4      	; 0x598 <Inf_Can_Tx+0x9e>
+			Inf_Spi_Tx(aInf_Can_Msg->SIdL);
+ 59c:	f7 01       	movw	r30, r14
+ 59e:	80 81       	ld	r24, Z
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 5a0:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 5a2:	77 9b       	sbis	0x0e, 7	; 14
+ 5a4:	fe cf       	rjmp	.-4      	; 0x5a2 <Inf_Can_Tx+0xa8>
+			Inf_Spi_Tx(aInf_Can_Msg->EIdH);
+ 5a6:	f7 01       	movw	r30, r14
+ 5a8:	83 81       	ldd	r24, Z+3	; 0x03
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 5aa:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 5ac:	77 9b       	sbis	0x0e, 7	; 14
+ 5ae:	fe cf       	rjmp	.-4      	; 0x5ac <Inf_Can_Tx+0xb2>
+			Inf_Spi_Tx(aInf_Can_Msg->EIdL);
+ 5b0:	f7 01       	movw	r30, r14
+ 5b2:	82 81       	ldd	r24, Z+2	; 0x02
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 5b4:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 5b6:	77 9b       	sbis	0x0e, 7	; 14
+ 5b8:	fe cf       	rjmp	.-4      	; 0x5b6 <Inf_Can_Tx+0xbc>
+			Inf_Spi_Tx(aInf_Can_Msg->Dlc);
+ 5ba:	f7 01       	movw	r30, r14
+ 5bc:	24 81       	ldd	r18, Z+4	; 0x04
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 5be:	2f b9       	out	0x0f, r18	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 5c0:	77 9b       	sbis	0x0e, 7	; 14
+ 5c2:	fe cf       	rjmp	.-4      	; 0x5c0 <Inf_Can_Tx+0xc6>
+			if (bit_is_clear(aInf_Can_Msg->Dlc, 6)) {
+ 5c4:	f7 01       	movw	r30, r14
+ 5c6:	84 81       	ldd	r24, Z+4	; 0x04
+ 5c8:	86 fd       	sbrc	r24, 6
+ 5ca:	0c c0       	rjmp	.+24     	; 0x5e4 <Inf_Can_Tx+0xea>
+ 5cc:	90 e0       	ldi	r25, 0x00	; 0
+ 5ce:	08 c0       	rjmp	.+16     	; 0x5e0 <Inf_Can_Tx+0xe6>
+				for (uint8_t i = 0; i < aInf_Can_Msg->Dlc; i++)
+				{
+					Inf_Spi_Tx(aInf_Can_Msg->Data[i]);
+ 5d0:	f7 01       	movw	r30, r14
+ 5d2:	e9 0f       	add	r30, r25
+ 5d4:	f1 1d       	adc	r31, r1
+ 5d6:	85 81       	ldd	r24, Z+5	; 0x05
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 5d8:	8f b9       	out	0x0f, r24	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 5da:	77 9b       	sbis	0x0e, 7	; 14
+ 5dc:	fe cf       	rjmp	.-4      	; 0x5da <Inf_Can_Tx+0xe0>
+			Inf_Spi_Tx(aInf_Can_Msg->SIdL);
+			Inf_Spi_Tx(aInf_Can_Msg->EIdH);
+			Inf_Spi_Tx(aInf_Can_Msg->EIdL);
+			Inf_Spi_Tx(aInf_Can_Msg->Dlc);
+			if (bit_is_clear(aInf_Can_Msg->Dlc, 6)) {
+				for (uint8_t i = 0; i < aInf_Can_Msg->Dlc; i++)
+ 5de:	9f 5f       	subi	r25, 0xFF	; 255
+ 5e0:	92 17       	cp	r25, r18
+ 5e2:	b0 f3       	brcs	.-20     	; 0x5d0 <Inf_Can_Tx+0xd6>
+				{
+					Inf_Spi_Tx(aInf_Can_Msg->Data[i]);
+				}
+			}
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 5e4:	80 2f       	mov	r24, r16
+ 5e6:	6d 2d       	mov	r22, r13
+ 5e8:	43 e0       	ldi	r20, 0x03	; 3
+ 5ea:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+			asm volatile("nop");
+ 5ee:	00 00       	nop
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_LOW);
+ 5f0:	80 2f       	mov	r24, r16
+ 5f2:	6d 2d       	mov	r22, r13
+ 5f4:	41 e0       	ldi	r20, 0x01	; 1
+ 5f6:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+
+
+	void Inf_Spi_Tx(const unsigned char Data)
+	{
+
+		SPDR = Data;
+ 5fa:	cf b8       	out	0x0f, r12	; 15
+		loop_until_bit_is_set(SPSR, SPIF);
+ 5fc:	77 9b       	sbis	0x0e, 7	; 14
+ 5fe:	fe cf       	rjmp	.-4      	; 0x5fc <Inf_Can_Tx+0x102>
+			Inf_Spi_Tx(CmdSend);
+			Lib_Pin_Set(aSSPort, aSSPin, LIB_PIN_OUTPUT_HIGH);
+ 600:	80 2f       	mov	r24, r16
+ 602:	6d 2d       	mov	r22, r13
+ 604:	43 e0       	ldi	r20, 0x03	; 3
+ 606:	0e 94 a7 00 	call	0x14e	; 0x14e <Lib_Pin_Set>
+ 60a:	81 e0       	ldi	r24, 0x01	; 1
+			return TRUE;
+		}
+ 60c:	0f 90       	pop	r0
+ 60e:	cf 91       	pop	r28
+ 610:	df 91       	pop	r29
+ 612:	1f 91       	pop	r17
+ 614:	0f 91       	pop	r16
+ 616:	ff 90       	pop	r15
+ 618:	ef 90       	pop	r14
+ 61a:	df 90       	pop	r13
+ 61c:	cf 90       	pop	r12
+ 61e:	08 95       	ret
+
+00000620 <Isb_Inf_Can_Init>:
+#ifndef ISB_INF_CAN_C_
+	#define ISB_INF_CAN_C_
+
+
+
+	uint8_t Isb_Inf_Can_Init(const uint8_t aInf) {
+ 620:	8f 92       	push	r8
+ 622:	af 92       	push	r10
+ 624:	cf 92       	push	r12
+ 626:	ef 92       	push	r14
+ 628:	0f 93       	push	r16
+		uint8_t Result = FALSE;
+		switch (aInf) {
+ 62a:	88 23       	and	r24, r24
+ 62c:	11 f0       	breq	.+4      	; 0x632 <Isb_Inf_Can_Init+0x12>
+ 62e:	80 e0       	ldi	r24, 0x00	; 0
+ 630:	0c c0       	rjmp	.+24     	; 0x64a <Isb_Inf_Can_Init+0x2a>
+			#if ISB_INF_CAN0 == 1
+				case 0:
+					Result = Inf_Can_Init(INF_CAN0_SSPORT, INF_CAN0_SSPIN, INF_CAN0_SPICFG, INF_CAN0_CNF1, INF_CAN0_CNF2, INF_CAN0_CNF3, INF_CAN0_RSPORT, INF_CAN0_RSPIN, INF_CAN0_MODE);
+ 632:	82 e0       	ldi	r24, 0x02	; 2
+ 634:	64 e0       	ldi	r22, 0x04	; 4
+ 636:	41 e5       	ldi	r20, 0x51	; 81
+ 638:	23 e0       	ldi	r18, 0x03	; 3
+ 63a:	06 eb       	ldi	r16, 0xB6	; 182
+ 63c:	74 e0       	ldi	r23, 0x04	; 4
+ 63e:	e7 2e       	mov	r14, r23
+ 640:	cc 24       	eor	r12, r12
+ 642:	aa 24       	eor	r10, r10
+ 644:	88 24       	eor	r8, r8
+ 646:	0e 94 60 01 	call	0x2c0	; 0x2c0 <Inf_Can_Init>
+					Result = Inf_Can_Init(INF_CAN2_SSPORT, INF_CAN2_SSPIN, INF_CAN2_SPICFG, INF_CAN2_CNF1, INF_CAN2_CNF2, INF_CAN2_CNF3, INF_CAN2_RSPORT, INF_CAN2_RSPIN, INF_CAN2_MODE);
+					break;
+			#endif /* ISB_INF_CAN2 == 1 */
+		}
+		return Result;
+	}
+ 64a:	0f 91       	pop	r16
+ 64c:	ef 90       	pop	r14
+ 64e:	cf 90       	pop	r12
+ 650:	af 90       	pop	r10
+ 652:	8f 90       	pop	r8
+ 654:	08 95       	ret
+
+00000656 <Isb_Inf_Can_Rx>:
+
+
+
+	uint8_t Isb_Inf_Can_Rx(const uint8_t aInf, Isb_Msg_t * aIsb_Msg) {
+ 656:	af 92       	push	r10
+ 658:	bf 92       	push	r11
+ 65a:	cf 92       	push	r12
+ 65c:	df 92       	push	r13
+ 65e:	ef 92       	push	r14
+ 660:	ff 92       	push	r15
+ 662:	0f 93       	push	r16
+ 664:	df 93       	push	r29
+ 666:	cf 93       	push	r28
+ 668:	cd b7       	in	r28, 0x3d	; 61
+ 66a:	de b7       	in	r29, 0x3e	; 62
+ 66c:	2d 97       	sbiw	r28, 0x0d	; 13
+ 66e:	0f b6       	in	r0, 0x3f	; 63
+ 670:	f8 94       	cli
+ 672:	de bf       	out	0x3e, r29	; 62
+ 674:	0f be       	out	0x3f, r0	; 63
+ 676:	cd bf       	out	0x3d, r28	; 61
+ 678:	6b 01       	movw	r12, r22
+		uint8_t aSSPort;
+		uint8_t aSSPin;
+		uint8_t aSpiCfg;
+		uint8_t aRSPort;
+		uint8_t aRSPin;
+		switch (aInf) {
+ 67a:	88 23       	and	r24, r24
+ 67c:	09 f0       	breq	.+2      	; 0x680 <Isb_Inf_Can_Rx+0x2a>
+ 67e:	66 c0       	rjmp	.+204    	; 0x74c <Isb_Inf_Can_Rx+0xf6>
+			default:
+				return FALSE;
+				break;
+		}
+		Inf_Can_Msg_t aCanMsg;
+		if (Inf_Can_Rx(aSSPort, aSSPin, aSpiCfg, aRSPort, aRSPin, &aCanMsg) == TRUE) {
+ 680:	82 e0       	ldi	r24, 0x02	; 2
+ 682:	64 e0       	ldi	r22, 0x04	; 4
+ 684:	41 e5       	ldi	r20, 0x51	; 81
+ 686:	20 e0       	ldi	r18, 0x00	; 0
+ 688:	00 e0       	ldi	r16, 0x00	; 0
+ 68a:	5e 01       	movw	r10, r28
+ 68c:	08 94       	sec
+ 68e:	a1 1c       	adc	r10, r1
+ 690:	b1 1c       	adc	r11, r1
+ 692:	75 01       	movw	r14, r10
+ 694:	0e 94 f6 01 	call	0x3ec	; 0x3ec <Inf_Can_Rx>
+ 698:	81 30       	cpi	r24, 0x01	; 1
+ 69a:	09 f0       	breq	.+2      	; 0x69e <Isb_Inf_Can_Rx+0x48>
+ 69c:	57 c0       	rjmp	.+174    	; 0x74c <Isb_Inf_Can_Rx+0xf6>
+			aIsb_Msg->Flags = ((aCanMsg.SIdH & 0xC0) >> 2) | (aCanMsg.Dlc & ISB_MSG_FLAGS_DLC_MASK);
+ 69e:	ea 81       	ldd	r30, Y+2	; 0x02
+ 6a0:	8e 2f       	mov	r24, r30
+ 6a2:	90 e0       	ldi	r25, 0x00	; 0
+ 6a4:	80 7c       	andi	r24, 0xC0	; 192
+ 6a6:	90 70       	andi	r25, 0x00	; 0
+ 6a8:	95 95       	asr	r25
+ 6aa:	87 95       	ror	r24
+ 6ac:	95 95       	asr	r25
+ 6ae:	87 95       	ror	r24
+ 6b0:	0d 81       	ldd	r16, Y+5	; 0x05
+ 6b2:	f0 2f       	mov	r31, r16
+ 6b4:	ff 70       	andi	r31, 0x0F	; 15
+ 6b6:	f8 2b       	or	r31, r24
+ 6b8:	d6 01       	movw	r26, r12
+ 6ba:	fc 93       	st	X, r31
+			aIsb_Msg->DestId = (uint16_t)((aCanMsg.EIdH & 0xF8) >> 3) + (uint16_t)((aCanMsg.SIdL & 0x03) << 5) + (uint16_t)((aCanMsg.SIdL & 0xE0) << 2) + (uint16_t)((aCanMsg.SIdH & 0x3F) << 10);
+ 6bc:	6c 81       	ldd	r22, Y+4	; 0x04
+ 6be:	49 81       	ldd	r20, Y+1	; 0x01
+ 6c0:	50 e0       	ldi	r21, 0x00	; 0
+ 6c2:	3e 2f       	mov	r19, r30
+ 6c4:	33 0f       	add	r19, r19
+ 6c6:	33 0f       	add	r19, r19
+ 6c8:	20 e0       	ldi	r18, 0x00	; 0
+ 6ca:	86 2f       	mov	r24, r22
+ 6cc:	86 95       	lsr	r24
+ 6ce:	86 95       	lsr	r24
+ 6d0:	86 95       	lsr	r24
+ 6d2:	28 0f       	add	r18, r24
+ 6d4:	31 1d       	adc	r19, r1
+ 6d6:	ca 01       	movw	r24, r20
+ 6d8:	83 70       	andi	r24, 0x03	; 3
+ 6da:	90 70       	andi	r25, 0x00	; 0
+ 6dc:	75 e0       	ldi	r23, 0x05	; 5
+ 6de:	88 0f       	add	r24, r24
+ 6e0:	99 1f       	adc	r25, r25
+ 6e2:	7a 95       	dec	r23
+ 6e4:	e1 f7       	brne	.-8      	; 0x6de <Isb_Inf_Can_Rx+0x88>
+ 6e6:	28 0f       	add	r18, r24
+ 6e8:	39 1f       	adc	r19, r25
+ 6ea:	40 7e       	andi	r20, 0xE0	; 224
+ 6ec:	50 70       	andi	r21, 0x00	; 0
+ 6ee:	44 0f       	add	r20, r20
+ 6f0:	55 1f       	adc	r21, r21
+ 6f2:	44 0f       	add	r20, r20
+ 6f4:	55 1f       	adc	r21, r21
+ 6f6:	24 0f       	add	r18, r20
+ 6f8:	35 1f       	adc	r19, r21
+ 6fa:	12 96       	adiw	r26, 0x02	; 2
+ 6fc:	3c 93       	st	X, r19
+ 6fe:	2e 93       	st	-X, r18
+ 700:	11 97       	sbiw	r26, 0x01	; 1
+			aIsb_Msg->SourceId = (uint16_t)aCanMsg.EIdL + (uint16_t)((aCanMsg.EIdH & 0x07) << 8);
+ 702:	70 e0       	ldi	r23, 0x00	; 0
+ 704:	67 70       	andi	r22, 0x07	; 7
+ 706:	70 70       	andi	r23, 0x00	; 0
+ 708:	76 2f       	mov	r23, r22
+ 70a:	66 27       	eor	r22, r22
+ 70c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 70e:	68 0f       	add	r22, r24
+ 710:	71 1d       	adc	r23, r1
+ 712:	14 96       	adiw	r26, 0x04	; 4
+ 714:	7c 93       	st	X, r23
+ 716:	6e 93       	st	-X, r22
+ 718:	13 97       	sbiw	r26, 0x03	; 3
+			if (bit_is_set(aCanMsg.Dlc, 6)) {
+ 71a:	8d 81       	ldd	r24, Y+5	; 0x05
+ 71c:	86 fd       	sbrc	r24, 6
+ 71e:	0a c0       	rjmp	.+20     	; 0x734 <Isb_Inf_Can_Rx+0xde>
+				aIsb_Msg->Flags |= 0x40;
+			}
+			else {
+				for (uint8_t i = 0; i < aCanMsg.Dlc; i++) {
+ 720:	de 01       	movw	r26, r28
+ 722:	16 96       	adiw	r26, 0x06	; 6
+ 724:	f6 01       	movw	r30, r12
+ 726:	20 2f       	mov	r18, r16
+ 728:	30 e0       	ldi	r19, 0x00	; 0
+ 72a:	2b 5f       	subi	r18, 0xFB	; 251
+ 72c:	3f 4f       	sbci	r19, 0xFF	; 255
+ 72e:	2a 0d       	add	r18, r10
+ 730:	3b 1d       	adc	r19, r11
+ 732:	06 c0       	rjmp	.+12     	; 0x740 <Isb_Inf_Can_Rx+0xea>
+		if (Inf_Can_Rx(aSSPort, aSSPin, aSpiCfg, aRSPort, aRSPin, &aCanMsg) == TRUE) {
+			aIsb_Msg->Flags = ((aCanMsg.SIdH & 0xC0) >> 2) | (aCanMsg.Dlc & ISB_MSG_FLAGS_DLC_MASK);
+			aIsb_Msg->DestId = (uint16_t)((aCanMsg.EIdH & 0xF8) >> 3) + (uint16_t)((aCanMsg.SIdL & 0x03) << 5) + (uint16_t)((aCanMsg.SIdL & 0xE0) << 2) + (uint16_t)((aCanMsg.SIdH & 0x3F) << 10);
+			aIsb_Msg->SourceId = (uint16_t)aCanMsg.EIdL + (uint16_t)((aCanMsg.EIdH & 0x07) << 8);
+			if (bit_is_set(aCanMsg.Dlc, 6)) {
+				aIsb_Msg->Flags |= 0x40;
+ 734:	f0 64       	ori	r31, 0x40	; 64
+ 736:	d6 01       	movw	r26, r12
+ 738:	fc 93       	st	X, r31
+ 73a:	06 c0       	rjmp	.+12     	; 0x748 <Isb_Inf_Can_Rx+0xf2>
+			}
+			else {
+				for (uint8_t i = 0; i < aCanMsg.Dlc; i++) {
+					aIsb_Msg->Data[i] = aCanMsg.Data[i];
+ 73c:	8d 91       	ld	r24, X+
+ 73e:	84 83       	std	Z+4, r24	; 0x04
+ 740:	31 96       	adiw	r30, 0x01	; 1
+			aIsb_Msg->SourceId = (uint16_t)aCanMsg.EIdL + (uint16_t)((aCanMsg.EIdH & 0x07) << 8);
+			if (bit_is_set(aCanMsg.Dlc, 6)) {
+				aIsb_Msg->Flags |= 0x40;
+			}
+			else {
+				for (uint8_t i = 0; i < aCanMsg.Dlc; i++) {
+ 742:	a2 17       	cp	r26, r18
+ 744:	b3 07       	cpc	r27, r19
+ 746:	d1 f7       	brne	.-12     	; 0x73c <Isb_Inf_Can_Rx+0xe6>
+ 748:	81 e0       	ldi	r24, 0x01	; 1
+ 74a:	01 c0       	rjmp	.+2      	; 0x74e <Isb_Inf_Can_Rx+0xf8>
+ 74c:	80 e0       	ldi	r24, 0x00	; 0
+				}
+			}
+			return TRUE;
+		}
+		return FALSE;
+	}
+ 74e:	2d 96       	adiw	r28, 0x0d	; 13
+ 750:	0f b6       	in	r0, 0x3f	; 63
+ 752:	f8 94       	cli
+ 754:	de bf       	out	0x3e, r29	; 62
+ 756:	0f be       	out	0x3f, r0	; 63
+ 758:	cd bf       	out	0x3d, r28	; 61
+ 75a:	cf 91       	pop	r28
+ 75c:	df 91       	pop	r29
+ 75e:	0f 91       	pop	r16
+ 760:	ff 90       	pop	r15
+ 762:	ef 90       	pop	r14
+ 764:	df 90       	pop	r13
+ 766:	cf 90       	pop	r12
+ 768:	bf 90       	pop	r11
+ 76a:	af 90       	pop	r10
+ 76c:	08 95       	ret
+
+0000076e <Isb_Inf_Can_Tx>:
+
+
+
+	uint8_t Isb_Inf_Can_Tx(const uint8_t aInf, const Isb_Msg_t * aIsb_Msg) {
+ 76e:	ef 92       	push	r14
+ 770:	ff 92       	push	r15
+ 772:	0f 93       	push	r16
+ 774:	df 93       	push	r29
+ 776:	cf 93       	push	r28
+ 778:	cd b7       	in	r28, 0x3d	; 61
+ 77a:	de b7       	in	r29, 0x3e	; 62
+ 77c:	2d 97       	sbiw	r28, 0x0d	; 13
+ 77e:	0f b6       	in	r0, 0x3f	; 63
+ 780:	f8 94       	cli
+ 782:	de bf       	out	0x3e, r29	; 62
+ 784:	0f be       	out	0x3f, r0	; 63
+ 786:	cd bf       	out	0x3d, r28	; 61
+ 788:	fb 01       	movw	r30, r22
+		uint8_t aSSPort;
+		uint8_t aSSPin;
+		uint8_t aSpiCfg;
+		uint8_t aRSPort;
+		uint8_t aRSPin;
+		switch (aInf) {
+ 78a:	88 23       	and	r24, r24
+ 78c:	11 f0       	breq	.+4      	; 0x792 <Isb_Inf_Can_Tx+0x24>
+ 78e:	90 e0       	ldi	r25, 0x00	; 0
+ 790:	4e c0       	rjmp	.+156    	; 0x82e <Isb_Inf_Can_Tx+0xc0>
+		}
+		Inf_Can_Msg_t aCanMsg;
+		// Write Message to SendBuffer - TXBnSIDH:
+		//	[7..6] = Type
+		//	[5..0] = Dest[15..10]
+		aCanMsg.SIdH = ((aIsb_Msg->Flags << 2) & 0xC0) | (aIsb_Msg->DestId >> 10);
+ 792:	92 81       	ldd	r25, Z+2	; 0x02
+ 794:	96 95       	lsr	r25
+ 796:	96 95       	lsr	r25
+ 798:	60 81       	ld	r22, Z
+ 79a:	86 2f       	mov	r24, r22
+ 79c:	88 0f       	add	r24, r24
+ 79e:	88 0f       	add	r24, r24
+ 7a0:	80 7c       	andi	r24, 0xC0	; 192
+ 7a2:	89 2b       	or	r24, r25
+ 7a4:	8a 83       	std	Y+2, r24	; 0x02
+		//	[7..5] = Dest[9..7]
+		//	[4] = 0
+		//	[3] = 1
+		//	[2] = 0
+		//	[1..0] = Dest[6..5]
+		aCanMsg.SIdL = ((uint8_t)(aIsb_Msg->DestId >> 2) & 0xE0) | 0x08 | ((uint8_t)(aIsb_Msg->DestId >> 5) & 0x03);
+ 7a6:	41 81       	ldd	r20, Z+1	; 0x01
+ 7a8:	52 81       	ldd	r21, Z+2	; 0x02
+ 7aa:	ca 01       	movw	r24, r20
+ 7ac:	96 95       	lsr	r25
+ 7ae:	87 95       	ror	r24
+ 7b0:	96 95       	lsr	r25
+ 7b2:	87 95       	ror	r24
+ 7b4:	80 7e       	andi	r24, 0xE0	; 224
+ 7b6:	9a 01       	movw	r18, r20
+ 7b8:	a5 e0       	ldi	r26, 0x05	; 5
+ 7ba:	36 95       	lsr	r19
+ 7bc:	27 95       	ror	r18
+ 7be:	aa 95       	dec	r26
+ 7c0:	e1 f7       	brne	.-8      	; 0x7ba <Isb_Inf_Can_Tx+0x4c>
+ 7c2:	23 70       	andi	r18, 0x03	; 3
+ 7c4:	82 2b       	or	r24, r18
+ 7c6:	88 60       	ori	r24, 0x08	; 8
+ 7c8:	89 83       	std	Y+1, r24	; 0x01
+		// Write Message to SendBuffer - TXBnEID8:
+		//	[7..3] = Dest[4..0]
+		//	[2..0] = Source[10..8]
+		aCanMsg.EIdH = ((uint8_t)((aIsb_Msg->DestId << 3) & 0xF8)) | ((uint8_t)((aIsb_Msg->SourceId >> 8) & 0x07));
+ 7ca:	84 81       	ldd	r24, Z+4	; 0x04
+ 7cc:	87 70       	andi	r24, 0x07	; 7
+ 7ce:	44 0f       	add	r20, r20
+ 7d0:	44 0f       	add	r20, r20
+ 7d2:	44 0f       	add	r20, r20
+ 7d4:	84 2b       	or	r24, r20
+ 7d6:	8c 83       	std	Y+4, r24	; 0x04
+		// Write Message to SendBuffer - TXBnEID0:
+		//	[7..0] = Source[7..0]
+		aCanMsg.EIdL = (uint8_t)aIsb_Msg->SourceId;
+ 7d8:	83 81       	ldd	r24, Z+3	; 0x03
+ 7da:	8b 83       	std	Y+3, r24	; 0x03
+		// Write Message to SendBuffer - DataLength
+		aCanMsg.Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+ 7dc:	6f 70       	andi	r22, 0x0F	; 15
+ 7de:	6d 83       	std	Y+5, r22	; 0x05
+		// RTR
+		if (bit_is_set(aIsb_Msg->Flags, 6)) {
+ 7e0:	80 81       	ld	r24, Z
+ 7e2:	86 fd       	sbrc	r24, 6
+ 7e4:	0a c0       	rjmp	.+20     	; 0x7fa <Isb_Inf_Can_Tx+0x8c>
+ 7e6:	df 01       	movw	r26, r30
+ 7e8:	fe 01       	movw	r30, r28
+ 7ea:	36 96       	adiw	r30, 0x06	; 6
+			aCanMsg.Dlc |= 0x40;
+		}
+		else {
+			for (uint8_t i = 0; i < aCanMsg.Dlc; i++) {
+ 7ec:	ce 01       	movw	r24, r28
+ 7ee:	86 0f       	add	r24, r22
+ 7f0:	91 1d       	adc	r25, r1
+ 7f2:	bc 01       	movw	r22, r24
+ 7f4:	6a 5f       	subi	r22, 0xFA	; 250
+ 7f6:	7f 4f       	sbci	r23, 0xFF	; 255
+ 7f8:	07 c0       	rjmp	.+14     	; 0x808 <Isb_Inf_Can_Tx+0x9a>
+		aCanMsg.EIdL = (uint8_t)aIsb_Msg->SourceId;
+		// Write Message to SendBuffer - DataLength
+		aCanMsg.Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		// RTR
+		if (bit_is_set(aIsb_Msg->Flags, 6)) {
+			aCanMsg.Dlc |= 0x40;
+ 7fa:	60 64       	ori	r22, 0x40	; 64
+ 7fc:	6d 83       	std	Y+5, r22	; 0x05
+ 7fe:	08 c0       	rjmp	.+16     	; 0x810 <Isb_Inf_Can_Tx+0xa2>
+		}
+		else {
+			for (uint8_t i = 0; i < aCanMsg.Dlc; i++) {
+				aCanMsg.Data[i] = aIsb_Msg->Data[i];
+ 800:	14 96       	adiw	r26, 0x04	; 4
+ 802:	8c 91       	ld	r24, X
+ 804:	14 97       	sbiw	r26, 0x04	; 4
+ 806:	81 93       	st	Z+, r24
+ 808:	11 96       	adiw	r26, 0x01	; 1
+		// RTR
+		if (bit_is_set(aIsb_Msg->Flags, 6)) {
+			aCanMsg.Dlc |= 0x40;
+		}
+		else {
+			for (uint8_t i = 0; i < aCanMsg.Dlc; i++) {
+ 80a:	e6 17       	cp	r30, r22
+ 80c:	f7 07       	cpc	r31, r23
+ 80e:	c1 f7       	brne	.-16     	; 0x800 <Isb_Inf_Can_Tx+0x92>
+				aCanMsg.Data[i] = aIsb_Msg->Data[i];
+			}
+		}
+		if (Inf_Can_Tx(aSSPort, aSSPin, aSpiCfg, aRSPort, aRSPin, &aCanMsg) == TRUE) {
+ 810:	82 e0       	ldi	r24, 0x02	; 2
+ 812:	64 e0       	ldi	r22, 0x04	; 4
+ 814:	41 e5       	ldi	r20, 0x51	; 81
+ 816:	20 e0       	ldi	r18, 0x00	; 0
+ 818:	00 e0       	ldi	r16, 0x00	; 0
+ 81a:	7e 01       	movw	r14, r28
+ 81c:	08 94       	sec
+ 81e:	e1 1c       	adc	r14, r1
+ 820:	f1 1c       	adc	r15, r1
+ 822:	0e 94 7d 02 	call	0x4fa	; 0x4fa <Inf_Can_Tx>
+ 826:	90 e0       	ldi	r25, 0x00	; 0
+ 828:	81 30       	cpi	r24, 0x01	; 1
+ 82a:	09 f4       	brne	.+2      	; 0x82e <Isb_Inf_Can_Tx+0xc0>
+ 82c:	91 e0       	ldi	r25, 0x01	; 1
+			return TRUE;
+		}
+		return FALSE;
+	}
+ 82e:	89 2f       	mov	r24, r25
+ 830:	2d 96       	adiw	r28, 0x0d	; 13
+ 832:	0f b6       	in	r0, 0x3f	; 63
+ 834:	f8 94       	cli
+ 836:	de bf       	out	0x3e, r29	; 62
+ 838:	0f be       	out	0x3f, r0	; 63
+ 83a:	cd bf       	out	0x3d, r28	; 61
+ 83c:	cf 91       	pop	r28
+ 83e:	df 91       	pop	r29
+ 840:	0f 91       	pop	r16
+ 842:	ff 90       	pop	r15
+ 844:	ef 90       	pop	r14
+ 846:	08 95       	ret
+
+00000848 <Node_Reboot>:
+	#include "./../lib/isb_config.h"
+	#include "./../lib/isb_config.c"
+
+
+
+	void Node_Reboot(void) {
+ 848:	ff cf       	rjmp	.-2      	; 0x848 <Node_Reboot>
+
+0000084a <Isb_SendMsg>:
+		while (1) ;
+	}
+
+
+
+	void Isb_SendMsg(Isb_Msg_t * aMsg) {
+ 84a:	bc 01       	movw	r22, r24
+		#endif /* ISB_INF_USART0 == 1 */
+		#if ISB_INF_USART1 == 1
+			Isb_Inf_Usart_Tx(1, aMsg);
+		#endif /* ISB_INF_USART1 == 1 */
+		#if ISB_INF_CAN0 == 1
+			Isb_Inf_Can_Tx(0, aMsg);
+ 84c:	80 e0       	ldi	r24, 0x00	; 0
+ 84e:	0e 94 b7 03 	call	0x76e	; 0x76e <Isb_Inf_Can_Tx>
+		#endif /* ISB_INF_ETHERNET == 1 */
+//		if ((aMsg->Flags & ISB_MSG_FLAGS_TOF_MASK) == ISB_MSG_FLAGS_TOF_MULTICAST) {
+//			if (Error == 0) {
+//			}
+//		}
+	}
+ 852:	08 95       	ret
+
+00000854 <Isb_Config_Rx>:
+#ifndef ISB_SRV_CONFIG_C_
+	#define ISB_SRV_CONFIG_C_
+
+
+
+	void Isb_Config_Rx(Isb_Msg_t * aIsb_Msg) {
+ 854:	df 92       	push	r13
+ 856:	ef 92       	push	r14
+ 858:	ff 92       	push	r15
+ 85a:	0f 93       	push	r16
+ 85c:	1f 93       	push	r17
+ 85e:	df 93       	push	r29
+ 860:	cf 93       	push	r28
+ 862:	cd b7       	in	r28, 0x3d	; 61
+ 864:	de b7       	in	r29, 0x3e	; 62
+ 866:	2d 97       	sbiw	r28, 0x0d	; 13
+ 868:	0f b6       	in	r0, 0x3f	; 63
+ 86a:	f8 94       	cli
+ 86c:	de bf       	out	0x3e, r29	; 62
+ 86e:	0f be       	out	0x3f, r0	; 63
+ 870:	cd bf       	out	0x3d, r28	; 61
+ 872:	ac 01       	movw	r20, r24
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+ 874:	fc 01       	movw	r30, r24
+ 876:	d0 80       	ld	r13, Z
+ 878:	6d 2d       	mov	r22, r13
+ 87a:	6f 70       	andi	r22, 0x0F	; 15
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+ 87c:	e3 80       	ldd	r14, Z+3	; 0x03
+ 87e:	f4 80       	ldd	r15, Z+4	; 0x04
+		MsgTx.SourceId = Isb_Node_Id;
+ 880:	00 91 94 00 	lds	r16, 0x0094
+ 884:	10 91 95 00 	lds	r17, 0x0095
+ 888:	dc 01       	movw	r26, r24
+ 88a:	fe 01       	movw	r30, r28
+ 88c:	36 96       	adiw	r30, 0x06	; 6
+		for (uint8_t i = 0; i < Dlc; i++) {
+ 88e:	9e 01       	movw	r18, r28
+ 890:	26 0f       	add	r18, r22
+ 892:	31 1d       	adc	r19, r1
+ 894:	2a 5f       	subi	r18, 0xFA	; 250
+ 896:	3f 4f       	sbci	r19, 0xFF	; 255
+ 898:	04 c0       	rjmp	.+8      	; 0x8a2 <Isb_Config_Rx+0x4e>
+			MsgTx.Data[i] = aIsb_Msg->Data[i];
+ 89a:	14 96       	adiw	r26, 0x04	; 4
+ 89c:	8c 91       	ld	r24, X
+ 89e:	14 97       	sbiw	r26, 0x04	; 4
+ 8a0:	81 93       	st	Z+, r24
+ 8a2:	11 96       	adiw	r26, 0x01	; 1
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+		MsgTx.SourceId = Isb_Node_Id;
+		for (uint8_t i = 0; i < Dlc; i++) {
+ 8a4:	e2 17       	cp	r30, r18
+ 8a6:	f3 07       	cpc	r31, r19
+ 8a8:	c1 f7       	brne	.-16     	; 0x89a <Isb_Config_Rx+0x46>
+			MsgTx.Data[i] = aIsb_Msg->Data[i];
+		}
+		if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_SETMODE) {
+ 8aa:	fa 01       	movw	r30, r20
+ 8ac:	85 81       	ldd	r24, Z+5	; 0x05
+ 8ae:	82 30       	cpi	r24, 0x02	; 2
+ 8b0:	09 f0       	breq	.+2      	; 0x8b4 <Isb_Config_Rx+0x60>
+ 8b2:	90 c0       	rjmp	.+288    	; 0x9d4 <Isb_Config_Rx+0x180>
+			if (Dlc == ISB_MSG_FLAGS_DLC_2) {
+ 8b4:	62 30       	cpi	r22, 0x02	; 2
+ 8b6:	09 f0       	breq	.+2      	; 0x8ba <Isb_Config_Rx+0x66>
+ 8b8:	46 c1       	rjmp	.+652    	; 0xb46 <Isb_Config_Rx+0x2f2>
+				MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_2;
+				MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+ 8ba:	8e 81       	ldd	r24, Y+6	; 0x06
+ 8bc:	80 6c       	ori	r24, 0xC0	; 192
+ 8be:	8e 83       	std	Y+6, r24	; 0x06
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__BL_NORM) {
+ 8c0:	26 81       	ldd	r18, Z+6	; 0x06
+ 8c2:	22 23       	and	r18, r18
+ 8c4:	c1 f4       	brne	.+48     	; 0x8f6 <Isb_Config_Rx+0xa2>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 8c6:	e1 99       	sbic	0x1c, 1	; 28
+ 8c8:	fe cf       	rjmp	.-4      	; 0x8c6 <Isb_Config_Rx+0x72>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 8ca:	82 e1       	ldi	r24, 0x12	; 18
+ 8cc:	90 e0       	ldi	r25, 0x00	; 0
+ 8ce:	9f bb       	out	0x1f, r25	; 31
+ 8d0:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 8d2:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 8d4:	8d b3       	in	r24, 0x1d	; 29
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+ 8d6:	88 23       	and	r24, r24
+ 8d8:	09 f4       	brne	.+2      	; 0x8dc <Isb_Config_Rx+0x88>
+ 8da:	62 c0       	rjmp	.+196    	; 0x9a0 <Isb_Config_Rx+0x14c>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 8dc:	e1 99       	sbic	0x1c, 1	; 28
+ 8de:	fe cf       	rjmp	.-4      	; 0x8dc <Isb_Config_Rx+0x88>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 8e0:	82 e1       	ldi	r24, 0x12	; 18
+ 8e2:	90 e0       	ldi	r25, 0x00	; 0
+ 8e4:	9f bb       	out	0x1f, r25	; 31
+ 8e6:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 8e8:	1d ba       	out	0x1d, r1	; 29
+
+    __asm__ __volatile__ (
+ 8ea:	0f b6       	in	r0, 0x3f	; 63
+ 8ec:	f8 94       	cli
+ 8ee:	e2 9a       	sbi	0x1c, 2	; 28
+ 8f0:	e1 9a       	sbi	0x1c, 1	; 28
+ 8f2:	0f be       	out	0x3f, r0	; 63
+ 8f4:	6e c0       	rjmp	.+220    	; 0x9d2 <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+ 8f6:	21 30       	cpi	r18, 0x01	; 1
+ 8f8:	c9 f4       	brne	.+50     	; 0x92c <Isb_Config_Rx+0xd8>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 8fa:	e1 99       	sbic	0x1c, 1	; 28
+ 8fc:	fe cf       	rjmp	.-4      	; 0x8fa <Isb_Config_Rx+0xa6>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 8fe:	82 e1       	ldi	r24, 0x12	; 18
+ 900:	90 e0       	ldi	r25, 0x00	; 0
+ 902:	9f bb       	out	0x1f, r25	; 31
+ 904:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 906:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 908:	8d b3       	in	r24, 0x1d	; 29
+ 90a:	81 30       	cpi	r24, 0x01	; 1
+ 90c:	09 f4       	brne	.+2      	; 0x910 <Isb_Config_Rx+0xbc>
+ 90e:	61 c0       	rjmp	.+194    	; 0x9d2 <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 910:	e1 99       	sbic	0x1c, 1	; 28
+ 912:	fe cf       	rjmp	.-4      	; 0x910 <Isb_Config_Rx+0xbc>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 914:	82 e1       	ldi	r24, 0x12	; 18
+ 916:	90 e0       	ldi	r25, 0x00	; 0
+ 918:	9f bb       	out	0x1f, r25	; 31
+ 91a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 91c:	81 e0       	ldi	r24, 0x01	; 1
+ 91e:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ 920:	0f b6       	in	r0, 0x3f	; 63
+ 922:	f8 94       	cli
+ 924:	e2 9a       	sbi	0x1c, 2	; 28
+ 926:	e1 9a       	sbi	0x1c, 1	; 28
+ 928:	0f be       	out	0x3f, r0	; 63
+ 92a:	53 c0       	rjmp	.+166    	; 0x9d2 <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_FLASH);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__FW_NORM) {
+ 92c:	28 30       	cpi	r18, 0x08	; 8
+ 92e:	09 f0       	breq	.+2      	; 0x932 <Isb_Config_Rx+0xde>
+ 930:	37 c0       	rjmp	.+110    	; 0x9a0 <Isb_Config_Rx+0x14c>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 932:	e1 99       	sbic	0x1c, 1	; 28
+ 934:	fe cf       	rjmp	.-4      	; 0x932 <Isb_Config_Rx+0xde>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 936:	8b e1       	ldi	r24, 0x1B	; 27
+ 938:	90 e0       	ldi	r25, 0x00	; 0
+ 93a:	9f bb       	out	0x1f, r25	; 31
+ 93c:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 93e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 940:	2d b3       	in	r18, 0x1d	; 29
+					uint8_t crc = lib_eep_read_byte((uint8_t *)EEP__ISB_CONFIG_CRC);
+					crc++;
+ 942:	2f 5f       	subi	r18, 0xFF	; 255
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 944:	e1 99       	sbic	0x1c, 1	; 28
+ 946:	fe cf       	rjmp	.-4      	; 0x944 <Isb_Config_Rx+0xf0>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 948:	8b e1       	ldi	r24, 0x1B	; 27
+ 94a:	90 e0       	ldi	r25, 0x00	; 0
+ 94c:	9f bb       	out	0x1f, r25	; 31
+ 94e:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 950:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 952:	8d b3       	in	r24, 0x1d	; 29
+ 954:	82 17       	cp	r24, r18
+ 956:	61 f0       	breq	.+24     	; 0x970 <Isb_Config_Rx+0x11c>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 958:	e1 99       	sbic	0x1c, 1	; 28
+ 95a:	fe cf       	rjmp	.-4      	; 0x958 <Isb_Config_Rx+0x104>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 95c:	8b e1       	ldi	r24, 0x1B	; 27
+ 95e:	90 e0       	ldi	r25, 0x00	; 0
+ 960:	9f bb       	out	0x1f, r25	; 31
+ 962:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 964:	2d bb       	out	0x1d, r18	; 29
+
+    __asm__ __volatile__ (
+ 966:	0f b6       	in	r0, 0x3f	; 63
+ 968:	f8 94       	cli
+ 96a:	e2 9a       	sbi	0x1c, 2	; 28
+ 96c:	e1 9a       	sbi	0x1c, 1	; 28
+ 96e:	0f be       	out	0x3f, r0	; 63
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 970:	e1 99       	sbic	0x1c, 1	; 28
+ 972:	fe cf       	rjmp	.-4      	; 0x970 <Isb_Config_Rx+0x11c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 974:	82 e1       	ldi	r24, 0x12	; 18
+ 976:	90 e0       	ldi	r25, 0x00	; 0
+ 978:	9f bb       	out	0x1f, r25	; 31
+ 97a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 97c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 97e:	8d b3       	in	r24, 0x1d	; 29
+ 980:	88 30       	cpi	r24, 0x08	; 8
+ 982:	39 f1       	breq	.+78     	; 0x9d2 <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 984:	e1 99       	sbic	0x1c, 1	; 28
+ 986:	fe cf       	rjmp	.-4      	; 0x984 <Isb_Config_Rx+0x130>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 988:	82 e1       	ldi	r24, 0x12	; 18
+ 98a:	90 e0       	ldi	r25, 0x00	; 0
+ 98c:	9f bb       	out	0x1f, r25	; 31
+ 98e:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 990:	88 e0       	ldi	r24, 0x08	; 8
+ 992:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ 994:	0f b6       	in	r0, 0x3f	; 63
+ 996:	f8 94       	cli
+ 998:	e2 9a       	sbi	0x1c, 2	; 28
+ 99a:	e1 9a       	sbi	0x1c, 1	; 28
+ 99c:	0f be       	out	0x3f, r0	; 63
+ 99e:	19 c0       	rjmp	.+50     	; 0x9d2 <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_CONFIG_CRC, crc);
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__FW_NORM);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 9a0:	29 30       	cpi	r18, 0x09	; 9
+ 9a2:	b9 f4       	brne	.+46     	; 0x9d2 <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 9a4:	e1 99       	sbic	0x1c, 1	; 28
+ 9a6:	fe cf       	rjmp	.-4      	; 0x9a4 <Isb_Config_Rx+0x150>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 9a8:	82 e1       	ldi	r24, 0x12	; 18
+ 9aa:	90 e0       	ldi	r25, 0x00	; 0
+ 9ac:	9f bb       	out	0x1f, r25	; 31
+ 9ae:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 9b0:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 9b2:	8d b3       	in	r24, 0x1d	; 29
+ 9b4:	89 30       	cpi	r24, 0x09	; 9
+ 9b6:	69 f0       	breq	.+26     	; 0x9d2 <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 9b8:	e1 99       	sbic	0x1c, 1	; 28
+ 9ba:	fe cf       	rjmp	.-4      	; 0x9b8 <Isb_Config_Rx+0x164>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 9bc:	82 e1       	ldi	r24, 0x12	; 18
+ 9be:	90 e0       	ldi	r25, 0x00	; 0
+ 9c0:	9f bb       	out	0x1f, r25	; 31
+ 9c2:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 9c4:	89 e0       	ldi	r24, 0x09	; 9
+ 9c6:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ 9c8:	0f b6       	in	r0, 0x3f	; 63
+ 9ca:	f8 94       	cli
+ 9cc:	e2 9a       	sbi	0x1c, 2	; 28
+ 9ce:	e1 9a       	sbi	0x1c, 1	; 28
+ 9d0:	0f be       	out	0x3f, r0	; 63
+ 9d2:	ff cf       	rjmp	.-2      	; 0x9d2 <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__FW_CFG);
+				}
+				Node_Reboot();
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_INITEEPROM) {
+ 9d4:	86 30       	cpi	r24, 0x06	; 6
+ 9d6:	09 f0       	breq	.+2      	; 0x9da <Isb_Config_Rx+0x186>
+ 9d8:	43 c0       	rjmp	.+134    	; 0xa60 <Isb_Config_Rx+0x20c>
+			if (Dlc == ISB_MSG_FLAGS_DLC_1) {
+ 9da:	61 30       	cpi	r22, 0x01	; 1
+ 9dc:	09 f0       	breq	.+2      	; 0x9e0 <Isb_Config_Rx+0x18c>
+ 9de:	b3 c0       	rjmp	.+358    	; 0xb46 <Isb_Config_Rx+0x2f2>
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 9e0:	80 91 97 00 	lds	r24, 0x0097
+ 9e4:	89 30       	cpi	r24, 0x09	; 9
+ 9e6:	09 f0       	breq	.+2      	; 0x9ea <Isb_Config_Rx+0x196>
+ 9e8:	ae c0       	rjmp	.+348    	; 0xb46 <Isb_Config_Rx+0x2f2>
+					MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_1;
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+ 9ea:	80 91 96 00 	lds	r24, 0x0096
+ 9ee:	28 2f       	mov	r18, r24
+ 9f0:	30 e0       	ldi	r19, 0x00	; 0
+						wdt_reset();
+ 9f2:	a8 95       	wdr
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 9f4:	e1 99       	sbic	0x1c, 1	; 28
+ 9f6:	fe cf       	rjmp	.-4      	; 0x9f4 <Isb_Config_Rx+0x1a0>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 9f8:	3f bb       	out	0x1f, r19	; 31
+ 9fa:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ 9fc:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 9fe:	8d b3       	in	r24, 0x1d	; 29
+ a00:	88 23       	and	r24, r24
+ a02:	51 f0       	breq	.+20     	; 0xa18 <Isb_Config_Rx+0x1c4>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ a04:	e1 99       	sbic	0x1c, 1	; 28
+ a06:	fe cf       	rjmp	.-4      	; 0xa04 <Isb_Config_Rx+0x1b0>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ a08:	3f bb       	out	0x1f, r19	; 31
+ a0a:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ a0c:	1d ba       	out	0x1d, r1	; 29
+
+    __asm__ __volatile__ (
+ a0e:	0f b6       	in	r0, 0x3f	; 63
+ a10:	f8 94       	cli
+ a12:	e2 9a       	sbi	0x1c, 2	; 28
+ a14:	e1 9a       	sbi	0x1c, 1	; 28
+ a16:	0f be       	out	0x3f, r0	; 63
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_INITEEPROM) {
+			if (Dlc == ISB_MSG_FLAGS_DLC_1) {
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+					MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_1;
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+ a18:	2f 5f       	subi	r18, 0xFF	; 255
+ a1a:	3f 4f       	sbci	r19, 0xFF	; 255
+ a1c:	f2 e0       	ldi	r31, 0x02	; 2
+ a1e:	20 30       	cpi	r18, 0x00	; 0
+ a20:	3f 07       	cpc	r19, r31
+ a22:	38 f3       	brcs	.-50     	; 0x9f2 <Isb_Config_Rx+0x19e>
+ a24:	2c e1       	ldi	r18, 0x1C	; 28
+ a26:	30 e0       	ldi	r19, 0x00	; 0
+						wdt_reset();
+						lib_eep_write_byte((uint8_t *) ee_Addr, 0x00);
+					}
+					for (uint8_t i = 0; i < 4; i++) {
+						lib_eep_write_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i), Isb_Firmware_Code[i]);
+ a28:	f9 01       	movw	r30, r18
+ a2a:	ec 5b       	subi	r30, 0xBC	; 188
+ a2c:	ff 4f       	sbci	r31, 0xFF	; 255
+ a2e:	e0 81       	ld	r30, Z
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ a30:	e1 99       	sbic	0x1c, 1	; 28
+ a32:	fe cf       	rjmp	.-4      	; 0xa30 <Isb_Config_Rx+0x1dc>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ a34:	3f bb       	out	0x1f, r19	; 31
+ a36:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ a38:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ a3a:	8d b3       	in	r24, 0x1d	; 29
+ a3c:	8e 17       	cp	r24, r30
+ a3e:	51 f0       	breq	.+20     	; 0xa54 <Isb_Config_Rx+0x200>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ a40:	e1 99       	sbic	0x1c, 1	; 28
+ a42:	fe cf       	rjmp	.-4      	; 0xa40 <Isb_Config_Rx+0x1ec>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ a44:	3f bb       	out	0x1f, r19	; 31
+ a46:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ a48:	ed bb       	out	0x1d, r30	; 29
+
+    __asm__ __volatile__ (
+ a4a:	0f b6       	in	r0, 0x3f	; 63
+ a4c:	f8 94       	cli
+ a4e:	e2 9a       	sbi	0x1c, 2	; 28
+ a50:	e1 9a       	sbi	0x1c, 1	; 28
+ a52:	0f be       	out	0x3f, r0	; 63
+ a54:	2f 5f       	subi	r18, 0xFF	; 255
+ a56:	3f 4f       	sbci	r19, 0xFF	; 255
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+						wdt_reset();
+						lib_eep_write_byte((uint8_t *) ee_Addr, 0x00);
+					}
+					for (uint8_t i = 0; i < 4; i++) {
+ a58:	20 32       	cpi	r18, 0x20	; 32
+ a5a:	31 05       	cpc	r19, r1
+ a5c:	29 f7       	brne	.-54     	; 0xa28 <Isb_Config_Rx+0x1d4>
+ a5e:	ff cf       	rjmp	.-2      	; 0xa5e <Isb_Config_Rx+0x20a>
+					}
+					Node_Reboot();
+				}
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+ a60:	87 30       	cpi	r24, 0x07	; 7
+ a62:	71 f5       	brne	.+92     	; 0xac0 <Isb_Config_Rx+0x26c>
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+ a64:	64 30       	cpi	r22, 0x04	; 4
+ a66:	08 f4       	brcc	.+2      	; 0xa6a <Isb_Config_Rx+0x216>
+ a68:	6e c0       	rjmp	.+220    	; 0xb46 <Isb_Config_Rx+0x2f2>
+				Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+ a6a:	fa 01       	movw	r30, r20
+ a6c:	97 81       	ldd	r25, Z+7	; 0x07
+ a6e:	80 e0       	ldi	r24, 0x00	; 0
+ a70:	26 81       	ldd	r18, Z+6	; 0x06
+ a72:	dc 01       	movw	r26, r24
+ a74:	a2 0f       	add	r26, r18
+ a76:	b1 1d       	adc	r27, r1
+				if (Addr < EEP_SIZE) {
+ a78:	f2 e0       	ldi	r31, 0x02	; 2
+ a7a:	a0 30       	cpi	r26, 0x00	; 0
+ a7c:	bf 07       	cpc	r27, r31
+ a7e:	08 f0       	brcs	.+2      	; 0xa82 <Isb_Config_Rx+0x22e>
+ a80:	62 c0       	rjmp	.+196    	; 0xb46 <Isb_Config_Rx+0x2f2>
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+ a82:	8e 81       	ldd	r24, Y+6	; 0x06
+ a84:	80 6c       	ori	r24, 0xC0	; 192
+ a86:	8e 83       	std	Y+6, r24	; 0x06
+ a88:	40 e0       	ldi	r20, 0x00	; 0
+					for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ a8a:	26 2f       	mov	r18, r22
+ a8c:	30 e0       	ldi	r19, 0x00	; 0
+ a8e:	23 50       	subi	r18, 0x03	; 3
+ a90:	30 40       	sbci	r19, 0x00	; 0
+						MsgTx.Data[3 + i] = lib_eep_read_byte((uint8_t *)(Addr + i));
+ a92:	be 01       	movw	r22, r28
+ a94:	67 5f       	subi	r22, 0xF7	; 247
+ a96:	7f 4f       	sbci	r23, 0xFF	; 255
+ a98:	0d c0       	rjmp	.+26     	; 0xab4 <Isb_Config_Rx+0x260>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ a9a:	e1 99       	sbic	0x1c, 1	; 28
+ a9c:	fe cf       	rjmp	.-4      	; 0xa9a <Isb_Config_Rx+0x246>
+ a9e:	cd 01       	movw	r24, r26
+ aa0:	84 0f       	add	r24, r20
+ aa2:	91 1d       	adc	r25, r1
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ aa4:	9f bb       	out	0x1f, r25	; 31
+ aa6:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ aa8:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ aaa:	8d b3       	in	r24, 0x1d	; 29
+ aac:	e6 0f       	add	r30, r22
+ aae:	f7 1f       	adc	r31, r23
+ ab0:	80 83       	st	Z, r24
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+				Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+				if (Addr < EEP_SIZE) {
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ ab2:	4f 5f       	subi	r20, 0xFF	; 255
+ ab4:	e4 2f       	mov	r30, r20
+ ab6:	f0 e0       	ldi	r31, 0x00	; 0
+ ab8:	e2 17       	cp	r30, r18
+ aba:	f3 07       	cpc	r31, r19
+ abc:	74 f3       	brlt	.-36     	; 0xa9a <Isb_Config_Rx+0x246>
+ abe:	43 c0       	rjmp	.+134    	; 0xb46 <Isb_Config_Rx+0x2f2>
+						MsgTx.Data[3 + i] = lib_eep_read_byte((uint8_t *)(Addr + i));
+					}
+				}
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_WRITEEEPROMBLOCK) {
+ ac0:	88 30       	cpi	r24, 0x08	; 8
+ ac2:	09 f0       	breq	.+2      	; 0xac6 <Isb_Config_Rx+0x272>
+ ac4:	40 c0       	rjmp	.+128    	; 0xb46 <Isb_Config_Rx+0x2f2>
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+ ac6:	64 30       	cpi	r22, 0x04	; 4
+ ac8:	08 f4       	brcc	.+2      	; 0xacc <Isb_Config_Rx+0x278>
+ aca:	3d c0       	rjmp	.+122    	; 0xb46 <Isb_Config_Rx+0x2f2>
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ acc:	80 91 97 00 	lds	r24, 0x0097
+ ad0:	89 30       	cpi	r24, 0x09	; 9
+ ad2:	09 f0       	breq	.+2      	; 0xad6 <Isb_Config_Rx+0x282>
+ ad4:	38 c0       	rjmp	.+112    	; 0xb46 <Isb_Config_Rx+0x2f2>
+					Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+ ad6:	fa 01       	movw	r30, r20
+ ad8:	97 81       	ldd	r25, Z+7	; 0x07
+ ada:	80 e0       	ldi	r24, 0x00	; 0
+ adc:	26 81       	ldd	r18, Z+6	; 0x06
+ ade:	dc 01       	movw	r26, r24
+ ae0:	a2 0f       	add	r26, r18
+ ae2:	b1 1d       	adc	r27, r1
+					if ((Addr >= Isb_Firmware_Offset) & (Addr < EEP_SIZE)) {
+ ae4:	80 91 96 00 	lds	r24, 0x0096
+ ae8:	90 e0       	ldi	r25, 0x00	; 0
+ aea:	a8 17       	cp	r26, r24
+ aec:	b9 07       	cpc	r27, r25
+ aee:	58 f1       	brcs	.+86     	; 0xb46 <Isb_Config_Rx+0x2f2>
+ af0:	f2 e0       	ldi	r31, 0x02	; 2
+ af2:	a0 30       	cpi	r26, 0x00	; 0
+ af4:	bf 07       	cpc	r27, r31
+ af6:	38 f5       	brcc	.+78     	; 0xb46 <Isb_Config_Rx+0x2f2>
+						MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+ af8:	8e 81       	ldd	r24, Y+6	; 0x06
+ afa:	80 6c       	ori	r24, 0xC0	; 192
+ afc:	8e 83       	std	Y+6, r24	; 0x06
+ afe:	90 e0       	ldi	r25, 0x00	; 0
+						for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ b00:	26 2f       	mov	r18, r22
+ b02:	30 e0       	ldi	r19, 0x00	; 0
+ b04:	23 50       	subi	r18, 0x03	; 3
+ b06:	30 40       	sbci	r19, 0x00	; 0
+ b08:	19 c0       	rjmp	.+50     	; 0xb3c <Isb_Config_Rx+0x2e8>
+							lib_eep_write_byte((uint8_t *)(Addr + i), aIsb_Msg->Data[3 + i]);
+ b0a:	bf 01       	movw	r22, r30
+ b0c:	6a 0f       	add	r22, r26
+ b0e:	7b 1f       	adc	r23, r27
+ b10:	e4 0f       	add	r30, r20
+ b12:	f5 1f       	adc	r31, r21
+ b14:	e0 85       	ldd	r30, Z+8	; 0x08
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ b16:	e1 99       	sbic	0x1c, 1	; 28
+ b18:	fe cf       	rjmp	.-4      	; 0xb16 <Isb_Config_Rx+0x2c2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ b1a:	7f bb       	out	0x1f, r23	; 31
+ b1c:	6e bb       	out	0x1e, r22	; 30
+#endif
+    EECR |= (1 << EERE);
+ b1e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ b20:	8d b3       	in	r24, 0x1d	; 29
+ b22:	8e 17       	cp	r24, r30
+ b24:	51 f0       	breq	.+20     	; 0xb3a <Isb_Config_Rx+0x2e6>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ b26:	e1 99       	sbic	0x1c, 1	; 28
+ b28:	fe cf       	rjmp	.-4      	; 0xb26 <Isb_Config_Rx+0x2d2>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ b2a:	7f bb       	out	0x1f, r23	; 31
+ b2c:	6e bb       	out	0x1e, r22	; 30
+#endif
+    EEDR = __value;
+ b2e:	ed bb       	out	0x1d, r30	; 29
+
+    __asm__ __volatile__ (
+ b30:	0f b6       	in	r0, 0x3f	; 63
+ b32:	f8 94       	cli
+ b34:	e2 9a       	sbi	0x1c, 2	; 28
+ b36:	e1 9a       	sbi	0x1c, 1	; 28
+ b38:	0f be       	out	0x3f, r0	; 63
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+					Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+					if ((Addr >= Isb_Firmware_Offset) & (Addr < EEP_SIZE)) {
+						MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+						for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ b3a:	9f 5f       	subi	r25, 0xFF	; 255
+ b3c:	e9 2f       	mov	r30, r25
+ b3e:	f0 e0       	ldi	r31, 0x00	; 0
+ b40:	e2 17       	cp	r30, r18
+ b42:	f3 07       	cpc	r31, r19
+ b44:	14 f3       	brlt	.-60     	; 0xb0a <Isb_Config_Rx+0x2b6>
+						}
+					}
+				}
+			}
+		}
+		MsgTx.Data[0] |= ISB_CONFIG_ANSWER_NACK;
+ b46:	8e 81       	ldd	r24, Y+6	; 0x06
+ b48:	80 64       	ori	r24, 0x40	; 64
+ b4a:	8e 83       	std	Y+6, r24	; 0x06
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+		MsgTx.SourceId = Isb_Node_Id;
+ b4c:	1d 83       	std	Y+5, r17	; 0x05
+ b4e:	0c 83       	std	Y+4, r16	; 0x04
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+ b50:	fb 82       	std	Y+3, r15	; 0x03
+ b52:	ea 82       	std	Y+2, r14	; 0x02
+	void Isb_Config_Rx(Isb_Msg_t * aIsb_Msg) {
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+ b54:	d9 82       	std	Y+1, r13	; 0x01
+					}
+				}
+			}
+		}
+		MsgTx.Data[0] |= ISB_CONFIG_ANSWER_NACK;
+		Isb_SendMsg(&MsgTx);
+ b56:	ce 01       	movw	r24, r28
+ b58:	01 96       	adiw	r24, 0x01	; 1
+ b5a:	0e 94 25 04 	call	0x84a	; 0x84a <Isb_SendMsg>
+	}
+ b5e:	2d 96       	adiw	r28, 0x0d	; 13
+ b60:	0f b6       	in	r0, 0x3f	; 63
+ b62:	f8 94       	cli
+ b64:	de bf       	out	0x3e, r29	; 62
+ b66:	0f be       	out	0x3f, r0	; 63
+ b68:	cd bf       	out	0x3d, r28	; 61
+ b6a:	cf 91       	pop	r28
+ b6c:	df 91       	pop	r29
+ b6e:	1f 91       	pop	r17
+ b70:	0f 91       	pop	r16
+ b72:	ff 90       	pop	r15
+ b74:	ef 90       	pop	r14
+ b76:	df 90       	pop	r13
+ b78:	08 95       	ret
+
+00000b7a <lib_eep_fw_read_word>:
+/** \ingroup avr_eeprom
+    Read one 16-bit word (little endian) from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint16_t eeprom_read_word (const uint16_t *__p)
+{
+    return __eerd_word (__p, eeprom_read_byte);
+ b7a:	20 91 96 00 	lds	r18, 0x0096
+ b7e:	30 e0       	ldi	r19, 0x00	; 0
+ b80:	22 0f       	add	r18, r18
+ b82:	33 1f       	adc	r19, r19
+ b84:	82 0f       	add	r24, r18
+ b86:	93 1f       	adc	r25, r19
+ b88:	69 e4       	ldi	r22, 0x49	; 73
+ b8a:	70 e0       	ldi	r23, 0x00	; 0
+ b8c:	0e 94 be 06 	call	0xd7c	; 0xd7c <__eerd_word>
+
+
+
+	uint16_t __attribute__((always_inline)) lib_eep_fw_read_word(uint16_t * aAddr) {
+		return eeprom_read_word(Isb_Firmware_Offset + aAddr);;
+	}
+ b90:	08 95       	ret
+
+00000b92 <lib_eep_read_word>:
+ b92:	69 e4       	ldi	r22, 0x49	; 73
+ b94:	70 e0       	ldi	r23, 0x00	; 0
+ b96:	0e 94 be 06 	call	0xd7c	; 0xd7c <__eerd_word>
+
+
+
+	uint16_t __attribute__((always_inline)) lib_eep_read_word(uint16_t * aAddr) {
+		return eeprom_read_word(aAddr);;
+	}
+ b9a:	08 95       	ret
+
+00000b9c <main>:
+
+
+
+	int main(void) {
+ b9c:	ff 92       	push	r15
+ b9e:	0f 93       	push	r16
+ ba0:	1f 93       	push	r17
+ ba2:	df 93       	push	r29
+ ba4:	cf 93       	push	r28
+ ba6:	cd b7       	in	r28, 0x3d	; 61
+ ba8:	de b7       	in	r29, 0x3e	; 62
+ baa:	2d 97       	sbiw	r28, 0x0d	; 13
+ bac:	0f b6       	in	r0, 0x3f	; 63
+ bae:	f8 94       	cli
+ bb0:	de bf       	out	0x3e, r29	; 62
+ bb2:	0f be       	out	0x3f, r0	; 63
+ bb4:	cd bf       	out	0x3d, r28	; 61
+		wdt_enable(WDTO_500MS);
+ bb6:	2d e0       	ldi	r18, 0x0D	; 13
+ bb8:	88 e1       	ldi	r24, 0x18	; 24
+ bba:	90 e0       	ldi	r25, 0x00	; 0
+ bbc:	0f b6       	in	r0, 0x3f	; 63
+ bbe:	f8 94       	cli
+ bc0:	a8 95       	wdr
+ bc2:	81 bd       	out	0x21, r24	; 33
+ bc4:	0f be       	out	0x3f, r0	; 63
+ bc6:	21 bd       	out	0x21, r18	; 33
+		wdt_reset();
+ bc8:	a8 95       	wdr
+ bca:	80 e1       	ldi	r24, 0x10	; 16
+ bcc:	90 e0       	ldi	r25, 0x00	; 0
+ bce:	69 e4       	ldi	r22, 0x49	; 73
+ bd0:	70 e0       	ldi	r23, 0x00	; 0
+ bd2:	0e 94 be 06 	call	0xd7c	; 0xd7c <__eerd_word>
+		Isb_Node_Id = lib_eep_read_word((uint16_t *)EEP__ISB_NODE_ID_0);
+ bd6:	90 93 95 00 	sts	0x0095, r25
+ bda:	80 93 94 00 	sts	0x0094, r24
+		if ((Isb_Node_Id == 0) | (Isb_Node_Id > 2047)) {
+ bde:	01 97       	sbiw	r24, 0x01	; 1
+ be0:	8f 5f       	subi	r24, 0xFF	; 255
+ be2:	97 40       	sbci	r25, 0x07	; 7
+ be4:	b8 f0       	brcs	.+46     	; 0xc14 <main+0x78>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ be6:	e1 99       	sbic	0x1c, 1	; 28
+ be8:	fe cf       	rjmp	.-4      	; 0xbe6 <main+0x4a>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ bea:	82 e1       	ldi	r24, 0x12	; 18
+ bec:	90 e0       	ldi	r25, 0x00	; 0
+ bee:	9f bb       	out	0x1f, r25	; 31
+ bf0:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ bf2:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ bf4:	8d b3       	in	r24, 0x1d	; 29
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+ bf6:	88 23       	and	r24, r24
+ bf8:	61 f0       	breq	.+24     	; 0xc12 <main+0x76>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ bfa:	e1 99       	sbic	0x1c, 1	; 28
+ bfc:	fe cf       	rjmp	.-4      	; 0xbfa <main+0x5e>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ bfe:	82 e1       	ldi	r24, 0x12	; 18
+ c00:	90 e0       	ldi	r25, 0x00	; 0
+ c02:	9f bb       	out	0x1f, r25	; 31
+ c04:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ c06:	1d ba       	out	0x1d, r1	; 29
+
+    __asm__ __volatile__ (
+ c08:	0f b6       	in	r0, 0x3f	; 63
+ c0a:	f8 94       	cli
+ c0c:	e2 9a       	sbi	0x1c, 2	; 28
+ c0e:	e1 9a       	sbi	0x1c, 1	; 28
+ c10:	0f be       	out	0x3f, r0	; 63
+ c12:	ff cf       	rjmp	.-2      	; 0xc12 <main+0x76>
+ c14:	2c e0       	ldi	r18, 0x0C	; 12
+ c16:	30 e0       	ldi	r19, 0x00	; 0
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+			Node_Reboot();
+		}
+		for (uint8_t i = 0; i < 4; i++) {
+			lib_eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), Isb_Firmware_Code[i]);
+ c18:	f9 01       	movw	r30, r18
+ c1a:	ec 5a       	subi	r30, 0xAC	; 172
+ c1c:	ff 4f       	sbci	r31, 0xFF	; 255
+ c1e:	e0 81       	ld	r30, Z
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c20:	e1 99       	sbic	0x1c, 1	; 28
+ c22:	fe cf       	rjmp	.-4      	; 0xc20 <main+0x84>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c24:	3f bb       	out	0x1f, r19	; 31
+ c26:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ c28:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c2a:	8d b3       	in	r24, 0x1d	; 29
+ c2c:	8e 17       	cp	r24, r30
+ c2e:	51 f0       	breq	.+20     	; 0xc44 <main+0xa8>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ c30:	e1 99       	sbic	0x1c, 1	; 28
+ c32:	fe cf       	rjmp	.-4      	; 0xc30 <main+0x94>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c34:	3f bb       	out	0x1f, r19	; 31
+ c36:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ c38:	ed bb       	out	0x1d, r30	; 29
+
+    __asm__ __volatile__ (
+ c3a:	0f b6       	in	r0, 0x3f	; 63
+ c3c:	f8 94       	cli
+ c3e:	e2 9a       	sbi	0x1c, 2	; 28
+ c40:	e1 9a       	sbi	0x1c, 1	; 28
+ c42:	0f be       	out	0x3f, r0	; 63
+ c44:	2f 5f       	subi	r18, 0xFF	; 255
+ c46:	3f 4f       	sbci	r19, 0xFF	; 255
+		Isb_Node_Id = lib_eep_read_word((uint16_t *)EEP__ISB_NODE_ID_0);
+		if ((Isb_Node_Id == 0) | (Isb_Node_Id > 2047)) {
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+			Node_Reboot();
+		}
+		for (uint8_t i = 0; i < 4; i++) {
+ c48:	20 31       	cpi	r18, 0x10	; 16
+ c4a:	31 05       	cpc	r19, r1
+ c4c:	29 f7       	brne	.-54     	; 0xc18 <main+0x7c>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c4e:	e1 99       	sbic	0x1c, 1	; 28
+ c50:	fe cf       	rjmp	.-4      	; 0xc4e <main+0xb2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c52:	8a e1       	ldi	r24, 0x1A	; 26
+ c54:	90 e0       	ldi	r25, 0x00	; 0
+ c56:	9f bb       	out	0x1f, r25	; 31
+ c58:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ c5a:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c5c:	8d b3       	in	r24, 0x1d	; 29
+			lib_eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), Isb_Firmware_Code[i]);
+		}
+		Isb_Firmware_Offset = lib_eep_read_byte((uint8_t *)EEP__ISB_FIRMWARE_OFFSET);
+ c5e:	80 93 96 00 	sts	0x0096, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c62:	e1 99       	sbic	0x1c, 1	; 28
+ c64:	fe cf       	rjmp	.-4      	; 0xc62 <main+0xc6>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c66:	82 e1       	ldi	r24, 0x12	; 18
+ c68:	90 e0       	ldi	r25, 0x00	; 0
+ c6a:	9f bb       	out	0x1f, r25	; 31
+ c6c:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ c6e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c70:	8d b3       	in	r24, 0x1d	; 29
+		Isb_Node_Operating_Mode = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+ c72:	80 93 97 00 	sts	0x0097, r24
+		if ((Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_NORM) & (Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_CFG))
+ c76:	88 50       	subi	r24, 0x08	; 8
+ c78:	82 30       	cpi	r24, 0x02	; 2
+ c7a:	d0 f0       	brcs	.+52     	; 0xcb0 <main+0x114>
+		{
+			Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__FW_NORM;
+ c7c:	88 e0       	ldi	r24, 0x08	; 8
+ c7e:	80 93 97 00 	sts	0x0097, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c82:	e1 99       	sbic	0x1c, 1	; 28
+ c84:	fe cf       	rjmp	.-4      	; 0xc82 <main+0xe6>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c86:	82 e1       	ldi	r24, 0x12	; 18
+ c88:	90 e0       	ldi	r25, 0x00	; 0
+ c8a:	9f bb       	out	0x1f, r25	; 31
+ c8c:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ c8e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c90:	8d b3       	in	r24, 0x1d	; 29
+ c92:	88 30       	cpi	r24, 0x08	; 8
+ c94:	69 f0       	breq	.+26     	; 0xcb0 <main+0x114>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ c96:	e1 99       	sbic	0x1c, 1	; 28
+ c98:	fe cf       	rjmp	.-4      	; 0xc96 <main+0xfa>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c9a:	82 e1       	ldi	r24, 0x12	; 18
+ c9c:	90 e0       	ldi	r25, 0x00	; 0
+ c9e:	9f bb       	out	0x1f, r25	; 31
+ ca0:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ ca2:	88 e0       	ldi	r24, 0x08	; 8
+ ca4:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ ca6:	0f b6       	in	r0, 0x3f	; 63
+ ca8:	f8 94       	cli
+ caa:	e2 9a       	sbi	0x1c, 2	; 28
+ cac:	e1 9a       	sbi	0x1c, 1	; 28
+ cae:	0f be       	out	0x3f, r0	; 63
+ cb0:	40 91 98 00 	lds	r20, 0x0098
+ cb4:	2c e1       	ldi	r18, 0x1C	; 28
+ cb6:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ cb8:	e1 99       	sbic	0x1c, 1	; 28
+ cba:	fe cf       	rjmp	.-4      	; 0xcb8 <main+0x11c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ cbc:	3f bb       	out	0x1f, r19	; 31
+ cbe:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ cc0:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ cc2:	8d b3       	in	r24, 0x1d	; 29
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Node_Operating_Mode);
+		}
+		for (uint8_t i = 0; i < 4; i++)
+		{
+			if (lib_eep_read_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i)) != Isb_Firmware_Code[i])
+ cc4:	f9 01       	movw	r30, r18
+ cc6:	ec 5b       	subi	r30, 0xBC	; 188
+ cc8:	ff 4f       	sbci	r31, 0xFF	; 255
+ cca:	90 81       	ld	r25, Z
+ ccc:	89 13       	cpse	r24, r25
+			{
+				Error |= ERROR__CONFIG_CODE;
+ cce:	41 60       	ori	r20, 0x01	; 1
+ cd0:	2f 5f       	subi	r18, 0xFF	; 255
+ cd2:	3f 4f       	sbci	r19, 0xFF	; 255
+		if ((Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_NORM) & (Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_CFG))
+		{
+			Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__FW_NORM;
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Node_Operating_Mode);
+		}
+		for (uint8_t i = 0; i < 4; i++)
+ cd4:	20 32       	cpi	r18, 0x20	; 32
+ cd6:	31 05       	cpc	r19, r1
+ cd8:	79 f7       	brne	.-34     	; 0xcb8 <main+0x11c>
+ cda:	40 93 98 00 	sts	0x0098, r20
+			if (lib_eep_read_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i)) != Isb_Firmware_Code[i])
+			{
+				Error |= ERROR__CONFIG_CODE;
+			}
+		}
+		sei();
+ cde:	78 94       	sei
+		#endif /* ISB_INF_USART0 == 1 */
+		#if ISB_INF_USART1 == 1
+			Isb_Inf_Usart_Init(1);
+		#endif /* ISB_INF_USART1 == 1 */
+		#if ISB_INF_CAN0 == 1
+			Isb_Inf_Can_Init(0);
+ ce0:	80 e0       	ldi	r24, 0x00	; 0
+ ce2:	0e 94 10 03 	call	0x620	; 0x620 <Isb_Inf_Can_Init>
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+ ce6:	40 91 94 00 	lds	r20, 0x0094
+ cea:	50 91 95 00 	lds	r21, 0x0095
+		Isb_Msg.Data[0] = ISB_MSG_TOP__SERIAL_NUMBER__MODE__ERROR;
+ cee:	81 e2       	ldi	r24, 0x21	; 33
+ cf0:	8e 83       	std	Y+6, r24	; 0x06
+ cf2:	fe 01       	movw	r30, r28
+ cf4:	37 96       	adiw	r30, 0x07	; 7
+ cf6:	24 e0       	ldi	r18, 0x04	; 4
+ cf8:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ cfa:	e1 99       	sbic	0x1c, 1	; 28
+ cfc:	fe cf       	rjmp	.-4      	; 0xcfa <main+0x15e>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ cfe:	3f bb       	out	0x1f, r19	; 31
+ d00:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ d02:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ d04:	8d b3       	in	r24, 0x1d	; 29
+		for (uint8_t i = 0; i < 4; i++) {
+			Isb_Msg.Data[i + 1] = lib_eep_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+ d06:	81 93       	st	Z+, r24
+ d08:	2f 5f       	subi	r18, 0xFF	; 255
+ d0a:	3f 4f       	sbci	r19, 0xFF	; 255
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+		Isb_Msg.Data[0] = ISB_MSG_TOP__SERIAL_NUMBER__MODE__ERROR;
+		for (uint8_t i = 0; i < 4; i++) {
+ d0c:	28 30       	cpi	r18, 0x08	; 8
+ d0e:	31 05       	cpc	r19, r1
+ d10:	a1 f7       	brne	.-24     	; 0xcfa <main+0x15e>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ d12:	e1 99       	sbic	0x1c, 1	; 28
+ d14:	fe cf       	rjmp	.-4      	; 0xd12 <main+0x176>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ d16:	82 e1       	ldi	r24, 0x12	; 18
+ d18:	90 e0       	ldi	r25, 0x00	; 0
+ d1a:	9f bb       	out	0x1f, r25	; 31
+ d1c:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ d1e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ d20:	8d b3       	in	r24, 0x1d	; 29
+			Isb_Msg.Data[i + 1] = lib_eep_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+ d22:	8b 87       	std	Y+11, r24	; 0x0b
+		Isb_Msg.Data[6] = Error;
+ d24:	80 91 98 00 	lds	r24, 0x0098
+ d28:	8c 87       	std	Y+12, r24	; 0x0c
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+ d2a:	5d 83       	std	Y+5, r21	; 0x05
+ d2c:	4c 83       	std	Y+4, r20	; 0x04
+		#if ISB_INF_ETHERNET == 1
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+ d2e:	82 e0       	ldi	r24, 0x02	; 2
+ d30:	90 ef       	ldi	r25, 0xF0	; 240
+ d32:	9b 83       	std	Y+3, r25	; 0x03
+ d34:	8a 83       	std	Y+2, r24	; 0x02
+		#endif /* ISB_INF_CAN2 == 1 */
+		#if ISB_INF_ETHERNET == 1
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+ d36:	87 e2       	ldi	r24, 0x27	; 39
+ d38:	89 83       	std	Y+1, r24	; 0x01
+		for (uint8_t i = 0; i < 4; i++) {
+			Isb_Msg.Data[i + 1] = lib_eep_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+		Isb_Msg.Data[6] = Error;
+		Isb_SendMsg(&Isb_Msg);
+ d3a:	8e 01       	movw	r16, r28
+ d3c:	0f 5f       	subi	r16, 0xFF	; 255
+ d3e:	1f 4f       	sbci	r17, 0xFF	; 255
+ d40:	c8 01       	movw	r24, r16
+ d42:	0e 94 25 04 	call	0x84a	; 0x84a <Isb_SendMsg>
+//						}
+//					}
+				}
+			#endif /* ISB_INF_USART1 == 1 */
+			#if ISB_INF_CAN0 == 1
+				if (Isb_Inf_Can_Rx(0, &Isb_Msg) == TRUE) {
+ d46:	f0 2e       	mov	r15, r16
+ d48:	01 2f       	mov	r16, r17
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+		Isb_Msg.Data[6] = Error;
+		Isb_SendMsg(&Isb_Msg);
+		for (;;) {
+			wdt_reset();
+ d4a:	a8 95       	wdr
+//						}
+//					}
+				}
+			#endif /* ISB_INF_USART1 == 1 */
+			#if ISB_INF_CAN0 == 1
+				if (Isb_Inf_Can_Rx(0, &Isb_Msg) == TRUE) {
+ d4c:	80 e0       	ldi	r24, 0x00	; 0
+ d4e:	6f 2d       	mov	r22, r15
+ d50:	70 2f       	mov	r23, r16
+ d52:	0e 94 2b 03 	call	0x656	; 0x656 <Isb_Inf_Can_Rx>
+ d56:	81 30       	cpi	r24, 0x01	; 1
+ d58:	c1 f7       	brne	.-16     	; 0xd4a <main+0x1ae>
+						Isb_Inf_Can_Tx(2, &Isb_Msg);
+					#endif /* ISB_INF_CAN2 == 1 */
+					#if ISB_INF_ETHERNET == 1
+						Isb_Inf_Ethernet_Tx(&Isb_Msg);
+					#endif /* ISB_INF_ETHERNET == 1 */
+					if ((Isb_Msg.Flags & ISB_MSG_FLAGS_TOF_MASK) == ISB_MSG_FLAGS_TOF_UNICAST) {
+ d5a:	89 81       	ldd	r24, Y+1	; 0x01
+ d5c:	80 73       	andi	r24, 0x30	; 48
+ d5e:	a9 f7       	brne	.-22     	; 0xd4a <main+0x1ae>
+						if (Isb_Msg.DestId == Isb_Node_Id) {
+ d60:	2a 81       	ldd	r18, Y+2	; 0x02
+ d62:	3b 81       	ldd	r19, Y+3	; 0x03
+ d64:	80 91 94 00 	lds	r24, 0x0094
+ d68:	90 91 95 00 	lds	r25, 0x0095
+ d6c:	28 17       	cp	r18, r24
+ d6e:	39 07       	cpc	r19, r25
+ d70:	61 f7       	brne	.-40     	; 0xd4a <main+0x1ae>
+							Isb_Config_Rx(&Isb_Msg);
+ d72:	8f 2d       	mov	r24, r15
+ d74:	90 2f       	mov	r25, r16
+ d76:	0e 94 2a 04 	call	0x854	; 0x854 <Isb_Config_Rx>
+ d7a:	e7 cf       	rjmp	.-50     	; 0xd4a <main+0x1ae>
+
+00000d7c <__eerd_word>:
+ d7c:	df 92       	push	r13
+ d7e:	ef 92       	push	r14
+ d80:	ff 92       	push	r15
+ d82:	0f 93       	push	r16
+ d84:	1f 93       	push	r17
+ d86:	7b 01       	movw	r14, r22
+ d88:	8c 01       	movw	r16, r24
+ d8a:	fb 01       	movw	r30, r22
+ d8c:	09 95       	icall
+ d8e:	d8 2e       	mov	r13, r24
+ d90:	c8 01       	movw	r24, r16
+ d92:	01 96       	adiw	r24, 0x01	; 1
+ d94:	f7 01       	movw	r30, r14
+ d96:	09 95       	icall
+ d98:	98 2f       	mov	r25, r24
+ d9a:	8d 2d       	mov	r24, r13
+ d9c:	1f 91       	pop	r17
+ d9e:	0f 91       	pop	r16
+ da0:	ff 90       	pop	r15
+ da2:	ef 90       	pop	r14
+ da4:	df 90       	pop	r13
+ da6:	08 95       	ret
+
+00000da8 <_exit>:
+ da8:	f8 94       	cli
+
+00000daa <__stop_program>:
+ daa:	ff cf       	rjmp	.-2      	; 0xdaa <__stop_program>

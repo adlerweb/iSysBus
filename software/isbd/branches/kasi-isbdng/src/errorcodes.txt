@@ -1,0 +1,51 @@
+#
+# 1xx - 
+#
+
+#
+# 2xx - Positive Answer: Successful action
+#
+200	OK
+202 Accepted
+203 Close Connection
+204 Entering Data Mode
+205 Entering Command Mode
+211 System Status
+214 Help
+230 User Logged In
+
+#
+# 3xx - Positive temporary Answer
+#
+310 Data waiting in buffer
+311 User Name OK, Password Needed
+332 Need Account For Login
+
+#
+# 4xx - Client Error Codes
+#
+
+400 Bad Request
+401 Unauthorized
+402 Payment required
+403 Forbidden
+404 Not Found
+405 Method Not Found
+406 Method Not Allowed
+407 Login Type Needed
+408 Request Time-Out
+409 Conflict
+410 Gone
+411 Length Required
+412 Command must not be used in this context
+413 Unrecognized Command
+414 Buffer overrun occured
+
+
+#
+# 5xx - Server Error Codes
+#
+500 Server Error
+501 Syntax Error in Parameters or Arguments
+502 Not Implemented
+503 Out Of Resources

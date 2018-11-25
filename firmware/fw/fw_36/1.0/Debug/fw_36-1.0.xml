@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf8"?>
+<Fw>
+	<Xmlfile version="1"/>
+	<CreationDate>2011-10-11 23:50:15</CreationDate>
+	<LastModified>2012-02-06 03:18:08</LastModified>
+	<Firmware code="36-1.0" name="Router-Firmware" stable="0" crc="dcbf95cf67508c3d81fc9ec2c2018838">
+		<Description><![CDATA[]]></Description>
+		<EEPROM/>
+		<Busvariable/>
+		<Config/>
+	</Firmware>
+</Fw>

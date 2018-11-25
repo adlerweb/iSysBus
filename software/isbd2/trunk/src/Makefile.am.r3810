@@ -1,0 +1,9 @@
+bin_PROGRAMS = isbd2
+misc_src = ../../../isbc/trunk/src/checksum.cpp
+isbd2_SOURCES = $(misc_src) isbd2.cpp
+
+
+isbd2_LDADD = -lboost_program_options -lboost_system -lboost_thread -lboost_regex -lboost_signals -lpthread
+
+#AM_CPPFLAGS = -Wpadded -I../../../../../../boost/include/
+#AM_LDFLAGS = -L../../../../../../boost/lib/

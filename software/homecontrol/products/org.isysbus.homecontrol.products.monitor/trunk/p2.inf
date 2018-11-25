@@ -1,0 +1,2 @@
+instructions.configure=\
+addRepository(type:0,location:http://homecontrol.isysbus.org/releases/0.9);

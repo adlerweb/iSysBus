@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Plugins>
+    <Plugin version="0.1.0" handle="weather_warnings" enabled="false"/>
+    <Plugin version="0.1.0" handle="weather_warnings" enabled="false"/>
+</Plugins>

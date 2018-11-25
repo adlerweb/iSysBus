@@ -1,0 +1,13 @@
+Component Name	Manufacturer	Description	Supplier	Ordering number	Price
+24C64	STMicroelectronics	Serial I²C EEPROM 8kB	Reichelt	ST 24C64 BN6	0,62 €
+74HC595		8 Bit shift register	Reichelt	74HC 595	0,33 €
+ATmega16	Atmel	Microcontroller	Reichelt	ATMEGA 16	3,95 €
+CNY17	Vishay	Optocoupler	Reichelt	CNY 17	0,18 €
+FT232R	FTDI	UART to USB Converter	Reichelt	FT 232 RL	5,65 €
+LM2574	National Semiconductor	Step-Down voltage regulator	Reichelt	LM 2574 N5	0,97 €
+MCP2515	Microchip	CAN-Controller	Reichelt	MCP 2515-I/SO	1,95 €
+MUR110	ON Semiconductor	Ultrafast Rectifier Diode	Reichelt	MUR 110	0,16 €
+PCA82C250	Philips Semiconductor	CAN-Bus-Transceiver	Reichelt	PCA 82C250	1,40 €
+ULN2803	Toshiba	Darlington Array	Reichelt	ULN 2803	0,40 €
+USB-CON		USB-Connector type B	Reichelt	USB BW	0,24 €
+		DIN rail housing (half euro-pcb)	Reichelt	HUT 6-C	7,60 €

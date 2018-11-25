@@ -1,0 +1,143 @@
+INPUT:
+======
+
+Konfiguration Hardware (EEPROM):
+--------------------------------
+
+Byte 0:		Bit 7:		0 = hw_port ist local, 1 = hw_port ist auf NodeExt
+		Bit 6-0:	local 0-5 = PORTA-F, NodeExt 0-127 = twi-Adresse
+Byte 1:		Bit 7-5:	0-7 = PIN0-7
+		Bit 4:		
+		Bit 3:
+		Bit 2:
+		Bit 1:		
+		Bit 0:		Pullup-Widerstand (0 = Aus, 1 = Ein)
+
+Konfiguration Address (EEPROM):
+-------------------------------
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	KnotenId
+Byte 2:		Bit 7-6:	KnotenId
+		Bit 5:		
+		Bit 4:		
+		Bit 3:		Message bei Klick > 2s
+		Bit 2:		Message bei DoppelKlick
+		Bit 1:		Message bei Klick
+
+Konfiguration Event (EEPROM):
+-----------------------------
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	EreignisId
+Byte 2:		Bit 7:		EreignisId
+		Bit 6:		
+		Bit 5:		
+		Bit 4:		
+		Bit 3:		Message bei Klick > 2s
+		Bit 2:		Message bei DoppelKlick
+		Bit 1:		Message bei Klick
+
+Konfiguration Group (EEPROM):
+-----------------------------
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	GruppenId
+Byte 2:		Bit 7:		GruppenId
+		Bit 6:		
+		Bit 5:		
+		Bit 4:		
+		Bit 3:		Message bei LangemKlick > 1s
+		Bit 2:		Message bei DoppelKlick
+		Bit 1:		Message bei Klick
+Byte 3:		Bit 7-0:	Anzahl Knoten in der Gruppe (max 255)
+
+Sende-/Empfangspuffer (SRAM):
+-----------------------------
+
+Der Sende-/Empfangspuffer wird bei eingehenden als auch bei ausgehenden
+Nachrichten verwendet. Dabei wird er zyklisch in der Hauptschleife für
+das Senden, bzw. durch Interrupt beim Empfangen abgearbeitet.
+Für den Puffer sollte ein Array von 20 vorgesehen werden.
+
+Byte 0:		Bit 7-0:	Port
+Byte 1:		Bit 7-0:	KnotenId, EventId, GroupId
+Byte 2:		Bit 7:		KnotenId, EventId, GroupId
+		Bit 6:		KnotenId, Frei, Frei
+		Bit 5-0:	Absender-KnotenId
+Byte 3:		Bit 7-4:	Absender-KnotenId
+		Bit 3:		Broadcast-Flag
+		Bit 2:		Event-/Group-Flag
+		Bit 1-0:
+Byte 4:		Bit 7-0:	Anzahl Gruppenknoten
+Byte 5:		Bit 7-0:	Anzahl Gruppenknoten die geantwortet haben
+Byte 6:		Bit 7:		Puffer ist belegt
+		Bit 6:
+		Bit 5:
+		Bit 4:
+		Bit 3:
+		Bit 2-0:	Anzahl Wiederholungen
+
+Anleitung:
+==========
+
+- Alle Listen werden als dynamische Arrays im EEPROM abgelegt.
+
+- Eine Überlegung ist zwecks Geschwindigkeit bei der Suche in den Arrays
+  diese beim Booten des Knoten in das SRAM zu laden.
+
+- Der Knoten fragt anhand des Array "Hardware-Konfiguration" ständig seine
+  Eingänge ab. Dies ist nötig, da eine Änderung an den Eingängen keinen
+  Interrupt auslösen kann. Allerdings braucht er nur seine lokalen
+  Eingänge abzufragen, da die an den KnotenErweiterungen automatisch
+  eine Nachricht an den Knoten senden sobald sich an deren Zustand
+  etwas ändert.
+
+- Es handelt sich um einen Klick, wenn sich der Zustand eines Eingangs
+  innerhalb von 1 Sekunde nur einmal von 0 auf 1 und wieder auf 0 wechselt.
+
+- Es handelt sich um einen DoppelKlick, wenn sich der Zustand eines
+  Eingangs innerhalb von 1 Sekunde zweimal von 0 auf 1 und wieder auf 0
+  wechselt.
+
+- Es handelt sich um einen langen Klick, wenn sich der Zustand eines
+  Eingangs von 0 auf 1 wechselt, wobei das 1-Signal
+  mindestens 1s andauern muß.
+
+- Nach dem der Mikrocontroller die Art des Signals bestimmt hat,
+  durchsucht er die Arrays "Konfiguration Address", "Konfiguration Event",
+  "Konfiguration Group" nacheinander und sendet die entsprechenden
+  Nachrichten.
+
+- Eine "Address-Nachricht" wird in den Sendepuffer geschrieben und ist
+  damit erledigt.
+  Im Klartext werden Adressnachrichten wie folgt definiert:
+  - KnotenId x, KnotenErweiterung y, Anschluß z, Klick
+  Addressnachrichten wie "EG Wohnzimmer Licht Ein" sollte es nicht geben,
+  da solche Nachrichten besser als Ereignis oder Gruppe versendet werden
+  können. Vorallem wird im Output-Knoten bei mehreren INPUT-Knoten für
+  das gleiche Ereignis bedeutend mehr Speicherplatz im verbraucht.
+
+- Eine "Ereignis-Nachricht" wird in den Sendepuffer geschrieben und ist
+  damit erledigt.
+  Im Klartext werden Ereignisse wie folgt definiert:
+  - EG Wohnzimmer Licht Ein
+  - EG Wohnzimmer Licht Heller
+  Ein Ereignis wie "Taster gedrückt darf es nicht geben, da dies später
+  zu Verwirrungen führen kann".
+
+- Eine "Group-Nachricht" wird in den Sendepuffer geschrieben. Dabei wird
+  auch die Anzahl der Gruppenknoten vermerkt. Der Sendepuffer wird
+  zyklisch abgearbeitet. Der Empfängerpuffer wird zyklisch ausgelesen.
+  Sobald eine Bestätigung der Gruppe eingetroffen ist, wird die Anzahl
+  der Gruppenknoten im Sendepuffer jeweils um 1 reduziert. Wenn die
+  Gruppenknoten nicht innerhalb einer bestimmten Zeit geantwortet haben
+  wird die Nachricht vom Sendepuffer erneut gesendet. Dabei wird die
+  Anzahl der Widerholungen jeweils um 1 reduziert. Sollte eine Nachricht
+  bei 0 ankommen und nicht von allen Gruppenknoten eine Antwort erhalten,
+  so muß eine Fehler-Nachricht versendet werden.
+  Im Klartext werden Gruppen wie folgt definiert:
+  - EG Wohnzimmer Licht Ein
+  - EG Wohnzimmer Licht Heller
+  Eine Gruppe wie "Taster gedrückt darf es nicht geben, da dies später
+  zu Verwirrungen führen kann".

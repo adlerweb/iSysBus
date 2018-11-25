@@ -1,0 +1,3086 @@
+
+fw_11-0.0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000d8a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000034  00800060  00000d8a  00000dfe  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000090  00800094  00000dbe  00000e32  2**0
+                  ALLOC
+  3 .stab         00003210  00000000  00000000  00000e34  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      000017e3  00000000  00000000  00004044  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 42 01 	jmp	0x284	; 0x284 <__vector_11>
+  30:	0c 94 7c 01 	jmp	0x2f8	; 0x2f8 <__vector_12>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ea e8       	ldi	r30, 0x8A	; 138
+  68:	fd e0       	ldi	r31, 0x0D	; 13
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a4 39       	cpi	r26, 0x94	; 148
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	11 e0       	ldi	r17, 0x01	; 1
+  78:	a4 e9       	ldi	r26, 0x94	; 148
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a4 32       	cpi	r26, 0x24	; 36
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 b4 05 	call	0xb68	; 0xb68 <main>
+  8a:	0c 94 c3 06 	jmp	0xd86	; 0xd86 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__heap_end>
+
+00000092 <eeprom_read_byte>:
+
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+  92:	9c 01       	movw	r18, r24
+    do {} while (!eeprom_is_ready ());
+  94:	e1 99       	sbic	0x1c, 1	; 28
+  96:	fe cf       	rjmp	.-4      	; 0x94 <eeprom_read_byte+0x2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  98:	3f bb       	out	0x1f, r19	; 31
+  9a:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+  9c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  9e:	8d b3       	in	r24, 0x1d	; 29
+}
+  a0:	08 95       	ret
+
+000000a2 <lib_eep_read_byte>:
+#ifndef LIB_EEP_C_
+	#define LIB_EEP_C_
+
+
+
+	uint8_t __attribute__((always_inline)) lib_eep_read_byte(uint8_t * aAddr) {
+  a2:	9c 01       	movw	r18, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  a4:	e1 99       	sbic	0x1c, 1	; 28
+  a6:	fe cf       	rjmp	.-4      	; 0xa4 <lib_eep_read_byte+0x2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  a8:	3f bb       	out	0x1f, r19	; 31
+  aa:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+  ac:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  ae:	8d b3       	in	r24, 0x1d	; 29
+		return eeprom_read_byte(aAddr);;
+	}
+  b0:	08 95       	ret
+
+000000b2 <lib_eep_write_byte>:
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  b2:	e1 99       	sbic	0x1c, 1	; 28
+  b4:	fe cf       	rjmp	.-4      	; 0xb2 <lib_eep_write_byte>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  b6:	9c 01       	movw	r18, r24
+  b8:	9f bb       	out	0x1f, r25	; 31
+  ba:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+  bc:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  be:	8d b3       	in	r24, 0x1d	; 29
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+  c0:	86 17       	cp	r24, r22
+  c2:	51 f0       	breq	.+20     	; 0xd8 <lib_eep_write_byte+0x26>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+  c4:	e1 99       	sbic	0x1c, 1	; 28
+  c6:	fe cf       	rjmp	.-4      	; 0xc4 <lib_eep_write_byte+0x12>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  c8:	3f bb       	out	0x1f, r19	; 31
+  ca:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+  cc:	6d bb       	out	0x1d, r22	; 29
+
+    __asm__ __volatile__ (
+  ce:	0f b6       	in	r0, 0x3f	; 63
+  d0:	f8 94       	cli
+  d2:	e2 9a       	sbi	0x1c, 2	; 28
+  d4:	e1 9a       	sbi	0x1c, 1	; 28
+  d6:	0f be       	out	0x3f, r0	; 63
+  d8:	08 95       	ret
+
+000000da <lib_eep_fw_read_byte>:
+	}
+
+
+
+	uint8_t __attribute__((always_inline)) lib_eep_fw_read_byte(uint8_t * aAddr) {
+		return eeprom_read_byte(Isb_Firmware_Offset + aAddr);;
+  da:	20 91 96 00 	lds	r18, 0x0096
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  de:	e1 99       	sbic	0x1c, 1	; 28
+  e0:	fe cf       	rjmp	.-4      	; 0xde <lib_eep_fw_read_byte+0x4>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  e2:	82 0f       	add	r24, r18
+  e4:	91 1d       	adc	r25, r1
+  e6:	9f bb       	out	0x1f, r25	; 31
+  e8:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+  ea:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+  ec:	8d b3       	in	r24, 0x1d	; 29
+	}
+  ee:	08 95       	ret
+
+000000f0 <lib_eep_fw_write_byte>:
+		return eeprom_read_word(Isb_Firmware_Offset + aAddr);;
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_fw_write_byte(uint8_t * aAddr, uint8_t aData) {
+  f0:	ac 01       	movw	r20, r24
+		if (eeprom_read_byte(Isb_Firmware_Offset + aAddr) != aData) {
+  f2:	80 91 96 00 	lds	r24, 0x0096
+  f6:	28 2f       	mov	r18, r24
+  f8:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+  fa:	e1 99       	sbic	0x1c, 1	; 28
+  fc:	fe cf       	rjmp	.-4      	; 0xfa <lib_eep_fw_write_byte+0xa>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+  fe:	ca 01       	movw	r24, r20
+ 100:	82 0f       	add	r24, r18
+ 102:	93 1f       	adc	r25, r19
+ 104:	9f bb       	out	0x1f, r25	; 31
+ 106:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 108:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 10a:	8d b3       	in	r24, 0x1d	; 29
+ 10c:	86 17       	cp	r24, r22
+ 10e:	61 f0       	breq	.+24     	; 0x128 <lib_eep_fw_write_byte+0x38>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 110:	e1 99       	sbic	0x1c, 1	; 28
+ 112:	fe cf       	rjmp	.-4      	; 0x110 <lib_eep_fw_write_byte+0x20>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 114:	24 0f       	add	r18, r20
+ 116:	35 1f       	adc	r19, r21
+ 118:	3f bb       	out	0x1f, r19	; 31
+ 11a:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ 11c:	6d bb       	out	0x1d, r22	; 29
+
+    __asm__ __volatile__ (
+ 11e:	0f b6       	in	r0, 0x3f	; 63
+ 120:	f8 94       	cli
+ 122:	e2 9a       	sbi	0x1c, 2	; 28
+ 124:	e1 9a       	sbi	0x1c, 1	; 28
+ 126:	0f be       	out	0x3f, r0	; 63
+ 128:	08 95       	ret
+
+0000012a <Lib_Pin_Get>:
+	#endif
+
+
+
+	uint8_t Lib_Pin_Get(const uint8_t aPort, const uint8_t aPin) {
+		return (*(PINx[aPort]) >> aPin) & 1;
+ 12a:	e8 2f       	mov	r30, r24
+ 12c:	f0 e0       	ldi	r31, 0x00	; 0
+ 12e:	ee 0f       	add	r30, r30
+ 130:	ff 1f       	adc	r31, r31
+ 132:	ec 57       	subi	r30, 0x7C	; 124
+ 134:	ff 4f       	sbci	r31, 0xFF	; 255
+ 136:	01 90       	ld	r0, Z+
+ 138:	f0 81       	ld	r31, Z
+ 13a:	e0 2d       	mov	r30, r0
+ 13c:	80 81       	ld	r24, Z
+ 13e:	90 e0       	ldi	r25, 0x00	; 0
+ 140:	02 c0       	rjmp	.+4      	; 0x146 <Lib_Pin_Get+0x1c>
+ 142:	95 95       	asr	r25
+ 144:	87 95       	ror	r24
+ 146:	6a 95       	dec	r22
+ 148:	e2 f7       	brpl	.-8      	; 0x142 <Lib_Pin_Get+0x18>
+	}
+ 14a:	81 70       	andi	r24, 0x01	; 1
+ 14c:	08 95       	ret
+
+0000014e <Lib_Pin_Set>:
+
+
+
+	void __attribute__((noinline)) Lib_Pin_Set(const uint8_t aPort, const uint8_t aPin, const uint8_t aCmd) {
+ 14e:	91 e0       	ldi	r25, 0x01	; 1
+ 150:	02 c0       	rjmp	.+4      	; 0x156 <Lib_Pin_Set+0x8>
+		uint8_t mask;
+		uint8_t tmp;
+		volatile uint8_t *reg;
+		uint8_t Pxx = aPin;
+		for (mask = 1; Pxx--; mask <<= 1) ;
+ 152:	99 0f       	add	r25, r25
+ 154:	61 50       	subi	r22, 0x01	; 1
+ 156:	66 23       	and	r22, r22
+ 158:	e1 f7       	brne	.-8      	; 0x152 <Lib_Pin_Set+0x4>
+		reg = PORTx[aPort];
+ 15a:	a8 2f       	mov	r26, r24
+ 15c:	b0 e0       	ldi	r27, 0x00	; 0
+ 15e:	fd 01       	movw	r30, r26
+ 160:	ee 0f       	add	r30, r30
+ 162:	ff 1f       	adc	r31, r31
+ 164:	ec 58       	subi	r30, 0x8C	; 140
+ 166:	ff 4f       	sbci	r31, 0xFF	; 255
+ 168:	01 90       	ld	r0, Z+
+ 16a:	f0 81       	ld	r31, Z
+ 16c:	e0 2d       	mov	r30, r0
+		tmp = *reg | mask;
+ 16e:	80 81       	ld	r24, Z
+ 170:	89 2b       	or	r24, r25
+		if (! (aCmd & 2)) {
+ 172:	41 ff       	sbrs	r20, 1
+			tmp ^= mask;
+ 174:	89 27       	eor	r24, r25
+		}
+		*reg = tmp;
+ 176:	80 83       	st	Z, r24
+		reg = DDRx[aPort];
+ 178:	aa 0f       	add	r26, r26
+ 17a:	bb 1f       	adc	r27, r27
+ 17c:	ac 59       	subi	r26, 0x9C	; 156
+ 17e:	bf 4f       	sbci	r27, 0xFF	; 255
+ 180:	ed 91       	ld	r30, X+
+ 182:	fc 91       	ld	r31, X
+		tmp = *reg | mask;
+ 184:	80 81       	ld	r24, Z
+ 186:	89 2b       	or	r24, r25
+		if (! (aCmd & 1)) {
+ 188:	40 ff       	sbrs	r20, 0
+			tmp ^= mask;
+ 18a:	89 27       	eor	r24, r25
+		}
+		*reg = tmp;
+ 18c:	80 83       	st	Z, r24
+	}
+ 18e:	08 95       	ret
+
+00000190 <Lib_Crc_Calc8>:
+#ifndef LIB_CRC_C_
+	#define LIB_CRC_C_
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+ 190:	dc 01       	movw	r26, r24
+ 192:	40 e0       	ldi	r20, 0x00	; 0
+ 194:	20 e0       	ldi	r18, 0x00	; 0
+ 196:	30 e0       	ldi	r19, 0x00	; 0
+ 198:	07 c0       	rjmp	.+14     	; 0x1a8 <Lib_Crc_Calc8+0x18>
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+			Sum += *(uint8_t *)(aData + i);
+ 19a:	fd 01       	movw	r30, r26
+ 19c:	e2 0f       	add	r30, r18
+ 19e:	f3 1f       	adc	r31, r19
+ 1a0:	80 81       	ld	r24, Z
+ 1a2:	48 0f       	add	r20, r24
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+ 1a4:	2f 5f       	subi	r18, 0xFF	; 255
+ 1a6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 1a8:	26 17       	cp	r18, r22
+ 1aa:	37 07       	cpc	r19, r23
+ 1ac:	b0 f3       	brcs	.-20     	; 0x19a <Lib_Crc_Calc8+0xa>
+			Sum += *(uint8_t *)(aData + i);
+		}
+		return (uint8_t)((Sum ^ 0xFF) + 1);
+	}
+ 1ae:	84 2f       	mov	r24, r20
+ 1b0:	81 95       	neg	r24
+ 1b2:	08 95       	ret
+
+000001b4 <Lib_Crc_Calc16>:
+
+
+
+	uint16_t Lib_Crc_Calc16(const void * aData, uint16_t aLength) {
+ 1b4:	0f 93       	push	r16
+ 1b6:	1f 93       	push	r17
+ 1b8:	cf 93       	push	r28
+ 1ba:	df 93       	push	r29
+ 1bc:	8c 01       	movw	r16, r24
+ 1be:	ec 01       	movw	r28, r24
+ 1c0:	fb 01       	movw	r30, r22
+ 1c2:	20 e0       	ldi	r18, 0x00	; 0
+ 1c4:	30 e0       	ldi	r19, 0x00	; 0
+ 1c6:	40 e0       	ldi	r20, 0x00	; 0
+ 1c8:	50 e0       	ldi	r21, 0x00	; 0
+		uint32_t Sum = 0;
+		while (1) {
+			if (aLength < 2) {
+ 1ca:	e2 30       	cpi	r30, 0x02	; 2
+ 1cc:	f1 05       	cpc	r31, r1
+ 1ce:	50 f0       	brcs	.+20     	; 0x1e4 <Lib_Crc_Calc16+0x30>
+				break;
+			}
+			Sum += *((uint16_t *)aData);
+ 1d0:	89 91       	ld	r24, Y+
+ 1d2:	99 91       	ld	r25, Y+
+ 1d4:	a0 e0       	ldi	r26, 0x00	; 0
+ 1d6:	b0 e0       	ldi	r27, 0x00	; 0
+ 1d8:	28 0f       	add	r18, r24
+ 1da:	39 1f       	adc	r19, r25
+ 1dc:	4a 1f       	adc	r20, r26
+ 1de:	5b 1f       	adc	r21, r27
+			aData += 2;
+			aLength -= 2;
+ 1e0:	32 97       	sbiw	r30, 0x02	; 2
+ 1e2:	f3 cf       	rjmp	.-26     	; 0x1ca <Lib_Crc_Calc16+0x16>
+		}
+ 1e4:	fb 01       	movw	r30, r22
+ 1e6:	ee 7f       	andi	r30, 0xFE	; 254
+ 1e8:	e0 0f       	add	r30, r16
+ 1ea:	f1 1f       	adc	r31, r17
+		if (aLength) {
+ 1ec:	60 ff       	sbrs	r22, 0
+ 1ee:	0b c0       	rjmp	.+22     	; 0x206 <Lib_Crc_Calc16+0x52>
+			Sum += *(uint8_t *) aData;
+ 1f0:	80 81       	ld	r24, Z
+ 1f2:	28 0f       	add	r18, r24
+ 1f4:	31 1d       	adc	r19, r1
+ 1f6:	41 1d       	adc	r20, r1
+ 1f8:	51 1d       	adc	r21, r1
+ 1fa:	05 c0       	rjmp	.+10     	; 0x206 <Lib_Crc_Calc16+0x52>
+		}
+		while ((aLength = (uint16_t) (Sum >> 16)) != 0) {
+			Sum = (uint16_t) Sum + aLength;
+ 1fc:	62 0f       	add	r22, r18
+ 1fe:	73 1f       	adc	r23, r19
+ 200:	9b 01       	movw	r18, r22
+ 202:	40 e0       	ldi	r20, 0x00	; 0
+ 204:	50 e0       	ldi	r21, 0x00	; 0
+			aLength -= 2;
+		}
+		if (aLength) {
+			Sum += *(uint8_t *) aData;
+		}
+		while ((aLength = (uint16_t) (Sum >> 16)) != 0) {
+ 206:	ca 01       	movw	r24, r20
+ 208:	aa 27       	eor	r26, r26
+ 20a:	bb 27       	eor	r27, r27
+ 20c:	bc 01       	movw	r22, r24
+ 20e:	89 2b       	or	r24, r25
+ 210:	a9 f7       	brne	.-22     	; 0x1fc <Lib_Crc_Calc16+0x48>
+ 212:	20 95       	com	r18
+ 214:	30 95       	com	r19
+			Sum = (uint16_t) Sum + aLength;
+		}
+		return (uint16_t) Sum ^ 0xFFFF;
+	}
+ 216:	c9 01       	movw	r24, r18
+ 218:	df 91       	pop	r29
+ 21a:	cf 91       	pop	r28
+ 21c:	1f 91       	pop	r17
+ 21e:	0f 91       	pop	r16
+ 220:	08 95       	ret
+
+00000222 <Inf_Usart_Init>:
+	#define INF_USART_C_
+
+
+
+	#if defined(INF_USART0_TX) || defined(INF_USART0_RX) || defined(INF_USART1_TX) || defined(INF_USART1_RX)
+		uint8_t Inf_Usart_Init(const uint8_t aInf, const uint8_t aUbrrl, const uint8_t aUbrrh, const uint8_t aUcsra, const uint8_t aUcsrb, const uint8_t aUcsrc) {
+ 222:	ef 92       	push	r14
+ 224:	0f 93       	push	r16
+			uint8_t Result = FALSE;
+			switch (aInf) {
+ 226:	88 23       	and	r24, r24
+ 228:	11 f0       	breq	.+4      	; 0x22e <Inf_Usart_Init+0xc>
+ 22a:	80 e0       	ldi	r24, 0x00	; 0
+ 22c:	0e c0       	rjmp	.+28     	; 0x24a <Inf_Usart_Init+0x28>
+				#if defined(INF_USART0_RX) || defined(INF_USART0_TX)
+					case 0:
+						#if defined(INF_USART0_RX)
+							Inf_Usart_Rx0_Buffer_Tail = Inf_Usart_Rx0_Buffer_Head;
+ 22e:	80 91 99 00 	lds	r24, 0x0099
+ 232:	80 93 9a 00 	sts	0x009A, r24
+						#endif /* INF_USART0_RX */
+						#if defined(INF_USART0_TX)
+							Inf_Usart_Tx0_Buffer_Tail = Inf_Usart_Tx0_Buffer_Head;
+ 236:	80 91 a2 00 	lds	r24, 0x00A2
+ 23a:	80 93 a1 00 	sts	0x00A1, r24
+						#endif /* INF_USART0_TX */
+						#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+							UCSRA = aUcsra;
+ 23e:	2b b9       	out	0x0b, r18	; 11
+							UBRRH = aUbrrh;
+ 240:	40 bd       	out	0x20, r20	; 32
+							UBRRL = aUbrrl;
+ 242:	69 b9       	out	0x09, r22	; 9
+							UCSRC = aUcsrc;
+ 244:	e0 bc       	out	0x20, r14	; 32
+							UCSRB = aUcsrb;
+ 246:	0a b9       	out	0x0a, r16	; 10
+ 248:	81 e0       	ldi	r24, 0x01	; 1
+						#endif
+						break;
+				#endif /* INF_USART1_RX || INF_USART1_TX */
+			}
+			return Result;
+		}
+ 24a:	0f 91       	pop	r16
+ 24c:	ef 90       	pop	r14
+ 24e:	08 95       	ret
+
+00000250 <Inf_Usart_Rx>:
+	#endif /* INF_USART0_TX || INF_USART0_RX || INF_USART1_TX || INF_USART1_RX*/
+
+
+
+	#if defined(INF_USART0_RX) || defined(INF_USART1_RX)
+		uint8_t Inf_Usart_Rx(const uint8_t aInf, uint8_t * aChar) {
+ 250:	db 01       	movw	r26, r22
+			uint8_t Result = FALSE;
+			switch (aInf) {
+ 252:	88 23       	and	r24, r24
+ 254:	a9 f4       	brne	.+42     	; 0x280 <Inf_Usart_Rx+0x30>
+				#if defined(INF_USART0_RX)
+					case 0:
+						if (Inf_Usart_Rx0_Buffer_Head != Inf_Usart_Rx0_Buffer_Tail) {
+ 256:	90 91 99 00 	lds	r25, 0x0099
+ 25a:	80 91 9a 00 	lds	r24, 0x009A
+ 25e:	98 17       	cp	r25, r24
+ 260:	79 f0       	breq	.+30     	; 0x280 <Inf_Usart_Rx+0x30>
+							Inf_Usart_Rx0_Buffer_Tail = (Inf_Usart_Rx0_Buffer_Tail + 1) & INF_USART_RX0_BUFFER_MASK;
+ 262:	80 91 9a 00 	lds	r24, 0x009A
+ 266:	8f 5f       	subi	r24, 0xFF	; 255
+ 268:	8f 73       	andi	r24, 0x3F	; 63
+ 26a:	80 93 9a 00 	sts	0x009A, r24
+							*aChar = Inf_Usart_Rx0_Buffer[Inf_Usart_Rx0_Buffer_Tail];
+ 26e:	e0 91 9a 00 	lds	r30, 0x009A
+ 272:	f0 e0       	ldi	r31, 0x00	; 0
+ 274:	ed 55       	subi	r30, 0x5D	; 93
+ 276:	ff 4f       	sbci	r31, 0xFF	; 255
+ 278:	80 81       	ld	r24, Z
+ 27a:	8c 93       	st	X, r24
+ 27c:	81 e0       	ldi	r24, 0x01	; 1
+ 27e:	08 95       	ret
+ 280:	80 e0       	ldi	r24, 0x00	; 0
+						}
+						break;
+				#endif /* INF_USART1_RX */
+			}
+			return Result;
+		}
+ 282:	08 95       	ret
+
+00000284 <__vector_11>:
+
+
+
+	#if defined(INF_USART0_RX)
+		#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+			ISR (USART_RXC_vect) {
+ 284:	1f 92       	push	r1
+ 286:	0f 92       	push	r0
+ 288:	0f b6       	in	r0, 0x3f	; 63
+ 28a:	0f 92       	push	r0
+ 28c:	11 24       	eor	r1, r1
+ 28e:	8f 93       	push	r24
+ 290:	9f 93       	push	r25
+ 292:	ef 93       	push	r30
+ 294:	ff 93       	push	r31
+				uint8_t Tmp_Head;
+				Tmp_Head = (Inf_Usart_Rx0_Buffer_Head + 1) & INF_USART_RX0_BUFFER_MASK;
+ 296:	90 91 99 00 	lds	r25, 0x0099
+ 29a:	9f 5f       	subi	r25, 0xFF	; 255
+ 29c:	9f 73       	andi	r25, 0x3F	; 63
+				if (Tmp_Head != Inf_Usart_Rx0_Buffer_Tail) {
+ 29e:	80 91 9a 00 	lds	r24, 0x009A
+ 2a2:	98 17       	cp	r25, r24
+ 2a4:	41 f0       	breq	.+16     	; 0x2b6 <__vector_11+0x32>
+					Inf_Usart_Rx0_Buffer[Tmp_Head] = UDR;
+ 2a6:	e9 2f       	mov	r30, r25
+ 2a8:	f0 e0       	ldi	r31, 0x00	; 0
+ 2aa:	8c b1       	in	r24, 0x0c	; 12
+ 2ac:	ed 55       	subi	r30, 0x5D	; 93
+ 2ae:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2b0:	80 83       	st	Z, r24
+					Inf_Usart_Rx0_Buffer_Head = Tmp_Head;
+ 2b2:	90 93 99 00 	sts	0x0099, r25
+				}
+			}
+ 2b6:	ff 91       	pop	r31
+ 2b8:	ef 91       	pop	r30
+ 2ba:	9f 91       	pop	r25
+ 2bc:	8f 91       	pop	r24
+ 2be:	0f 90       	pop	r0
+ 2c0:	0f be       	out	0x3f, r0	; 63
+ 2c2:	0f 90       	pop	r0
+ 2c4:	1f 90       	pop	r1
+ 2c6:	18 95       	reti
+
+000002c8 <Inf_Usart_Tx>:
+	#endif /* INF_USART1_RX */
+
+
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+ 2c8:	db 01       	movw	r26, r22
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 2ca:	88 23       	and	r24, r24
+ 2cc:	99 f4       	brne	.+38     	; 0x2f4 <Inf_Usart_Tx+0x2c>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 2ce:	90 91 a2 00 	lds	r25, 0x00A2
+ 2d2:	9f 5f       	subi	r25, 0xFF	; 255
+ 2d4:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 2d6:	80 91 a1 00 	lds	r24, 0x00A1
+ 2da:	98 17       	cp	r25, r24
+ 2dc:	59 f0       	breq	.+22     	; 0x2f4 <Inf_Usart_Tx+0x2c>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 2de:	e9 2f       	mov	r30, r25
+ 2e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e2:	8c 91       	ld	r24, X
+ 2e4:	ed 51       	subi	r30, 0x1D	; 29
+ 2e6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2e8:	80 83       	st	Z, r24
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 2ea:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 2ee:	55 9a       	sbi	0x0a, 5	; 10
+ 2f0:	81 e0       	ldi	r24, 0x01	; 1
+ 2f2:	08 95       	ret
+ 2f4:	80 e0       	ldi	r24, 0x00	; 0
+						}
+						break;
+				#endif /* INF_USART1_TX */
+			}
+			return Result;
+		}
+ 2f6:	08 95       	ret
+
+000002f8 <__vector_12>:
+
+
+
+	#if defined(INF_USART0_TX)
+		#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+			ISR (USART_UDRE_vect) {
+ 2f8:	1f 92       	push	r1
+ 2fa:	0f 92       	push	r0
+ 2fc:	0f b6       	in	r0, 0x3f	; 63
+ 2fe:	0f 92       	push	r0
+ 300:	11 24       	eor	r1, r1
+ 302:	8f 93       	push	r24
+ 304:	9f 93       	push	r25
+ 306:	ef 93       	push	r30
+ 308:	ff 93       	push	r31
+				if (Inf_Usart_Tx0_Buffer_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 30a:	90 91 a2 00 	lds	r25, 0x00A2
+ 30e:	80 91 a1 00 	lds	r24, 0x00A1
+ 312:	98 17       	cp	r25, r24
+ 314:	79 f0       	breq	.+30     	; 0x334 <__vector_12+0x3c>
+					Inf_Usart_Tx0_Buffer_Tail = (Inf_Usart_Tx0_Buffer_Tail + 1) & INF_USART_TX0_BUFFER_MASK;
+ 316:	80 91 a1 00 	lds	r24, 0x00A1
+ 31a:	8f 5f       	subi	r24, 0xFF	; 255
+ 31c:	8f 73       	andi	r24, 0x3F	; 63
+ 31e:	80 93 a1 00 	sts	0x00A1, r24
+					UDR = Inf_Usart_Tx0_Buffer[Inf_Usart_Tx0_Buffer_Tail];
+ 322:	e0 91 a1 00 	lds	r30, 0x00A1
+ 326:	f0 e0       	ldi	r31, 0x00	; 0
+ 328:	ed 51       	subi	r30, 0x1D	; 29
+ 32a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 32c:	80 81       	ld	r24, Z
+ 32e:	8c b9       	out	0x0c, r24	; 12
+					UCSRA |= (1 << TXC);
+ 330:	5e 9a       	sbi	0x0b, 6	; 11
+ 332:	01 c0       	rjmp	.+2      	; 0x336 <__vector_12+0x3e>
+				}
+				else {
+					UCSRB &= ~(1 << UDRIE);
+ 334:	55 98       	cbi	0x0a, 5	; 10
+				}
+			}
+ 336:	ff 91       	pop	r31
+ 338:	ef 91       	pop	r30
+ 33a:	9f 91       	pop	r25
+ 33c:	8f 91       	pop	r24
+ 33e:	0f 90       	pop	r0
+ 340:	0f be       	out	0x3f, r0	; 63
+ 342:	0f 90       	pop	r0
+ 344:	1f 90       	pop	r1
+ 346:	18 95       	reti
+
+00000348 <Isb_Inf_Usart_Init>:
+
+
+
+	uint8_t Isb_Inf_Usart_Init(const uint8_t aInf) {
+		uint8_t Result = FALSE;
+		switch (aInf) {
+ 348:	88 23       	and	r24, r24
+ 34a:	11 f0       	breq	.+4      	; 0x350 <Isb_Inf_Usart_Init+0x8>
+ 34c:	80 e0       	ldi	r24, 0x00	; 0
+ 34e:	08 95       	ret
+			uint8_t Result = FALSE;
+			switch (aInf) {
+				#if defined(INF_USART0_RX) || defined(INF_USART0_TX)
+					case 0:
+						#if defined(INF_USART0_RX)
+							Inf_Usart_Rx0_Buffer_Tail = Inf_Usart_Rx0_Buffer_Head;
+ 350:	80 91 99 00 	lds	r24, 0x0099
+ 354:	80 93 9a 00 	sts	0x009A, r24
+						#endif /* INF_USART0_RX */
+						#if defined(INF_USART0_TX)
+							Inf_Usart_Tx0_Buffer_Tail = Inf_Usart_Tx0_Buffer_Head;
+ 358:	80 91 a2 00 	lds	r24, 0x00A2
+ 35c:	80 93 a1 00 	sts	0x00A1, r24
+						#endif /* INF_USART0_TX */
+						#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+							UCSRA = aUcsra;
+ 360:	83 e0       	ldi	r24, 0x03	; 3
+ 362:	8b b9       	out	0x0b, r24	; 11
+							UBRRH = aUbrrh;
+ 364:	10 bc       	out	0x20, r1	; 32
+							UBRRL = aUbrrl;
+ 366:	8f e0       	ldi	r24, 0x0F	; 15
+ 368:	89 b9       	out	0x09, r24	; 9
+							UCSRC = aUcsrc;
+ 36a:	86 e8       	ldi	r24, 0x86	; 134
+ 36c:	80 bd       	out	0x20, r24	; 32
+							UCSRB = aUcsrb;
+ 36e:	88 eb       	ldi	r24, 0xB8	; 184
+ 370:	8a b9       	out	0x0a, r24	; 10
+ 372:	81 e0       	ldi	r24, 0x01	; 1
+					Result = Inf_Usart_Init(1, INF_USART1_UBRRL, INF_USART1_UBRRH, INF_USART1_UCSRA, INF_USART1_UCSRB, INF_USART1_UCSRC);
+				break;
+			#endif /* ISB_INF_USART1 == 1 */
+		}
+		return Result;
+	}
+ 374:	08 95       	ret
+
+00000376 <Isb_Inf_Usart_Tx>:
+
+
+
+	uint8_t Isb_Inf_Usart_Tx(const uint8_t aInf, const Isb_Msg_t * aIsb_Msg) {
+ 376:	ff 92       	push	r15
+ 378:	0f 93       	push	r16
+ 37a:	1f 93       	push	r17
+ 37c:	cf 93       	push	r28
+ 37e:	df 93       	push	r29
+ 380:	58 2f       	mov	r21, r24
+ 382:	eb 01       	movw	r28, r22
+		uint8_t Result = FALSE;
+		uint8_t Free_Space = 0;
+		uint8_t Startbyte = 0;
+		uint8_t Stopbyte = 0;
+		switch (aInf) {
+ 384:	88 23       	and	r24, r24
+ 386:	21 f0       	breq	.+8      	; 0x390 <Isb_Inf_Usart_Tx+0x1a>
+ 388:	20 e0       	ldi	r18, 0x00	; 0
+ 38a:	40 e0       	ldi	r20, 0x00	; 0
+ 38c:	ff 24       	eor	r15, r15
+ 38e:	16 c0       	rjmp	.+44     	; 0x3bc <Isb_Inf_Usart_Tx+0x46>
+			#if defined(INF_USART0_TX)
+				case 0:
+					cli();
+ 390:	f8 94       	cli
+					if (Inf_Usart_Tx0_Buffer_Tail > Inf_Usart_Tx0_Buffer_Head) {
+ 392:	90 91 a1 00 	lds	r25, 0x00A1
+ 396:	80 91 a2 00 	lds	r24, 0x00A2
+ 39a:	89 17       	cp	r24, r25
+ 39c:	28 f4       	brcc	.+10     	; 0x3a8 <Isb_Inf_Usart_Tx+0x32>
+						Free_Space = Inf_Usart_Tx0_Buffer_Tail - Inf_Usart_Tx0_Buffer_Head;
+ 39e:	20 91 a1 00 	lds	r18, 0x00A1
+ 3a2:	80 91 a2 00 	lds	r24, 0x00A2
+ 3a6:	05 c0       	rjmp	.+10     	; 0x3b2 <Isb_Inf_Usart_Tx+0x3c>
+					}
+					else {
+						Free_Space = (Inf_Usart_Tx0_Buffer_Tail + INF_USART_TX0_BUFFER_SIZE - Inf_Usart_Tx0_Buffer_Head);
+ 3a8:	20 91 a1 00 	lds	r18, 0x00A1
+ 3ac:	80 91 a2 00 	lds	r24, 0x00A2
+ 3b0:	20 5c       	subi	r18, 0xC0	; 192
+ 3b2:	28 1b       	sub	r18, r24
+					}
+					sei();
+ 3b4:	78 94       	sei
+ 3b6:	41 e0       	ldi	r20, 0x01	; 1
+ 3b8:	7d e0       	ldi	r23, 0x0D	; 13
+ 3ba:	f7 2e       	mov	r15, r23
+					Startbyte = ISB_INF_USART1_STARTBYTE;
+					Stopbyte = ISB_INF_USART1_STOPBYTE;
+					break;
+			#endif /* INF_USART1_TX */
+		}
+		uint8_t aIsb_Msg_Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+ 3bc:	68 81       	ld	r22, Y
+ 3be:	6f 70       	andi	r22, 0x0F	; 15
+		if (Free_Space > (9 + aIsb_Msg_Dlc)) {
+ 3c0:	06 2f       	mov	r16, r22
+ 3c2:	10 e0       	ldi	r17, 0x00	; 0
+ 3c4:	30 e0       	ldi	r19, 0x00	; 0
+ 3c6:	c8 01       	movw	r24, r16
+ 3c8:	09 96       	adiw	r24, 0x09	; 9
+ 3ca:	82 17       	cp	r24, r18
+ 3cc:	93 07       	cpc	r25, r19
+ 3ce:	14 f0       	brlt	.+4      	; 0x3d4 <Isb_Inf_Usart_Tx+0x5e>
+ 3d0:	80 e0       	ldi	r24, 0x00	; 0
+ 3d2:	d1 c0       	rjmp	.+418    	; 0x576 <__stack+0x117>
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 3d4:	55 23       	and	r21, r21
+ 3d6:	09 f5       	brne	.+66     	; 0x41a <Isb_Inf_Usart_Tx+0xa4>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 3d8:	90 91 a2 00 	lds	r25, 0x00A2
+ 3dc:	9f 5f       	subi	r25, 0xFF	; 255
+ 3de:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 3e0:	80 91 a1 00 	lds	r24, 0x00A1
+ 3e4:	98 17       	cp	r25, r24
+ 3e6:	41 f0       	breq	.+16     	; 0x3f8 <Isb_Inf_Usart_Tx+0x82>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 3e8:	e9 2f       	mov	r30, r25
+ 3ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 3ec:	ed 51       	subi	r30, 0x1D	; 29
+ 3ee:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3f0:	40 83       	st	Z, r20
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 3f2:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 3f6:	55 9a       	sbi	0x0a, 5	; 10
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 3f8:	90 91 a2 00 	lds	r25, 0x00A2
+ 3fc:	9f 5f       	subi	r25, 0xFF	; 255
+ 3fe:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 400:	80 91 a1 00 	lds	r24, 0x00A1
+ 404:	98 17       	cp	r25, r24
+ 406:	49 f0       	breq	.+18     	; 0x41a <Isb_Inf_Usart_Tx+0xa4>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 408:	e9 2f       	mov	r30, r25
+ 40a:	f0 e0       	ldi	r31, 0x00	; 0
+ 40c:	88 81       	ld	r24, Y
+ 40e:	ed 51       	subi	r30, 0x1D	; 29
+ 410:	ff 4f       	sbci	r31, 0xFF	; 255
+ 412:	80 83       	st	Z, r24
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 414:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 418:	55 9a       	sbi	0x0a, 5	; 10
+			uint8_t aChar;
+			aChar = Startbyte;
+			Inf_Usart_Tx(aInf, &aChar);
+			Inf_Usart_Tx(aInf, &aIsb_Msg->Flags);
+			aChar = (uint8_t)aIsb_Msg->DestId;
+ 41a:	29 81       	ldd	r18, Y+1	; 0x01
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 41c:	55 23       	and	r21, r21
+ 41e:	81 f4       	brne	.+32     	; 0x440 <Isb_Inf_Usart_Tx+0xca>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 420:	90 91 a2 00 	lds	r25, 0x00A2
+ 424:	9f 5f       	subi	r25, 0xFF	; 255
+ 426:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 428:	80 91 a1 00 	lds	r24, 0x00A1
+ 42c:	98 17       	cp	r25, r24
+ 42e:	41 f0       	breq	.+16     	; 0x440 <Isb_Inf_Usart_Tx+0xca>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 430:	e9 2f       	mov	r30, r25
+ 432:	f0 e0       	ldi	r31, 0x00	; 0
+ 434:	ed 51       	subi	r30, 0x1D	; 29
+ 436:	ff 4f       	sbci	r31, 0xFF	; 255
+ 438:	20 83       	st	Z, r18
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 43a:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 43e:	55 9a       	sbi	0x0a, 5	; 10
+			Inf_Usart_Tx(aInf, &aChar);
+			aChar = (uint8_t)(aIsb_Msg->DestId >> 8);
+ 440:	2a 81       	ldd	r18, Y+2	; 0x02
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 442:	55 23       	and	r21, r21
+ 444:	81 f4       	brne	.+32     	; 0x466 <__stack+0x7>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 446:	90 91 a2 00 	lds	r25, 0x00A2
+ 44a:	9f 5f       	subi	r25, 0xFF	; 255
+ 44c:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 44e:	80 91 a1 00 	lds	r24, 0x00A1
+ 452:	98 17       	cp	r25, r24
+ 454:	41 f0       	breq	.+16     	; 0x466 <__stack+0x7>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 456:	e9 2f       	mov	r30, r25
+ 458:	f0 e0       	ldi	r31, 0x00	; 0
+ 45a:	ed 51       	subi	r30, 0x1D	; 29
+ 45c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 45e:	20 83       	st	Z, r18
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 460:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 464:	55 9a       	sbi	0x0a, 5	; 10
+			Inf_Usart_Tx(aInf, &aChar);
+			aChar = (uint8_t)aIsb_Msg->SourceId;
+ 466:	2b 81       	ldd	r18, Y+3	; 0x03
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 468:	55 23       	and	r21, r21
+ 46a:	81 f4       	brne	.+32     	; 0x48c <__stack+0x2d>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 46c:	90 91 a2 00 	lds	r25, 0x00A2
+ 470:	9f 5f       	subi	r25, 0xFF	; 255
+ 472:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 474:	80 91 a1 00 	lds	r24, 0x00A1
+ 478:	98 17       	cp	r25, r24
+ 47a:	41 f0       	breq	.+16     	; 0x48c <__stack+0x2d>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 47c:	e9 2f       	mov	r30, r25
+ 47e:	f0 e0       	ldi	r31, 0x00	; 0
+ 480:	ed 51       	subi	r30, 0x1D	; 29
+ 482:	ff 4f       	sbci	r31, 0xFF	; 255
+ 484:	20 83       	st	Z, r18
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 486:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 48a:	55 9a       	sbi	0x0a, 5	; 10
+			Inf_Usart_Tx(aInf, &aChar);
+			aChar = (uint8_t)(aIsb_Msg->SourceId >> 8);
+ 48c:	2c 81       	ldd	r18, Y+4	; 0x04
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 48e:	55 23       	and	r21, r21
+ 490:	81 f4       	brne	.+32     	; 0x4b2 <__stack+0x53>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 492:	90 91 a2 00 	lds	r25, 0x00A2
+ 496:	9f 5f       	subi	r25, 0xFF	; 255
+ 498:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 49a:	80 91 a1 00 	lds	r24, 0x00A1
+ 49e:	98 17       	cp	r25, r24
+ 4a0:	41 f0       	breq	.+16     	; 0x4b2 <__stack+0x53>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 4a2:	e9 2f       	mov	r30, r25
+ 4a4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4a6:	ed 51       	subi	r30, 0x1D	; 29
+ 4a8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4aa:	20 83       	st	Z, r18
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 4ac:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 4b0:	55 9a       	sbi	0x0a, 5	; 10
+ 4b2:	20 e0       	ldi	r18, 0x00	; 0
+ 4b4:	18 c0       	rjmp	.+48     	; 0x4e6 <__stack+0x87>
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 4b6:	55 23       	and	r21, r21
+ 4b8:	a9 f4       	brne	.+42     	; 0x4e4 <__stack+0x85>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 4ba:	90 91 a2 00 	lds	r25, 0x00A2
+ 4be:	9f 5f       	subi	r25, 0xFF	; 255
+ 4c0:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 4c2:	80 91 a1 00 	lds	r24, 0x00A1
+ 4c6:	98 17       	cp	r25, r24
+ 4c8:	69 f0       	breq	.+26     	; 0x4e4 <__stack+0x85>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 4ca:	e9 2f       	mov	r30, r25
+ 4cc:	f0 e0       	ldi	r31, 0x00	; 0
+ 4ce:	de 01       	movw	r26, r28
+ 4d0:	a2 0f       	add	r26, r18
+ 4d2:	b1 1d       	adc	r27, r1
+ 4d4:	15 96       	adiw	r26, 0x05	; 5
+ 4d6:	8c 91       	ld	r24, X
+ 4d8:	ed 51       	subi	r30, 0x1D	; 29
+ 4da:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4dc:	80 83       	st	Z, r24
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 4de:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 4e2:	55 9a       	sbi	0x0a, 5	; 10
+			Inf_Usart_Tx(aInf, &aChar);
+			for (uint8_t i = 0; i < aIsb_Msg_Dlc; i++) {
+ 4e4:	2f 5f       	subi	r18, 0xFF	; 255
+ 4e6:	26 17       	cp	r18, r22
+ 4e8:	30 f3       	brcs	.-52     	; 0x4b6 <__stack+0x57>
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 4ea:	55 23       	and	r21, r21
+ 4ec:	81 f4       	brne	.+32     	; 0x50e <__stack+0xaf>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 4ee:	90 91 a2 00 	lds	r25, 0x00A2
+ 4f2:	9f 5f       	subi	r25, 0xFF	; 255
+ 4f4:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 4f6:	80 91 a1 00 	lds	r24, 0x00A1
+ 4fa:	98 17       	cp	r25, r24
+ 4fc:	41 f0       	breq	.+16     	; 0x50e <__stack+0xaf>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 4fe:	e9 2f       	mov	r30, r25
+ 500:	f0 e0       	ldi	r31, 0x00	; 0
+ 502:	ed 51       	subi	r30, 0x1D	; 29
+ 504:	ff 4f       	sbci	r31, 0xFF	; 255
+ 506:	10 82       	st	Z, r1
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 508:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 50c:	55 9a       	sbi	0x0a, 5	; 10
+				Inf_Usart_Tx(aInf, &aIsb_Msg->Data[i]);
+			}
+			aChar = 0x00;
+			Inf_Usart_Tx(aInf, &aChar);
+			aChar = Lib_Crc_Calc8(aIsb_Msg, (5 + aIsb_Msg_Dlc));
+ 50e:	b8 01       	movw	r22, r16
+ 510:	6b 5f       	subi	r22, 0xFB	; 251
+ 512:	7f 4f       	sbci	r23, 0xFF	; 255
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+			Sum += *(uint8_t *)(aData + i);
+ 514:	20 e0       	ldi	r18, 0x00	; 0
+ 516:	30 e0       	ldi	r19, 0x00	; 0
+ 518:	40 e0       	ldi	r20, 0x00	; 0
+ 51a:	fe 01       	movw	r30, r28
+ 51c:	e2 0f       	add	r30, r18
+ 51e:	f3 1f       	adc	r31, r19
+ 520:	80 81       	ld	r24, Z
+ 522:	48 0f       	add	r20, r24
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+ 524:	2f 5f       	subi	r18, 0xFF	; 255
+ 526:	3f 4f       	sbci	r19, 0xFF	; 255
+ 528:	26 17       	cp	r18, r22
+ 52a:	37 07       	cpc	r19, r23
+ 52c:	b0 f3       	brcs	.-20     	; 0x51a <__stack+0xbb>
+
+	#if defined(INF_USART0_TX) || defined(INF_USART1_TX)
+		uint8_t Inf_Usart_Tx(const uint8_t aInf, const uint8_t * aChar) {
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+ 52e:	55 23       	and	r21, r21
+ 530:	09 f5       	brne	.+66     	; 0x574 <__stack+0x115>
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 532:	90 91 a2 00 	lds	r25, 0x00A2
+ 536:	9f 5f       	subi	r25, 0xFF	; 255
+ 538:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 53a:	80 91 a1 00 	lds	r24, 0x00A1
+ 53e:	98 17       	cp	r25, r24
+ 540:	49 f0       	breq	.+18     	; 0x554 <__stack+0xf5>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 542:	e9 2f       	mov	r30, r25
+ 544:	f0 e0       	ldi	r31, 0x00	; 0
+			Sum += *(uint8_t *)(aData + i);
+		}
+		return (uint8_t)((Sum ^ 0xFF) + 1);
+ 546:	41 95       	neg	r20
+ 548:	ed 51       	subi	r30, 0x1D	; 29
+ 54a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 54c:	40 83       	st	Z, r20
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 54e:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 552:	55 9a       	sbi	0x0a, 5	; 10
+			uint8_t Result = FALSE;
+			uint8_t Tmp_Head;
+			switch (aInf) {
+				#if defined(INF_USART0_TX)
+					case 0:
+						Tmp_Head = (Inf_Usart_Tx0_Buffer_Head + 1) & INF_USART_TX0_BUFFER_MASK;
+ 554:	90 91 a2 00 	lds	r25, 0x00A2
+ 558:	9f 5f       	subi	r25, 0xFF	; 255
+ 55a:	9f 73       	andi	r25, 0x3F	; 63
+						if (Tmp_Head != Inf_Usart_Tx0_Buffer_Tail) {
+ 55c:	80 91 a1 00 	lds	r24, 0x00A1
+ 560:	98 17       	cp	r25, r24
+ 562:	41 f0       	breq	.+16     	; 0x574 <__stack+0x115>
+							Inf_Usart_Tx0_Buffer[Tmp_Head] = *aChar;
+ 564:	e9 2f       	mov	r30, r25
+ 566:	f0 e0       	ldi	r31, 0x00	; 0
+ 568:	ed 51       	subi	r30, 0x1D	; 29
+ 56a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 56c:	f0 82       	st	Z, r15
+							Inf_Usart_Tx0_Buffer_Head = Tmp_Head;
+ 56e:	90 93 a2 00 	sts	0x00A2, r25
+							#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+								UCSRB |= (1 << UDRIE);
+ 572:	55 9a       	sbi	0x0a, 5	; 10
+ 574:	81 e0       	ldi	r24, 0x01	; 1
+			aChar = Stopbyte;
+			Inf_Usart_Tx(aInf, &aChar);
+			Result = TRUE;
+		}
+		return Result;
+	}
+ 576:	df 91       	pop	r29
+ 578:	cf 91       	pop	r28
+ 57a:	1f 91       	pop	r17
+ 57c:	0f 91       	pop	r16
+ 57e:	ff 90       	pop	r15
+ 580:	08 95       	ret
+
+00000582 <Isb_Inf_Usart_Rx>:
+
+
+
+	uint8_t Isb_Inf_Usart_Rx(const uint8_t aInf, Isb_Msg_t * aIsb_Msg) {
+ 582:	bf 92       	push	r11
+ 584:	cf 92       	push	r12
+ 586:	df 92       	push	r13
+ 588:	ef 92       	push	r14
+ 58a:	ff 92       	push	r15
+ 58c:	0f 93       	push	r16
+ 58e:	1f 93       	push	r17
+ 590:	cf 93       	push	r28
+ 592:	df 93       	push	r29
+ 594:	db 01       	movw	r26, r22
+		static volatile uint8_t * Buffer;
+		static volatile uint8_t * Head;
+		static volatile uint8_t * Tail;
+		uint8_t Startbyte = 0;
+		uint8_t Stopbyte = 0;
+		switch (aInf) {
+ 596:	88 23       	and	r24, r24
+ 598:	11 f0       	breq	.+4      	; 0x59e <Isb_Inf_Usart_Rx+0x1c>
+ 59a:	bb 24       	eor	r11, r11
+ 59c:	30 c1       	rjmp	.+608    	; 0x7fe <Isb_Inf_Usart_Rx+0x27c>
+			#if defined(INF_USART0_RX)
+				case 0:
+					Mask = INF_USART_RX0_BUFFER_MASK;
+					Buffer = Inf_Usart_Rx0_Buffer;
+ 59e:	83 ea       	ldi	r24, 0xA3	; 163
+ 5a0:	90 e0       	ldi	r25, 0x00	; 0
+ 5a2:	90 93 a0 00 	sts	0x00A0, r25
+ 5a6:	80 93 9f 00 	sts	0x009F, r24
+					Head = &Inf_Usart_Rx0_Buffer_Head;
+ 5aa:	89 e9       	ldi	r24, 0x99	; 153
+ 5ac:	90 e0       	ldi	r25, 0x00	; 0
+ 5ae:	90 93 9e 00 	sts	0x009E, r25
+ 5b2:	80 93 9d 00 	sts	0x009D, r24
+					Tail = &Inf_Usart_Rx0_Buffer_Tail;
+ 5b6:	8a e9       	ldi	r24, 0x9A	; 154
+ 5b8:	90 e0       	ldi	r25, 0x00	; 0
+ 5ba:	90 93 9c 00 	sts	0x009C, r25
+ 5be:	80 93 9b 00 	sts	0x009B, r24
+		}
+		uint8_t Tmp_Tail;
+		uint8_t Rel_Pos = 0;
+		uint8_t Start_Pos = 0;
+		uint8_t Isb_Msg_Dlc = 0;
+		Tmp_Tail = (*Tail + 1) & Mask;
+ 5c2:	70 91 9a 00 	lds	r23, 0x009A
+ 5c6:	7f 5f       	subi	r23, 0xFF	; 255
+ 5c8:	7f 73       	andi	r23, 0x3F	; 63
+				}
+			}
+			else if (Rel_Pos == 1) {
+				aIsb_Msg->Flags = Buffer[Tmp_Tail];
+				Rel_Pos++;
+				if (bit_is_clear (aIsb_Msg->Flags, 6)) {
+ 5ca:	bb 24       	eor	r11, r11
+ 5cc:	60 e0       	ldi	r22, 0x00	; 0
+ 5ce:	00 e0       	ldi	r16, 0x00	; 0
+ 5d0:	10 e0       	ldi	r17, 0x00	; 0
+ 5d2:	09 c1       	rjmp	.+530    	; 0x7e6 <Isb_Inf_Usart_Rx+0x264>
+		uint8_t Rel_Pos = 0;
+		uint8_t Start_Pos = 0;
+		uint8_t Isb_Msg_Dlc = 0;
+		Tmp_Tail = (*Tail + 1) & Mask;
+		while (Tmp_Tail != ((*Head + 1) & Mask)) {
+			if (Rel_Pos == 0) {
+ 5d4:	66 23       	and	r22, r22
+ 5d6:	59 f4       	brne	.+22     	; 0x5ee <Isb_Inf_Usart_Rx+0x6c>
+				if (Buffer[Tmp_Tail] == Startbyte) {
+ 5d8:	ed 55       	subi	r30, 0x5D	; 93
+ 5da:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5dc:	80 81       	ld	r24, Z
+ 5de:	81 30       	cpi	r24, 0x01	; 1
+ 5e0:	19 f4       	brne	.+6      	; 0x5e8 <Isb_Inf_Usart_Rx+0x66>
+ 5e2:	07 2f       	mov	r16, r23
+ 5e4:	61 e0       	ldi	r22, 0x01	; 1
+ 5e6:	fd c0       	rjmp	.+506    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+					Start_Pos = Tmp_Tail;
+					Rel_Pos++;
+				}
+				else {
+					*Tail = Tmp_Tail;
+ 5e8:	70 93 9a 00 	sts	0x009A, r23
+ 5ec:	fa c0       	rjmp	.+500    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+					Rel_Pos = 0;
+				}
+			}
+			else if (Rel_Pos == 1) {
+ 5ee:	61 30       	cpi	r22, 0x01	; 1
+ 5f0:	59 f4       	brne	.+22     	; 0x608 <Isb_Inf_Usart_Rx+0x86>
+				aIsb_Msg->Flags = Buffer[Tmp_Tail];
+ 5f2:	ed 55       	subi	r30, 0x5D	; 93
+ 5f4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5f6:	90 81       	ld	r25, Z
+ 5f8:	9c 93       	st	X, r25
+				Rel_Pos++;
+				if (bit_is_clear (aIsb_Msg->Flags, 6)) {
+ 5fa:	8c 91       	ld	r24, X
+ 5fc:	86 fd       	sbrc	r24, 6
+ 5fe:	02 c0       	rjmp	.+4      	; 0x604 <Isb_Inf_Usart_Rx+0x82>
+					Isb_Msg_Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+ 600:	19 2f       	mov	r17, r25
+ 602:	1f 70       	andi	r17, 0x0F	; 15
+ 604:	62 e0       	ldi	r22, 0x02	; 2
+ 606:	ed c0       	rjmp	.+474    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				}
+			}
+			else if (Rel_Pos == 2) {
+ 608:	62 30       	cpi	r22, 0x02	; 2
+ 60a:	59 f4       	brne	.+22     	; 0x622 <Isb_Inf_Usart_Rx+0xa0>
+				aIsb_Msg->DestId = (uint16_t)Buffer[Tmp_Tail];
+ 60c:	ed 55       	subi	r30, 0x5D	; 93
+ 60e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 610:	80 81       	ld	r24, Z
+ 612:	11 96       	adiw	r26, 0x01	; 1
+ 614:	8c 93       	st	X, r24
+ 616:	11 97       	sbiw	r26, 0x01	; 1
+ 618:	12 96       	adiw	r26, 0x02	; 2
+ 61a:	1c 92       	st	X, r1
+ 61c:	12 97       	sbiw	r26, 0x02	; 2
+ 61e:	63 e0       	ldi	r22, 0x03	; 3
+ 620:	e0 c0       	rjmp	.+448    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if (Rel_Pos == 3) {
+ 622:	63 30       	cpi	r22, 0x03	; 3
+ 624:	89 f4       	brne	.+34     	; 0x648 <Isb_Inf_Usart_Rx+0xc6>
+				aIsb_Msg->DestId += (uint16_t)(Buffer[Tmp_Tail] << 8);
+ 626:	ed 55       	subi	r30, 0x5D	; 93
+ 628:	ff 4f       	sbci	r31, 0xFF	; 255
+ 62a:	80 81       	ld	r24, Z
+ 62c:	f8 2e       	mov	r15, r24
+ 62e:	ee 24       	eor	r14, r14
+ 630:	11 96       	adiw	r26, 0x01	; 1
+ 632:	8d 91       	ld	r24, X+
+ 634:	9c 91       	ld	r25, X
+ 636:	12 97       	sbiw	r26, 0x02	; 2
+ 638:	8e 0d       	add	r24, r14
+ 63a:	9f 1d       	adc	r25, r15
+ 63c:	12 96       	adiw	r26, 0x02	; 2
+ 63e:	9c 93       	st	X, r25
+ 640:	8e 93       	st	-X, r24
+ 642:	11 97       	sbiw	r26, 0x01	; 1
+ 644:	64 e0       	ldi	r22, 0x04	; 4
+ 646:	cd c0       	rjmp	.+410    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if (Rel_Pos == 4) {
+ 648:	64 30       	cpi	r22, 0x04	; 4
+ 64a:	59 f4       	brne	.+22     	; 0x662 <Isb_Inf_Usart_Rx+0xe0>
+				aIsb_Msg->SourceId = (uint16_t)Buffer[Tmp_Tail];
+ 64c:	ed 55       	subi	r30, 0x5D	; 93
+ 64e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 650:	80 81       	ld	r24, Z
+ 652:	13 96       	adiw	r26, 0x03	; 3
+ 654:	8c 93       	st	X, r24
+ 656:	13 97       	sbiw	r26, 0x03	; 3
+ 658:	14 96       	adiw	r26, 0x04	; 4
+ 65a:	1c 92       	st	X, r1
+ 65c:	14 97       	sbiw	r26, 0x04	; 4
+ 65e:	65 e0       	ldi	r22, 0x05	; 5
+ 660:	c0 c0       	rjmp	.+384    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if (Rel_Pos == 5) {
+ 662:	65 30       	cpi	r22, 0x05	; 5
+ 664:	89 f4       	brne	.+34     	; 0x688 <Isb_Inf_Usart_Rx+0x106>
+				aIsb_Msg->SourceId += (uint16_t)(Buffer[Tmp_Tail] << 8);
+ 666:	ed 55       	subi	r30, 0x5D	; 93
+ 668:	ff 4f       	sbci	r31, 0xFF	; 255
+ 66a:	80 81       	ld	r24, Z
+ 66c:	d8 2e       	mov	r13, r24
+ 66e:	cc 24       	eor	r12, r12
+ 670:	13 96       	adiw	r26, 0x03	; 3
+ 672:	8d 91       	ld	r24, X+
+ 674:	9c 91       	ld	r25, X
+ 676:	14 97       	sbiw	r26, 0x04	; 4
+ 678:	8c 0d       	add	r24, r12
+ 67a:	9d 1d       	adc	r25, r13
+ 67c:	14 96       	adiw	r26, 0x04	; 4
+ 67e:	9c 93       	st	X, r25
+ 680:	8e 93       	st	-X, r24
+ 682:	13 97       	sbiw	r26, 0x03	; 3
+ 684:	66 e0       	ldi	r22, 0x06	; 6
+ 686:	ad c0       	rjmp	.+346    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 6) & (Isb_Msg_Dlc >= 1)) {
+ 688:	66 30       	cpi	r22, 0x06	; 6
+ 68a:	59 f4       	brne	.+22     	; 0x6a2 <Isb_Inf_Usart_Rx+0x120>
+ 68c:	11 23       	and	r17, r17
+ 68e:	09 f4       	brne	.+2      	; 0x692 <Isb_Inf_Usart_Rx+0x110>
+ 690:	6d c0       	rjmp	.+218    	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[0] = Buffer[Tmp_Tail];
+ 692:	ed 55       	subi	r30, 0x5D	; 93
+ 694:	ff 4f       	sbci	r31, 0xFF	; 255
+ 696:	80 81       	ld	r24, Z
+ 698:	15 96       	adiw	r26, 0x05	; 5
+ 69a:	8c 93       	st	X, r24
+ 69c:	15 97       	sbiw	r26, 0x05	; 5
+ 69e:	67 e0       	ldi	r22, 0x07	; 7
+ 6a0:	a0 c0       	rjmp	.+320    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 7) & (Isb_Msg_Dlc >= 2)) {
+ 6a2:	67 30       	cpi	r22, 0x07	; 7
+ 6a4:	69 f4       	brne	.+26     	; 0x6c0 <Isb_Inf_Usart_Rx+0x13e>
+ 6a6:	12 30       	cpi	r17, 0x02	; 2
+ 6a8:	08 f4       	brcc	.+2      	; 0x6ac <Isb_Inf_Usart_Rx+0x12a>
+ 6aa:	60 c0       	rjmp	.+192    	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[1] = Buffer[Tmp_Tail];
+ 6ac:	e7 2f       	mov	r30, r23
+ 6ae:	f0 e0       	ldi	r31, 0x00	; 0
+ 6b0:	ed 55       	subi	r30, 0x5D	; 93
+ 6b2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6b4:	80 81       	ld	r24, Z
+ 6b6:	16 96       	adiw	r26, 0x06	; 6
+ 6b8:	8c 93       	st	X, r24
+ 6ba:	16 97       	sbiw	r26, 0x06	; 6
+ 6bc:	68 e0       	ldi	r22, 0x08	; 8
+ 6be:	91 c0       	rjmp	.+290    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 8) & (Isb_Msg_Dlc >= 3)) {
+ 6c0:	68 30       	cpi	r22, 0x08	; 8
+ 6c2:	69 f4       	brne	.+26     	; 0x6de <Isb_Inf_Usart_Rx+0x15c>
+ 6c4:	13 30       	cpi	r17, 0x03	; 3
+ 6c6:	08 f4       	brcc	.+2      	; 0x6ca <Isb_Inf_Usart_Rx+0x148>
+ 6c8:	51 c0       	rjmp	.+162    	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[2] = Buffer[Tmp_Tail];
+ 6ca:	e7 2f       	mov	r30, r23
+ 6cc:	f0 e0       	ldi	r31, 0x00	; 0
+ 6ce:	ed 55       	subi	r30, 0x5D	; 93
+ 6d0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6d2:	80 81       	ld	r24, Z
+ 6d4:	17 96       	adiw	r26, 0x07	; 7
+ 6d6:	8c 93       	st	X, r24
+ 6d8:	17 97       	sbiw	r26, 0x07	; 7
+ 6da:	69 e0       	ldi	r22, 0x09	; 9
+ 6dc:	82 c0       	rjmp	.+260    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 9) & (Isb_Msg_Dlc >= 4)) {
+ 6de:	69 30       	cpi	r22, 0x09	; 9
+ 6e0:	69 f4       	brne	.+26     	; 0x6fc <Isb_Inf_Usart_Rx+0x17a>
+ 6e2:	14 30       	cpi	r17, 0x04	; 4
+ 6e4:	08 f4       	brcc	.+2      	; 0x6e8 <Isb_Inf_Usart_Rx+0x166>
+ 6e6:	42 c0       	rjmp	.+132    	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[3] = Buffer[Tmp_Tail];
+ 6e8:	e7 2f       	mov	r30, r23
+ 6ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 6ec:	ed 55       	subi	r30, 0x5D	; 93
+ 6ee:	ff 4f       	sbci	r31, 0xFF	; 255
+ 6f0:	80 81       	ld	r24, Z
+ 6f2:	18 96       	adiw	r26, 0x08	; 8
+ 6f4:	8c 93       	st	X, r24
+ 6f6:	18 97       	sbiw	r26, 0x08	; 8
+ 6f8:	6a e0       	ldi	r22, 0x0A	; 10
+ 6fa:	73 c0       	rjmp	.+230    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 10) & (Isb_Msg_Dlc >= 5)) {
+ 6fc:	6a 30       	cpi	r22, 0x0A	; 10
+ 6fe:	61 f4       	brne	.+24     	; 0x718 <Isb_Inf_Usart_Rx+0x196>
+ 700:	15 30       	cpi	r17, 0x05	; 5
+ 702:	a0 f1       	brcs	.+104    	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[4] = Buffer[Tmp_Tail];
+ 704:	e7 2f       	mov	r30, r23
+ 706:	f0 e0       	ldi	r31, 0x00	; 0
+ 708:	ed 55       	subi	r30, 0x5D	; 93
+ 70a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 70c:	80 81       	ld	r24, Z
+ 70e:	19 96       	adiw	r26, 0x09	; 9
+ 710:	8c 93       	st	X, r24
+ 712:	19 97       	sbiw	r26, 0x09	; 9
+ 714:	6b e0       	ldi	r22, 0x0B	; 11
+ 716:	65 c0       	rjmp	.+202    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 11) & (Isb_Msg_Dlc >= 6)) {
+ 718:	6b 30       	cpi	r22, 0x0B	; 11
+ 71a:	61 f4       	brne	.+24     	; 0x734 <Isb_Inf_Usart_Rx+0x1b2>
+ 71c:	16 30       	cpi	r17, 0x06	; 6
+ 71e:	30 f1       	brcs	.+76     	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[5] = Buffer[Tmp_Tail];
+ 720:	e7 2f       	mov	r30, r23
+ 722:	f0 e0       	ldi	r31, 0x00	; 0
+ 724:	ed 55       	subi	r30, 0x5D	; 93
+ 726:	ff 4f       	sbci	r31, 0xFF	; 255
+ 728:	80 81       	ld	r24, Z
+ 72a:	1a 96       	adiw	r26, 0x0a	; 10
+ 72c:	8c 93       	st	X, r24
+ 72e:	1a 97       	sbiw	r26, 0x0a	; 10
+ 730:	6c e0       	ldi	r22, 0x0C	; 12
+ 732:	57 c0       	rjmp	.+174    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 12) & (Isb_Msg_Dlc >= 7)) {
+ 734:	6c 30       	cpi	r22, 0x0C	; 12
+ 736:	61 f4       	brne	.+24     	; 0x750 <Isb_Inf_Usart_Rx+0x1ce>
+ 738:	17 30       	cpi	r17, 0x07	; 7
+ 73a:	c0 f0       	brcs	.+48     	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[6] = Buffer[Tmp_Tail];
+ 73c:	e7 2f       	mov	r30, r23
+ 73e:	f0 e0       	ldi	r31, 0x00	; 0
+ 740:	ed 55       	subi	r30, 0x5D	; 93
+ 742:	ff 4f       	sbci	r31, 0xFF	; 255
+ 744:	80 81       	ld	r24, Z
+ 746:	1b 96       	adiw	r26, 0x0b	; 11
+ 748:	8c 93       	st	X, r24
+ 74a:	1b 97       	sbiw	r26, 0x0b	; 11
+ 74c:	6d e0       	ldi	r22, 0x0D	; 13
+ 74e:	49 c0       	rjmp	.+146    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if ((Rel_Pos == 13) & (Isb_Msg_Dlc == 8)) {
+ 750:	6d 30       	cpi	r22, 0x0D	; 13
+ 752:	61 f4       	brne	.+24     	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+ 754:	18 30       	cpi	r17, 0x08	; 8
+ 756:	51 f4       	brne	.+20     	; 0x76c <Isb_Inf_Usart_Rx+0x1ea>
+				aIsb_Msg->Data[7] = Buffer[Tmp_Tail];
+ 758:	e7 2f       	mov	r30, r23
+ 75a:	f0 e0       	ldi	r31, 0x00	; 0
+ 75c:	ed 55       	subi	r30, 0x5D	; 93
+ 75e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 760:	80 81       	ld	r24, Z
+ 762:	1c 96       	adiw	r26, 0x0c	; 12
+ 764:	8c 93       	st	X, r24
+ 766:	1c 97       	sbiw	r26, 0x0c	; 12
+ 768:	6e e0       	ldi	r22, 0x0E	; 14
+ 76a:	3b c0       	rjmp	.+118    	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				Rel_Pos++;
+			}
+			else if (Rel_Pos == (6 + Isb_Msg_Dlc)) {
+ 76c:	46 2f       	mov	r20, r22
+ 76e:	50 e0       	ldi	r21, 0x00	; 0
+ 770:	21 2f       	mov	r18, r17
+ 772:	30 e0       	ldi	r19, 0x00	; 0
+ 774:	c9 01       	movw	r24, r18
+ 776:	06 96       	adiw	r24, 0x06	; 6
+ 778:	48 17       	cp	r20, r24
+ 77a:	59 07       	cpc	r21, r25
+ 77c:	e1 f0       	breq	.+56     	; 0x7b6 <Isb_Inf_Usart_Rx+0x234>
+				Rel_Pos++;
+			}
+			else if (Rel_Pos == (7 + Isb_Msg_Dlc)) {
+ 77e:	c9 01       	movw	r24, r18
+ 780:	07 96       	adiw	r24, 0x07	; 7
+ 782:	48 17       	cp	r20, r24
+ 784:	59 07       	cpc	r21, r25
+ 786:	c9 f4       	brne	.+50     	; 0x7ba <Isb_Inf_Usart_Rx+0x238>
+				if (Buffer[Tmp_Tail] == Lib_Crc_Calc8(aIsb_Msg, (5 + Isb_Msg_Dlc))) {
+ 788:	e7 2f       	mov	r30, r23
+ 78a:	f0 e0       	ldi	r31, 0x00	; 0
+ 78c:	ed 55       	subi	r30, 0x5D	; 93
+ 78e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 790:	90 81       	ld	r25, Z
+ 792:	e9 01       	movw	r28, r18
+ 794:	25 96       	adiw	r28, 0x05	; 5
+ 796:	20 e0       	ldi	r18, 0x00	; 0
+ 798:	30 e0       	ldi	r19, 0x00	; 0
+ 79a:	40 e0       	ldi	r20, 0x00	; 0
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+			Sum += *(uint8_t *)(aData + i);
+ 79c:	fd 01       	movw	r30, r26
+ 79e:	e2 0f       	add	r30, r18
+ 7a0:	f3 1f       	adc	r31, r19
+ 7a2:	80 81       	ld	r24, Z
+ 7a4:	48 0f       	add	r20, r24
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+ 7a6:	2f 5f       	subi	r18, 0xFF	; 255
+ 7a8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 7aa:	2c 17       	cp	r18, r28
+ 7ac:	3d 07       	cpc	r19, r29
+ 7ae:	b0 f3       	brcs	.-20     	; 0x79c <Isb_Inf_Usart_Rx+0x21a>
+ 7b0:	41 95       	neg	r20
+ 7b2:	94 17       	cp	r25, r20
+ 7b4:	71 f4       	brne	.+28     	; 0x7d2 <Isb_Inf_Usart_Rx+0x250>
+					Rel_Pos++;
+ 7b6:	6f 5f       	subi	r22, 0xFF	; 255
+ 7b8:	14 c0       	rjmp	.+40     	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+					*Tail = Start_Pos;
+					Rel_Pos = 0;
+					continue;
+				}
+			}
+			else if (Rel_Pos == (8 + Isb_Msg_Dlc)) {
+ 7ba:	28 5f       	subi	r18, 0xF8	; 248
+ 7bc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 7be:	42 17       	cp	r20, r18
+ 7c0:	53 07       	cpc	r21, r19
+ 7c2:	79 f4       	brne	.+30     	; 0x7e2 <Isb_Inf_Usart_Rx+0x260>
+				if (Buffer[Tmp_Tail] != Stopbyte) {
+ 7c4:	e7 2f       	mov	r30, r23
+ 7c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 7c8:	ed 55       	subi	r30, 0x5D	; 93
+ 7ca:	ff 4f       	sbci	r31, 0xFF	; 255
+ 7cc:	80 81       	ld	r24, Z
+ 7ce:	8d 30       	cpi	r24, 0x0D	; 13
+ 7d0:	21 f0       	breq	.+8      	; 0x7da <Isb_Inf_Usart_Rx+0x258>
+					*Tail = Start_Pos;
+ 7d2:	00 93 9a 00 	sts	0x009A, r16
+ 7d6:	60 e0       	ldi	r22, 0x00	; 0
+ 7d8:	06 c0       	rjmp	.+12     	; 0x7e6 <Isb_Inf_Usart_Rx+0x264>
+					Rel_Pos = 0;
+					continue;
+				}
+				else {
+					*Tail = Tmp_Tail;
+ 7da:	70 93 9a 00 	sts	0x009A, r23
+ 7de:	bb 24       	eor	r11, r11
+ 7e0:	b3 94       	inc	r11
+					Result = TRUE;
+				}
+			}
+			Tmp_Tail = (Tmp_Tail + 1) & Mask;
+ 7e2:	7f 5f       	subi	r23, 0xFF	; 255
+ 7e4:	7f 73       	andi	r23, 0x3F	; 63
+		uint8_t Tmp_Tail;
+		uint8_t Rel_Pos = 0;
+		uint8_t Start_Pos = 0;
+		uint8_t Isb_Msg_Dlc = 0;
+		Tmp_Tail = (*Tail + 1) & Mask;
+		while (Tmp_Tail != ((*Head + 1) & Mask)) {
+ 7e6:	80 91 99 00 	lds	r24, 0x0099
+ 7ea:	e7 2f       	mov	r30, r23
+ 7ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 7ee:	90 e0       	ldi	r25, 0x00	; 0
+ 7f0:	01 96       	adiw	r24, 0x01	; 1
+ 7f2:	8f 73       	andi	r24, 0x3F	; 63
+ 7f4:	90 70       	andi	r25, 0x00	; 0
+ 7f6:	e8 17       	cp	r30, r24
+ 7f8:	f9 07       	cpc	r31, r25
+ 7fa:	09 f0       	breq	.+2      	; 0x7fe <Isb_Inf_Usart_Rx+0x27c>
+ 7fc:	eb ce       	rjmp	.-554    	; 0x5d4 <Isb_Inf_Usart_Rx+0x52>
+				}
+			}
+			Tmp_Tail = (Tmp_Tail + 1) & Mask;
+		}
+		return Result;
+	}
+ 7fe:	8b 2d       	mov	r24, r11
+ 800:	df 91       	pop	r29
+ 802:	cf 91       	pop	r28
+ 804:	1f 91       	pop	r17
+ 806:	0f 91       	pop	r16
+ 808:	ff 90       	pop	r15
+ 80a:	ef 90       	pop	r14
+ 80c:	df 90       	pop	r13
+ 80e:	cf 90       	pop	r12
+ 810:	bf 90       	pop	r11
+ 812:	08 95       	ret
+
+00000814 <Node_Reboot>:
+	#include "./../lib/isb_config.h"
+	#include "./../lib/isb_config.c"
+
+
+
+	void Node_Reboot(void) {
+ 814:	ff cf       	rjmp	.-2      	; 0x814 <Node_Reboot>
+
+00000816 <Isb_SendMsg>:
+		while (1) ;
+	}
+
+
+
+	void Isb_SendMsg(Isb_Msg_t * aMsg) {
+ 816:	bc 01       	movw	r22, r24
+		#if ISB_INF_USART0 == 1
+			Isb_Inf_Usart_Tx(0, aMsg);
+ 818:	80 e0       	ldi	r24, 0x00	; 0
+ 81a:	0e 94 bb 01 	call	0x376	; 0x376 <Isb_Inf_Usart_Tx>
+		#endif /* ISB_INF_ETHERNET == 1 */
+//		if ((aMsg->Flags & ISB_MSG_FLAGS_TOF_MASK) == ISB_MSG_FLAGS_TOF_MULTICAST) {
+//			if (Error == 0) {
+//			}
+//		}
+	}
+ 81e:	08 95       	ret
+
+00000820 <Isb_Config_Rx>:
+#ifndef ISB_SRV_CONFIG_C_
+	#define ISB_SRV_CONFIG_C_
+
+
+
+	void Isb_Config_Rx(Isb_Msg_t * aIsb_Msg) {
+ 820:	df 92       	push	r13
+ 822:	ef 92       	push	r14
+ 824:	ff 92       	push	r15
+ 826:	0f 93       	push	r16
+ 828:	1f 93       	push	r17
+ 82a:	df 93       	push	r29
+ 82c:	cf 93       	push	r28
+ 82e:	cd b7       	in	r28, 0x3d	; 61
+ 830:	de b7       	in	r29, 0x3e	; 62
+ 832:	2d 97       	sbiw	r28, 0x0d	; 13
+ 834:	0f b6       	in	r0, 0x3f	; 63
+ 836:	f8 94       	cli
+ 838:	de bf       	out	0x3e, r29	; 62
+ 83a:	0f be       	out	0x3f, r0	; 63
+ 83c:	cd bf       	out	0x3d, r28	; 61
+ 83e:	ac 01       	movw	r20, r24
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+ 840:	fc 01       	movw	r30, r24
+ 842:	d0 80       	ld	r13, Z
+ 844:	6d 2d       	mov	r22, r13
+ 846:	6f 70       	andi	r22, 0x0F	; 15
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+ 848:	e3 80       	ldd	r14, Z+3	; 0x03
+ 84a:	f4 80       	ldd	r15, Z+4	; 0x04
+		MsgTx.SourceId = Isb_Node_Id;
+ 84c:	00 91 94 00 	lds	r16, 0x0094
+ 850:	10 91 95 00 	lds	r17, 0x0095
+ 854:	dc 01       	movw	r26, r24
+ 856:	fe 01       	movw	r30, r28
+ 858:	36 96       	adiw	r30, 0x06	; 6
+		for (uint8_t i = 0; i < Dlc; i++) {
+ 85a:	9e 01       	movw	r18, r28
+ 85c:	26 0f       	add	r18, r22
+ 85e:	31 1d       	adc	r19, r1
+ 860:	2a 5f       	subi	r18, 0xFA	; 250
+ 862:	3f 4f       	sbci	r19, 0xFF	; 255
+ 864:	04 c0       	rjmp	.+8      	; 0x86e <Isb_Config_Rx+0x4e>
+			MsgTx.Data[i] = aIsb_Msg->Data[i];
+ 866:	14 96       	adiw	r26, 0x04	; 4
+ 868:	8c 91       	ld	r24, X
+ 86a:	14 97       	sbiw	r26, 0x04	; 4
+ 86c:	81 93       	st	Z+, r24
+ 86e:	11 96       	adiw	r26, 0x01	; 1
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+		MsgTx.SourceId = Isb_Node_Id;
+		for (uint8_t i = 0; i < Dlc; i++) {
+ 870:	e2 17       	cp	r30, r18
+ 872:	f3 07       	cpc	r31, r19
+ 874:	c1 f7       	brne	.-16     	; 0x866 <Isb_Config_Rx+0x46>
+			MsgTx.Data[i] = aIsb_Msg->Data[i];
+		}
+		if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_SETMODE) {
+ 876:	fa 01       	movw	r30, r20
+ 878:	85 81       	ldd	r24, Z+5	; 0x05
+ 87a:	82 30       	cpi	r24, 0x02	; 2
+ 87c:	09 f0       	breq	.+2      	; 0x880 <Isb_Config_Rx+0x60>
+ 87e:	90 c0       	rjmp	.+288    	; 0x9a0 <Isb_Config_Rx+0x180>
+			if (Dlc == ISB_MSG_FLAGS_DLC_2) {
+ 880:	62 30       	cpi	r22, 0x02	; 2
+ 882:	09 f0       	breq	.+2      	; 0x886 <Isb_Config_Rx+0x66>
+ 884:	46 c1       	rjmp	.+652    	; 0xb12 <Isb_Config_Rx+0x2f2>
+				MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_2;
+				MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+ 886:	8e 81       	ldd	r24, Y+6	; 0x06
+ 888:	80 6c       	ori	r24, 0xC0	; 192
+ 88a:	8e 83       	std	Y+6, r24	; 0x06
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__BL_NORM) {
+ 88c:	26 81       	ldd	r18, Z+6	; 0x06
+ 88e:	22 23       	and	r18, r18
+ 890:	c1 f4       	brne	.+48     	; 0x8c2 <Isb_Config_Rx+0xa2>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 892:	e1 99       	sbic	0x1c, 1	; 28
+ 894:	fe cf       	rjmp	.-4      	; 0x892 <Isb_Config_Rx+0x72>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 896:	82 e1       	ldi	r24, 0x12	; 18
+ 898:	90 e0       	ldi	r25, 0x00	; 0
+ 89a:	9f bb       	out	0x1f, r25	; 31
+ 89c:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 89e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 8a0:	8d b3       	in	r24, 0x1d	; 29
+	}
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+ 8a2:	88 23       	and	r24, r24
+ 8a4:	09 f4       	brne	.+2      	; 0x8a8 <Isb_Config_Rx+0x88>
+ 8a6:	62 c0       	rjmp	.+196    	; 0x96c <Isb_Config_Rx+0x14c>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 8a8:	e1 99       	sbic	0x1c, 1	; 28
+ 8aa:	fe cf       	rjmp	.-4      	; 0x8a8 <Isb_Config_Rx+0x88>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 8ac:	82 e1       	ldi	r24, 0x12	; 18
+ 8ae:	90 e0       	ldi	r25, 0x00	; 0
+ 8b0:	9f bb       	out	0x1f, r25	; 31
+ 8b2:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 8b4:	1d ba       	out	0x1d, r1	; 29
+
+    __asm__ __volatile__ (
+ 8b6:	0f b6       	in	r0, 0x3f	; 63
+ 8b8:	f8 94       	cli
+ 8ba:	e2 9a       	sbi	0x1c, 2	; 28
+ 8bc:	e1 9a       	sbi	0x1c, 1	; 28
+ 8be:	0f be       	out	0x3f, r0	; 63
+ 8c0:	6e c0       	rjmp	.+220    	; 0x99e <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+ 8c2:	21 30       	cpi	r18, 0x01	; 1
+ 8c4:	c9 f4       	brne	.+50     	; 0x8f8 <Isb_Config_Rx+0xd8>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 8c6:	e1 99       	sbic	0x1c, 1	; 28
+ 8c8:	fe cf       	rjmp	.-4      	; 0x8c6 <Isb_Config_Rx+0xa6>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 8ca:	82 e1       	ldi	r24, 0x12	; 18
+ 8cc:	90 e0       	ldi	r25, 0x00	; 0
+ 8ce:	9f bb       	out	0x1f, r25	; 31
+ 8d0:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 8d2:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 8d4:	8d b3       	in	r24, 0x1d	; 29
+ 8d6:	81 30       	cpi	r24, 0x01	; 1
+ 8d8:	09 f4       	brne	.+2      	; 0x8dc <Isb_Config_Rx+0xbc>
+ 8da:	61 c0       	rjmp	.+194    	; 0x99e <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 8dc:	e1 99       	sbic	0x1c, 1	; 28
+ 8de:	fe cf       	rjmp	.-4      	; 0x8dc <Isb_Config_Rx+0xbc>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 8e0:	82 e1       	ldi	r24, 0x12	; 18
+ 8e2:	90 e0       	ldi	r25, 0x00	; 0
+ 8e4:	9f bb       	out	0x1f, r25	; 31
+ 8e6:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 8e8:	81 e0       	ldi	r24, 0x01	; 1
+ 8ea:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ 8ec:	0f b6       	in	r0, 0x3f	; 63
+ 8ee:	f8 94       	cli
+ 8f0:	e2 9a       	sbi	0x1c, 2	; 28
+ 8f2:	e1 9a       	sbi	0x1c, 1	; 28
+ 8f4:	0f be       	out	0x3f, r0	; 63
+ 8f6:	53 c0       	rjmp	.+166    	; 0x99e <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_FLASH);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__FW_NORM) {
+ 8f8:	28 30       	cpi	r18, 0x08	; 8
+ 8fa:	09 f0       	breq	.+2      	; 0x8fe <Isb_Config_Rx+0xde>
+ 8fc:	37 c0       	rjmp	.+110    	; 0x96c <Isb_Config_Rx+0x14c>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 8fe:	e1 99       	sbic	0x1c, 1	; 28
+ 900:	fe cf       	rjmp	.-4      	; 0x8fe <Isb_Config_Rx+0xde>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 902:	8b e1       	ldi	r24, 0x1B	; 27
+ 904:	90 e0       	ldi	r25, 0x00	; 0
+ 906:	9f bb       	out	0x1f, r25	; 31
+ 908:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 90a:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 90c:	2d b3       	in	r18, 0x1d	; 29
+					uint8_t crc = lib_eep_read_byte((uint8_t *)EEP__ISB_CONFIG_CRC);
+					crc++;
+ 90e:	2f 5f       	subi	r18, 0xFF	; 255
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 910:	e1 99       	sbic	0x1c, 1	; 28
+ 912:	fe cf       	rjmp	.-4      	; 0x910 <Isb_Config_Rx+0xf0>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 914:	8b e1       	ldi	r24, 0x1B	; 27
+ 916:	90 e0       	ldi	r25, 0x00	; 0
+ 918:	9f bb       	out	0x1f, r25	; 31
+ 91a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 91c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 91e:	8d b3       	in	r24, 0x1d	; 29
+ 920:	82 17       	cp	r24, r18
+ 922:	61 f0       	breq	.+24     	; 0x93c <Isb_Config_Rx+0x11c>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 924:	e1 99       	sbic	0x1c, 1	; 28
+ 926:	fe cf       	rjmp	.-4      	; 0x924 <Isb_Config_Rx+0x104>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 928:	8b e1       	ldi	r24, 0x1B	; 27
+ 92a:	90 e0       	ldi	r25, 0x00	; 0
+ 92c:	9f bb       	out	0x1f, r25	; 31
+ 92e:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 930:	2d bb       	out	0x1d, r18	; 29
+
+    __asm__ __volatile__ (
+ 932:	0f b6       	in	r0, 0x3f	; 63
+ 934:	f8 94       	cli
+ 936:	e2 9a       	sbi	0x1c, 2	; 28
+ 938:	e1 9a       	sbi	0x1c, 1	; 28
+ 93a:	0f be       	out	0x3f, r0	; 63
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 93c:	e1 99       	sbic	0x1c, 1	; 28
+ 93e:	fe cf       	rjmp	.-4      	; 0x93c <Isb_Config_Rx+0x11c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 940:	82 e1       	ldi	r24, 0x12	; 18
+ 942:	90 e0       	ldi	r25, 0x00	; 0
+ 944:	9f bb       	out	0x1f, r25	; 31
+ 946:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 948:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 94a:	8d b3       	in	r24, 0x1d	; 29
+ 94c:	88 30       	cpi	r24, 0x08	; 8
+ 94e:	39 f1       	breq	.+78     	; 0x99e <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 950:	e1 99       	sbic	0x1c, 1	; 28
+ 952:	fe cf       	rjmp	.-4      	; 0x950 <Isb_Config_Rx+0x130>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 954:	82 e1       	ldi	r24, 0x12	; 18
+ 956:	90 e0       	ldi	r25, 0x00	; 0
+ 958:	9f bb       	out	0x1f, r25	; 31
+ 95a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 95c:	88 e0       	ldi	r24, 0x08	; 8
+ 95e:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ 960:	0f b6       	in	r0, 0x3f	; 63
+ 962:	f8 94       	cli
+ 964:	e2 9a       	sbi	0x1c, 2	; 28
+ 966:	e1 9a       	sbi	0x1c, 1	; 28
+ 968:	0f be       	out	0x3f, r0	; 63
+ 96a:	19 c0       	rjmp	.+50     	; 0x99e <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_CONFIG_CRC, crc);
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__FW_NORM);
+				}
+				if (aIsb_Msg->Data[1] == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 96c:	29 30       	cpi	r18, 0x09	; 9
+ 96e:	b9 f4       	brne	.+46     	; 0x99e <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 970:	e1 99       	sbic	0x1c, 1	; 28
+ 972:	fe cf       	rjmp	.-4      	; 0x970 <Isb_Config_Rx+0x150>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 974:	82 e1       	ldi	r24, 0x12	; 18
+ 976:	90 e0       	ldi	r25, 0x00	; 0
+ 978:	9f bb       	out	0x1f, r25	; 31
+ 97a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ 97c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 97e:	8d b3       	in	r24, 0x1d	; 29
+ 980:	89 30       	cpi	r24, 0x09	; 9
+ 982:	69 f0       	breq	.+26     	; 0x99e <Isb_Config_Rx+0x17e>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 984:	e1 99       	sbic	0x1c, 1	; 28
+ 986:	fe cf       	rjmp	.-4      	; 0x984 <Isb_Config_Rx+0x164>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 988:	82 e1       	ldi	r24, 0x12	; 18
+ 98a:	90 e0       	ldi	r25, 0x00	; 0
+ 98c:	9f bb       	out	0x1f, r25	; 31
+ 98e:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ 990:	89 e0       	ldi	r24, 0x09	; 9
+ 992:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ 994:	0f b6       	in	r0, 0x3f	; 63
+ 996:	f8 94       	cli
+ 998:	e2 9a       	sbi	0x1c, 2	; 28
+ 99a:	e1 9a       	sbi	0x1c, 1	; 28
+ 99c:	0f be       	out	0x3f, r0	; 63
+ 99e:	ff cf       	rjmp	.-2      	; 0x99e <Isb_Config_Rx+0x17e>
+					lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__FW_CFG);
+				}
+				Node_Reboot();
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_INITEEPROM) {
+ 9a0:	86 30       	cpi	r24, 0x06	; 6
+ 9a2:	09 f0       	breq	.+2      	; 0x9a6 <Isb_Config_Rx+0x186>
+ 9a4:	43 c0       	rjmp	.+134    	; 0xa2c <Isb_Config_Rx+0x20c>
+			if (Dlc == ISB_MSG_FLAGS_DLC_1) {
+ 9a6:	61 30       	cpi	r22, 0x01	; 1
+ 9a8:	09 f0       	breq	.+2      	; 0x9ac <Isb_Config_Rx+0x18c>
+ 9aa:	b3 c0       	rjmp	.+358    	; 0xb12 <Isb_Config_Rx+0x2f2>
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ 9ac:	80 91 97 00 	lds	r24, 0x0097
+ 9b0:	89 30       	cpi	r24, 0x09	; 9
+ 9b2:	09 f0       	breq	.+2      	; 0x9b6 <Isb_Config_Rx+0x196>
+ 9b4:	ae c0       	rjmp	.+348    	; 0xb12 <Isb_Config_Rx+0x2f2>
+					MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_1;
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+ 9b6:	80 91 96 00 	lds	r24, 0x0096
+ 9ba:	28 2f       	mov	r18, r24
+ 9bc:	30 e0       	ldi	r19, 0x00	; 0
+						wdt_reset();
+ 9be:	a8 95       	wdr
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 9c0:	e1 99       	sbic	0x1c, 1	; 28
+ 9c2:	fe cf       	rjmp	.-4      	; 0x9c0 <Isb_Config_Rx+0x1a0>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 9c4:	3f bb       	out	0x1f, r19	; 31
+ 9c6:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ 9c8:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ 9ca:	8d b3       	in	r24, 0x1d	; 29
+ 9cc:	88 23       	and	r24, r24
+ 9ce:	51 f0       	breq	.+20     	; 0x9e4 <Isb_Config_Rx+0x1c4>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ 9d0:	e1 99       	sbic	0x1c, 1	; 28
+ 9d2:	fe cf       	rjmp	.-4      	; 0x9d0 <Isb_Config_Rx+0x1b0>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ 9d4:	3f bb       	out	0x1f, r19	; 31
+ 9d6:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ 9d8:	1d ba       	out	0x1d, r1	; 29
+
+    __asm__ __volatile__ (
+ 9da:	0f b6       	in	r0, 0x3f	; 63
+ 9dc:	f8 94       	cli
+ 9de:	e2 9a       	sbi	0x1c, 2	; 28
+ 9e0:	e1 9a       	sbi	0x1c, 1	; 28
+ 9e2:	0f be       	out	0x3f, r0	; 63
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_INITEEPROM) {
+			if (Dlc == ISB_MSG_FLAGS_DLC_1) {
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+					MsgTx.Flags = ISB_MSG_FLAGS_TOF_UNICAST | ISB_MSG_FLAGS_DLC_1;
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+ 9e4:	2f 5f       	subi	r18, 0xFF	; 255
+ 9e6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 9e8:	f2 e0       	ldi	r31, 0x02	; 2
+ 9ea:	20 30       	cpi	r18, 0x00	; 0
+ 9ec:	3f 07       	cpc	r19, r31
+ 9ee:	38 f3       	brcs	.-50     	; 0x9be <Isb_Config_Rx+0x19e>
+ 9f0:	2c e1       	ldi	r18, 0x1C	; 28
+ 9f2:	30 e0       	ldi	r19, 0x00	; 0
+						wdt_reset();
+						lib_eep_write_byte((uint8_t *) ee_Addr, 0x00);
+					}
+					for (uint8_t i = 0; i < 4; i++) {
+						lib_eep_write_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i), Isb_Firmware_Code[i]);
+ 9f4:	f9 01       	movw	r30, r18
+ 9f6:	ec 5b       	subi	r30, 0xBC	; 188
+ 9f8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 9fa:	e0 81       	ld	r30, Z
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ 9fc:	e1 99       	sbic	0x1c, 1	; 28
+ 9fe:	fe cf       	rjmp	.-4      	; 0x9fc <Isb_Config_Rx+0x1dc>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ a00:	3f bb       	out	0x1f, r19	; 31
+ a02:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ a04:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ a06:	8d b3       	in	r24, 0x1d	; 29
+ a08:	8e 17       	cp	r24, r30
+ a0a:	51 f0       	breq	.+20     	; 0xa20 <Isb_Config_Rx+0x200>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ a0c:	e1 99       	sbic	0x1c, 1	; 28
+ a0e:	fe cf       	rjmp	.-4      	; 0xa0c <Isb_Config_Rx+0x1ec>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ a10:	3f bb       	out	0x1f, r19	; 31
+ a12:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ a14:	ed bb       	out	0x1d, r30	; 29
+
+    __asm__ __volatile__ (
+ a16:	0f b6       	in	r0, 0x3f	; 63
+ a18:	f8 94       	cli
+ a1a:	e2 9a       	sbi	0x1c, 2	; 28
+ a1c:	e1 9a       	sbi	0x1c, 1	; 28
+ a1e:	0f be       	out	0x3f, r0	; 63
+ a20:	2f 5f       	subi	r18, 0xFF	; 255
+ a22:	3f 4f       	sbci	r19, 0xFF	; 255
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint16_t ee_Addr = Isb_Firmware_Offset; ee_Addr < EEP_SIZE; ee_Addr++) {
+						wdt_reset();
+						lib_eep_write_byte((uint8_t *) ee_Addr, 0x00);
+					}
+					for (uint8_t i = 0; i < 4; i++) {
+ a24:	20 32       	cpi	r18, 0x20	; 32
+ a26:	31 05       	cpc	r19, r1
+ a28:	29 f7       	brne	.-54     	; 0x9f4 <Isb_Config_Rx+0x1d4>
+ a2a:	ff cf       	rjmp	.-2      	; 0xa2a <Isb_Config_Rx+0x20a>
+					}
+					Node_Reboot();
+				}
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+ a2c:	87 30       	cpi	r24, 0x07	; 7
+ a2e:	71 f5       	brne	.+92     	; 0xa8c <Isb_Config_Rx+0x26c>
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+ a30:	64 30       	cpi	r22, 0x04	; 4
+ a32:	08 f4       	brcc	.+2      	; 0xa36 <Isb_Config_Rx+0x216>
+ a34:	6e c0       	rjmp	.+220    	; 0xb12 <Isb_Config_Rx+0x2f2>
+				Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+ a36:	fa 01       	movw	r30, r20
+ a38:	97 81       	ldd	r25, Z+7	; 0x07
+ a3a:	80 e0       	ldi	r24, 0x00	; 0
+ a3c:	26 81       	ldd	r18, Z+6	; 0x06
+ a3e:	dc 01       	movw	r26, r24
+ a40:	a2 0f       	add	r26, r18
+ a42:	b1 1d       	adc	r27, r1
+				if (Addr < EEP_SIZE) {
+ a44:	f2 e0       	ldi	r31, 0x02	; 2
+ a46:	a0 30       	cpi	r26, 0x00	; 0
+ a48:	bf 07       	cpc	r27, r31
+ a4a:	08 f0       	brcs	.+2      	; 0xa4e <Isb_Config_Rx+0x22e>
+ a4c:	62 c0       	rjmp	.+196    	; 0xb12 <Isb_Config_Rx+0x2f2>
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+ a4e:	8e 81       	ldd	r24, Y+6	; 0x06
+ a50:	80 6c       	ori	r24, 0xC0	; 192
+ a52:	8e 83       	std	Y+6, r24	; 0x06
+ a54:	40 e0       	ldi	r20, 0x00	; 0
+					for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ a56:	26 2f       	mov	r18, r22
+ a58:	30 e0       	ldi	r19, 0x00	; 0
+ a5a:	23 50       	subi	r18, 0x03	; 3
+ a5c:	30 40       	sbci	r19, 0x00	; 0
+						MsgTx.Data[3 + i] = lib_eep_read_byte((uint8_t *)(Addr + i));
+ a5e:	be 01       	movw	r22, r28
+ a60:	67 5f       	subi	r22, 0xF7	; 247
+ a62:	7f 4f       	sbci	r23, 0xFF	; 255
+ a64:	0d c0       	rjmp	.+26     	; 0xa80 <Isb_Config_Rx+0x260>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ a66:	e1 99       	sbic	0x1c, 1	; 28
+ a68:	fe cf       	rjmp	.-4      	; 0xa66 <Isb_Config_Rx+0x246>
+ a6a:	cd 01       	movw	r24, r26
+ a6c:	84 0f       	add	r24, r20
+ a6e:	91 1d       	adc	r25, r1
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ a70:	9f bb       	out	0x1f, r25	; 31
+ a72:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ a74:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ a76:	8d b3       	in	r24, 0x1d	; 29
+ a78:	e6 0f       	add	r30, r22
+ a7a:	f7 1f       	adc	r31, r23
+ a7c:	80 83       	st	Z, r24
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+				Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+				if (Addr < EEP_SIZE) {
+					MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+					for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ a7e:	4f 5f       	subi	r20, 0xFF	; 255
+ a80:	e4 2f       	mov	r30, r20
+ a82:	f0 e0       	ldi	r31, 0x00	; 0
+ a84:	e2 17       	cp	r30, r18
+ a86:	f3 07       	cpc	r31, r19
+ a88:	74 f3       	brlt	.-36     	; 0xa66 <Isb_Config_Rx+0x246>
+ a8a:	43 c0       	rjmp	.+134    	; 0xb12 <Isb_Config_Rx+0x2f2>
+						MsgTx.Data[3 + i] = lib_eep_read_byte((uint8_t *)(Addr + i));
+					}
+				}
+			}
+		}
+		else if (aIsb_Msg->Data[0] == ISB_CONFIG_CMD_WRITEEEPROMBLOCK) {
+ a8c:	88 30       	cpi	r24, 0x08	; 8
+ a8e:	09 f0       	breq	.+2      	; 0xa92 <Isb_Config_Rx+0x272>
+ a90:	40 c0       	rjmp	.+128    	; 0xb12 <Isb_Config_Rx+0x2f2>
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+ a92:	64 30       	cpi	r22, 0x04	; 4
+ a94:	08 f4       	brcc	.+2      	; 0xa98 <Isb_Config_Rx+0x278>
+ a96:	3d c0       	rjmp	.+122    	; 0xb12 <Isb_Config_Rx+0x2f2>
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+ a98:	80 91 97 00 	lds	r24, 0x0097
+ a9c:	89 30       	cpi	r24, 0x09	; 9
+ a9e:	09 f0       	breq	.+2      	; 0xaa2 <Isb_Config_Rx+0x282>
+ aa0:	38 c0       	rjmp	.+112    	; 0xb12 <Isb_Config_Rx+0x2f2>
+					Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+ aa2:	fa 01       	movw	r30, r20
+ aa4:	97 81       	ldd	r25, Z+7	; 0x07
+ aa6:	80 e0       	ldi	r24, 0x00	; 0
+ aa8:	26 81       	ldd	r18, Z+6	; 0x06
+ aaa:	dc 01       	movw	r26, r24
+ aac:	a2 0f       	add	r26, r18
+ aae:	b1 1d       	adc	r27, r1
+					if ((Addr >= Isb_Firmware_Offset) & (Addr < EEP_SIZE)) {
+ ab0:	80 91 96 00 	lds	r24, 0x0096
+ ab4:	90 e0       	ldi	r25, 0x00	; 0
+ ab6:	a8 17       	cp	r26, r24
+ ab8:	b9 07       	cpc	r27, r25
+ aba:	58 f1       	brcs	.+86     	; 0xb12 <Isb_Config_Rx+0x2f2>
+ abc:	f2 e0       	ldi	r31, 0x02	; 2
+ abe:	a0 30       	cpi	r26, 0x00	; 0
+ ac0:	bf 07       	cpc	r27, r31
+ ac2:	38 f5       	brcc	.+78     	; 0xb12 <Isb_Config_Rx+0x2f2>
+						MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+ ac4:	8e 81       	ldd	r24, Y+6	; 0x06
+ ac6:	80 6c       	ori	r24, 0xC0	; 192
+ ac8:	8e 83       	std	Y+6, r24	; 0x06
+ aca:	90 e0       	ldi	r25, 0x00	; 0
+						for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ acc:	26 2f       	mov	r18, r22
+ ace:	30 e0       	ldi	r19, 0x00	; 0
+ ad0:	23 50       	subi	r18, 0x03	; 3
+ ad2:	30 40       	sbci	r19, 0x00	; 0
+ ad4:	19 c0       	rjmp	.+50     	; 0xb08 <Isb_Config_Rx+0x2e8>
+							lib_eep_write_byte((uint8_t *)(Addr + i), aIsb_Msg->Data[3 + i]);
+ ad6:	bf 01       	movw	r22, r30
+ ad8:	6a 0f       	add	r22, r26
+ ada:	7b 1f       	adc	r23, r27
+ adc:	e4 0f       	add	r30, r20
+ ade:	f5 1f       	adc	r31, r21
+ ae0:	e0 85       	ldd	r30, Z+8	; 0x08
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ ae2:	e1 99       	sbic	0x1c, 1	; 28
+ ae4:	fe cf       	rjmp	.-4      	; 0xae2 <Isb_Config_Rx+0x2c2>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ ae6:	7f bb       	out	0x1f, r23	; 31
+ ae8:	6e bb       	out	0x1e, r22	; 30
+#endif
+    EECR |= (1 << EERE);
+ aea:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ aec:	8d b3       	in	r24, 0x1d	; 29
+ aee:	8e 17       	cp	r24, r30
+ af0:	51 f0       	breq	.+20     	; 0xb06 <Isb_Config_Rx+0x2e6>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ af2:	e1 99       	sbic	0x1c, 1	; 28
+ af4:	fe cf       	rjmp	.-4      	; 0xaf2 <Isb_Config_Rx+0x2d2>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ af6:	7f bb       	out	0x1f, r23	; 31
+ af8:	6e bb       	out	0x1e, r22	; 30
+#endif
+    EEDR = __value;
+ afa:	ed bb       	out	0x1d, r30	; 29
+
+    __asm__ __volatile__ (
+ afc:	0f b6       	in	r0, 0x3f	; 63
+ afe:	f8 94       	cli
+ b00:	e2 9a       	sbi	0x1c, 2	; 28
+ b02:	e1 9a       	sbi	0x1c, 1	; 28
+ b04:	0f be       	out	0x3f, r0	; 63
+			if (Dlc > ISB_MSG_FLAGS_DLC_3) {
+				if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__FW_CFG) {
+					Addr = (uint16_t)aIsb_Msg->Data[1] + (uint16_t)(aIsb_Msg->Data[2] << 8);
+					if ((Addr >= Isb_Firmware_Offset) & (Addr < EEP_SIZE)) {
+						MsgTx.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+						for (uint8_t i = 0; i < (Dlc - 3); i++) {
+ b06:	9f 5f       	subi	r25, 0xFF	; 255
+ b08:	e9 2f       	mov	r30, r25
+ b0a:	f0 e0       	ldi	r31, 0x00	; 0
+ b0c:	e2 17       	cp	r30, r18
+ b0e:	f3 07       	cpc	r31, r19
+ b10:	14 f3       	brlt	.-60     	; 0xad6 <Isb_Config_Rx+0x2b6>
+						}
+					}
+				}
+			}
+		}
+		MsgTx.Data[0] |= ISB_CONFIG_ANSWER_NACK;
+ b12:	8e 81       	ldd	r24, Y+6	; 0x06
+ b14:	80 64       	ori	r24, 0x40	; 64
+ b16:	8e 83       	std	Y+6, r24	; 0x06
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+		MsgTx.SourceId = Isb_Node_Id;
+ b18:	1d 83       	std	Y+5, r17	; 0x05
+ b1a:	0c 83       	std	Y+4, r16	; 0x04
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+		MsgTx.DestId = aIsb_Msg->SourceId;
+ b1c:	fb 82       	std	Y+3, r15	; 0x03
+ b1e:	ea 82       	std	Y+2, r14	; 0x02
+	void Isb_Config_Rx(Isb_Msg_t * aIsb_Msg) {
+		uint8_t Dlc;
+		Isb_Msg_t MsgTx;
+		uint16_t Addr;
+		Dlc = aIsb_Msg->Flags & ISB_MSG_FLAGS_DLC_MASK;
+		MsgTx.Flags = aIsb_Msg->Flags;
+ b20:	d9 82       	std	Y+1, r13	; 0x01
+					}
+				}
+			}
+		}
+		MsgTx.Data[0] |= ISB_CONFIG_ANSWER_NACK;
+		Isb_SendMsg(&MsgTx);
+ b22:	ce 01       	movw	r24, r28
+ b24:	01 96       	adiw	r24, 0x01	; 1
+ b26:	0e 94 0b 04 	call	0x816	; 0x816 <Isb_SendMsg>
+	}
+ b2a:	2d 96       	adiw	r28, 0x0d	; 13
+ b2c:	0f b6       	in	r0, 0x3f	; 63
+ b2e:	f8 94       	cli
+ b30:	de bf       	out	0x3e, r29	; 62
+ b32:	0f be       	out	0x3f, r0	; 63
+ b34:	cd bf       	out	0x3d, r28	; 61
+ b36:	cf 91       	pop	r28
+ b38:	df 91       	pop	r29
+ b3a:	1f 91       	pop	r17
+ b3c:	0f 91       	pop	r16
+ b3e:	ff 90       	pop	r15
+ b40:	ef 90       	pop	r14
+ b42:	df 90       	pop	r13
+ b44:	08 95       	ret
+
+00000b46 <lib_eep_fw_read_word>:
+/** \ingroup avr_eeprom
+    Read one 16-bit word (little endian) from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint16_t eeprom_read_word (const uint16_t *__p)
+{
+    return __eerd_word (__p, eeprom_read_byte);
+ b46:	20 91 96 00 	lds	r18, 0x0096
+ b4a:	30 e0       	ldi	r19, 0x00	; 0
+ b4c:	22 0f       	add	r18, r18
+ b4e:	33 1f       	adc	r19, r19
+ b50:	82 0f       	add	r24, r18
+ b52:	93 1f       	adc	r25, r19
+ b54:	69 e4       	ldi	r22, 0x49	; 73
+ b56:	70 e0       	ldi	r23, 0x00	; 0
+ b58:	0e 94 ad 06 	call	0xd5a	; 0xd5a <__eerd_word>
+
+
+
+	uint16_t __attribute__((always_inline)) lib_eep_fw_read_word(uint16_t * aAddr) {
+		return eeprom_read_word(Isb_Firmware_Offset + aAddr);;
+	}
+ b5c:	08 95       	ret
+
+00000b5e <lib_eep_read_word>:
+ b5e:	69 e4       	ldi	r22, 0x49	; 73
+ b60:	70 e0       	ldi	r23, 0x00	; 0
+ b62:	0e 94 ad 06 	call	0xd5a	; 0xd5a <__eerd_word>
+
+
+
+	uint16_t __attribute__((always_inline)) lib_eep_read_word(uint16_t * aAddr) {
+		return eeprom_read_word(aAddr);;
+	}
+ b66:	08 95       	ret
+
+00000b68 <main>:
+
+
+
+	int main(void) {
+ b68:	ff 92       	push	r15
+ b6a:	0f 93       	push	r16
+ b6c:	1f 93       	push	r17
+ b6e:	df 93       	push	r29
+ b70:	cf 93       	push	r28
+ b72:	cd b7       	in	r28, 0x3d	; 61
+ b74:	de b7       	in	r29, 0x3e	; 62
+ b76:	2d 97       	sbiw	r28, 0x0d	; 13
+ b78:	0f b6       	in	r0, 0x3f	; 63
+ b7a:	f8 94       	cli
+ b7c:	de bf       	out	0x3e, r29	; 62
+ b7e:	0f be       	out	0x3f, r0	; 63
+ b80:	cd bf       	out	0x3d, r28	; 61
+		wdt_enable(WDTO_500MS);
+ b82:	8d e0       	ldi	r24, 0x0D	; 13
+ b84:	28 e1       	ldi	r18, 0x18	; 24
+ b86:	30 e0       	ldi	r19, 0x00	; 0
+ b88:	0f b6       	in	r0, 0x3f	; 63
+ b8a:	f8 94       	cli
+ b8c:	a8 95       	wdr
+ b8e:	21 bd       	out	0x21, r18	; 33
+ b90:	0f be       	out	0x3f, r0	; 63
+ b92:	81 bd       	out	0x21, r24	; 33
+		wdt_reset();
+ b94:	a8 95       	wdr
+ b96:	80 e1       	ldi	r24, 0x10	; 16
+ b98:	90 e0       	ldi	r25, 0x00	; 0
+ b9a:	69 e4       	ldi	r22, 0x49	; 73
+ b9c:	70 e0       	ldi	r23, 0x00	; 0
+ b9e:	0e 94 ad 06 	call	0xd5a	; 0xd5a <__eerd_word>
+ ba2:	bc 01       	movw	r22, r24
+		Isb_Node_Id = lib_eep_read_word((uint16_t *)EEP__ISB_NODE_ID_0);
+ ba4:	90 93 95 00 	sts	0x0095, r25
+ ba8:	80 93 94 00 	sts	0x0094, r24
+		if ((Isb_Node_Id == 0) | (Isb_Node_Id > 2047)) {
+ bac:	01 97       	sbiw	r24, 0x01	; 1
+ bae:	8f 5f       	subi	r24, 0xFF	; 255
+ bb0:	97 40       	sbci	r25, 0x07	; 7
+ bb2:	b8 f0       	brcs	.+46     	; 0xbe2 <main+0x7a>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ bb4:	e1 99       	sbic	0x1c, 1	; 28
+ bb6:	fe cf       	rjmp	.-4      	; 0xbb4 <main+0x4c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ bb8:	82 e1       	ldi	r24, 0x12	; 18
+ bba:	90 e0       	ldi	r25, 0x00	; 0
+ bbc:	9f bb       	out	0x1f, r25	; 31
+ bbe:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ bc0:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ bc2:	8d b3       	in	r24, 0x1d	; 29
+
+
+
+	void __attribute__((always_inline)) lib_eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+ bc4:	88 23       	and	r24, r24
+ bc6:	61 f0       	breq	.+24     	; 0xbe0 <main+0x78>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ bc8:	e1 99       	sbic	0x1c, 1	; 28
+ bca:	fe cf       	rjmp	.-4      	; 0xbc8 <main+0x60>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ bcc:	82 e1       	ldi	r24, 0x12	; 18
+ bce:	90 e0       	ldi	r25, 0x00	; 0
+ bd0:	9f bb       	out	0x1f, r25	; 31
+ bd2:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ bd4:	1d ba       	out	0x1d, r1	; 29
+
+    __asm__ __volatile__ (
+ bd6:	0f b6       	in	r0, 0x3f	; 63
+ bd8:	f8 94       	cli
+ bda:	e2 9a       	sbi	0x1c, 2	; 28
+ bdc:	e1 9a       	sbi	0x1c, 1	; 28
+ bde:	0f be       	out	0x3f, r0	; 63
+ be0:	ff cf       	rjmp	.-2      	; 0xbe0 <main+0x78>
+ be2:	2c e0       	ldi	r18, 0x0C	; 12
+ be4:	30 e0       	ldi	r19, 0x00	; 0
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+			Node_Reboot();
+		}
+		for (uint8_t i = 0; i < 4; i++) {
+			lib_eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), Isb_Firmware_Code[i]);
+ be6:	f9 01       	movw	r30, r18
+ be8:	ec 5a       	subi	r30, 0xAC	; 172
+ bea:	ff 4f       	sbci	r31, 0xFF	; 255
+ bec:	e0 81       	ld	r30, Z
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ bee:	e1 99       	sbic	0x1c, 1	; 28
+ bf0:	fe cf       	rjmp	.-4      	; 0xbee <main+0x86>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ bf2:	3f bb       	out	0x1f, r19	; 31
+ bf4:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ bf6:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ bf8:	8d b3       	in	r24, 0x1d	; 29
+ bfa:	8e 17       	cp	r24, r30
+ bfc:	51 f0       	breq	.+20     	; 0xc12 <main+0xaa>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ bfe:	e1 99       	sbic	0x1c, 1	; 28
+ c00:	fe cf       	rjmp	.-4      	; 0xbfe <main+0x96>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c02:	3f bb       	out	0x1f, r19	; 31
+ c04:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+ c06:	ed bb       	out	0x1d, r30	; 29
+
+    __asm__ __volatile__ (
+ c08:	0f b6       	in	r0, 0x3f	; 63
+ c0a:	f8 94       	cli
+ c0c:	e2 9a       	sbi	0x1c, 2	; 28
+ c0e:	e1 9a       	sbi	0x1c, 1	; 28
+ c10:	0f be       	out	0x3f, r0	; 63
+ c12:	2f 5f       	subi	r18, 0xFF	; 255
+ c14:	3f 4f       	sbci	r19, 0xFF	; 255
+		Isb_Node_Id = lib_eep_read_word((uint16_t *)EEP__ISB_NODE_ID_0);
+		if ((Isb_Node_Id == 0) | (Isb_Node_Id > 2047)) {
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, ISB_NODE_OPERATING_MODE__BL_NORM);
+			Node_Reboot();
+		}
+		for (uint8_t i = 0; i < 4; i++) {
+ c16:	20 31       	cpi	r18, 0x10	; 16
+ c18:	31 05       	cpc	r19, r1
+ c1a:	29 f7       	brne	.-54     	; 0xbe6 <main+0x7e>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c1c:	e1 99       	sbic	0x1c, 1	; 28
+ c1e:	fe cf       	rjmp	.-4      	; 0xc1c <main+0xb4>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c20:	8a e1       	ldi	r24, 0x1A	; 26
+ c22:	90 e0       	ldi	r25, 0x00	; 0
+ c24:	9f bb       	out	0x1f, r25	; 31
+ c26:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ c28:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c2a:	8d b3       	in	r24, 0x1d	; 29
+			lib_eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), Isb_Firmware_Code[i]);
+		}
+		Isb_Firmware_Offset = lib_eep_read_byte((uint8_t *)EEP__ISB_FIRMWARE_OFFSET);
+ c2c:	80 93 96 00 	sts	0x0096, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c30:	e1 99       	sbic	0x1c, 1	; 28
+ c32:	fe cf       	rjmp	.-4      	; 0xc30 <main+0xc8>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c34:	82 e1       	ldi	r24, 0x12	; 18
+ c36:	90 e0       	ldi	r25, 0x00	; 0
+ c38:	9f bb       	out	0x1f, r25	; 31
+ c3a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ c3c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c3e:	8d b3       	in	r24, 0x1d	; 29
+		Isb_Node_Operating_Mode = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+ c40:	80 93 97 00 	sts	0x0097, r24
+		if ((Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_NORM) & (Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_CFG))
+ c44:	88 50       	subi	r24, 0x08	; 8
+ c46:	82 30       	cpi	r24, 0x02	; 2
+ c48:	d0 f0       	brcs	.+52     	; 0xc7e <main+0x116>
+		{
+			Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__FW_NORM;
+ c4a:	88 e0       	ldi	r24, 0x08	; 8
+ c4c:	80 93 97 00 	sts	0x0097, r24
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c50:	e1 99       	sbic	0x1c, 1	; 28
+ c52:	fe cf       	rjmp	.-4      	; 0xc50 <main+0xe8>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c54:	82 e1       	ldi	r24, 0x12	; 18
+ c56:	90 e0       	ldi	r25, 0x00	; 0
+ c58:	9f bb       	out	0x1f, r25	; 31
+ c5a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ c5c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c5e:	8d b3       	in	r24, 0x1d	; 29
+ c60:	88 30       	cpi	r24, 0x08	; 8
+ c62:	69 f0       	breq	.+26     	; 0xc7e <main+0x116>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+ c64:	e1 99       	sbic	0x1c, 1	; 28
+ c66:	fe cf       	rjmp	.-4      	; 0xc64 <main+0xfc>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c68:	82 e1       	ldi	r24, 0x12	; 18
+ c6a:	90 e0       	ldi	r25, 0x00	; 0
+ c6c:	9f bb       	out	0x1f, r25	; 31
+ c6e:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EEDR = __value;
+ c70:	88 e0       	ldi	r24, 0x08	; 8
+ c72:	8d bb       	out	0x1d, r24	; 29
+
+    __asm__ __volatile__ (
+ c74:	0f b6       	in	r0, 0x3f	; 63
+ c76:	f8 94       	cli
+ c78:	e2 9a       	sbi	0x1c, 2	; 28
+ c7a:	e1 9a       	sbi	0x1c, 1	; 28
+ c7c:	0f be       	out	0x3f, r0	; 63
+ c7e:	40 91 98 00 	lds	r20, 0x0098
+ c82:	2c e1       	ldi	r18, 0x1C	; 28
+ c84:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ c86:	e1 99       	sbic	0x1c, 1	; 28
+ c88:	fe cf       	rjmp	.-4      	; 0xc86 <main+0x11e>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ c8a:	3f bb       	out	0x1f, r19	; 31
+ c8c:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ c8e:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ c90:	8d b3       	in	r24, 0x1d	; 29
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Node_Operating_Mode);
+		}
+		for (uint8_t i = 0; i < 4; i++)
+		{
+			if (lib_eep_read_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i)) != Isb_Firmware_Code[i])
+ c92:	f9 01       	movw	r30, r18
+ c94:	ec 5b       	subi	r30, 0xBC	; 188
+ c96:	ff 4f       	sbci	r31, 0xFF	; 255
+ c98:	90 81       	ld	r25, Z
+ c9a:	89 13       	cpse	r24, r25
+			{
+				Error |= ERROR__CONFIG_CODE;
+ c9c:	41 60       	ori	r20, 0x01	; 1
+ c9e:	2f 5f       	subi	r18, 0xFF	; 255
+ ca0:	3f 4f       	sbci	r19, 0xFF	; 255
+		if ((Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_NORM) & (Isb_Node_Operating_Mode != ISB_NODE_OPERATING_MODE__FW_CFG))
+		{
+			Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__FW_NORM;
+			lib_eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Node_Operating_Mode);
+		}
+		for (uint8_t i = 0; i < 4; i++)
+ ca2:	20 32       	cpi	r18, 0x20	; 32
+ ca4:	31 05       	cpc	r19, r1
+ ca6:	79 f7       	brne	.-34     	; 0xc86 <main+0x11e>
+ ca8:	40 93 98 00 	sts	0x0098, r20
+			if (lib_eep_read_byte((uint8_t *)(EEP__ISB_CONFIG_CODE_0 + i)) != Isb_Firmware_Code[i])
+			{
+				Error |= ERROR__CONFIG_CODE;
+			}
+		}
+		sei();
+ cac:	78 94       	sei
+			uint8_t Result = FALSE;
+			switch (aInf) {
+				#if defined(INF_USART0_RX) || defined(INF_USART0_TX)
+					case 0:
+						#if defined(INF_USART0_RX)
+							Inf_Usart_Rx0_Buffer_Tail = Inf_Usart_Rx0_Buffer_Head;
+ cae:	80 91 99 00 	lds	r24, 0x0099
+ cb2:	80 93 9a 00 	sts	0x009A, r24
+						#endif /* INF_USART0_RX */
+						#if defined(INF_USART0_TX)
+							Inf_Usart_Tx0_Buffer_Tail = Inf_Usart_Tx0_Buffer_Head;
+ cb6:	80 91 a2 00 	lds	r24, 0x00A2
+ cba:	80 93 a1 00 	sts	0x00A1, r24
+						#endif /* INF_USART0_TX */
+						#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega16__) || (__AVR_ATmega32__)
+							UCSRA = aUcsra;
+ cbe:	83 e0       	ldi	r24, 0x03	; 3
+ cc0:	8b b9       	out	0x0b, r24	; 11
+							UBRRH = aUbrrh;
+ cc2:	10 bc       	out	0x20, r1	; 32
+							UBRRL = aUbrrl;
+ cc4:	8f e0       	ldi	r24, 0x0F	; 15
+ cc6:	89 b9       	out	0x09, r24	; 9
+							UCSRC = aUcsrc;
+ cc8:	86 e8       	ldi	r24, 0x86	; 134
+ cca:	80 bd       	out	0x20, r24	; 32
+							UCSRB = aUcsrb;
+ ccc:	88 eb       	ldi	r24, 0xB8	; 184
+ cce:	8a b9       	out	0x0a, r24	; 10
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+		Isb_Msg.Data[0] = ISB_MSG_TOP__SERIAL_NUMBER__MODE__ERROR;
+ cd0:	81 e2       	ldi	r24, 0x21	; 33
+ cd2:	8e 83       	std	Y+6, r24	; 0x06
+ cd4:	fe 01       	movw	r30, r28
+ cd6:	37 96       	adiw	r30, 0x07	; 7
+ cd8:	24 e0       	ldi	r18, 0x04	; 4
+ cda:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ cdc:	e1 99       	sbic	0x1c, 1	; 28
+ cde:	fe cf       	rjmp	.-4      	; 0xcdc <main+0x174>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ ce0:	3f bb       	out	0x1f, r19	; 31
+ ce2:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+ ce4:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ ce6:	8d b3       	in	r24, 0x1d	; 29
+		for (uint8_t i = 0; i < 4; i++) {
+			Isb_Msg.Data[i + 1] = lib_eep_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+ ce8:	81 93       	st	Z+, r24
+ cea:	2f 5f       	subi	r18, 0xFF	; 255
+ cec:	3f 4f       	sbci	r19, 0xFF	; 255
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+		Isb_Msg.Data[0] = ISB_MSG_TOP__SERIAL_NUMBER__MODE__ERROR;
+		for (uint8_t i = 0; i < 4; i++) {
+ cee:	28 30       	cpi	r18, 0x08	; 8
+ cf0:	31 05       	cpc	r19, r1
+ cf2:	a1 f7       	brne	.-24     	; 0xcdc <main+0x174>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+ cf4:	e1 99       	sbic	0x1c, 1	; 28
+ cf6:	fe cf       	rjmp	.-4      	; 0xcf4 <main+0x18c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+ cf8:	82 e1       	ldi	r24, 0x12	; 18
+ cfa:	90 e0       	ldi	r25, 0x00	; 0
+ cfc:	9f bb       	out	0x1f, r25	; 31
+ cfe:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+ d00:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+ d02:	8d b3       	in	r24, 0x1d	; 29
+			Isb_Msg.Data[i + 1] = lib_eep_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+ d04:	8b 87       	std	Y+11, r24	; 0x0b
+		Isb_Msg.Data[6] = Error;
+ d06:	4c 87       	std	Y+12, r20	; 0x0c
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+		Isb_Msg.SourceId = Isb_Node_Id;
+ d08:	7d 83       	std	Y+5, r23	; 0x05
+ d0a:	6c 83       	std	Y+4, r22	; 0x04
+		#if ISB_INF_ETHERNET == 1
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_FW_START;
+ d0c:	82 e0       	ldi	r24, 0x02	; 2
+ d0e:	90 ef       	ldi	r25, 0xF0	; 240
+ d10:	9b 83       	std	Y+3, r25	; 0x03
+ d12:	8a 83       	std	Y+2, r24	; 0x02
+		#endif /* ISB_INF_CAN2 == 1 */
+		#if ISB_INF_ETHERNET == 1
+			Isb_Inf_Ethernet_Init();
+		#endif /* ISB_INF_ETHERNET == 1 */
+		Isb_Msg_t Isb_Msg;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_7;
+ d14:	87 e2       	ldi	r24, 0x27	; 39
+ d16:	89 83       	std	Y+1, r24	; 0x01
+		for (uint8_t i = 0; i < 4; i++) {
+			Isb_Msg.Data[i + 1] = lib_eep_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+		Isb_Msg.Data[6] = Error;
+		Isb_SendMsg(&Isb_Msg);
+ d18:	8e 01       	movw	r16, r28
+ d1a:	0f 5f       	subi	r16, 0xFF	; 255
+ d1c:	1f 4f       	sbci	r17, 0xFF	; 255
+ d1e:	c8 01       	movw	r24, r16
+ d20:	0e 94 0b 04 	call	0x816	; 0x816 <Isb_SendMsg>
+		for (;;) {
+			wdt_reset();
+			#if ISB_INF_USART0 == 1
+				if (Isb_Inf_Usart_Rx(0, &Isb_Msg) == TRUE) {
+ d24:	f0 2e       	mov	r15, r16
+ d26:	01 2f       	mov	r16, r17
+		}
+		Isb_Msg.Data[5] = lib_eep_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE);
+		Isb_Msg.Data[6] = Error;
+		Isb_SendMsg(&Isb_Msg);
+		for (;;) {
+			wdt_reset();
+ d28:	a8 95       	wdr
+			#if ISB_INF_USART0 == 1
+				if (Isb_Inf_Usart_Rx(0, &Isb_Msg) == TRUE) {
+ d2a:	80 e0       	ldi	r24, 0x00	; 0
+ d2c:	6f 2d       	mov	r22, r15
+ d2e:	70 2f       	mov	r23, r16
+ d30:	0e 94 c1 02 	call	0x582	; 0x582 <Isb_Inf_Usart_Rx>
+ d34:	81 30       	cpi	r24, 0x01	; 1
+ d36:	c1 f7       	brne	.-16     	; 0xd28 <main+0x1c0>
+						Isb_Inf_Can_Tx(2, &Isb_Msg);
+					#endif /* ISB_INF_CAN2 == 1 */
+					#if ISB_INF_ETHERNET == 1
+						Isb_Inf_Ethernet_Tx(&Isb_Msg);
+					#endif /* ISB_INF_ETHERNET == 1 */
+					if ((Isb_Msg.Flags & ISB_MSG_FLAGS_TOF_MASK) == ISB_MSG_FLAGS_TOF_UNICAST) {
+ d38:	89 81       	ldd	r24, Y+1	; 0x01
+ d3a:	80 73       	andi	r24, 0x30	; 48
+ d3c:	a9 f7       	brne	.-22     	; 0xd28 <main+0x1c0>
+						if (Isb_Msg.DestId == Isb_Node_Id) {
+ d3e:	2a 81       	ldd	r18, Y+2	; 0x02
+ d40:	3b 81       	ldd	r19, Y+3	; 0x03
+ d42:	80 91 94 00 	lds	r24, 0x0094
+ d46:	90 91 95 00 	lds	r25, 0x0095
+ d4a:	28 17       	cp	r18, r24
+ d4c:	39 07       	cpc	r19, r25
+ d4e:	61 f7       	brne	.-40     	; 0xd28 <main+0x1c0>
+							Isb_Config_Rx(&Isb_Msg);
+ d50:	8f 2d       	mov	r24, r15
+ d52:	90 2f       	mov	r25, r16
+ d54:	0e 94 10 04 	call	0x820	; 0x820 <Isb_Config_Rx>
+ d58:	e7 cf       	rjmp	.-50     	; 0xd28 <main+0x1c0>
+
+00000d5a <__eerd_word>:
+ d5a:	df 92       	push	r13
+ d5c:	ef 92       	push	r14
+ d5e:	ff 92       	push	r15
+ d60:	0f 93       	push	r16
+ d62:	1f 93       	push	r17
+ d64:	7b 01       	movw	r14, r22
+ d66:	8c 01       	movw	r16, r24
+ d68:	fb 01       	movw	r30, r22
+ d6a:	09 95       	icall
+ d6c:	d8 2e       	mov	r13, r24
+ d6e:	c8 01       	movw	r24, r16
+ d70:	01 96       	adiw	r24, 0x01	; 1
+ d72:	f7 01       	movw	r30, r14
+ d74:	09 95       	icall
+ d76:	98 2f       	mov	r25, r24
+ d78:	8d 2d       	mov	r24, r13
+ d7a:	1f 91       	pop	r17
+ d7c:	0f 91       	pop	r16
+ d7e:	ff 90       	pop	r15
+ d80:	ef 90       	pop	r14
+ d82:	df 90       	pop	r13
+ d84:	08 95       	ret
+
+00000d86 <_exit>:
+ d86:	f8 94       	cli
+
+00000d88 <__stop_program>:
+ d88:	ff cf       	rjmp	.-2      	; 0xd88 <__stop_program>

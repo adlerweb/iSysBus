@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<BusConfig>
+  <Global>
+    <ProjectData>
+      <ProjectName>Projektname</ProjectName>
+      <ProjectAddress>Projektadresse</ProjectAddress>
+      <ProjectPostalCode>p12345</ProjectPostalCode>
+      <ProjectCity>Projektort</ProjectCity>
+      <ProjectTel>Projekttelefon</ProjectTel>
+      <ProjectFax>Projektfax</ProjectFax>
+      <ProjectNotes>Dies ist eine Notiz</ProjectNotes>
+    </ProjectData>
+    <CustomerData>
+      <CustomerName>Kundenname</CustomerName>
+      <CustomerAddress>Kundenadresse</CustomerAddress>
+      <CustomerPostalCode>K12345</CustomerPostalCode>
+      <CustomerCity>Kundenort</CustomerCity>
+      <CustomerTel>Kundentelefon</CustomerTel>
+      <CustomerFax>Kundenfax</CustomerFax>
+      <CustomerEmail>Kundenmail</CustomerEmail>
+    </CustomerData>
+    <LastChange>2009-05-11 00:15:11</LastChange>
+    <RemoteData override_global="true"/>
+    <SerialNumberBlock first_id="00=00=00=00=00=06" last_id="00=00=00=00=FF"/>
+    <Settings>
+      <global>
+        <AutoSyncClock/>
+        <AutoAddNewNodes/>
+      </global>
+    </Settings>
+  </Global>
+  <Devices>
+    <Node hardware_code="1-0.0" bootloader_code="1-0.0" serial_number="00=00=00=00=00=01" name="node_1" node_id="1" firmware_code="1-0.0">
+      <EEPROM config_crc="4">
+        <InterfaceCTRL val_type="bitfield" value="0"/>
+        <InterfaceUBRR val_type="integer" value="16"/>
+        <InterfaceUCSRA val_type="bitfield" value="3"/>
+        <InterfaceUCSRB val_type="bitfield" value="184"/>
+        <InterfaceUCSRC val_type="bitfield" value="134"/>
+        <WatchdogResetCounter val_type="bitfield" value="0"/>
+        <NodeIdentify val_type="bitfield" value="0"/>
+        <DataID val_type="version"/>
+        <USARTControl val_type="bitfield" index="0" value="7"/>
+        <USARTInterruptReceive val_type="integer" index="0" value="0"/>
+        <USARTInterruptTransmit val_type="integer" index="0" value="0"/>
+        <USARTUBRR val_type="integer" index="0" value="16"/>
+        <USARTUCSRA val_type="integer" index="0" value="3"/>
+        <USARTUCSRB val_type="integer" index="0" value="184"/>
+        <USARTUCSRC val_type="integer" index="0" value="134"/>
+        <CANControl val_type="bitfield" index="0" value="7"/>
+        <CANInterruptReceive val_type="integer" index="0" value="0"/>
+        <CANInterruptTransmit val_type="integer" index="0" value="0"/>
+        <CANSSPort val_type="integer" index="0" value="2"/>
+        <CANSSPin val_type="integer" index="0" value="4"/>
+        <CANConfig1 val_type="integer" index="0" value="1"/>
+        <CANConfig2 val_type="integer" index="0" value="188"/>
+        <CANConfig3 val_type="integer" index="0" value="1"/>
+        <ISB_EE_SRV_CONFIG_CTRL val_type="bitfield" index="0" value="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_SYNC val_type="integer" index="0" value="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_EXEC val_type="integer" index="0" value="0"/>
+        <HeartbeatControl val_type="bitfield" index="0" value="7"/>
+        <HeartbeatConfig val_type="integer" index="0" value="1"/>
+        <InputControl val_type="bitfield" index="0" value="7"/>
+        <InputInterruptSync val_type="integer" index="0" value="0"/>
+        <InputInterruptExec val_type="integer" index="0" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="0" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="0" value="193"/>
+        <InputPinConfig1 val_type="bitfield" index="0" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="0" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="0" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="0" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="0" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <InputPinMulticastID val_type="integer" index="0" value="1"/>
+        <InputPinTime val_type="integer" index="0" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="1" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="1" value="201"/>
+        <InputPinConfig1 val_type="bitfield" index="1" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="1" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="1" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="1" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="1" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <InputPinMulticastID val_type="integer" index="1" value="2"/>
+        <InputPinTime val_type="integer" index="1" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="2" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="2" value="209"/>
+        <InputPinConfig1 val_type="bitfield" index="2" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="2" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="2" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="2" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="2" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <InputPinMulticastID val_type="integer" index="2" value="3"/>
+        <InputPinTime val_type="integer" index="2" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="3" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="3" value="217"/>
+        <InputPinConfig1 val_type="bitfield" index="3" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="3" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="3" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="3" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="3" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <InputPinMulticastID val_type="integer" index="3" value="4"/>
+        <InputPinTime val_type="integer" index="3" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="4" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="4" value="225"/>
+        <InputPinConfig1 val_type="bitfield" index="4" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="4" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="4" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="4" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="4" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <InputPinMulticastID val_type="integer" index="4" value="5"/>
+        <InputPinTime val_type="integer" index="4" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="5" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="5" value="233"/>
+        <InputPinConfig1 val_type="bitfield" index="5" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="5" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="5" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="5" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="5" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <InputPinMulticastID val_type="integer" index="5" value="6"/>
+        <InputPinTime val_type="integer" index="5" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="6" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="6" value="241"/>
+        <InputPinConfig1 val_type="bitfield" index="6" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="6" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="6" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="6" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="6" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <InputPinMulticastID val_type="integer" index="6" value="7"/>
+        <InputPinTime val_type="integer" index="6" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="7" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="7" value="249"/>
+        <InputPinConfig1 val_type="bitfield" index="7" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="7" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="7" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="7" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="7" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <InputPinMulticastID val_type="integer" index="7" value="8"/>
+        <InputPinTime val_type="integer" index="7" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="8" value="1"/>
+        <InputPinConfig0 val_type="bitfield" index="8" value="194"/>
+        <InputPinConfig1 val_type="bitfield" index="8" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="8" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="8" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="8" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="8" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="8" value="1"/>
+        <InputPinMulticastID val_type="integer" index="8" value="9"/>
+        <InputPinTime val_type="integer" index="8" value="0"/>
+        <InputPinTypeOfApplication val_type="bitfield" index="9" value="2"/>
+        <InputPinConfig0 val_type="bitfield" index="9" value="202"/>
+        <InputPinConfig1 val_type="bitfield" index="9" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="9" value="0"/>
+        <InputPinConfig3 val_type="bitfield" index="9" value="0"/>
+        <InputPinConfig4 val_type="bitfield" index="9" value="0"/>
+        <InputPinConfig5 val_type="bitfield" index="9" value="0"/>
+        <InputPinTypeOfValue val_type="integer" index="9" value="1"/>
+        <InputPinMulticastID val_type="integer" index="9" value="10"/>
+        <InputPinTime val_type="integer" index="9" value="0"/>
+        <OutputControl val_type="bitfield" index="9" value="7"/>
+        <OutputInterruptSync val_type="integer" index="9" value="0"/>
+        <OutputInterruptExec val_type="integer" index="9" value="0"/>
+        <OutputPinTypeOfApplication val_type="integer" index="0" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="0" value="4"/>
+        <OutputPinConfig1 val_type="integer" index="0" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="0" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <OutputPinInitValue val_type="integer" index="0" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="0" value="1"/>
+        <OutputPinTypeOfApplication val_type="integer" index="1" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="1" value="12"/>
+        <OutputPinConfig1 val_type="integer" index="1" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="1" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <OutputPinInitValue val_type="integer" index="1" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="1" value="2"/>
+        <OutputPinTypeOfApplication val_type="integer" index="2" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="2" value="20"/>
+        <OutputPinConfig1 val_type="integer" index="2" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="2" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <OutputPinInitValue val_type="integer" index="2" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="2" value="3"/>
+        <OutputPinTypeOfApplication val_type="integer" index="3" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="3" value="28"/>
+        <OutputPinConfig1 val_type="integer" index="3" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="3" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <OutputPinInitValue val_type="integer" index="3" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="3" value="4"/>
+        <OutputPinTypeOfApplication val_type="integer" index="4" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="4" value="36"/>
+        <OutputPinConfig1 val_type="integer" index="4" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="4" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <OutputPinInitValue val_type="integer" index="4" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="4" value="5"/>
+        <OutputPinTypeOfApplication val_type="integer" index="5" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="5" value="44"/>
+        <OutputPinConfig1 val_type="integer" index="5" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="5" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <OutputPinInitValue val_type="integer" index="5" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="5" value="6"/>
+        <OutputPinTypeOfApplication val_type="integer" index="6" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="6" value="52"/>
+        <OutputPinConfig1 val_type="integer" index="6" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="6" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <OutputPinInitValue val_type="integer" index="6" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="6" value="7"/>
+        <OutputPinTypeOfApplication val_type="integer" index="7" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="7" value="60"/>
+        <OutputPinConfig1 val_type="integer" index="7" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="7" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <OutputPinInitValue val_type="integer" index="7" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="7" value="8"/>
+        <OutputPinTypeOfApplication val_type="integer" index="8" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="8" value="51"/>
+        <OutputPinConfig1 val_type="integer" index="8" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="8" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="8" value="1"/>
+        <OutputPinInitValue val_type="integer" index="8" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="8" value="9"/>
+        <OutputPinTypeOfApplication val_type="integer" index="9" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="9" value="59"/>
+        <OutputPinConfig1 val_type="integer" index="9" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="9" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="9" value="1"/>
+        <OutputPinInitValue val_type="integer" index="9" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="9" value="10"/>
+        <Finish val_type="integer" index="9" value="165"/>
+      </EEPROM>
+      <Output index="0" name="0">
+        <Notes/>
+      </Output>
+      <Output index="1" name="1">
+        <Notes/>
+      </Output>
+      <Output index="2" name="2">
+        <Notes/>
+      </Output>
+      <Output index="3" name="3">
+        <Notes/>
+      </Output>
+      <Output index="4" name="4">
+        <Notes/>
+      </Output>
+      <Output index="5" name="5">
+        <Notes/>
+      </Output>
+      <Output index="6" name="6">
+        <Notes/>
+      </Output>
+      <Output index="7" name="7">
+        <Notes/>
+      </Output>
+      <Output index="8" name="8">
+        <Notes/>
+      </Output>
+      <Output index="9" name="9">
+        <Notes/>
+      </Output>
+      <Input index="0" name="0">
+        <Notes/>
+      </Input>
+      <Input index="1" name="1">
+        <Notes/>
+      </Input>
+      <Input index="2" name="2">
+        <Notes/>
+      </Input>
+      <Input index="3" name="3">
+        <Notes/>
+      </Input>
+      <Input index="4" name="4">
+        <Notes/>
+      </Input>
+      <Input index="5" name="5">
+        <Notes/>
+      </Input>
+      <Input index="6" name="6">
+        <Notes/>
+      </Input>
+      <Input index="7" name="7">
+        <Notes/>
+      </Input>
+      <Input index="8" name="8">
+        <Notes/>
+      </Input>
+      <Input index="9" name="9">
+        <Notes/>
+      </Input>
+    </Node>
+    <Node hardware_code="1-0.0" bootloader_code="2-0.0" serial_number="00=00=00=00=00=02" name="node_2" node_id="2" firmware_code="1-0.0">
+      <EEPROM config_crc="1">
+        <InterfaceCTRL val_type="bitfield" value="1"/>
+        <InterfaceSSPort val_type="integer" value="2"/>
+        <InterfaceSSPin val_type="integer" value="4"/>
+        <InterfaceSPICfg val_type="integer" value="3" changed="true"/>
+        <InterfaceCNF1 val_type="bitfield" value="1"/>
+        <InterfaceCNF2 val_type="bitfield" value="188"/>
+        <InterfaceCNF3 val_type="bitfield" value="1"/>
+        <WatchdogResetCounter val_type="bitfield" value="0"/>
+        <NodeIdentify val_type="bitfield" value="0"/>
+        <DataID val_type="version"/>
+        <USARTControl val_type="integer" index="0" value="1"/>
+        <USARTInterruptReceive val_type="integer" index="0" value="0"/>
+        <USARTInterruptTransmit val_type="integer" index="0" value="0"/>
+        <USARTUBRR val_type="integer" index="0" value="16"/>
+        <USARTUCSRA val_type="integer" index="0" value="3"/>
+        <USARTUCSRB val_type="integer" index="0" value="184"/>
+        <USARTUCSRC val_type="integer" index="0" value="134"/>
+        <CANControl val_type="bitfield" index="0"/>
+        <CANInterruptReceive val_type="integer" index="0"/>
+        <CANInterruptTransmit val_type="integer" index="0"/>
+        <CANSSPort val_type="integer" index="0"/>
+        <CANSSPin val_type="integer" index="0"/>
+        <CANConfig1 val_type="integer" index="0"/>
+        <CANConfig2 val_type="integer" index="0"/>
+        <CANConfig3 val_type="integer" index="0"/>
+        <ISB_EE_SRV_CONFIG_CTRL val_type="bitfield" index="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_SYNC val_type="integer" index="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_EXEC val_type="integer" index="0"/>
+        <HeartbeatControl val_type="bitfield" index="0" value="7"/>
+        <HeartbeatConfig val_type="integer" index="0"/>
+        <InputControl val_type="bitfield" index="0" value="7"/>
+        <InputInterruptSync val_type="integer" index="0"/>
+        <InputInterruptExec val_type="integer" index="0"/>
+        <InputPinTypeOfApplication val_type="integer" index="0" value="1"/>
+        <InputPinConfig0 val_type="integer" index="0" value="193"/>
+        <InputPinConfig1 val_type="integer" index="0" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="0"/>
+        <InputPinConfig3 val_type="bitfield" index="0"/>
+        <InputPinConfig4 val_type="bitfield" index="0"/>
+        <InputPinConfig5 val_type="bitfield" index="0"/>
+        <InputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <InputPinMulticastID val_type="integer" index="0" value="1"/>
+        <InputPinTime val_type="integer" index="0"/>
+        <InputPinTypeOfApplication val_type="integer" index="1" value="1"/>
+        <InputPinConfig0 val_type="integer" index="1" value="201"/>
+        <InputPinConfig1 val_type="integer" index="1" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="1"/>
+        <InputPinConfig3 val_type="bitfield" index="1"/>
+        <InputPinConfig4 val_type="bitfield" index="1"/>
+        <InputPinConfig5 val_type="bitfield" index="1"/>
+        <InputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <InputPinMulticastID val_type="integer" index="1" value="2"/>
+        <InputPinTime val_type="integer" index="1"/>
+        <InputPinTypeOfApplication val_type="integer" index="2" value="1"/>
+        <InputPinConfig0 val_type="integer" index="2" value="209"/>
+        <InputPinConfig1 val_type="integer" index="2" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="2"/>
+        <InputPinConfig3 val_type="bitfield" index="2"/>
+        <InputPinConfig4 val_type="bitfield" index="2"/>
+        <InputPinConfig5 val_type="bitfield" index="2"/>
+        <InputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <InputPinMulticastID val_type="integer" index="2" value="3"/>
+        <InputPinTime val_type="integer" index="2"/>
+        <InputPinTypeOfApplication val_type="integer" index="3" value="1"/>
+        <InputPinConfig0 val_type="integer" index="3" value="217"/>
+        <InputPinConfig1 val_type="integer" index="3" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="3"/>
+        <InputPinConfig3 val_type="bitfield" index="3"/>
+        <InputPinConfig4 val_type="bitfield" index="3"/>
+        <InputPinConfig5 val_type="bitfield" index="3"/>
+        <InputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <InputPinMulticastID val_type="integer" index="3" value="4"/>
+        <InputPinTime val_type="integer" index="3"/>
+        <InputPinTypeOfApplication val_type="integer" index="4" value="1"/>
+        <InputPinConfig0 val_type="integer" index="4" value="225"/>
+        <InputPinConfig1 val_type="integer" index="4" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="4"/>
+        <InputPinConfig3 val_type="bitfield" index="4"/>
+        <InputPinConfig4 val_type="bitfield" index="4"/>
+        <InputPinConfig5 val_type="bitfield" index="4"/>
+        <InputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <InputPinMulticastID val_type="integer" index="4" value="5"/>
+        <InputPinTime val_type="integer" index="4"/>
+        <InputPinTypeOfApplication val_type="integer" index="5" value="1"/>
+        <InputPinConfig0 val_type="integer" index="5" value="233"/>
+        <InputPinConfig1 val_type="integer" index="5" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="5"/>
+        <InputPinConfig3 val_type="bitfield" index="5"/>
+        <InputPinConfig4 val_type="bitfield" index="5"/>
+        <InputPinConfig5 val_type="bitfield" index="5"/>
+        <InputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <InputPinMulticastID val_type="integer" index="5" value="6"/>
+        <InputPinTime val_type="integer" index="5"/>
+        <InputPinTypeOfApplication val_type="integer" index="6" value="1"/>
+        <InputPinConfig0 val_type="integer" index="6" value="241"/>
+        <InputPinConfig1 val_type="integer" index="6" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="6"/>
+        <InputPinConfig3 val_type="bitfield" index="6"/>
+        <InputPinConfig4 val_type="bitfield" index="6"/>
+        <InputPinConfig5 val_type="bitfield" index="6"/>
+        <InputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <InputPinMulticastID val_type="integer" index="6" value="7"/>
+        <InputPinTime val_type="integer" index="6"/>
+        <InputPinTypeOfApplication val_type="integer" index="7" value="1"/>
+        <InputPinConfig0 val_type="integer" index="7" value="249"/>
+        <InputPinConfig1 val_type="integer" index="7" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="7"/>
+        <InputPinConfig3 val_type="bitfield" index="7"/>
+        <InputPinConfig4 val_type="bitfield" index="7"/>
+        <InputPinConfig5 val_type="bitfield" index="7"/>
+        <InputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <InputPinMulticastID val_type="integer" index="7" value="8"/>
+        <InputPinTime val_type="integer" index="7"/>
+        <InputPinTypeOfApplication val_type="integer" index="8" value="1"/>
+        <InputPinConfig0 val_type="integer" index="8" value="194"/>
+        <InputPinConfig1 val_type="integer" index="8" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="8"/>
+        <InputPinConfig3 val_type="bitfield" index="8"/>
+        <InputPinConfig4 val_type="bitfield" index="8"/>
+        <InputPinConfig5 val_type="bitfield" index="8"/>
+        <InputPinTypeOfValue val_type="integer" index="8" value="1"/>
+        <InputPinMulticastID val_type="integer" index="8" value="9"/>
+        <InputPinTime val_type="integer" index="8"/>
+        <InputPinTypeOfApplication val_type="integer" index="9" value="2"/>
+        <InputPinConfig0 val_type="integer" index="9" value="202"/>
+        <InputPinConfig1 val_type="integer" index="9" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="9"/>
+        <InputPinConfig3 val_type="bitfield" index="9"/>
+        <InputPinConfig4 val_type="bitfield" index="9"/>
+        <InputPinConfig5 val_type="bitfield" index="9"/>
+        <InputPinTypeOfValue val_type="integer" index="9" value="1"/>
+        <InputPinMulticastID val_type="integer" index="9" value="10"/>
+        <InputPinTime val_type="integer" index="9"/>
+        <OutputControl val_type="bitfield" index="9" value="7"/>
+        <OutputInterruptSync val_type="integer" index="9"/>
+        <OutputInterruptExec val_type="integer" index="9"/>
+        <OutputPinTypeOfApplication val_type="integer" index="0" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="0" value="4"/>
+        <OutputPinConfig1 val_type="integer" index="0" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="0" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <OutputPinInitValue val_type="integer" index="0" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="0" value="1"/>
+        <OutputPinTypeOfApplication val_type="integer" index="1" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="1" value="12"/>
+        <OutputPinConfig1 val_type="integer" index="1" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="1" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <OutputPinInitValue val_type="integer" index="1" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="1" value="2"/>
+        <OutputPinTypeOfApplication val_type="integer" index="2" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="2" value="20"/>
+        <OutputPinConfig1 val_type="integer" index="2" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="2" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <OutputPinInitValue val_type="integer" index="2" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="2" value="3"/>
+        <OutputPinTypeOfApplication val_type="integer" index="3" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="3" value="28"/>
+        <OutputPinConfig1 val_type="integer" index="3" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="3" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <OutputPinInitValue val_type="integer" index="3" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="3" value="4"/>
+        <OutputPinTypeOfApplication val_type="integer" index="4" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="4" value="36"/>
+        <OutputPinConfig1 val_type="integer" index="4" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="4" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <OutputPinInitValue val_type="integer" index="4" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="4" value="5"/>
+        <OutputPinTypeOfApplication val_type="integer" index="5" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="5" value="44"/>
+        <OutputPinConfig1 val_type="integer" index="5" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="5" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <OutputPinInitValue val_type="integer" index="5" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="5" value="6"/>
+        <OutputPinTypeOfApplication val_type="integer" index="6" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="6" value="52"/>
+        <OutputPinConfig1 val_type="integer" index="6" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="6" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <OutputPinInitValue val_type="integer" index="6" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="6" value="7"/>
+        <OutputPinTypeOfApplication val_type="integer" index="7" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="7" value="60"/>
+        <OutputPinConfig1 val_type="integer" index="7" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="7" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <OutputPinInitValue val_type="integer" index="7" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="7" value="8"/>
+        <OutputPinTypeOfApplication val_type="integer" index="8" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="8" value="51"/>
+        <OutputPinConfig1 val_type="integer" index="8" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="8" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="8" value="1"/>
+        <OutputPinInitValue val_type="integer" index="8" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="8" value="9"/>
+        <OutputPinTypeOfApplication val_type="integer" index="9" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="9" value="59"/>
+        <OutputPinConfig1 val_type="integer" index="9" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="9" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="9" value="1"/>
+        <OutputPinInitValue val_type="integer" index="9" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="9" value="10"/>
+        <Finish val_type="integer" index="9"/>
+      </EEPROM>
+      <Output index="0" name="0">
+        <Notes/>
+      </Output>
+      <Output index="1" name="1">
+        <Notes/>
+      </Output>
+      <Output index="2" name="2">
+        <Notes/>
+      </Output>
+      <Output index="3" name="3">
+        <Notes/>
+      </Output>
+      <Output index="4" name="4">
+        <Notes/>
+      </Output>
+      <Output index="5" name="5">
+        <Notes/>
+      </Output>
+      <Output index="6" name="6">
+        <Notes/>
+      </Output>
+      <Output index="7" name="7">
+        <Notes/>
+      </Output>
+      <Output index="8" name="8">
+        <Notes/>
+      </Output>
+      <Output index="9" name="9">
+        <Notes/>
+      </Output>
+      <Input index="0" name="0">
+        <Notes/>
+      </Input>
+      <Input index="1" name="1">
+        <Notes/>
+      </Input>
+      <Input index="2" name="2">
+        <Notes/>
+      </Input>
+      <Input index="3" name="3">
+        <Notes/>
+      </Input>
+      <Input index="4" name="4">
+        <Notes/>
+      </Input>
+      <Input index="5" name="5">
+        <Notes/>
+      </Input>
+      <Input index="6" name="6">
+        <Notes/>
+      </Input>
+      <Input index="7" name="7">
+        <Notes/>
+      </Input>
+      <Input index="8" name="8">
+        <Notes/>
+      </Input>
+      <Input index="9" name="9">
+        <Notes/>
+      </Input>
+    </Node>
+    <Node hardware_code="2-2.0" bootloader_code="4-0.0" serial_number="00=00=00=00=00=03" name="node_3" node_id="3" firmware_code="3-0.0">
+      <EEPROM config_crc="1">
+        <InterfaceCTRL val_type="bitfield" value="1"/>
+        <InterfaceSSPort val_type="integer" value="2"/>
+        <InterfaceSSPin val_type="integer" value="2"/>
+        <InterfaceSPICfg val_type="integer" value="3" changed="true"/>
+        <InterfaceCNF1 val_type="bitfield" value="0"/>
+        <InterfaceCNF2 val_type="bitfield" value="188"/>
+        <InterfaceCNF3 val_type="bitfield" value="1"/>
+        <WatchdogResetCounter val_type="bitfield" value="0"/>
+        <NodeIdentify val_type="bitfield" value="0"/>
+        <DataID val_type="version"/>
+        <USARTControl val_type="bitfield" index="0"/>
+        <USARTInterruptReceive val_type="integer" index="0"/>
+        <USARTInterruptTransmit val_type="integer" index="0"/>
+        <USARTUBRR val_type="integer" index="0"/>
+        <USARTUCSRA val_type="integer" index="0"/>
+        <USARTUCSRB val_type="integer" index="0"/>
+        <USARTUCSRC val_type="integer" index="0"/>
+        <CANControl val_type="bitfield" index="0"/>
+        <CANInterruptReceive val_type="integer" index="0"/>
+        <CANInterruptTransmit val_type="integer" index="0"/>
+        <CANSSPort val_type="integer" index="0"/>
+        <CANSSPin val_type="integer" index="0"/>
+        <CANConfig1 val_type="integer" index="0"/>
+        <CANConfig2 val_type="integer" index="0"/>
+        <CANConfig3 val_type="integer" index="0"/>
+        <ISB_EE_SRV_CONFIG_CTRL val_type="bitfield" index="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_SYNC val_type="integer" index="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_EXEC val_type="integer" index="0"/>
+        <HeartbeatControl val_type="bitfield" index="0" value="7"/>
+        <HeartbeatConfig val_type="integer" index="0"/>
+        <InputControl val_type="bitfield" index="0" value="7"/>
+        <InputInterruptSync val_type="integer" index="0"/>
+        <InputInterruptExec val_type="integer" index="0"/>
+        <InputPinTypeOfApplication val_type="integer" index="0" value="1"/>
+        <InputPinConfig0 val_type="integer" index="0" value="204"/>
+        <InputPinConfig1 val_type="integer" index="0" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="0"/>
+        <InputPinConfig3 val_type="bitfield" index="0"/>
+        <InputPinConfig4 val_type="bitfield" index="0"/>
+        <InputPinConfig5 val_type="bitfield" index="0"/>
+        <InputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <InputPinMulticastID val_type="integer" index="0" value="1"/>
+        <InputPinTime val_type="integer" index="0"/>
+        <InputPinTypeOfApplication val_type="integer" index="1" value="1"/>
+        <InputPinConfig0 val_type="integer" index="1" value="196"/>
+        <InputPinConfig1 val_type="integer" index="1" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="1"/>
+        <InputPinConfig3 val_type="bitfield" index="1"/>
+        <InputPinConfig4 val_type="bitfield" index="1"/>
+        <InputPinConfig5 val_type="bitfield" index="1"/>
+        <InputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <InputPinMulticastID val_type="integer" index="1" value="2"/>
+        <InputPinTime val_type="integer" index="1"/>
+        <InputPinTypeOfApplication val_type="integer" index="2" value="1"/>
+        <InputPinConfig0 val_type="integer" index="2" value="235"/>
+        <InputPinConfig1 val_type="integer" index="2" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="2"/>
+        <InputPinConfig3 val_type="bitfield" index="2"/>
+        <InputPinConfig4 val_type="bitfield" index="2"/>
+        <InputPinConfig5 val_type="bitfield" index="2"/>
+        <InputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <InputPinMulticastID val_type="integer" index="2" value="3"/>
+        <InputPinTime val_type="integer" index="2"/>
+        <InputPinTypeOfApplication val_type="integer" index="3" value="1"/>
+        <InputPinConfig0 val_type="integer" index="3" value="227"/>
+        <InputPinConfig1 val_type="integer" index="3" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="3"/>
+        <InputPinConfig3 val_type="bitfield" index="3"/>
+        <InputPinConfig4 val_type="bitfield" index="3"/>
+        <InputPinConfig5 val_type="bitfield" index="3"/>
+        <InputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <InputPinMulticastID val_type="integer" index="3" value="4"/>
+        <InputPinTime val_type="integer" index="3"/>
+        <InputPinTypeOfApplication val_type="integer" index="4" value="1"/>
+        <InputPinConfig0 val_type="integer" index="4" value="219"/>
+        <InputPinConfig1 val_type="integer" index="4" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="4"/>
+        <InputPinConfig3 val_type="bitfield" index="4"/>
+        <InputPinConfig4 val_type="bitfield" index="4"/>
+        <InputPinConfig5 val_type="bitfield" index="4"/>
+        <InputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <InputPinMulticastID val_type="integer" index="4" value="5"/>
+        <InputPinTime val_type="integer" index="4"/>
+        <InputPinTypeOfApplication val_type="integer" index="5" value="1"/>
+        <InputPinConfig0 val_type="integer" index="5" value="211"/>
+        <InputPinConfig1 val_type="integer" index="5" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="5"/>
+        <InputPinConfig3 val_type="bitfield" index="5"/>
+        <InputPinConfig4 val_type="bitfield" index="5"/>
+        <InputPinConfig5 val_type="bitfield" index="5"/>
+        <InputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <InputPinMulticastID val_type="integer" index="5" value="6"/>
+        <InputPinTime val_type="integer" index="5"/>
+        <InputPinTypeOfApplication val_type="integer" index="6" value="1"/>
+        <InputPinConfig0 val_type="integer" index="6" value="203"/>
+        <InputPinConfig1 val_type="integer" index="6" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="6"/>
+        <InputPinConfig3 val_type="bitfield" index="6"/>
+        <InputPinConfig4 val_type="bitfield" index="6"/>
+        <InputPinConfig5 val_type="bitfield" index="6"/>
+        <InputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <InputPinMulticastID val_type="integer" index="6" value="7"/>
+        <InputPinTime val_type="integer" index="6"/>
+        <InputPinTypeOfApplication val_type="integer" index="7" value="1"/>
+        <InputPinConfig0 val_type="integer" index="7" value="195"/>
+        <InputPinConfig1 val_type="integer" index="7" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="7"/>
+        <InputPinConfig3 val_type="bitfield" index="7"/>
+        <InputPinConfig4 val_type="bitfield" index="7"/>
+        <InputPinConfig5 val_type="bitfield" index="7"/>
+        <InputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <InputPinMulticastID val_type="integer" index="7" value="8"/>
+        <InputPinTime val_type="integer" index="7"/>
+        <OutputControl val_type="bitfield" index="7" value="7"/>
+        <OutputInterruptSync val_type="integer" index="7"/>
+        <OutputInterruptExec val_type="integer" index="7"/>
+        <OutputPinTypeOfApplication val_type="integer" index="0" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="0" value="156"/>
+        <OutputPinConfig1 val_type="integer" index="0" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="0" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <OutputPinInitValue val_type="integer" index="0" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="0" value="1"/>
+        <OutputPinTypeOfApplication val_type="integer" index="1" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="1" value="138"/>
+        <OutputPinConfig1 val_type="integer" index="1" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="1" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <OutputPinInitValue val_type="integer" index="1" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="1" value="2"/>
+        <OutputPinTypeOfApplication val_type="integer" index="2" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="2" value="146"/>
+        <OutputPinConfig1 val_type="integer" index="2" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="2" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <OutputPinInitValue val_type="integer" index="2" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="2" value="3"/>
+        <OutputPinTypeOfApplication val_type="integer" index="3" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="3" value="188"/>
+        <OutputPinConfig1 val_type="integer" index="3" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="3" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <OutputPinInitValue val_type="integer" index="3" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="3" value="4"/>
+        <OutputPinTypeOfApplication val_type="integer" index="4" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="4" value="180"/>
+        <OutputPinConfig1 val_type="integer" index="4" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="4" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <OutputPinInitValue val_type="integer" index="4" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="4" value="5"/>
+        <OutputPinTypeOfApplication val_type="integer" index="5" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="5" value="172"/>
+        <OutputPinConfig1 val_type="integer" index="5" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="5" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <OutputPinInitValue val_type="integer" index="5" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="5" value="6"/>
+        <OutputPinTypeOfApplication val_type="integer" index="6" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="6" value="164"/>
+        <OutputPinConfig1 val_type="integer" index="6" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="6" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <OutputPinInitValue val_type="integer" index="6" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="6" value="7"/>
+        <OutputPinTypeOfApplication val_type="integer" index="7" value="1"/>
+        <OutputPinConfig0 val_type="integer" index="7" value="186"/>
+        <OutputPinConfig1 val_type="integer" index="7" value="0"/>
+        <OutputPinConfig2 val_type="integer" index="7" value="0"/>
+        <OutputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <OutputPinInitValue val_type="integer" index="7" value="0"/>
+        <OutputPinMulticastID val_type="integer" index="7" value="8"/>
+        <OutputPinTypeOfApplication val_type="integer" index="8"/>
+        <OutputPinConfig0 val_type="integer" index="8"/>
+        <OutputPinConfig1 val_type="integer" index="8"/>
+        <OutputPinConfig2 val_type="integer" index="8"/>
+        <OutputPinTypeOfValue val_type="integer" index="8"/>
+        <OutputPinInitValue val_type="integer" index="8"/>
+        <OutputPinMulticastID val_type="integer" index="8"/>
+        <Finish val_type="integer" index="8"/>
+      </EEPROM>
+      <Output index="0" name="0">
+        <Notes/>
+      </Output>
+      <Output index="1" name="1">
+        <Notes/>
+      </Output>
+      <Output index="2" name="2">
+        <Notes/>
+      </Output>
+      <Output index="3" name="3">
+        <Notes/>
+      </Output>
+      <Output index="4" name="4">
+        <Notes/>
+      </Output>
+      <Output index="5" name="5">
+        <Notes/>
+      </Output>
+      <Output index="6" name="6">
+        <Notes/>
+      </Output>
+      <Output index="7" name="7">
+        <Notes/>
+      </Output>
+      <Input index="0" name="0">
+        <Notes/>
+      </Input>
+      <Input index="1" name="1">
+        <Notes/>
+      </Input>
+      <Input index="2" name="2">
+        <Notes/>
+      </Input>
+      <Input index="3" name="3">
+        <Notes/>
+      </Input>
+      <Input index="4" name="4">
+        <Notes/>
+      </Input>
+      <Input index="5" name="5">
+        <Notes/>
+      </Input>
+      <Input index="6" name="6">
+        <Notes/>
+      </Input>
+      <Input index="7" name="7">
+        <Notes/>
+      </Input>
+    </Node>
+    <Node serial_number="00=00=00=00=00=04" name="node_4" node_id="4" hardware_code="3-0.0" bootloader_code="5-0.0" firmware_code="4-0.0">
+      <EEPROM config_crc="-1">
+        <InterfaceCTRL val_type="bitfield" value="1"/>
+        <InterfaceSSPort val_type="integer" value="2"/>
+        <InterfaceSSPin val_type="integer" value="4"/>
+        <InterfaceCNF1 val_type="bitfield" value="1"/>
+        <InterfaceCNF2 val_type="bitfield" value="188"/>
+        <InterfaceCNF3 val_type="bitfield" value="1"/>
+        <NodeIdentify val_type="bitfield" value="0"/>
+        <WatchdogResetCounter val_type="bitfield" value="0"/>
+        <DataID val_type="version"/>
+        <USARTControl val_type="bitfield" index="0"/>
+        <USARTInterruptReceive val_type="integer" index="0"/>
+        <USARTInterruptTransmit val_type="integer" index="0"/>
+        <USARTUBRR val_type="integer" index="0"/>
+        <USARTUCSRA val_type="integer" index="0"/>
+        <USARTUCSRB val_type="integer" index="0"/>
+        <USARTUCSRC val_type="integer" index="0"/>
+        <CANControl val_type="bitfield" index="0"/>
+        <CANInterruptReceive val_type="integer" index="0"/>
+        <CANInterruptTransmit val_type="integer" index="0"/>
+        <CANSSPort val_type="integer" index="0"/>
+        <CANSSPin val_type="integer" index="0"/>
+        <CANConfig1 val_type="integer" index="0"/>
+        <CANConfig2 val_type="integer" index="0"/>
+        <CANConfig3 val_type="integer" index="0"/>
+        <ISB_EE_SRV_CONFIG_CTRL val_type="bitfield" index="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_SYNC val_type="integer" index="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_EXEC val_type="integer" index="0"/>
+        <HeartbeatControl val_type="bitfield" index="0" value="7"/>
+        <HeartbeatConfig val_type="integer" index="0"/>
+        <InputControl val_type="bitfield" index="0" value="7"/>
+        <InputInterruptSync val_type="integer" index="0"/>
+        <InputInterruptExec val_type="integer" index="0"/>
+        <InputPinTypeOfApplication val_type="integer" index="0" value="1"/>
+        <InputPinConfig0 val_type="integer" index="0" value="193"/>
+        <InputPinConfig1 val_type="integer" index="0" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="0"/>
+        <InputPinConfig3 val_type="bitfield" index="0"/>
+        <InputPinConfig4 val_type="bitfield" index="0"/>
+        <InputPinConfig5 val_type="bitfield" index="0"/>
+        <InputPinTypeOfValue val_type="integer" index="0" value="1"/>
+        <InputPinMulticastID val_type="integer" index="0" value="1"/>
+        <InputPinTime val_type="integer" index="0"/>
+        <InputPinTypeOfApplication val_type="integer" index="1" value="1"/>
+        <InputPinConfig0 val_type="integer" index="1" value="201"/>
+        <InputPinConfig1 val_type="integer" index="1" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="1"/>
+        <InputPinConfig3 val_type="bitfield" index="1"/>
+        <InputPinConfig4 val_type="bitfield" index="1"/>
+        <InputPinConfig5 val_type="bitfield" index="1"/>
+        <InputPinTypeOfValue val_type="integer" index="1" value="1"/>
+        <InputPinMulticastID val_type="integer" index="1" value="2"/>
+        <InputPinTime val_type="integer" index="1"/>
+        <InputPinTypeOfApplication val_type="integer" index="2" value="1"/>
+        <InputPinConfig0 val_type="integer" index="2" value="209"/>
+        <InputPinConfig1 val_type="integer" index="2" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="2"/>
+        <InputPinConfig3 val_type="bitfield" index="2"/>
+        <InputPinConfig4 val_type="bitfield" index="2"/>
+        <InputPinConfig5 val_type="bitfield" index="2"/>
+        <InputPinTypeOfValue val_type="integer" index="2" value="1"/>
+        <InputPinMulticastID val_type="integer" index="2" value="3"/>
+        <InputPinTime val_type="integer" index="2"/>
+        <InputPinTypeOfApplication val_type="integer" index="3" value="1"/>
+        <InputPinConfig0 val_type="integer" index="3" value="217"/>
+        <InputPinConfig1 val_type="integer" index="3" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="3"/>
+        <InputPinConfig3 val_type="bitfield" index="3"/>
+        <InputPinConfig4 val_type="bitfield" index="3"/>
+        <InputPinConfig5 val_type="bitfield" index="3"/>
+        <InputPinTypeOfValue val_type="integer" index="3" value="1"/>
+        <InputPinMulticastID val_type="integer" index="3" value="4"/>
+        <InputPinTime val_type="integer" index="3"/>
+        <InputPinTypeOfApplication val_type="integer" index="4" value="1"/>
+        <InputPinConfig0 val_type="integer" index="4" value="225"/>
+        <InputPinConfig1 val_type="integer" index="4" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="4"/>
+        <InputPinConfig3 val_type="bitfield" index="4"/>
+        <InputPinConfig4 val_type="bitfield" index="4"/>
+        <InputPinConfig5 val_type="bitfield" index="4"/>
+        <InputPinTypeOfValue val_type="integer" index="4" value="1"/>
+        <InputPinMulticastID val_type="integer" index="4" value="5"/>
+        <InputPinTime val_type="integer" index="4"/>
+        <InputPinTypeOfApplication val_type="integer" index="5" value="1"/>
+        <InputPinConfig0 val_type="integer" index="5" value="233"/>
+        <InputPinConfig1 val_type="integer" index="5" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="5"/>
+        <InputPinConfig3 val_type="bitfield" index="5"/>
+        <InputPinConfig4 val_type="bitfield" index="5"/>
+        <InputPinConfig5 val_type="bitfield" index="5"/>
+        <InputPinTypeOfValue val_type="integer" index="5" value="1"/>
+        <InputPinMulticastID val_type="integer" index="5" value="6"/>
+        <InputPinTime val_type="integer" index="5"/>
+        <InputPinTypeOfApplication val_type="integer" index="6" value="1"/>
+        <InputPinConfig0 val_type="integer" index="6" value="241"/>
+        <InputPinConfig1 val_type="integer" index="6" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="6"/>
+        <InputPinConfig3 val_type="bitfield" index="6"/>
+        <InputPinConfig4 val_type="bitfield" index="6"/>
+        <InputPinConfig5 val_type="bitfield" index="6"/>
+        <InputPinTypeOfValue val_type="integer" index="6" value="1"/>
+        <InputPinMulticastID val_type="integer" index="6" value="7"/>
+        <InputPinTime val_type="integer" index="6"/>
+        <InputPinTypeOfApplication val_type="integer" index="7" value="1"/>
+        <InputPinConfig0 val_type="integer" index="7" value="249"/>
+        <InputPinConfig1 val_type="integer" index="7" value="0"/>
+        <InputPinConfig2 val_type="bitfield" index="7"/>
+        <InputPinConfig3 val_type="bitfield" index="7"/>
+        <InputPinConfig4 val_type="bitfield" index="7"/>
+        <InputPinConfig5 val_type="bitfield" index="7"/>
+        <InputPinTypeOfValue val_type="integer" index="7" value="1"/>
+        <InputPinMulticastID val_type="integer" index="7" value="8"/>
+        <InputPinTime val_type="integer" index="7"/>
+        <Finish val_type="integer" index="7"/>
+        <OutputControl val_type="bitfield" index="7" value="0" changed="true"/>
+        <OutputInterruptSync val_type="integer" index="7"/>
+        <OutputInterruptExec val_type="integer" index="7"/>
+        <OutputPinTypeOfApplication val_type="integer" index="0" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="0" value="130" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="0" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="0" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="0" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="0" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="0" value="1" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="1" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="1" value="138" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="1" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="1" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="1" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="1" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="1" value="2" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="2" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="2" value="147" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="2" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="2" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="2" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="2" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="2" value="3" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="3" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="3" value="155" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="3" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="3" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="3" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="3" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="3" value="4" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="4" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="4" value="163" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="4" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="4" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="4" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="4" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="4" value="5" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="5" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="5" value="171" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="5" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="5" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="5" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="5" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="5" value="6" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="6" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="6" value="179" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="6" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="6" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="6" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="6" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="6" value="7" changed="true"/>
+        <OutputPinTypeOfApplication val_type="integer" index="7" value="1" changed="true"/>
+        <OutputPinConfig0 val_type="integer" index="7" value="187" changed="true"/>
+        <OutputPinConfig1 val_type="integer" index="7" value="0" changed="true"/>
+        <OutputPinConfig2 val_type="integer" index="7" value="0" changed="true"/>
+        <OutputPinTypeOfValue val_type="integer" index="7" value="1" changed="true"/>
+        <OutputPinInitValue val_type="integer" index="7" value="0" changed="true"/>
+        <OutputPinMulticastID val_type="integer" index="7" value="8" changed="true"/>
+      </EEPROM>
+      <Output index="0" name="0">
+        <Notes/>
+      </Output>
+      <Output index="1" name="1">
+        <Notes/>
+      </Output>
+      <Output index="2" name="2">
+        <Notes/>
+      </Output>
+      <Output index="3" name="3">
+        <Notes/>
+      </Output>
+      <Output index="4" name="4">
+        <Notes/>
+      </Output>
+      <Output index="5" name="5">
+        <Notes/>
+      </Output>
+      <Output index="6" name="6">
+        <Notes/>
+      </Output>
+      <Output index="7" name="7">
+        <Notes/>
+      </Output>
+      <Input index="0" name="0">
+        <Notes/>
+      </Input>
+      <Input index="1" name="1">
+        <Notes/>
+      </Input>
+      <Input index="2" name="2">
+        <Notes/>
+      </Input>
+      <Input index="3" name="3">
+        <Notes/>
+      </Input>
+      <Input index="4" name="4">
+        <Notes/>
+      </Input>
+      <Input index="5" name="5">
+        <Notes/>
+      </Input>
+      <Input index="6" name="6">
+        <Notes/>
+      </Input>
+      <Input index="7" name="7">
+        <Notes/>
+      </Input>
+    </Node>
+    <Node node_id="5" serial_number="00=00=00=00=00=05" hardware_code="4-0.0" bootloader_code="7-0.0" firmware_code="6-0.0">
+      <EEPROM config_crc="1">
+        <InterfaceCTRL val_type="bitfield" value="0"/>
+        <InterfaceUBRR val_type="integer" value="16"/>
+        <InterfaceUCSRA val_type="bitfield" value="3"/>
+        <InterfaceUCSRB val_type="bitfield" value="184"/>
+        <InterfaceUCSRC val_type="bitfield" value="134"/>
+        <NodeIdentify val_type="bitfield" value="0"/>
+        <WatchdogResetCounter val_type="bitfield" value="0"/>
+        <DataID val_type="version"/>
+        <USARTControl val_type="bitfield" index="0" value="7"/>
+        <USARTInterruptReceive val_type="integer" index="0" value="0"/>
+        <USARTInterruptTransmit val_type="integer" index="0" value="0"/>
+        <USARTUBRR val_type="integer" index="0" value="16"/>
+        <USARTUCSRA val_type="integer" index="0" value="3"/>
+        <USARTUCSRB val_type="integer" index="0" value="184"/>
+        <USARTUCSRC val_type="integer" index="0" value="134"/>
+        <ISB_EE_SRV_CONFIG_CTRL val_type="bitfield" index="0" value="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_SYNC val_type="integer" index="0" value="0"/>
+        <ISB_EE_SRV_CONFIG_IRQ0_EXEC val_type="integer" index="0" value="0"/>
+        <HeartbeatControl val_type="bitfield" index="0" value="7"/>
+        <HeartbeatConfig val_type="integer" index="0" value="0"/>
+        <Finish val_type="integer" index="0" value="165"/>
+      </EEPROM>
+    </Node>
+  </Devices>
+  <Visu>
+    <View id="0" name="Standard" zoom="1.0" offset_x="-100.0" offset_y="15.0">
+      <LEDItem pos_x="50.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.0</Expression>
+        <PortVariable>$node_1.in.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_1.out.0</Expression>
+        <PortVariable>$node_1.out.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.1</Expression>
+        <PortVariable>$node_1.in.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_1.out.1</Expression>
+        <PortVariable>$node_1.out.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.2</Expression>
+        <PortVariable>$node_1.in.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_1.out.2</Expression>
+        <PortVariable>$node_1.out.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.3</Expression>
+        <PortVariable>$node_1.in.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_1.out.3</Expression>
+        <PortVariable>$node_1.out.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.4</Expression>
+        <PortVariable>$node_1.in.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_1.out.4</Expression>
+        <PortVariable>$node_1.out.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.5</Expression>
+        <PortVariable>$node_1.in.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_1.out.5</Expression>
+        <PortVariable>$node_1.out.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.6</Expression>
+        <PortVariable>$node_1.in.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_1.out.6</Expression>
+        <PortVariable>$node_1.out.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.7</Expression>
+        <PortVariable>$node_1.in.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_1.out.7</Expression>
+        <PortVariable>$node_1.out.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="450.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.8</Expression>
+        <PortVariable>$node_1.in.8</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="450.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_1.out.8</Expression>
+        <PortVariable>$node_1.out.8</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="500.0" pos_y="50.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_1.in.9</Expression>
+        <PortVariable>$node_1.in.9</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="500.0" pos_y="100.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_1.out.9</Expression>
+        <PortVariable>$node_1.out.9</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.0</Expression>
+        <PortVariable>$node_2.in.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_2.out.0</Expression>
+        <PortVariable>$node_2.out.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.1</Expression>
+        <PortVariable>$node_2.in.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_2.out.1</Expression>
+        <PortVariable>$node_2.out.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.2</Expression>
+        <PortVariable>$node_2.in.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_2.out.2</Expression>
+        <PortVariable>$node_2.out.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.3</Expression>
+        <PortVariable>$node_2.in.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_2.out.3</Expression>
+        <PortVariable>$node_2.out.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.4</Expression>
+        <PortVariable>$node_2.in.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_2.out.4</Expression>
+        <PortVariable>$node_2.out.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.5</Expression>
+        <PortVariable>$node_2.in.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_2.out.5</Expression>
+        <PortVariable>$node_2.out.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.6</Expression>
+        <PortVariable>$node_2.in.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_2.out.6</Expression>
+        <PortVariable>$node_2.out.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.7</Expression>
+        <PortVariable>$node_2.in.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_2.out.7</Expression>
+        <PortVariable>$node_2.out.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="450.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.8</Expression>
+        <PortVariable>$node_2.in.8</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="450.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_2.out.8</Expression>
+        <PortVariable>$node_2.out.8</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="500.0" pos_y="200.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_2.in.9</Expression>
+        <PortVariable>$node_2.in.9</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="500.0" pos_y="250.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_2.out.9</Expression>
+        <PortVariable>$node_2.out.9</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.0</Expression>
+        <PortVariable>$node_3.in.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_3.out.0</Expression>
+        <PortVariable>$node_3.out.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.1</Expression>
+        <PortVariable>$node_3.in.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_3.out.1</Expression>
+        <PortVariable>$node_3.out.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.2</Expression>
+        <PortVariable>$node_3.in.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_3.out.2</Expression>
+        <PortVariable>$node_3.out.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.3</Expression>
+        <PortVariable>$node_3.in.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_3.out.3</Expression>
+        <PortVariable>$node_3.out.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.4</Expression>
+        <PortVariable>$node_3.in.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_3.out.4</Expression>
+        <PortVariable>$node_3.out.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.5</Expression>
+        <PortVariable>$node_3.in.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_3.out.5</Expression>
+        <PortVariable>$node_3.out.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.6</Expression>
+        <PortVariable>$node_3.in.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_3.out.6</Expression>
+        <PortVariable>$node_3.out.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="350.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_3.in.7</Expression>
+        <PortVariable>$node_3.in.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="400.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_3.out.7</Expression>
+        <PortVariable>$node_3.out.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.0</Expression>
+        <PortVariable>$node_4.in.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="50.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_4.out.0</Expression>
+        <PortVariable>$node_4.out.0</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.1</Expression>
+        <PortVariable>$node_4.in.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="100.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_4.out.1</Expression>
+        <PortVariable>$node_4.out.1</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.2</Expression>
+        <PortVariable>$node_4.in.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="150.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_4.out.2</Expression>
+        <PortVariable>$node_4.out.2</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.3</Expression>
+        <PortVariable>$node_4.in.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="200.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_4.out.3</Expression>
+        <PortVariable>$node_4.out.3</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.4</Expression>
+        <PortVariable>$node_4.in.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="250.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_4.out.4</Expression>
+        <PortVariable>$node_4.out.4</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.5</Expression>
+        <PortVariable>$node_4.in.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="300.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_4.out.5</Expression>
+        <PortVariable>$node_4.out.5</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.6</Expression>
+        <PortVariable>$node_4.in.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="350.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000" angle="0.0">
+        <Expression>$node_4.out.6</Expression>
+        <PortVariable>$node_4.out.6</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="500.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#808080" border_color="#000000" angle="0.0">
+        <Expression>$node_4.in.7</Expression>
+        <PortVariable>$node_4.in.7</PortVariable>
+      </LEDItem>
+      <LEDItem pos_x="400.0" pos_y="550.0" width="16.0" height="16.0" color_on="#00ff00" color_off="#ff0000" border_color="#000000">
+        <Expression>$node_4.out.7</Expression>
+        <PortVariable>$node_4.out.7</PortVariable>
+      </LEDItem>
+      <!--
+      <TextValueItem name="Text1" pos_x="50.0" pos_y="50.0" width="80.0" height="20.0" port_type="out" node_id="1" port_id="0" color="#ccffcc"/>
+      <TextValueItem name="Text2" pos_x="100.0" pos_y="50.0" width="80.0" height="20.0" port_type="out" node_id="1" port_id="1" color="#ccffcc"/>
+      <TextValueItem name="Text3" pos_x="150.0" pos_y="50.0" width="80.0" height="20.0" port_type="out" node_id="2" port_id="0" color="#ccffcc"/>
+      <TextValueItem name="Text4" pos_x="200.0" pos_y="50.0" width="80.0" height="20.0" port_type="out" node_id="2" port_id="1" color="#ccffcc"/>
+      <BargraphItem name="Bargraph1" pos_x="75.0" pos_y="125.0" width="20.0" height="100.0" port_type="out" node_id="1" port_id="0"/>
+      <BargraphItem name="Bargraph2" pos_x="125.0" pos_y="125.0" width="20.0" height="100.0" port_type="out" node_id="1" port_id="1"/>
+      <BargraphItem name="Bargraph3" pos_x="225.0" pos_y="125.0" width="20.0" height="100.0" port_type="out" node_id="2" port_id="0"/>
+      <BargraphItem name="Bargraph4" pos_x="275.0" pos_y="125.0" width="20.0" height="100.0" port_type="out" node_id="2" port_id="1"/>
+      <ImageItem name="Img1" pos_x="200" pos_y="200" image_inactive="T:\\inactive.png" image_on="T:\\on.png" image_off="T:\\off.png"/>
+      -->
+    </View>
+  </Visu>
+</BusConfig>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2005.09.29 11:19:38.031.pas,C:\Software\Borland\Delphi5\Projects\MyBus² 2\Unit2.pas=C:\Software\Borland\Delphi5\Projects\MyBus² 2\mybus.pas</Transaction>
+    <Transaction>2006.04.04 19:38:40.484.pas,C:\Software\Borland\Delphi5\Projects\OSHB\mybus.pas=C:\Software\Borland\Delphi5\Projects\OSHB\osbh.pas</Transaction>
+    <Transaction>2006.04.04 19:39:02.937.pas,C:\Software\Borland\Delphi5\Projects\OSHB\osbh.pas=C:\Software\Borland\Delphi5\Projects\OSHB\oshb.pas</Transaction>
+  </Transactions>
+</BorlandProject>

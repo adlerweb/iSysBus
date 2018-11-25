@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 3.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="iSysBus Lib.avrgcc.exe.target.win.642288305" name="Executable (AVR on Windows)" projectType="avrgcc.exe.target.win">
+<configuration artifactExtension="elf" artifactName="iSysBusLib" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="avrgcc.exe.target.win.debug.1714453166" name="Debug" parent="avrgcc.exe.target.win.debug">
+<toolChain id="avrgcc.exe.target.win.debug.tc.794239957" name="AVR-GCC Tool chain" superClass="avrgcc.exe.target.win.debug.tc">
+<tool command="avr-gcc -S" id="avrgcc.exe.target.win.debug.tc.assembler.320225841" name="AVR-GCC Assembler" superClass="avrgcc.exe.target.win.debug.tc.assembler"/>
+<tool command="avr-gcc -c" id="avrgcc.exe.target.win.debug.tc.ccompiler.674194476" name="AVR-GCC C Compiler" superClass="avrgcc.exe.target.win.debug.tc.ccompiler">
+<option id="avrgcc.c.compiler.general.includepath.2097615760" superClass="avrgcc.c.compiler.general.includepath" valueType="includePath">
+<listOptionValue builtIn="false" value=".."/>
+</option>
+<option id="avrgcc.c.compiler.outputopt.lst.90673469" superClass="avrgcc.c.compiler.outputopt.lst" value="true" valueType="boolean"/>
+<option id="avrgcc.c.compiler.symbols.defined.301088566" superClass="avrgcc.c.compiler.symbols.defined" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="F_CPU=1000000"/>
+</option>
+<option id="avrgcc.c.compiler.mcu.type.1213660175" superClass="avrgcc.c.compiler.mcu.type" value="avrgcc.c.compiler.mcu.type.atmega16" valueType="enumerated"/>
+</tool>
+<tool command="avr-g++ -c" id="avrgcc.exe.target.win.debug.tc.cppcompiler.506909206" name="AVR-GCC C++ Compiler" superClass="avrgcc.exe.target.win.debug.tc.cppcompiler"/>
+<tool command="avr-gcc" id="avrgcc.exe.target.win.debug.tc.clinker.624990901" name="AVR-GCC C Linker" superClass="avrgcc.exe.target.win.debug.tc.clinker"/>
+<tool command="avr-g++" id="avrgcc.exe.target.win.debug.tc.cpplinker.370909139" name="AVR-GCC C++ Linker" superClass="avrgcc.exe.target.win.debug.tc.cpplinker"/>
+<tool command="avr-objcopy" id="avrgcc.exe.target.win.debug.tc.objcopy.flash.48869946" name="AVR-GCC Object Copy Flash" superClass="avrgcc.exe.target.win.debug.tc.objcopy.flash"/>
+<tool command="avr-objcopy" id="avrgcc.exe.target.win.debug.tc.objcopy.eeprom.790847571" name="AVR-GCC Object Copy EEPROM" superClass="avrgcc.exe.target.win.debug.tc.objcopy.eeprom"/>
+<tool command="avr-objdump" id="avrgcc.exe.target.win.debug.tc.objdump.1915216313" name="AVR-GCC Object Dump " superClass="avrgcc.exe.target.win.debug.tc.objdump"/>
+<macros/>
+</toolChain>
+</configuration>
+<configuration artifactExtension="elf" artifactName="iSysBusLib" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="avrgcc.exe.target.win.release.885644328" name="Release" parent="avrgcc.exe.target.win.release">
+<toolChain id="avrgcc.exe.target.win.release.tc.1213626298" name="AVR-GCC Tool chain" superClass="avrgcc.exe.target.win.release.tc">
+<tool id="avrgcc.exe.target.win.release.tc.assembler.1944287124" name="AVR-GCC Assembler" superClass="avrgcc.exe.target.win.release.tc.assembler"/>
+<tool id="avrgcc.exe.target.win.release.tc.ccompiler.436636837" name="AVR-GCC C Compiler" superClass="avrgcc.exe.target.win.release.tc.ccompiler"/>
+<tool id="avrgcc.exe.target.win.release.tc.cppcompiler.1139256422" name="AVR-GCC C++ Compiler" superClass="avrgcc.exe.target.win.release.tc.cppcompiler"/>
+<tool id="avrgcc.exe.target.win.release.tc.clinker.580091290" name="AVR-GCC C Linker" superClass="avrgcc.exe.target.win.release.tc.clinker"/>
+<tool id="avrgcc.exe.target.win.release.tc.cpplinker.137605430" name="AVR-GCC C++ Linker" superClass="avrgcc.exe.target.win.release.tc.cpplinker"/>
+<tool id="avrgcc.exe.target.win.release.tc.objcopy.flash.65272745" name="AVR-GCC Object Copy Flash" superClass="avrgcc.exe.target.win.release.tc.objcopy.flash"/>
+<tool id="avrgcc.exe.target.win.release.tc.objcopy.eeprom.1240281127" name="AVR-GCC Object Copy EEPROM" superClass="avrgcc.exe.target.win.release.tc.objcopy.eeprom"/>
+<tool id="avrgcc.exe.target.win.release.tc.objdump.176738148" name="AVR-GCC Object Dump " superClass="avrgcc.exe.target.win.release.tc.objdump"/>
+</toolChain>
+</configuration>
+</project>
+</ManagedProjectBuildInfo>

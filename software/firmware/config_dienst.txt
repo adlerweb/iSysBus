@@ -1,0 +1,70 @@
+Für die Konfiguration wird ein eingener Diesnt verwendet.
+Die Konfigurationsdaten sind als Baum Angeordnet.
+Die Oberste ebene ist hierbei der Dienst, zu der die Konfiguratiosndaten gehören.
+Als nächste ebene Kommen in der Regel die Verschiedenen Pins des Dienstes.
+Zum Adressieren dir einzelnen Konfig-Daten wird eine Punkt schreibweise verwendet.
+Beispiel:
+
+80.0 ist der 1. Pin des Dienst mit der nummer 80
+80.0.0 ist die erste Knofig-Variable dieses Pins
+
+Wenn diese Konfig-ID an den Config Dienst übergeben wird so werden diese stellen
+einfach nacheinander (ohne Punkt) binär übertragen.
+
+Der Konfig-Dienst besitzt folgenden Aufbau:
+
+1.Datenbyte Command ( lesen, schreiben, etc)
+2.+3.Datenbyte Daten, die übergeben werden (z.B. zum schreiben)
+3.-7. Datenbyte Konfig-ID (kann eine beliebige länge haben)
+
+Die Antwort Auf einen Config-Port sieht so aus:
+
+1.Datenbyte: 0x01 OK, 0x02 Konfig-ID nicht vorhanden, 0x03 Fehler, 0x04 Seriennummer
+2.+3.Datenbyte: Antwort auf die anfrage (z.B. gelesene Daten) 
+
+Der Konfig-Dienst besitzt folgende Funktionen (Commad, 1. Datenbyte):
+
+0x01 Lesen
+	Liest Daten 
+	-> Antwort: Daten der Konfig-ID
+0x02 Schreiben
+	Schreibt Daten
+	-> Antwort: Fehler oder Bestätigung
+0x03 Childs_count
+	gibt die Anzahl der untergordneten Elemente im Baum zurück 
+	( z.B. die Anzahl der Pin an einem Dienst)
+	-> Antwort: die Anzahl der Childs
+0x04 Seriennummer Lesen
+	gibt die eindeutige seriennummer des Knoten zurück
+	-> Antowort: spezieller code(0x04) im erste Datenbyte + 		Seriennummer 
+
+
+Mit Hilfe dierses Dienstes lässt sich in der Konfig-Software ein Baum aus den
+Konfig-ID Zahlen aufbauen.
+In Xml-Dateien wird jetzt (für jeden Port am besten eine eigene xml Datei) 
+zu den Konfig-ID ein Name gespeichert.
+Dadurch kann die Konfig-software Sehr einfach einen Konfigurations-Baum
+mit Namen Anzeigen.  
+
+
+
+NODE:
+?.0	Hardware
+?.0.1	Microcontroller (nur lesen)
+?.1	Seriennummer (nur lesen)
+?.2	Konfigurationsmodus (einschalten nur mit Passwort)
+?.3	KnotenId
+
+INPUT:
+64	Eingänge
+64.0	Eingang 0
+64.0.0	Bit0 = local/twi, Bit1-7 = PortA-F/twiAddress
+64.0.1	Pin
+64.0.2	Bit0 = Eingang, Bit1 = Pullup Ein/Aus, Bit2 = Event, Bit3-7 = frei
+
+OUTPUT:
+65	Port Ausgänge
+65.0	Ausgang 0
+65.0.0	Bit0 = local/twi, Bit1-7 = PortA-F/twiAddress
+65.0.1	Pin
+65.0.2	Bit0 = Ausgang, Bit1 = Status bei Inbetriebnahme Ein/Aus, Bit2-7 = frei

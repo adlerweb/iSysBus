@@ -1,0 +1,20 @@
+project isbd-ng
+	: requirements <include>/opt/macports/include <threading>multi <library-path>/opt/macports/lib/ 
+	: source-location src
+	: build-dir bin
+	;
+
+# comment the crypto lib and uncomment the ssl lib if you use ssl version < 1.0
+# lib ssl ;
+lib crypto ;
+lib boost_system-mt ;
+lib boost_signals-mt ;
+lib boost_thread-mt ;
+lib boost_program_options-mt ;
+lib log4cxx ; 
+lib sqlite3 ; 
+lib util ;
+exe isbd-ng : Tools.cpp frameparser.cpp packet.cpp isbdatagram.cpp BusDevice.cpp Connection.cpp server.cpp Settings.cpp tools_old.cpp main.cpp DbLogger.cpp  boost_system-mt log4cxx boost_program_options-mt boost_thread-mt boost_signals-mt sqlite3 crypto ;
+exe parsertest : frameparser.cpp Tools.cpp packet.cpp parsetest.cpp isbdatagram.cpp log4cxx ;
+exe BusSimulator : packet.cpp Tools.cpp BusSimulator.cpp util log4cxx ;
+exe isbc : isbc.cpp log4cxx boost_system-mt boost_program_options-mt ;

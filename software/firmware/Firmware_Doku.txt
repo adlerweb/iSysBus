@@ -1,0 +1,76 @@
+Allgemein
+----------
+
+Mit Modulen sind in diem text immer Software-Module gemeint. Dies sind Dateien die bestimmte Funktionen enthalten und einfach in die Firmware eingebunden werden können. Dateien, die zu einem Modul gehören haben immer den folgenden Aufbau:
+
+	typ_Modulname[ _config ] 
+
+typ: 	     "if", "serv" oder "mod" (siehe unten)
+Modulname:   Name des Moduls 
+[ _config ]: für Konfigurations-Dateien gibt es die Endung "config"
+	
+Bsp:	if_can.c		//Modul für den Can-Bus
+	if_can_config.h;  	//dazugehörige Konfigurationsdatei
+
+
+Interface Module: (Präfix "if")
+Module mit denen ein Knoten mit dem iSysBus verbunden werden kann. Im Moment gibt es nur ein CAN Modul.
+
+Service Module: (präfix "serv")
+Module die einen Dienst bereitstellen, zum Beispiel das Modul für den Output Port.
+
+Standart Module: (präfix "mod")
+Was weder Interface noch Service Modul ist.
+
+
+Interface- und Service-Module sind wie Standart Module, müssen nur zusätzliche Funktionen unterstützen. 
+
+Die iSysBus Library besitzt folgende Verzeichnisstruktur
+
+"/"(Stamm)	Enthält allgemeine Dateien die dafür verantwortlich sind damit die Lib Funktioniert. (z.B. Typdefinitionen)
+"/if/" 		Enthält Interface Module 
+"/serv/"	Enthält Service Module
+"/mod/"		Enthält Standart Module
+
+
+Einbinden von Modulen
+---------------------
+
+Damit die Lib verwendet werden kann muss beim Kompilieren mit Hilfe von "-i" die Pfad der Lib einbezogen werden. Achtung bei Relativen Pfaden in Eclipse, hier wir der Compiler aus einem Unterverzeichniss gestartet.
+Zum einbinden von Modulen braucht man eine Konfiguratiosdatei "config.h" und die Dateien "modules.h" und "modules.c" (Von Musterfirmware Kopieren).
+Nun kann man durch defines in der config.h ganz einfach Module laden.  "#define IF_CAN" integriert Beispielsweise das CAN Modul. Dabei werden die dazu benötigten Source- und Header-Dateien automatisch über Modules.c und MOdules.h integriert und einkompiliert. Wenn dieses Modul auch andere Module benötigt so werden diese auch automatisch integriert.
+
+Lokale Konfiguration
+--------------------
+
+Module die Konfiguriert werden können haben in der Lib eine config Datei. Diese Datei enthält eine Standartkonfiguration für das Modul die automatisch verwendet wird. Dass heißt es wird nur eine Lokale config Datei benötig wenn eine andere Konfiguration des Moduls benötig wird. Dazu wird die config Datei lokal Kopiert. Hier kann man das Modul dann nach seinen Wünschen konfigurieren. Indem man diese Datei dann in der config.h inkludiert wird die Lokale-Config anstatt der Standart-Config verwendet.
+
+Verwenden der Module
+--------------------
+Um die Module in einer Normalen C-Datei verwenden zu können musst die Datei "modules.h" inkludiert werden. Nur kann man auf alle Funktionen der Module zugreifen. Zum initialisieren der Module wird "modules_init()" aufgerufen. Dabei werden alle in config.h festgelegten Module automatisch initialisiert.
+
+Es gibt auch noch die besondere Funktion "process_services(pmessage_t msg, pdata_t response)". Falls die Nachricht "msg" ein Dienst geladen wurde, wird die Nachricht automatisch von diesem Verarbeitet
+
+Interne Funktionsweise der Lib
+------------------------------
+-ModulLoader: Der ModulLoader ist dafür verantwortlich dass die Header und Sourcen einkompiliert werden. Er besteht aus "module_loader.c" und "module_loader.h" und inkludiert die jeweiligen Modul Dateien wenn das das dazugehörige Flags definiert wurde.
+
+Beispiel aus modul_loader.c
+
+	#ifdef IF_CAN
+	#include <if/if_can.c>
+	#endif
+
+-modul_functions.c stellt die Funktionen "modules_init()" und "process_services()" bereit. Diese werden hier automatisch an die geladenen Module Angepasst.
+
+
+Programmieren von Modulen
+-------------------------
+-Einbinden in den ModulLoader
+Damit das neue Modul automatisch geladen werden kann, muss es in modul-loader.c und modul_loader.h eingetragen werden. Am besten von den anderen Einträgen Abkucken.
+
+-Einbinden in modul_funktions.c
+Damit das neue Modul z.B. automatisch initialisiert werden kann muss die init Routine in modul_funktions.c eingetragen werden. Auch hier am besten von den anderen Einträgen Abkucken.
+
+-besonderheiten Service-Module
+Service Module müssen eine "exec" Funktion besitzen die aufgerufen wird falls ein Datenpaket für diesen Service empfangen wurde. Diese muss in "modul_functions.c" integriert werden.

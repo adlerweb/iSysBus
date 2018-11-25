@@ -1,0 +1,10 @@
+Name -> Value -> Art. Nr.
+R1 -> 330R -> 1/4W 330
+R2, R3 -> 10K -> 1/4W 10K
+R4 -> 47K -> 1/4W 47K
+R5 -> 33R -> 1/4W 33
+LED1 -> IR -> LD 274
+T1 -> BC 337 -> BC 337-16
+C1 -> 47µF -> RAD 105 47/35
+IR2 -> TSOP 1740 -> TSOP 1740
+X1 -> wannenstecker -> WSL 10G

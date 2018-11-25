@@ -1,0 +1,1752 @@
+
+bl_10-1.0.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000077c  00003800  00003800  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  00003f7c  000007f0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000002  00800064  00003f80  000007f4  2**0
+                  ALLOC
+  3 .stab         00001cec  00000000  00000000  000007f4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000e6e  00000000  00000000  000024e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00003800 <__vectors>:
+    3800:	0c 94 2a 1c 	jmp	0x3854	; 0x3854 <__ctors_end>
+    3804:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3808:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    380c:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3810:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3814:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3818:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    381c:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3820:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3824:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3828:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    382c:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3830:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3834:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3838:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    383c:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3840:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3844:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3848:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    384c:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+    3850:	0c 94 62 1c 	jmp	0x38c4	; 0x38c4 <__bad_interrupt>
+
+00003854 <__ctors_end>:
+    3854:	11 24       	eor	r1, r1
+    3856:	1f be       	out	0x3f, r1	; 63
+    3858:	cf e5       	ldi	r28, 0x5F	; 95
+    385a:	d4 e0       	ldi	r29, 0x04	; 4
+    385c:	de bf       	out	0x3e, r29	; 62
+    385e:	cd bf       	out	0x3d, r28	; 61
+
+00003860 <get_ResetSource>:
+    3860:	88 e1       	ldi	r24, 0x18	; 24
+    3862:	0f b6       	in	r0, 0x3f	; 63
+    3864:	f8 94       	cli
+    3866:	81 bd       	out	0x21, r24	; 33
+    3868:	11 bc       	out	0x21, r1	; 33
+    386a:	0f be       	out	0x3f, r0	; 63
+    386c:	e1 99       	sbic	0x1c, 1	; 28
+    386e:	fe cf       	rjmp	.-4      	; 0x386c <get_ResetSource+0xc>
+    3870:	83 e1       	ldi	r24, 0x13	; 19
+    3872:	90 e0       	ldi	r25, 0x00	; 0
+    3874:	9f bb       	out	0x1f, r25	; 31
+    3876:	8e bb       	out	0x1e, r24	; 30
+    3878:	e0 9a       	sbi	0x1c, 0	; 28
+    387a:	9d b3       	in	r25, 0x1d	; 29
+    387c:	84 b7       	in	r24, 0x34	; 52
+    387e:	8f 70       	andi	r24, 0x0F	; 15
+    3880:	89 2b       	or	r24, r25
+    3882:	89 83       	std	Y+1, r24	; 0x01
+    3884:	14 be       	out	0x34, r1	; 52
+    3886:	89 81       	ldd	r24, Y+1	; 0x01
+    3888:	87 fd       	sbrc	r24, 7
+    388a:	19 82       	std	Y+1, r1	; 0x01
+    388c:	83 e1       	ldi	r24, 0x13	; 19
+    388e:	90 e0       	ldi	r25, 0x00	; 0
+    3890:	69 81       	ldd	r22, Y+1	; 0x01
+    3892:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+
+00003896 <__do_copy_data>:
+    3896:	10 e0       	ldi	r17, 0x00	; 0
+    3898:	a0 e6       	ldi	r26, 0x60	; 96
+    389a:	b0 e0       	ldi	r27, 0x00	; 0
+    389c:	ec e7       	ldi	r30, 0x7C	; 124
+    389e:	ff e3       	ldi	r31, 0x3F	; 63
+    38a0:	02 c0       	rjmp	.+4      	; 0x38a6 <.do_copy_data_start>
+
+000038a2 <.do_copy_data_loop>:
+    38a2:	05 90       	lpm	r0, Z+
+    38a4:	0d 92       	st	X+, r0
+
+000038a6 <.do_copy_data_start>:
+    38a6:	a4 36       	cpi	r26, 0x64	; 100
+    38a8:	b1 07       	cpc	r27, r17
+    38aa:	d9 f7       	brne	.-10     	; 0x38a2 <.do_copy_data_loop>
+
+000038ac <__do_clear_bss>:
+    38ac:	10 e0       	ldi	r17, 0x00	; 0
+    38ae:	a4 e6       	ldi	r26, 0x64	; 100
+    38b0:	b0 e0       	ldi	r27, 0x00	; 0
+    38b2:	01 c0       	rjmp	.+2      	; 0x38b6 <.do_clear_bss_start>
+
+000038b4 <.do_clear_bss_loop>:
+    38b4:	1d 92       	st	X+, r1
+
+000038b6 <.do_clear_bss_start>:
+    38b6:	a6 36       	cpi	r26, 0x66	; 102
+    38b8:	b1 07       	cpc	r27, r17
+    38ba:	e1 f7       	brne	.-8      	; 0x38b4 <.do_clear_bss_loop>
+    38bc:	0e 94 26 1d 	call	0x3a4c	; 0x3a4c <main>
+    38c0:	0c 94 bc 1f 	jmp	0x3f78	; 0x3f78 <_exit>
+
+000038c4 <__bad_interrupt>:
+    38c4:	0c 94 00 1c 	jmp	0x3800	; 0x3800 <__vectors>
+
+000038c8 <Lib_Crc_Calc8>:
+#ifndef LIB_CRC_C_
+	#define LIB_CRC_C_
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+    38c8:	dc 01       	movw	r26, r24
+    38ca:	40 e0       	ldi	r20, 0x00	; 0
+    38cc:	20 e0       	ldi	r18, 0x00	; 0
+    38ce:	30 e0       	ldi	r19, 0x00	; 0
+    38d0:	07 c0       	rjmp	.+14     	; 0x38e0 <Lib_Crc_Calc8+0x18>
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+			Sum += *(uint8_t *)(aData + i);
+    38d2:	fd 01       	movw	r30, r26
+    38d4:	e2 0f       	add	r30, r18
+    38d6:	f3 1f       	adc	r31, r19
+    38d8:	80 81       	ld	r24, Z
+    38da:	48 0f       	add	r20, r24
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+    38dc:	2f 5f       	subi	r18, 0xFF	; 255
+    38de:	3f 4f       	sbci	r19, 0xFF	; 255
+    38e0:	26 17       	cp	r18, r22
+    38e2:	37 07       	cpc	r19, r23
+    38e4:	b0 f3       	brcs	.-20     	; 0x38d2 <Lib_Crc_Calc8+0xa>
+			Sum += *(uint8_t *)(aData + i);
+		}
+		return (uint8_t)((Sum ^ 0xFF) + 1);
+	}
+    38e6:	84 2f       	mov	r24, r20
+    38e8:	81 95       	neg	r24
+    38ea:	08 95       	ret
+
+000038ec <Lib_Crc_Calc16>:
+
+
+
+	uint16_t Lib_Crc_Calc16(const void * aData, uint16_t aLength) {
+    38ec:	0f 93       	push	r16
+    38ee:	1f 93       	push	r17
+    38f0:	cf 93       	push	r28
+    38f2:	df 93       	push	r29
+    38f4:	8c 01       	movw	r16, r24
+    38f6:	ec 01       	movw	r28, r24
+    38f8:	fb 01       	movw	r30, r22
+    38fa:	20 e0       	ldi	r18, 0x00	; 0
+    38fc:	30 e0       	ldi	r19, 0x00	; 0
+    38fe:	40 e0       	ldi	r20, 0x00	; 0
+    3900:	50 e0       	ldi	r21, 0x00	; 0
+		uint32_t Sum = 0;
+		while (1) {
+			if (aLength < 2) {
+    3902:	e2 30       	cpi	r30, 0x02	; 2
+    3904:	f1 05       	cpc	r31, r1
+    3906:	50 f0       	brcs	.+20     	; 0x391c <Lib_Crc_Calc16+0x30>
+				break;
+			}
+			Sum += *((uint16_t *)aData);
+    3908:	89 91       	ld	r24, Y+
+    390a:	99 91       	ld	r25, Y+
+    390c:	a0 e0       	ldi	r26, 0x00	; 0
+    390e:	b0 e0       	ldi	r27, 0x00	; 0
+    3910:	28 0f       	add	r18, r24
+    3912:	39 1f       	adc	r19, r25
+    3914:	4a 1f       	adc	r20, r26
+    3916:	5b 1f       	adc	r21, r27
+			aData += 2;
+			aLength -= 2;
+    3918:	32 97       	sbiw	r30, 0x02	; 2
+    391a:	f3 cf       	rjmp	.-26     	; 0x3902 <Lib_Crc_Calc16+0x16>
+		}
+    391c:	fb 01       	movw	r30, r22
+    391e:	ee 7f       	andi	r30, 0xFE	; 254
+    3920:	e0 0f       	add	r30, r16
+    3922:	f1 1f       	adc	r31, r17
+		if (aLength) {
+    3924:	60 ff       	sbrs	r22, 0
+    3926:	0b c0       	rjmp	.+22     	; 0x393e <Lib_Crc_Calc16+0x52>
+			Sum += *(uint8_t *) aData;
+    3928:	80 81       	ld	r24, Z
+    392a:	28 0f       	add	r18, r24
+    392c:	31 1d       	adc	r19, r1
+    392e:	41 1d       	adc	r20, r1
+    3930:	51 1d       	adc	r21, r1
+    3932:	05 c0       	rjmp	.+10     	; 0x393e <Lib_Crc_Calc16+0x52>
+		}
+		while ((aLength = (uint16_t) (Sum >> 16)) != 0) {
+			Sum = (uint16_t) Sum + aLength;
+    3934:	62 0f       	add	r22, r18
+    3936:	73 1f       	adc	r23, r19
+    3938:	9b 01       	movw	r18, r22
+    393a:	40 e0       	ldi	r20, 0x00	; 0
+    393c:	50 e0       	ldi	r21, 0x00	; 0
+			aLength -= 2;
+		}
+		if (aLength) {
+			Sum += *(uint8_t *) aData;
+		}
+		while ((aLength = (uint16_t) (Sum >> 16)) != 0) {
+    393e:	ca 01       	movw	r24, r20
+    3940:	aa 27       	eor	r26, r26
+    3942:	bb 27       	eor	r27, r27
+    3944:	bc 01       	movw	r22, r24
+    3946:	89 2b       	or	r24, r25
+    3948:	a9 f7       	brne	.-22     	; 0x3934 <Lib_Crc_Calc16+0x48>
+    394a:	20 95       	com	r18
+    394c:	30 95       	com	r19
+			Sum = (uint16_t) Sum + aLength;
+		}
+		return (uint16_t) Sum ^ 0xFFFF;
+	}
+    394e:	c9 01       	movw	r24, r18
+    3950:	df 91       	pop	r29
+    3952:	cf 91       	pop	r28
+    3954:	1f 91       	pop	r17
+    3956:	0f 91       	pop	r16
+    3958:	08 95       	ret
+
+0000395a <ByteToShort>:
+	#define APP_END (FLASHEND - (2 * BOOTSIZE) + 1)
+	#define FLASHPAGES ((APP_END / SPM_PAGESIZE) - 1)
+
+
+
+	uint16_t __attribute__((always_inline)) ByteToShort(uint8_t hi, uint8_t lo) {
+    395a:	df 93       	push	r29
+    395c:	cf 93       	push	r28
+    395e:	00 d0       	rcall	.+0      	; 0x3960 <ByteToShort+0x6>
+    3960:	cd b7       	in	r28, 0x3d	; 61
+    3962:	de b7       	in	r29, 0x3e	; 62
+		uint16_t ret;
+		((unsigned char *) & ret)[0] = lo;
+		((unsigned char *) & ret)[1] = hi;
+    3964:	98 2f       	mov	r25, r24
+		return ret;
+	}
+    3966:	86 2f       	mov	r24, r22
+    3968:	0f 90       	pop	r0
+    396a:	0f 90       	pop	r0
+    396c:	cf 91       	pop	r28
+    396e:	df 91       	pop	r29
+    3970:	08 95       	ret
+
+00003972 <eep_write_byte>:
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3972:	e1 99       	sbic	0x1c, 1	; 28
+    3974:	fe cf       	rjmp	.-4      	; 0x3972 <eep_write_byte>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3976:	9c 01       	movw	r18, r24
+    3978:	9f bb       	out	0x1f, r25	; 31
+    397a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    397c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    397e:	8d b3       	in	r24, 0x1d	; 29
+	void __attribute__((noreturn)) (* JumpToFirmware) (void) = 0x0000;
+
+
+
+	void __attribute__ ((noinline)) eep_write_byte(uint8_t * aAddr, uint8_t aData) {
+		if (eeprom_read_byte(aAddr) != aData) {
+    3980:	86 17       	cp	r24, r22
+    3982:	51 f0       	breq	.+20     	; 0x3998 <eep_write_byte+0x26>
+/** \ingroup avr_eeprom
+    Write a byte \a __value to EEPROM address \a __p.
+ */
+static __inline__ void eeprom_write_byte (uint8_t *__p, uint8_t __value)
+{
+    do {} while (!eeprom_is_ready ());
+    3984:	e1 99       	sbic	0x1c, 1	; 28
+    3986:	fe cf       	rjmp	.-4      	; 0x3984 <eep_write_byte+0x12>
+#endif
+
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3988:	3f bb       	out	0x1f, r19	; 31
+    398a:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EEDR = __value;
+    398c:	6d bb       	out	0x1d, r22	; 29
+
+    __asm__ __volatile__ (
+    398e:	0f b6       	in	r0, 0x3f	; 63
+    3990:	f8 94       	cli
+    3992:	e2 9a       	sbi	0x1c, 2	; 28
+    3994:	e1 9a       	sbi	0x1c, 1	; 28
+    3996:	0f be       	out	0x3f, r0	; 63
+    3998:	08 95       	ret
+
+0000399a <Send_Message>:
+	#endif /* ISB_INF == USART0 */
+
+
+
+	#if ISB_INF == USART0
+		void Send_Message(const Isb_Msg_t * Msg) {
+    399a:	dc 01       	movw	r26, r24
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    399c:	81 e0       	ldi	r24, 0x01	; 1
+    399e:	8c b9       	out	0x0c, r24	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39a0:	5e 9b       	sbis	0x0b, 6	; 11
+    39a2:	fe cf       	rjmp	.-4      	; 0x39a0 <Send_Message+0x6>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39a4:	5e 9a       	sbi	0x0b, 6	; 11
+
+
+	#if ISB_INF == USART0
+		void Send_Message(const Isb_Msg_t * Msg) {
+			sendchar(ISB_INF_USART0_STARTBYTE);
+			sendchar(Msg->Flags);
+    39a6:	2c 91       	ld	r18, X
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    39a8:	2c b9       	out	0x0c, r18	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39aa:	5e 9b       	sbis	0x0b, 6	; 11
+    39ac:	fe cf       	rjmp	.-4      	; 0x39aa <Send_Message+0x10>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39ae:	5e 9a       	sbi	0x0b, 6	; 11
+
+	#if ISB_INF == USART0
+		void Send_Message(const Isb_Msg_t * Msg) {
+			sendchar(ISB_INF_USART0_STARTBYTE);
+			sendchar(Msg->Flags);
+			sendchar((uint8_t)Msg->DestId);
+    39b0:	11 96       	adiw	r26, 0x01	; 1
+    39b2:	8c 91       	ld	r24, X
+    39b4:	11 97       	sbiw	r26, 0x01	; 1
+    39b6:	12 96       	adiw	r26, 0x02	; 2
+    39b8:	9c 91       	ld	r25, X
+    39ba:	12 97       	sbiw	r26, 0x02	; 2
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    39bc:	8c b9       	out	0x0c, r24	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39be:	5e 9b       	sbis	0x0b, 6	; 11
+    39c0:	fe cf       	rjmp	.-4      	; 0x39be <Send_Message+0x24>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39c2:	5e 9a       	sbi	0x0b, 6	; 11
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    39c4:	9c b9       	out	0x0c, r25	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39c6:	5e 9b       	sbis	0x0b, 6	; 11
+    39c8:	fe cf       	rjmp	.-4      	; 0x39c6 <Send_Message+0x2c>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39ca:	5e 9a       	sbi	0x0b, 6	; 11
+		void Send_Message(const Isb_Msg_t * Msg) {
+			sendchar(ISB_INF_USART0_STARTBYTE);
+			sendchar(Msg->Flags);
+			sendchar((uint8_t)Msg->DestId);
+			sendchar((uint8_t)(Msg->DestId >> 8));
+			sendchar((uint8_t)Msg->SourceId);
+    39cc:	13 96       	adiw	r26, 0x03	; 3
+    39ce:	8c 91       	ld	r24, X
+    39d0:	13 97       	sbiw	r26, 0x03	; 3
+    39d2:	14 96       	adiw	r26, 0x04	; 4
+    39d4:	9c 91       	ld	r25, X
+    39d6:	14 97       	sbiw	r26, 0x04	; 4
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    39d8:	8c b9       	out	0x0c, r24	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39da:	5e 9b       	sbis	0x0b, 6	; 11
+    39dc:	fe cf       	rjmp	.-4      	; 0x39da <Send_Message+0x40>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39de:	5e 9a       	sbi	0x0b, 6	; 11
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    39e0:	9c b9       	out	0x0c, r25	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39e2:	5e 9b       	sbis	0x0b, 6	; 11
+    39e4:	fe cf       	rjmp	.-4      	; 0x39e2 <Send_Message+0x48>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39e6:	5e 9a       	sbi	0x0b, 6	; 11
+    39e8:	90 e0       	ldi	r25, 0x00	; 0
+			sendchar(Msg->Flags);
+			sendchar((uint8_t)Msg->DestId);
+			sendchar((uint8_t)(Msg->DestId >> 8));
+			sendchar((uint8_t)Msg->SourceId);
+			sendchar((uint8_t)(Msg->SourceId >> 8));
+			for (uint8_t i = 0; i < (Msg->Flags & ISB_MSG_FLAGS_DLC_MASK); i++) {
+    39ea:	30 e0       	ldi	r19, 0x00	; 0
+    39ec:	2f 70       	andi	r18, 0x0F	; 15
+    39ee:	30 70       	andi	r19, 0x00	; 0
+    39f0:	08 c0       	rjmp	.+16     	; 0x3a02 <Send_Message+0x68>
+				sendchar(Msg->Data[i]);
+    39f2:	ea 0f       	add	r30, r26
+    39f4:	fb 1f       	adc	r31, r27
+    39f6:	85 81       	ldd	r24, Z+5	; 0x05
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    39f8:	8c b9       	out	0x0c, r24	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    39fa:	5e 9b       	sbis	0x0b, 6	; 11
+    39fc:	fe cf       	rjmp	.-4      	; 0x39fa <Send_Message+0x60>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    39fe:	5e 9a       	sbi	0x0b, 6	; 11
+			sendchar(Msg->Flags);
+			sendchar((uint8_t)Msg->DestId);
+			sendchar((uint8_t)(Msg->DestId >> 8));
+			sendchar((uint8_t)Msg->SourceId);
+			sendchar((uint8_t)(Msg->SourceId >> 8));
+			for (uint8_t i = 0; i < (Msg->Flags & ISB_MSG_FLAGS_DLC_MASK); i++) {
+    3a00:	9f 5f       	subi	r25, 0xFF	; 255
+    3a02:	e9 2f       	mov	r30, r25
+    3a04:	f0 e0       	ldi	r31, 0x00	; 0
+    3a06:	e2 17       	cp	r30, r18
+    3a08:	f3 07       	cpc	r31, r19
+    3a0a:	9c f3       	brlt	.-26     	; 0x39f2 <Send_Message+0x58>
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    3a0c:	1c b8       	out	0x0c, r1	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    3a0e:	5e 9b       	sbis	0x0b, 6	; 11
+    3a10:	fe cf       	rjmp	.-4      	; 0x3a0e <Send_Message+0x74>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    3a12:	5e 9a       	sbi	0x0b, 6	; 11
+			sendchar((uint8_t)(Msg->SourceId >> 8));
+			for (uint8_t i = 0; i < (Msg->Flags & ISB_MSG_FLAGS_DLC_MASK); i++) {
+				sendchar(Msg->Data[i]);
+			}
+			sendchar(0x00);
+			sendchar(Lib_Crc_Calc8(Msg, (5 + (Msg->Flags & ISB_MSG_FLAGS_DLC_MASK))));
+    3a14:	a9 01       	movw	r20, r18
+    3a16:	4b 5f       	subi	r20, 0xFB	; 251
+    3a18:	5f 4f       	sbci	r21, 0xFF	; 255
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+			Sum += *(uint8_t *)(aData + i);
+    3a1a:	20 e0       	ldi	r18, 0x00	; 0
+    3a1c:	30 e0       	ldi	r19, 0x00	; 0
+    3a1e:	90 e0       	ldi	r25, 0x00	; 0
+    3a20:	07 c0       	rjmp	.+14     	; 0x3a30 <Send_Message+0x96>
+    3a22:	fd 01       	movw	r30, r26
+    3a24:	e2 0f       	add	r30, r18
+    3a26:	f3 1f       	adc	r31, r19
+    3a28:	80 81       	ld	r24, Z
+    3a2a:	98 0f       	add	r25, r24
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+    3a2c:	2f 5f       	subi	r18, 0xFF	; 255
+    3a2e:	3f 4f       	sbci	r19, 0xFF	; 255
+    3a30:	24 17       	cp	r18, r20
+    3a32:	35 07       	cpc	r19, r21
+    3a34:	b0 f3       	brcs	.-20     	; 0x3a22 <Send_Message+0x88>
+			Sum += *(uint8_t *)(aData + i);
+		}
+		return (uint8_t)((Sum ^ 0xFF) + 1);
+    3a36:	91 95       	neg	r25
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    3a38:	9c b9       	out	0x0c, r25	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    3a3a:	5e 9b       	sbis	0x0b, 6	; 11
+    3a3c:	fe cf       	rjmp	.-4      	; 0x3a3a <Send_Message+0xa0>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    3a3e:	5e 9a       	sbi	0x0b, 6	; 11
+				while (! (UCSRA & (1 << TXC))) {
+					;
+				}
+				UCSRA |= (1 << TXC);
+			#elif defined (__AVR_ATmega16__)
+				UDR = Data;
+    3a40:	8d e0       	ldi	r24, 0x0D	; 13
+    3a42:	8c b9       	out	0x0c, r24	; 12
+				while (! (UCSRA & (1 << TXC))) {
+    3a44:	5e 9b       	sbis	0x0b, 6	; 11
+    3a46:	fe cf       	rjmp	.-4      	; 0x3a44 <Send_Message+0xaa>
+					;
+				}
+				UCSRA |= (1 << TXC);
+    3a48:	5e 9a       	sbi	0x0b, 6	; 11
+				sendchar(Msg->Data[i]);
+			}
+			sendchar(0x00);
+			sendchar(Lib_Crc_Calc8(Msg, (5 + (Msg->Flags & ISB_MSG_FLAGS_DLC_MASK))));
+			sendchar(ISB_INF_USART0_STOPBYTE);
+		}
+    3a4a:	08 95       	ret
+
+00003a4c <main>:
+		}
+	#endif /* ISB_INF == CAN0 */
+
+
+
+	int main(void) {
+    3a4c:	2f 92       	push	r2
+    3a4e:	3f 92       	push	r3
+    3a50:	4f 92       	push	r4
+    3a52:	5f 92       	push	r5
+    3a54:	6f 92       	push	r6
+    3a56:	7f 92       	push	r7
+    3a58:	8f 92       	push	r8
+    3a5a:	9f 92       	push	r9
+    3a5c:	af 92       	push	r10
+    3a5e:	bf 92       	push	r11
+    3a60:	cf 92       	push	r12
+    3a62:	df 92       	push	r13
+    3a64:	ef 92       	push	r14
+    3a66:	ff 92       	push	r15
+    3a68:	0f 93       	push	r16
+    3a6a:	1f 93       	push	r17
+    3a6c:	df 93       	push	r29
+    3a6e:	cf 93       	push	r28
+    3a70:	cd b7       	in	r28, 0x3d	; 61
+    3a72:	de b7       	in	r29, 0x3e	; 62
+    3a74:	69 97       	sbiw	r28, 0x19	; 25
+    3a76:	0f b6       	in	r0, 0x3f	; 63
+    3a78:	f8 94       	cli
+    3a7a:	de bf       	out	0x3e, r29	; 62
+    3a7c:	0f be       	out	0x3f, r0	; 63
+    3a7e:	cd bf       	out	0x3d, r28	; 61
+
+		wdt_enable(WDTO_500MS);
+    3a80:	2d e0       	ldi	r18, 0x0D	; 13
+    3a82:	88 e1       	ldi	r24, 0x18	; 24
+    3a84:	90 e0       	ldi	r25, 0x00	; 0
+    3a86:	0f b6       	in	r0, 0x3f	; 63
+    3a88:	f8 94       	cli
+    3a8a:	a8 95       	wdr
+    3a8c:	81 bd       	out	0x21, r24	; 33
+    3a8e:	0f be       	out	0x3f, r0	; 63
+    3a90:	21 bd       	out	0x21, r18	; 33
+		wdt_reset();
+    3a92:	a8 95       	wdr
+    3a94:	fe 01       	movw	r30, r28
+    3a96:	33 96       	adiw	r30, 0x03	; 3
+    3a98:	24 e0       	ldi	r18, 0x04	; 4
+    3a9a:	30 e0       	ldi	r19, 0x00	; 0
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3a9c:	e1 99       	sbic	0x1c, 1	; 28
+    3a9e:	fe cf       	rjmp	.-4      	; 0x3a9c <main+0x50>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3aa0:	3f bb       	out	0x1f, r19	; 31
+    3aa2:	2e bb       	out	0x1e, r18	; 30
+#endif
+    EECR |= (1 << EERE);
+    3aa4:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3aa6:	8d b3       	in	r24, 0x1d	; 29
+			#endif /* ISB_NODE_IDENTIFY_INIT */
+		#endif /* ISB_NODE_IDENTIFY_REGISTER */
+
+		uint8_t Isb_Node_Serial_Number[4];
+		for (uint8_t i = 0; i < 4; i++) {
+			Isb_Node_Serial_Number[i] = eeprom_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+    3aa8:	81 93       	st	Z+, r24
+    3aaa:	2f 5f       	subi	r18, 0xFF	; 255
+    3aac:	3f 4f       	sbci	r19, 0xFF	; 255
+				#endif /* ISB_NODE_IDENTIFY_PULLUP */
+			#endif /* ISB_NODE_IDENTIFY_INIT */
+		#endif /* ISB_NODE_IDENTIFY_REGISTER */
+
+		uint8_t Isb_Node_Serial_Number[4];
+		for (uint8_t i = 0; i < 4; i++) {
+    3aae:	28 30       	cpi	r18, 0x08	; 8
+    3ab0:	31 05       	cpc	r19, r1
+    3ab2:	a1 f7       	brne	.-24     	; 0x3a9c <main+0x50>
+    3ab4:	08 e0       	ldi	r16, 0x08	; 8
+    3ab6:	10 e0       	ldi	r17, 0x00	; 0
+			Isb_Node_Serial_Number[i] = eeprom_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+		}
+
+		for (uint8_t i = 0; i < 4; i++) {
+			eep_write_byte((uint8_t *)(EEP__ISB_BOOTLOADER_CODE_0 + i), Isb_Bootloader_Code[i]);
+    3ab8:	f8 01       	movw	r30, r16
+    3aba:	e8 5a       	subi	r30, 0xA8	; 168
+    3abc:	ff 4f       	sbci	r31, 0xFF	; 255
+    3abe:	c8 01       	movw	r24, r16
+    3ac0:	60 81       	ld	r22, Z
+    3ac2:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+    3ac6:	0f 5f       	subi	r16, 0xFF	; 255
+    3ac8:	1f 4f       	sbci	r17, 0xFF	; 255
+		uint8_t Isb_Node_Serial_Number[4];
+		for (uint8_t i = 0; i < 4; i++) {
+			Isb_Node_Serial_Number[i] = eeprom_read_byte((uint8_t *)(EEP__ISB_NODE_SERIAL_NUMBER_0 + i));
+		}
+
+		for (uint8_t i = 0; i < 4; i++) {
+    3aca:	0c 30       	cpi	r16, 0x0C	; 12
+    3acc:	11 05       	cpc	r17, r1
+    3ace:	a1 f7       	brne	.-24     	; 0x3ab8 <main+0x6c>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3ad0:	e1 99       	sbic	0x1c, 1	; 28
+    3ad2:	fe cf       	rjmp	.-4      	; 0x3ad0 <main+0x84>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3ad4:	82 e1       	ldi	r24, 0x12	; 18
+    3ad6:	90 e0       	ldi	r25, 0x00	; 0
+    3ad8:	9f bb       	out	0x1f, r25	; 31
+    3ada:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3adc:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3ade:	ed b2       	in	r14, 0x1d	; 29
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3ae0:	e1 99       	sbic	0x1c, 1	; 28
+    3ae2:	fe cf       	rjmp	.-4      	; 0x3ae0 <main+0x94>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3ae4:	83 e1       	ldi	r24, 0x13	; 19
+    3ae6:	90 e0       	ldi	r25, 0x00	; 0
+    3ae8:	9f bb       	out	0x1f, r25	; 31
+    3aea:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3aec:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3aee:	fd b2       	in	r15, 0x1d	; 29
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3af0:	e1 99       	sbic	0x1c, 1	; 28
+    3af2:	fe cf       	rjmp	.-4      	; 0x3af0 <main+0xa4>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3af4:	80 e1       	ldi	r24, 0x10	; 16
+    3af6:	90 e0       	ldi	r25, 0x00	; 0
+    3af8:	9f bb       	out	0x1f, r25	; 31
+    3afa:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3afc:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3afe:	3d b3       	in	r19, 0x1d	; 29
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3b00:	e1 99       	sbic	0x1c, 1	; 28
+    3b02:	fe cf       	rjmp	.-4      	; 0x3b00 <main+0xb4>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3b04:	81 e1       	ldi	r24, 0x11	; 17
+    3b06:	90 e0       	ldi	r25, 0x00	; 0
+    3b08:	9f bb       	out	0x1f, r25	; 31
+    3b0a:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3b0c:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3b0e:	2d b3       	in	r18, 0x1d	; 29
+		Isb_Node_Operating_ResetSource = eeprom_read_byte((uint8_t *)EEP__ISB_NODE_OPERATING_RESETSOURCE);
+
+		uint8_t Isb_Node_Operating_Error = 0;
+
+		uint16_t Isb_Node_Id = 0;
+		Isb_Node_Id = eeprom_read_byte((uint8_t *)EEP__ISB_NODE_ID_0);
+    3b10:	a3 2e       	mov	r10, r19
+    3b12:	bb 24       	eor	r11, r11
+		Isb_Node_Id |= eeprom_read_byte((uint8_t *)EEP__ISB_NODE_ID_1) << 8;
+    3b14:	92 2f       	mov	r25, r18
+    3b16:	80 e0       	ldi	r24, 0x00	; 0
+    3b18:	a8 2a       	or	r10, r24
+    3b1a:	b9 2a       	or	r11, r25
+		if (Isb_Node_Id > 2047) {
+    3b1c:	30 e0       	ldi	r19, 0x00	; 0
+    3b1e:	a3 16       	cp	r10, r19
+    3b20:	38 e0       	ldi	r19, 0x08	; 8
+    3b22:	b3 06       	cpc	r11, r19
+    3b24:	28 f0       	brcs	.+10     	; 0x3b30 <main+0xe4>
+    3b26:	ee 24       	eor	r14, r14
+    3b28:	71 e0       	ldi	r23, 0x01	; 1
+    3b2a:	aa 24       	eor	r10, r10
+    3b2c:	bb 24       	eor	r11, r11
+    3b2e:	20 c0       	rjmp	.+64     	; 0x3b70 <main+0x124>
+				Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__BL_NORM;
+				Isb_Node_Operating_Error |= 0x02;
+			}
+		#endif /* ISB_NODE_IDENTIFY_REGISTER */
+
+		if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+    3b30:	51 e0       	ldi	r21, 0x01	; 1
+    3b32:	e5 16       	cp	r14, r21
+    3b34:	e1 f4       	brne	.+56     	; 0x3b6e <main+0x122>
+    3b36:	0c e0       	ldi	r16, 0x0C	; 12
+    3b38:	10 e0       	ldi	r17, 0x00	; 0
+			for (uint8_t i = 0; i < 4; i++) {
+				eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), 0x00);
+    3b3a:	c8 01       	movw	r24, r16
+    3b3c:	60 e0       	ldi	r22, 0x00	; 0
+    3b3e:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+    3b42:	0f 5f       	subi	r16, 0xFF	; 255
+    3b44:	1f 4f       	sbci	r17, 0xFF	; 255
+				Isb_Node_Operating_Error |= 0x02;
+			}
+		#endif /* ISB_NODE_IDENTIFY_REGISTER */
+
+		if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+			for (uint8_t i = 0; i < 4; i++) {
+    3b46:	00 31       	cpi	r16, 0x10	; 16
+    3b48:	11 05       	cpc	r17, r1
+    3b4a:	b9 f7       	brne	.-18     	; 0x3b3a <main+0xee>
+    3b4c:	80 e0       	ldi	r24, 0x00	; 0
+    3b4e:	90 e0       	ldi	r25, 0x00	; 0
+				eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), 0x00);
+			}
+			for (uint16_t i = 0; i < FLASHPAGES; i++) {
+				wdt_reset();
+				boot_page_erase(i * SPM_PAGESIZE);
+    3b50:	23 e0       	ldi	r18, 0x03	; 3
+		if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+			for (uint8_t i = 0; i < 4; i++) {
+				eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), 0x00);
+			}
+			for (uint16_t i = 0; i < FLASHPAGES; i++) {
+				wdt_reset();
+    3b52:	a8 95       	wdr
+				boot_page_erase(i * SPM_PAGESIZE);
+    3b54:	fc 01       	movw	r30, r24
+    3b56:	20 93 57 00 	sts	0x0057, r18
+    3b5a:	e8 95       	spm
+				boot_spm_busy_wait();
+    3b5c:	07 b6       	in	r0, 0x37	; 55
+    3b5e:	00 fc       	sbrc	r0, 0
+    3b60:	fd cf       	rjmp	.-6      	; 0x3b5c <main+0x110>
+    3b62:	80 58       	subi	r24, 0x80	; 128
+    3b64:	9f 4f       	sbci	r25, 0xFF	; 255
+
+		if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+			for (uint8_t i = 0; i < 4; i++) {
+				eep_write_byte((uint8_t *)(EEP__ISB_FIRMWARE_CODE_0 + i), 0x00);
+			}
+			for (uint16_t i = 0; i < FLASHPAGES; i++) {
+    3b66:	a7 e3       	ldi	r26, 0x37	; 55
+    3b68:	80 38       	cpi	r24, 0x80	; 128
+    3b6a:	9a 07       	cpc	r25, r26
+    3b6c:	91 f7       	brne	.-28     	; 0x3b52 <main+0x106>
+    3b6e:	70 e0       	ldi	r23, 0x00	; 0
+				UBRRH = INF_USART0_UBRRH;
+				UBRRL = INF_USART0_UBRRL;
+				UCSRC = INF_USART0_UCSRC;
+				UCSRB = INF_USART0_UCSRB;
+			#elif defined(__AVR_ATmega16__)
+				UCSRA = INF_USART0_UCSRA;
+    3b70:	83 e0       	ldi	r24, 0x03	; 3
+    3b72:	8b b9       	out	0x0b, r24	; 11
+				UBRRH = INF_USART0_UBRRH;
+    3b74:	10 bc       	out	0x20, r1	; 32
+				UBRRL = INF_USART0_UBRRL;
+    3b76:	80 e1       	ldi	r24, 0x10	; 16
+    3b78:	89 b9       	out	0x09, r24	; 9
+				UCSRC = INF_USART0_UCSRC;
+    3b7a:	86 e8       	ldi	r24, 0x86	; 134
+    3b7c:	80 bd       	out	0x20, r24	; 32
+				UCSRB = INF_USART0_UCSRB;
+    3b7e:	88 eb       	ldi	r24, 0xB8	; 184
+    3b80:	8a b9       	out	0x0a, r24	; 10
+				#error
+			#endif /* ISB_INF_CAN0_RS */
+			Lib_Mcp2515_Write(LIB_MCP2515_CANCTRL, LIB_MCP2515_MODE_NORMAL);
+		#endif /* ISB_INF == CAN0 */
+
+		if (Isb_Node_Operating_Mode >= ISB_NODE_OPERATING_MODE__FW_NORM) {
+    3b82:	b7 e0       	ldi	r27, 0x07	; 7
+    3b84:	be 15       	cp	r27, r14
+    3b86:	30 f5       	brcc	.+76     	; 0x3bd4 <main+0x188>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3b88:	e1 99       	sbic	0x1c, 1	; 28
+    3b8a:	fe cf       	rjmp	.-4      	; 0x3b88 <main+0x13c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3b8c:	88 e1       	ldi	r24, 0x18	; 24
+    3b8e:	90 e0       	ldi	r25, 0x00	; 0
+    3b90:	9f bb       	out	0x1f, r25	; 31
+    3b92:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3b94:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3b96:	2d b3       	in	r18, 0x1d	; 29
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3b98:	e1 99       	sbic	0x1c, 1	; 28
+    3b9a:	fe cf       	rjmp	.-4      	; 0x3b98 <main+0x14c>
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3b9c:	89 e1       	ldi	r24, 0x19	; 25
+    3b9e:	90 e0       	ldi	r25, 0x00	; 0
+    3ba0:	9f bb       	out	0x1f, r25	; 31
+    3ba2:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3ba4:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3ba6:	6d b3       	in	r22, 0x1d	; 29
+    3ba8:	40 e0       	ldi	r20, 0x00	; 0
+    3baa:	50 e0       	ldi	r21, 0x00	; 0
+    3bac:	e0 e0       	ldi	r30, 0x00	; 0
+    3bae:	f0 e0       	ldi	r31, 0x00	; 0
+			Isb_Firmware_Crc = eeprom_read_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_0);
+			Isb_Firmware_Crc |= (eeprom_read_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_1) << 8);
+
+			uint16_t Isb_Firmware_Crc_Calc = 0;
+			for (uint16_t flashAddr = 0; flashAddr < APP_END; flashAddr++) {
+				Isb_Firmware_Crc_Calc += pgm_read_byte(flashAddr);
+    3bb0:	84 91       	lpm	r24, Z+
+    3bb2:	48 0f       	add	r20, r24
+    3bb4:	51 1d       	adc	r21, r1
+			uint16_t Isb_Firmware_Crc = 0;
+			Isb_Firmware_Crc = eeprom_read_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_0);
+			Isb_Firmware_Crc |= (eeprom_read_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_1) << 8);
+
+			uint16_t Isb_Firmware_Crc_Calc = 0;
+			for (uint16_t flashAddr = 0; flashAddr < APP_END; flashAddr++) {
+    3bb6:	31 96       	adiw	r30, 0x01	; 1
+    3bb8:	38 e3       	ldi	r19, 0x38	; 56
+    3bba:	e0 30       	cpi	r30, 0x00	; 0
+    3bbc:	f3 07       	cpc	r31, r19
+    3bbe:	c1 f7       	brne	.-16     	; 0x3bb0 <main+0x164>
+		#endif /* ISB_INF == CAN0 */
+
+		if (Isb_Node_Operating_Mode >= ISB_NODE_OPERATING_MODE__FW_NORM) {
+
+			uint16_t Isb_Firmware_Crc = 0;
+			Isb_Firmware_Crc = eeprom_read_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_0);
+    3bc0:	30 e0       	ldi	r19, 0x00	; 0
+			uint16_t Isb_Firmware_Crc_Calc = 0;
+			for (uint16_t flashAddr = 0; flashAddr < APP_END; flashAddr++) {
+				Isb_Firmware_Crc_Calc += pgm_read_byte(flashAddr);
+			}
+
+			if (Isb_Firmware_Crc_Calc != Isb_Firmware_Crc) {
+    3bc2:	96 2f       	mov	r25, r22
+    3bc4:	80 e0       	ldi	r24, 0x00	; 0
+    3bc6:	82 2b       	or	r24, r18
+    3bc8:	93 2b       	or	r25, r19
+    3bca:	48 17       	cp	r20, r24
+    3bcc:	59 07       	cpc	r21, r25
+    3bce:	11 f0       	breq	.+4      	; 0x3bd4 <main+0x188>
+				Isb_Node_Operating_Mode = ISB_NODE_OPERATING_MODE__BL_NORM;
+				Isb_Node_Operating_Error |= 0x04;
+    3bd0:	74 60       	ori	r23, 0x04	; 4
+    3bd2:	ee 24       	eor	r14, r14
+
+		}
+
+		Isb_Msg_t Isb_Msg;
+		uint8_t Isb_Msg_Dlc = 0;
+		Isb_Msg.Flags = ISB_MSG_FLAGS_TOF_MULTICAST | ISB_MSG_FLAGS_DLC_8;
+    3bd4:	88 e2       	ldi	r24, 0x28	; 40
+    3bd6:	8f 83       	std	Y+7, r24	; 0x07
+		Isb_Msg.DestId = ISB_MSG_MULTICAST_GROUPID_BL_START;
+    3bd8:	81 e0       	ldi	r24, 0x01	; 1
+    3bda:	90 ef       	ldi	r25, 0xF0	; 240
+    3bdc:	99 87       	std	Y+9, r25	; 0x09
+    3bde:	88 87       	std	Y+8, r24	; 0x08
+		Isb_Msg.SourceId = Isb_Node_Id;
+    3be0:	bb 86       	std	Y+11, r11	; 0x0b
+    3be2:	aa 86       	std	Y+10, r10	; 0x0a
+		Isb_Msg.Data[0] = ISB_MSG_TOP__SERIAL_NUMBER__MODE__RESETSOURCE_ERROR;
+    3be4:	80 e2       	ldi	r24, 0x20	; 32
+    3be6:	8c 87       	std	Y+12, r24	; 0x0c
+		memcpy(Isb_Msg.Data + 1, Isb_Node_Serial_Number, 4);
+    3be8:	8e 01       	movw	r16, r28
+    3bea:	09 5f       	subi	r16, 0xF9	; 249
+    3bec:	1f 4f       	sbci	r17, 0xFF	; 255
+    3bee:	8b 81       	ldd	r24, Y+3	; 0x03
+    3bf0:	9c 81       	ldd	r25, Y+4	; 0x04
+    3bf2:	ad 81       	ldd	r26, Y+5	; 0x05
+    3bf4:	be 81       	ldd	r27, Y+6	; 0x06
+    3bf6:	8d 87       	std	Y+13, r24	; 0x0d
+    3bf8:	9e 87       	std	Y+14, r25	; 0x0e
+    3bfa:	af 87       	std	Y+15, r26	; 0x0f
+    3bfc:	b8 8b       	std	Y+16, r27	; 0x10
+		Isb_Msg.Data[5] = Isb_Node_Operating_Mode;
+    3bfe:	e9 8a       	std	Y+17, r14	; 0x11
+		Isb_Msg.Data[6] = Isb_Node_Operating_ResetSource;
+    3c00:	fa 8a       	std	Y+18, r15	; 0x12
+		Isb_Msg.Data[7] = Isb_Node_Operating_Error;
+    3c02:	7b 8b       	std	Y+19, r23	; 0x13
+		Send_Message(&Isb_Msg);
+    3c04:	c8 01       	movw	r24, r16
+    3c06:	0e 94 cd 1c 	call	0x399a	; 0x399a <Send_Message>
+			TCNT1 = 0;
+			OCR1A = (F_CPU / 1024) / 1;
+			TCCR1A = (1 << WGM12);
+			TCCR1B = (1 << CS12) | (1 << CS10);
+		#elif defined(__AVR_ATmega16__)
+			TCNT1 = 0;
+    3c0a:	1d bc       	out	0x2d, r1	; 45
+    3c0c:	1c bc       	out	0x2c, r1	; 44
+			OCR1A = (F_CPU / 1024) / 1;
+    3c0e:	89 e0       	ldi	r24, 0x09	; 9
+    3c10:	9d e3       	ldi	r25, 0x3D	; 61
+    3c12:	9b bd       	out	0x2b, r25	; 43
+    3c14:	8a bd       	out	0x2a, r24	; 42
+			TCCR1A = (1 << WGM12);
+    3c16:	88 e0       	ldi	r24, 0x08	; 8
+    3c18:	8f bd       	out	0x2f, r24	; 47
+			TCCR1B = (1 << CS12) | (1 << CS10);
+    3c1a:	85 e0       	ldi	r24, 0x05	; 5
+    3c1c:	8e bd       	out	0x2e, r24	; 46
+    3c1e:	ff 24       	eor	r15, r15
+    3c20:	33 24       	eor	r3, r3
+    3c22:	cc 24       	eor	r12, r12
+    3c24:	dd 24       	eor	r13, r13
+    3c26:	1c 8a       	std	Y+20, r1	; 0x14
+    3c28:	88 24       	eor	r8, r8
+    3c2a:	8a 94       	dec	r8
+    3c2c:	98 2c       	mov	r9, r8
+
+
+
+	uint16_t __attribute__((always_inline)) ByteToShort(uint8_t hi, uint8_t lo) {
+		uint16_t ret;
+		((unsigned char *) & ret)[0] = lo;
+    3c2e:	2e 01       	movw	r4, r28
+    3c30:	08 94       	sec
+    3c32:	41 1c       	adc	r4, r1
+    3c34:	51 1c       	adc	r5, r1
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_WRITEFLASH) {
+					if (flashPage != 0xFFFF) {
+						for (uint8_t i = 1; (i < Isb_Msg_Dlc) && (flashAddr < SPM_PAGESIZE); i++, flashAddr++) {
+							if (flashAddr % 2) {
+								boot_page_fill(flashPage * SPM_PAGESIZE + (flashAddr & ~1), ByteToShort(Isb_Msg.Data[i], flashWord));
+    3c36:	ce 01       	movw	r24, r28
+    3c38:	0d 96       	adiw	r24, 0x0d	; 13
+    3c3a:	28 2e       	mov	r2, r24
+    3c3c:	9d 8b       	std	Y+21, r25	; 0x15
+			if ((Isb_Msg.DestId & ISB_MSG_UNICAST_NODEID_MASK) != Isb_Node_Id) {
+				continue;
+			}
+
+			if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_SETNODEID) {
+				if (memcmp(Isb_Msg.Data + 1, Isb_Node_Serial_Number, 4)) {
+    3c3e:	ce 01       	movw	r24, r28
+    3c40:	03 96       	adiw	r24, 0x03	; 3
+    3c42:	8e 8b       	std	Y+22, r24	; 0x16
+    3c44:	9f 8b       	std	Y+23, r25	; 0x17
+					}
+				#else
+					#error "No definition for this MCU available."
+				#endif
+				if (relPos == 0 && tempByte == ISB_INF_USART0_STARTBYTE) {
+					for(uint8_t i = 0; i < 8; i++) {
+    3c46:	ce 01       	movw	r24, r28
+    3c48:	44 96       	adiw	r24, 0x14	; 20
+    3c4a:	99 8f       	std	Y+25, r25	; 0x19
+    3c4c:	88 8f       	std	Y+24, r24	; 0x18
+    3c4e:	04 c0       	rjmp	.+8      	; 0x3c58 <main+0x20c>
+			TCCR1B = (1 << CS12) | (1 << CS10);
+		#elif defined(__AVR_ATmega16__)
+			TCNT1 = 0;
+			OCR1A = (F_CPU / 1024) / 1;
+			TCCR1A = (1 << WGM12);
+			TCCR1B = (1 << CS12) | (1 << CS10);
+    3c50:	ff 24       	eor	r15, r15
+    3c52:	f3 94       	inc	r15
+    3c54:	01 c0       	rjmp	.+2      	; 0x3c58 <main+0x20c>
+    3c56:	ff 24       	eor	r15, r15
+			#error "No definition for this MCU available."
+		#endif
+
+		for (;;) {
+
+			wdt_reset();
+    3c58:	a8 95       	wdr
+
+			#if defined(__AVR_ATmega8__)
+				if (bit_is_set(TIFR, OCF1A)) {
+					TCCR1B = 0;
+			#elif defined(__AVR_ATmega16__)
+				if (bit_is_set(TIFR, OCF1A)) {
+    3c5a:	08 b6       	in	r0, 0x38	; 56
+    3c5c:	04 fe       	sbrs	r0, 4
+    3c5e:	09 c0       	rjmp	.+18     	; 0x3c72 <main+0x226>
+					TCCR1B = 0;
+    3c60:	1e bc       	out	0x2e, r1	; 46
+				if (bit_is_set(TIFR, OCF0)) {
+					TCCR0 = 0;
+			#else
+				#error "No definition for this MCU available."
+			#endif
+					if (Isb_Node_Operating_Mode >= ISB_NODE_OPERATING_MODE__FW_NORM) {
+    3c62:	97 e0       	ldi	r25, 0x07	; 7
+    3c64:	9e 15       	cp	r25, r14
+    3c66:	28 f4       	brcc	.+10     	; 0x3c72 <main+0x226>
+						JumpToFirmware();
+    3c68:	e0 91 64 00 	lds	r30, 0x0064
+    3c6c:	f0 91 65 00 	lds	r31, 0x0065
+    3c70:	09 95       	icall
+					}
+					else {
+						continue;
+					}
+				#elif defined(__AVR_ATmega16__)
+					if (UCSRA & (1 << RXC)) {
+    3c72:	5f 9b       	sbis	0x0b, 7	; 11
+    3c74:	f1 cf       	rjmp	.-30     	; 0x3c58 <main+0x20c>
+						tempByte = UDR;
+    3c76:	6c b1       	in	r22, 0x0c	; 12
+						continue;
+					}
+				#else
+					#error "No definition for this MCU available."
+				#endif
+				if (relPos == 0 && tempByte == ISB_INF_USART0_STARTBYTE) {
+    3c78:	ff 20       	and	r15, r15
+    3c7a:	61 f4       	brne	.+24     	; 0x3c94 <main+0x248>
+    3c7c:	61 30       	cpi	r22, 0x01	; 1
+    3c7e:	09 f0       	breq	.+2      	; 0x3c82 <main+0x236>
+    3c80:	52 c0       	rjmp	.+164    	; 0x3d26 <main+0x2da>
+    3c82:	fe 01       	movw	r30, r28
+    3c84:	3c 96       	adiw	r30, 0x0c	; 12
+					for(uint8_t i = 0; i < 8; i++) {
+						Isb_Msg.Data[i] = 0x00;
+    3c86:	11 92       	st	Z+, r1
+					}
+				#else
+					#error "No definition for this MCU available."
+				#endif
+				if (relPos == 0 && tempByte == ISB_INF_USART0_STARTBYTE) {
+					for(uint8_t i = 0; i < 8; i++) {
+    3c88:	a8 8d       	ldd	r26, Y+24	; 0x18
+    3c8a:	b9 8d       	ldd	r27, Y+25	; 0x19
+    3c8c:	ea 17       	cp	r30, r26
+    3c8e:	fb 07       	cpc	r31, r27
+    3c90:	d1 f7       	brne	.-12     	; 0x3c86 <main+0x23a>
+    3c92:	de cf       	rjmp	.-68     	; 0x3c50 <main+0x204>
+						Isb_Msg.Data[i] = 0x00;
+					}
+					relPos++;
+					continue;
+				}
+				if (relPos == 1) {
+    3c94:	b1 e0       	ldi	r27, 0x01	; 1
+    3c96:	fb 16       	cp	r15, r27
+    3c98:	39 f4       	brne	.+14     	; 0x3ca8 <main+0x25c>
+					Isb_Msg.Flags = tempByte;
+    3c9a:	6f 83       	std	Y+7, r22	; 0x07
+					Isb_Msg_Dlc = Isb_Msg.Flags & ISB_MSG_FLAGS_DLC_MASK;
+    3c9c:	7f e0       	ldi	r23, 0x0F	; 15
+    3c9e:	37 2e       	mov	r3, r23
+    3ca0:	36 22       	and	r3, r22
+    3ca2:	62 e0       	ldi	r22, 0x02	; 2
+    3ca4:	f6 2e       	mov	r15, r22
+    3ca6:	d8 cf       	rjmp	.-80     	; 0x3c58 <main+0x20c>
+					relPos++;
+					continue;
+				}
+				if (relPos == 2) {
+    3ca8:	e2 e0       	ldi	r30, 0x02	; 2
+    3caa:	fe 16       	cp	r15, r30
+    3cac:	29 f4       	brne	.+10     	; 0x3cb8 <main+0x26c>
+					Isb_Msg.DestId = tempByte;
+    3cae:	68 87       	std	Y+8, r22	; 0x08
+    3cb0:	19 86       	std	Y+9, r1	; 0x09
+    3cb2:	53 e0       	ldi	r21, 0x03	; 3
+    3cb4:	f5 2e       	mov	r15, r21
+    3cb6:	d0 cf       	rjmp	.-96     	; 0x3c58 <main+0x20c>
+					relPos++;
+					continue;
+				}
+				if (relPos == 3) {
+    3cb8:	f3 e0       	ldi	r31, 0x03	; 3
+    3cba:	ff 16       	cp	r15, r31
+    3cbc:	59 f4       	brne	.+22     	; 0x3cd4 <main+0x288>
+					Isb_Msg.DestId |= tempByte << 8;
+    3cbe:	16 2f       	mov	r17, r22
+    3cc0:	00 e0       	ldi	r16, 0x00	; 0
+    3cc2:	88 85       	ldd	r24, Y+8	; 0x08
+    3cc4:	99 85       	ldd	r25, Y+9	; 0x09
+    3cc6:	80 2b       	or	r24, r16
+    3cc8:	91 2b       	or	r25, r17
+    3cca:	99 87       	std	Y+9, r25	; 0x09
+    3ccc:	88 87       	std	Y+8, r24	; 0x08
+    3cce:	44 e0       	ldi	r20, 0x04	; 4
+    3cd0:	f4 2e       	mov	r15, r20
+    3cd2:	c2 cf       	rjmp	.-124    	; 0x3c58 <main+0x20c>
+					relPos++;
+					continue;
+				}
+				if (relPos == 4) {
+    3cd4:	34 e0       	ldi	r19, 0x04	; 4
+    3cd6:	f3 16       	cp	r15, r19
+    3cd8:	29 f4       	brne	.+10     	; 0x3ce4 <main+0x298>
+					Isb_Msg.SourceId = tempByte;
+    3cda:	6a 87       	std	Y+10, r22	; 0x0a
+    3cdc:	1b 86       	std	Y+11, r1	; 0x0b
+    3cde:	35 e0       	ldi	r19, 0x05	; 5
+    3ce0:	f3 2e       	mov	r15, r19
+    3ce2:	ba cf       	rjmp	.-140    	; 0x3c58 <main+0x20c>
+					relPos++;
+					continue;
+				}
+				if (relPos == 5) {
+    3ce4:	55 e0       	ldi	r21, 0x05	; 5
+    3ce6:	f5 16       	cp	r15, r21
+    3ce8:	59 f4       	brne	.+22     	; 0x3d00 <main+0x2b4>
+					Isb_Msg.SourceId |= tempByte << 8;
+    3cea:	76 2e       	mov	r7, r22
+    3cec:	66 24       	eor	r6, r6
+    3cee:	8a 85       	ldd	r24, Y+10	; 0x0a
+    3cf0:	9b 85       	ldd	r25, Y+11	; 0x0b
+    3cf2:	86 29       	or	r24, r6
+    3cf4:	97 29       	or	r25, r7
+    3cf6:	9b 87       	std	Y+11, r25	; 0x0b
+    3cf8:	8a 87       	std	Y+10, r24	; 0x0a
+    3cfa:	26 e0       	ldi	r18, 0x06	; 6
+    3cfc:	f2 2e       	mov	r15, r18
+    3cfe:	ac cf       	rjmp	.-168    	; 0x3c58 <main+0x20c>
+					relPos++;
+					continue;
+				}
+				if ((relPos > 5) && (relPos <= (Isb_Msg_Dlc + 5))) {
+    3d00:	85 e0       	ldi	r24, 0x05	; 5
+    3d02:	8f 15       	cp	r24, r15
+    3d04:	80 f4       	brcc	.+32     	; 0x3d26 <main+0x2da>
+    3d06:	ef 2d       	mov	r30, r15
+    3d08:	f0 e0       	ldi	r31, 0x00	; 0
+    3d0a:	83 2d       	mov	r24, r3
+    3d0c:	90 e0       	ldi	r25, 0x00	; 0
+    3d0e:	05 96       	adiw	r24, 0x05	; 5
+    3d10:	8e 17       	cp	r24, r30
+    3d12:	9f 07       	cpc	r25, r31
+    3d14:	44 f0       	brlt	.+16     	; 0x3d26 <main+0x2da>
+					Isb_Msg.Data[relPos - 6] = tempByte;
+    3d16:	a6 e0       	ldi	r26, 0x06	; 6
+    3d18:	b0 e0       	ldi	r27, 0x00	; 0
+    3d1a:	ac 0f       	add	r26, r28
+    3d1c:	bd 1f       	adc	r27, r29
+    3d1e:	ea 0f       	add	r30, r26
+    3d20:	fb 1f       	adc	r31, r27
+    3d22:	60 83       	st	Z, r22
+    3d24:	24 c0       	rjmp	.+72     	; 0x3d6e <main+0x322>
+					relPos++;
+					continue;
+				}
+				if (relPos == (Isb_Msg_Dlc + 6)) {
+    3d26:	4f 2d       	mov	r20, r15
+    3d28:	50 e0       	ldi	r21, 0x00	; 0
+    3d2a:	23 2d       	mov	r18, r3
+    3d2c:	30 e0       	ldi	r19, 0x00	; 0
+    3d2e:	c9 01       	movw	r24, r18
+    3d30:	06 96       	adiw	r24, 0x06	; 6
+    3d32:	48 17       	cp	r20, r24
+    3d34:	59 07       	cpc	r21, r25
+    3d36:	d9 f0       	breq	.+54     	; 0x3d6e <main+0x322>
+					relPos++;
+					continue;
+				}
+				if (relPos == (Isb_Msg_Dlc + 7)) {
+    3d38:	c9 01       	movw	r24, r18
+    3d3a:	07 96       	adiw	r24, 0x07	; 7
+    3d3c:	48 17       	cp	r20, r24
+    3d3e:	59 07       	cpc	r21, r25
+    3d40:	c1 f4       	brne	.+48     	; 0x3d72 <main+0x326>
+					if (tempByte == Lib_Crc_Calc8(&Isb_Msg, Isb_Msg_Dlc + 5)) {
+    3d42:	d9 01       	movw	r26, r18
+    3d44:	15 96       	adiw	r26, 0x05	; 5
+    3d46:	20 e0       	ldi	r18, 0x00	; 0
+    3d48:	30 e0       	ldi	r19, 0x00	; 0
+    3d4a:	40 e0       	ldi	r20, 0x00	; 0
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+			Sum += *(uint8_t *)(aData + i);
+    3d4c:	e7 e0       	ldi	r30, 0x07	; 7
+    3d4e:	f0 e0       	ldi	r31, 0x00	; 0
+    3d50:	ec 0f       	add	r30, r28
+    3d52:	fd 1f       	adc	r31, r29
+    3d54:	e2 0f       	add	r30, r18
+    3d56:	f3 1f       	adc	r31, r19
+    3d58:	80 81       	ld	r24, Z
+    3d5a:	48 0f       	add	r20, r24
+
+
+
+	uint8_t Lib_Crc_Calc8(const void * aData, uint16_t aLength) {
+		uint8_t Sum = 0;
+		for (uint16_t i = 0; i < aLength; i++) {
+    3d5c:	2f 5f       	subi	r18, 0xFF	; 255
+    3d5e:	3f 4f       	sbci	r19, 0xFF	; 255
+    3d60:	2a 17       	cp	r18, r26
+    3d62:	3b 07       	cpc	r19, r27
+    3d64:	98 f3       	brcs	.-26     	; 0x3d4c <main+0x300>
+    3d66:	41 95       	neg	r20
+    3d68:	64 17       	cp	r22, r20
+    3d6a:	09 f0       	breq	.+2      	; 0x3d6e <main+0x322>
+    3d6c:	74 cf       	rjmp	.-280    	; 0x3c56 <main+0x20a>
+						relPos++;
+    3d6e:	f3 94       	inc	r15
+    3d70:	73 cf       	rjmp	.-282    	; 0x3c58 <main+0x20c>
+					else {
+						relPos = 0;
+					}
+					continue;
+				}
+				if (relPos == (Isb_Msg_Dlc + 8)) {
+    3d72:	28 5f       	subi	r18, 0xF8	; 248
+    3d74:	3f 4f       	sbci	r19, 0xFF	; 255
+    3d76:	42 17       	cp	r20, r18
+    3d78:	53 07       	cpc	r21, r19
+    3d7a:	21 f4       	brne	.+8      	; 0x3d84 <main+0x338>
+					relPos = 0;
+					if (tempByte != ISB_INF_USART0_STOPBYTE) {
+    3d7c:	6d 30       	cpi	r22, 0x0D	; 13
+    3d7e:	09 f0       	breq	.+2      	; 0x3d82 <main+0x336>
+    3d80:	6a cf       	rjmp	.-300    	; 0x3c56 <main+0x20a>
+						continue;
+    3d82:	ff 24       	eor	r15, r15
+					}
+					INF_CAN0_SS_HIGH;
+				}
+			#endif /* ISB_INF == CAN0 */
+
+			if ((Isb_Msg.Flags & ISB_MSG_FLAGS_TOF_MASK) != ISB_MSG_FLAGS_TOF_UNICAST) {
+    3d84:	5f 81       	ldd	r21, Y+7	; 0x07
+    3d86:	85 2f       	mov	r24, r21
+    3d88:	80 73       	andi	r24, 0x30	; 48
+    3d8a:	09 f0       	breq	.+2      	; 0x3d8e <main+0x342>
+    3d8c:	65 cf       	rjmp	.-310    	; 0x3c58 <main+0x20c>
+				continue;
+			}
+
+			if ((Isb_Msg.DestId & ISB_MSG_UNICAST_PORT_MASK) != ISB_MSG_UNICAST_PORT_CONFIG) {
+    3d8e:	28 85       	ldd	r18, Y+8	; 0x08
+    3d90:	39 85       	ldd	r19, Y+9	; 0x09
+    3d92:	c9 01       	movw	r24, r18
+    3d94:	80 70       	andi	r24, 0x00	; 0
+    3d96:	98 7f       	andi	r25, 0xF8	; 248
+    3d98:	89 2b       	or	r24, r25
+    3d9a:	09 f0       	breq	.+2      	; 0x3d9e <main+0x352>
+    3d9c:	5d cf       	rjmp	.-326    	; 0x3c58 <main+0x20c>
+				continue;
+			}
+
+			if ((Isb_Msg.DestId & ISB_MSG_UNICAST_NODEID_MASK) != Isb_Node_Id) {
+    3d9e:	37 70       	andi	r19, 0x07	; 7
+    3da0:	2a 15       	cp	r18, r10
+    3da2:	3b 05       	cpc	r19, r11
+    3da4:	09 f0       	breq	.+2      	; 0x3da8 <main+0x35c>
+    3da6:	58 cf       	rjmp	.-336    	; 0x3c58 <main+0x20c>
+				continue;
+			}
+
+			if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_SETNODEID) {
+    3da8:	8c 85       	ldd	r24, Y+12	; 0x0c
+    3daa:	81 30       	cpi	r24, 0x01	; 1
+    3dac:	d9 f4       	brne	.+54     	; 0x3de4 <main+0x398>
+				if (memcmp(Isb_Msg.Data + 1, Isb_Node_Serial_Number, 4)) {
+    3dae:	82 2d       	mov	r24, r2
+    3db0:	9d 89       	ldd	r25, Y+21	; 0x15
+    3db2:	6e 89       	ldd	r22, Y+22	; 0x16
+    3db4:	7f 89       	ldd	r23, Y+23	; 0x17
+    3db6:	44 e0       	ldi	r20, 0x04	; 4
+    3db8:	50 e0       	ldi	r21, 0x00	; 0
+    3dba:	0e 94 af 1f 	call	0x3f5e	; 0x3f5e <memcmp>
+    3dbe:	00 97       	sbiw	r24, 0x00	; 0
+    3dc0:	09 f0       	breq	.+2      	; 0x3dc4 <main+0x378>
+    3dc2:	4a cf       	rjmp	.-364    	; 0x3c58 <main+0x20c>
+					continue;
+				}
+				eep_write_byte((uint8_t *)EEP__ISB_NODE_ID_0, Isb_Msg.Data[5]);
+    3dc4:	80 e1       	ldi	r24, 0x10	; 16
+    3dc6:	90 e0       	ldi	r25, 0x00	; 0
+    3dc8:	69 89       	ldd	r22, Y+17	; 0x11
+    3dca:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+				eep_write_byte((uint8_t *)EEP__ISB_NODE_ID_1, Isb_Msg.Data[6]);
+    3dce:	81 e1       	ldi	r24, 0x11	; 17
+    3dd0:	90 e0       	ldi	r25, 0x00	; 0
+    3dd2:	6a 89       	ldd	r22, Y+18	; 0x12
+    3dd4:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+				eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_RESETSOURCE, 0x80);
+    3dd8:	83 e1       	ldi	r24, 0x13	; 19
+    3dda:	90 e0       	ldi	r25, 0x00	; 0
+    3ddc:	60 e8       	ldi	r22, 0x80	; 128
+    3dde:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+    3de2:	ff cf       	rjmp	.-2      	; 0x3de2 <main+0x396>
+				while (1) ;
+			}
+
+			if (Isb_Node_Id == 0) {
+    3de4:	a1 14       	cp	r10, r1
+    3de6:	b1 04       	cpc	r11, r1
+    3de8:	09 f4       	brne	.+2      	; 0x3dec <main+0x3a0>
+    3dea:	36 cf       	rjmp	.-404    	; 0x3c58 <main+0x20c>
+				continue;
+			}
+
+			if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_SETMODE) {
+    3dec:	82 30       	cpi	r24, 0x02	; 2
+    3dee:	59 f4       	brne	.+22     	; 0x3e06 <main+0x3ba>
+				eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_MODE, Isb_Msg.Data[1]);
+    3df0:	82 e1       	ldi	r24, 0x12	; 18
+    3df2:	90 e0       	ldi	r25, 0x00	; 0
+    3df4:	6d 85       	ldd	r22, Y+13	; 0x0d
+    3df6:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+				eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_RESETSOURCE, 0x80);
+    3dfa:	83 e1       	ldi	r24, 0x13	; 19
+    3dfc:	90 e0       	ldi	r25, 0x00	; 0
+    3dfe:	60 e8       	ldi	r22, 0x80	; 128
+    3e00:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+    3e04:	ff cf       	rjmp	.-2      	; 0x3e04 <main+0x3b8>
+				while (1) ;
+			}
+
+			if (Isb_Node_Operating_Mode == ISB_NODE_OPERATING_MODE__BL_FLASH) {
+    3e06:	b1 e0       	ldi	r27, 0x01	; 1
+    3e08:	eb 16       	cp	r14, r27
+    3e0a:	09 f0       	breq	.+2      	; 0x3e0e <main+0x3c2>
+    3e0c:	6b c0       	rjmp	.+214    	; 0x3ee4 <main+0x498>
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_SETCRC) {
+    3e0e:	83 30       	cpi	r24, 0x03	; 3
+    3e10:	59 f4       	brne	.+22     	; 0x3e28 <main+0x3dc>
+					eep_write_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_0, Isb_Msg.Data[1]);
+    3e12:	88 e1       	ldi	r24, 0x18	; 24
+    3e14:	90 e0       	ldi	r25, 0x00	; 0
+    3e16:	6d 85       	ldd	r22, Y+13	; 0x0d
+    3e18:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+					eep_write_byte((uint8_t *)EEP__ISB_FIRMWARE_CRC_1, Isb_Msg.Data[2]);
+    3e1c:	89 e1       	ldi	r24, 0x19	; 25
+    3e1e:	90 e0       	ldi	r25, 0x00	; 0
+    3e20:	6e 85       	ldd	r22, Y+14	; 0x0e
+    3e22:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+    3e26:	8b c0       	rjmp	.+278    	; 0x3f3e <main+0x4f2>
+					goto ackit;
+				}
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_SETPAGE) {
+    3e28:	84 30       	cpi	r24, 0x04	; 4
+    3e2a:	91 f4       	brne	.+36     	; 0x3e50 <main+0x404>
+					flashPage = ByteToShort(Isb_Msg.Data[2], Isb_Msg.Data[1]);
+    3e2c:	9e 85       	ldd	r25, Y+14	; 0x0e
+
+
+
+	uint16_t __attribute__((always_inline)) ByteToShort(uint8_t hi, uint8_t lo) {
+		uint16_t ret;
+		((unsigned char *) & ret)[0] = lo;
+    3e2e:	8d 85       	ldd	r24, Y+13	; 0x0d
+    3e30:	f2 01       	movw	r30, r4
+    3e32:	80 83       	st	Z, r24
+		((unsigned char *) & ret)[1] = hi;
+    3e34:	91 83       	std	Z+1, r25	; 0x01
+		return ret;
+    3e36:	89 80       	ldd	r8, Y+1	; 0x01
+    3e38:	9a 80       	ldd	r9, Y+2	; 0x02
+					goto ackit;
+				}
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_SETPAGE) {
+					flashPage = ByteToShort(Isb_Msg.Data[2], Isb_Msg.Data[1]);
+					if (flashPage > FLASHPAGES) {
+    3e3a:	f0 e7       	ldi	r31, 0x70	; 112
+    3e3c:	8f 16       	cp	r8, r31
+    3e3e:	91 04       	cpc	r9, r1
+    3e40:	08 f4       	brcc	.+2      	; 0x3e44 <main+0x3f8>
+    3e42:	7a c0       	rjmp	.+244    	; 0x3f38 <main+0x4ec>
+						eep_write_byte((uint8_t *)EEP__ISB_NODE_OPERATING_RESETSOURCE, 0x80);
+    3e44:	83 e1       	ldi	r24, 0x13	; 19
+    3e46:	90 e0       	ldi	r25, 0x00	; 0
+    3e48:	60 e8       	ldi	r22, 0x80	; 128
+    3e4a:	0e 94 b9 1c 	call	0x3972	; 0x3972 <eep_write_byte>
+    3e4e:	ff cf       	rjmp	.-2      	; 0x3e4e <main+0x402>
+					}
+					flashAddr = 0;
+					goto ackit;
+				}
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_WRITEFLASH) {
+    3e50:	85 30       	cpi	r24, 0x05	; 5
+    3e52:	09 f0       	breq	.+2      	; 0x3e56 <main+0x40a>
+    3e54:	47 c0       	rjmp	.+142    	; 0x3ee4 <main+0x498>
+					if (flashPage != 0xFFFF) {
+    3e56:	3f ef       	ldi	r19, 0xFF	; 255
+    3e58:	83 16       	cp	r8, r19
+    3e5a:	3f ef       	ldi	r19, 0xFF	; 255
+    3e5c:	93 06       	cpc	r9, r19
+    3e5e:	09 f4       	brne	.+2      	; 0x3e62 <main+0x416>
+    3e60:	68 c0       	rjmp	.+208    	; 0x3f32 <main+0x4e6>
+						for (uint8_t i = 1; (i < Isb_Msg_Dlc) && (flashAddr < SPM_PAGESIZE); i++, flashAddr++) {
+							if (flashAddr % 2) {
+								boot_page_fill(flashPage * SPM_PAGESIZE + (flashAddr & ~1), ByteToShort(Isb_Msg.Data[i], flashWord));
+    3e62:	b4 01       	movw	r22, r8
+    3e64:	76 95       	lsr	r23
+    3e66:	76 2f       	mov	r23, r22
+    3e68:	66 27       	eor	r22, r22
+    3e6a:	77 95       	ror	r23
+    3e6c:	67 95       	ror	r22
+    3e6e:	82 2d       	mov	r24, r2
+    3e70:	9d 89       	ldd	r25, Y+21	; 0x15
+    3e72:	dc 01       	movw	r26, r24
+    3e74:	41 e0       	ldi	r20, 0x01	; 1
+    3e76:	1b c0       	rjmp	.+54     	; 0x3eae <main+0x462>
+    3e78:	8c 91       	ld	r24, X
+				}
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_WRITEFLASH) {
+					if (flashPage != 0xFFFF) {
+						for (uint8_t i = 1; (i < Isb_Msg_Dlc) && (flashAddr < SPM_PAGESIZE); i++, flashAddr++) {
+							if (flashAddr % 2) {
+    3e7a:	c0 fe       	sbrs	r12, 0
+    3e7c:	12 c0       	rjmp	.+36     	; 0x3ea2 <main+0x456>
+
+
+
+	uint16_t __attribute__((always_inline)) ByteToShort(uint8_t hi, uint8_t lo) {
+		uint16_t ret;
+		((unsigned char *) & ret)[0] = lo;
+    3e7e:	3c 89       	ldd	r19, Y+20	; 0x14
+    3e80:	f2 01       	movw	r30, r4
+    3e82:	30 83       	st	Z, r19
+		((unsigned char *) & ret)[1] = hi;
+    3e84:	81 83       	std	Z+1, r24	; 0x01
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_WRITEFLASH) {
+					if (flashPage != 0xFFFF) {
+						for (uint8_t i = 1; (i < Isb_Msg_Dlc) && (flashAddr < SPM_PAGESIZE); i++, flashAddr++) {
+							if (flashAddr % 2) {
+								boot_page_fill(flashPage * SPM_PAGESIZE + (flashAddr & ~1), ByteToShort(Isb_Msg.Data[i], flashWord));
+    3e86:	c6 01       	movw	r24, r12
+    3e88:	8e 7f       	andi	r24, 0xFE	; 254
+    3e8a:	86 0f       	add	r24, r22
+    3e8c:	97 1f       	adc	r25, r23
+    3e8e:	29 81       	ldd	r18, Y+1	; 0x01
+    3e90:	3a 81       	ldd	r19, Y+2	; 0x02
+    3e92:	51 e0       	ldi	r21, 0x01	; 1
+    3e94:	09 01       	movw	r0, r18
+    3e96:	fc 01       	movw	r30, r24
+    3e98:	50 93 57 00 	sts	0x0057, r21
+    3e9c:	e8 95       	spm
+    3e9e:	11 24       	eor	r1, r1
+    3ea0:	01 c0       	rjmp	.+2      	; 0x3ea4 <main+0x458>
+							}
+							else {
+								flashWord = Isb_Msg.Data[i];
+    3ea2:	8c 8b       	std	Y+20, r24	; 0x14
+					goto ackit;
+				}
+
+				if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_WRITEFLASH) {
+					if (flashPage != 0xFFFF) {
+						for (uint8_t i = 1; (i < Isb_Msg_Dlc) && (flashAddr < SPM_PAGESIZE); i++, flashAddr++) {
+    3ea4:	4f 5f       	subi	r20, 0xFF	; 255
+    3ea6:	08 94       	sec
+    3ea8:	c1 1c       	adc	r12, r1
+    3eaa:	d1 1c       	adc	r13, r1
+    3eac:	11 96       	adiw	r26, 0x01	; 1
+    3eae:	43 15       	cp	r20, r3
+    3eb0:	20 f4       	brcc	.+8      	; 0x3eba <main+0x46e>
+    3eb2:	80 e8       	ldi	r24, 0x80	; 128
+    3eb4:	c8 16       	cp	r12, r24
+    3eb6:	d1 04       	cpc	r13, r1
+    3eb8:	f8 f2       	brcs	.-66     	; 0x3e78 <main+0x42c>
+    3eba:	96 01       	movw	r18, r12
+							}
+							else {
+								flashWord = Isb_Msg.Data[i];
+							}
+						}
+						if (flashAddr == SPM_PAGESIZE) {
+    3ebc:	20 38       	cpi	r18, 0x80	; 128
+    3ebe:	31 05       	cpc	r19, r1
+    3ec0:	09 f0       	breq	.+2      	; 0x3ec4 <main+0x478>
+    3ec2:	3d c0       	rjmp	.+122    	; 0x3f3e <main+0x4f2>
+							boot_page_write(flashPage * SPM_PAGESIZE);
+    3ec4:	95 e0       	ldi	r25, 0x05	; 5
+    3ec6:	fb 01       	movw	r30, r22
+    3ec8:	90 93 57 00 	sts	0x0057, r25
+    3ecc:	e8 95       	spm
+							boot_spm_busy_wait();
+    3ece:	07 b6       	in	r0, 0x37	; 55
+    3ed0:	00 fc       	sbrc	r0, 0
+    3ed2:	fd cf       	rjmp	.-6      	; 0x3ece <main+0x482>
+							boot_rww_enable();
+    3ed4:	a1 e1       	ldi	r26, 0x11	; 17
+    3ed6:	a0 93 57 00 	sts	0x0057, r26
+    3eda:	e8 95       	spm
+    3edc:	88 24       	eor	r8, r8
+    3ede:	8a 94       	dec	r8
+    3ee0:	98 2c       	mov	r9, r8
+    3ee2:	2e c0       	rjmp	.+92     	; 0x3f40 <main+0x4f4>
+					}
+				}
+
+			}
+
+			if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+    3ee4:	87 30       	cpi	r24, 0x07	; 7
+    3ee6:	29 f5       	brne	.+74     	; 0x3f32 <main+0x4e6>
+				uint8_t len = Isb_Msg.Flags & ISB_MSG_FLAGS_DLC_MASK;
+    3ee8:	5f 70       	andi	r21, 0x0F	; 15
+				uint16_t addr = ByteToShort(Isb_Msg.Data[2], Isb_Msg.Data[1]);
+    3eea:	9e 85       	ldd	r25, Y+14	; 0x0e
+
+
+
+	uint16_t __attribute__((always_inline)) ByteToShort(uint8_t hi, uint8_t lo) {
+		uint16_t ret;
+		((unsigned char *) & ret)[0] = lo;
+    3eec:	8d 85       	ldd	r24, Y+13	; 0x0d
+    3eee:	f2 01       	movw	r30, r4
+    3ef0:	80 83       	st	Z, r24
+		((unsigned char *) & ret)[1] = hi;
+    3ef2:	91 83       	std	Z+1, r25	; 0x01
+		return ret;
+    3ef4:	69 81       	ldd	r22, Y+1	; 0x01
+    3ef6:	7a 81       	ldd	r23, Y+2	; 0x02
+    3ef8:	40 e0       	ldi	r20, 0x00	; 0
+			}
+
+			if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+				uint8_t len = Isb_Msg.Flags & ISB_MSG_FLAGS_DLC_MASK;
+				uint16_t addr = ByteToShort(Isb_Msg.Data[2], Isb_Msg.Data[1]);
+				for (uint8_t i = 0; i < (len - 3); i++) {
+    3efa:	25 2f       	mov	r18, r21
+    3efc:	30 e0       	ldi	r19, 0x00	; 0
+    3efe:	23 50       	subi	r18, 0x03	; 3
+    3f00:	30 40       	sbci	r19, 0x00	; 0
+    3f02:	11 c0       	rjmp	.+34     	; 0x3f26 <main+0x4da>
+/** \ingroup avr_eeprom
+    Read one byte from EEPROM address \a __p.
+ */
+__ATTR_PURE__ static __inline__ uint8_t eeprom_read_byte (const uint8_t *__p)
+{
+    do {} while (!eeprom_is_ready ());
+    3f04:	e1 99       	sbic	0x1c, 1	; 28
+    3f06:	fe cf       	rjmp	.-4      	; 0x3f04 <main+0x4b8>
+					Isb_Msg.Data[3 + i] = eeprom_read_byte((uint8_t *)(addr + i));
+    3f08:	cb 01       	movw	r24, r22
+    3f0a:	84 0f       	add	r24, r20
+    3f0c:	91 1d       	adc	r25, r1
+#if	E2END <= 0xFF
+    EEARL = (unsigned)__p;
+#else
+    EEAR = (unsigned)__p;
+    3f0e:	9f bb       	out	0x1f, r25	; 31
+    3f10:	8e bb       	out	0x1e, r24	; 30
+#endif
+    EECR |= (1 << EERE);
+    3f12:	e0 9a       	sbi	0x1c, 0	; 28
+    return EEDR;
+    3f14:	8d b3       	in	r24, 0x1d	; 29
+    3f16:	af e0       	ldi	r26, 0x0F	; 15
+    3f18:	b0 e0       	ldi	r27, 0x00	; 0
+    3f1a:	ac 0f       	add	r26, r28
+    3f1c:	bd 1f       	adc	r27, r29
+    3f1e:	ea 0f       	add	r30, r26
+    3f20:	fb 1f       	adc	r31, r27
+    3f22:	80 83       	st	Z, r24
+			}
+
+			if (Isb_Msg.Data[0] == ISB_CONFIG_CMD_READEEPROMBLOCK) {
+				uint8_t len = Isb_Msg.Flags & ISB_MSG_FLAGS_DLC_MASK;
+				uint16_t addr = ByteToShort(Isb_Msg.Data[2], Isb_Msg.Data[1]);
+				for (uint8_t i = 0; i < (len - 3); i++) {
+    3f24:	4f 5f       	subi	r20, 0xFF	; 255
+    3f26:	e4 2f       	mov	r30, r20
+    3f28:	f0 e0       	ldi	r31, 0x00	; 0
+    3f2a:	e2 17       	cp	r30, r18
+    3f2c:	f3 07       	cpc	r31, r19
+    3f2e:	54 f3       	brlt	.-44     	; 0x3f04 <main+0x4b8>
+    3f30:	06 c0       	rjmp	.+12     	; 0x3f3e <main+0x4f2>
+					Isb_Msg.Data[3 + i] = eeprom_read_byte((uint8_t *)(addr + i));
+				}
+				goto ackit;
+			}
+
+			Isb_Msg.Data[0] |= ISB_CONFIG_ANSWER_NACK;
+    3f32:	80 64       	ori	r24, 0x40	; 64
+    3f34:	8c 87       	std	Y+12, r24	; 0x0c
+    3f36:	08 c0       	rjmp	.+16     	; 0x3f48 <main+0x4fc>
+    3f38:	20 e0       	ldi	r18, 0x00	; 0
+    3f3a:	30 e0       	ldi	r19, 0x00	; 0
+    3f3c:	01 c0       	rjmp	.+2      	; 0x3f40 <main+0x4f4>
+
+			if (0) ackit:Isb_Msg.Data[0] |= ISB_CONFIG_ANSWER_ACK;
+    3f3e:	96 01       	movw	r18, r12
+    3f40:	8c 85       	ldd	r24, Y+12	; 0x0c
+    3f42:	80 6c       	ori	r24, 0xC0	; 192
+    3f44:	8c 87       	std	Y+12, r24	; 0x0c
+    3f46:	69 01       	movw	r12, r18
+
+			Isb_Msg.DestId = Isb_Msg.SourceId | ISB_MSG_UNICAST_PORT_CONFIG;
+    3f48:	8a 85       	ldd	r24, Y+10	; 0x0a
+    3f4a:	9b 85       	ldd	r25, Y+11	; 0x0b
+    3f4c:	99 87       	std	Y+9, r25	; 0x09
+    3f4e:	88 87       	std	Y+8, r24	; 0x08
+			Isb_Msg.SourceId = Isb_Node_Id;
+    3f50:	bb 86       	std	Y+11, r11	; 0x0b
+    3f52:	aa 86       	std	Y+10, r10	; 0x0a
+			Send_Message(&Isb_Msg);
+    3f54:	ce 01       	movw	r24, r28
+    3f56:	07 96       	adiw	r24, 0x07	; 7
+    3f58:	0e 94 cd 1c 	call	0x399a	; 0x399a <Send_Message>
+    3f5c:	7d ce       	rjmp	.-774    	; 0x3c58 <main+0x20c>
+
+00003f5e <memcmp>:
+    3f5e:	fb 01       	movw	r30, r22
+    3f60:	dc 01       	movw	r26, r24
+    3f62:	04 c0       	rjmp	.+8      	; 0x3f6c <memcmp+0xe>
+    3f64:	8d 91       	ld	r24, X+
+    3f66:	01 90       	ld	r0, Z+
+    3f68:	80 19       	sub	r24, r0
+    3f6a:	21 f4       	brne	.+8      	; 0x3f74 <memcmp+0x16>
+    3f6c:	41 50       	subi	r20, 0x01	; 1
+    3f6e:	50 40       	sbci	r21, 0x00	; 0
+    3f70:	c8 f7       	brcc	.-14     	; 0x3f64 <memcmp+0x6>
+    3f72:	88 1b       	sub	r24, r24
+    3f74:	99 0b       	sbc	r25, r25
+    3f76:	08 95       	ret
+
+00003f78 <_exit>:
+    3f78:	f8 94       	cli
+
+00003f7a <__stop_program>:
+    3f7a:	ff cf       	rjmp	.-2      	; 0x3f7a <__stop_program>

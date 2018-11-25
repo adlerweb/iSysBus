@@ -1,0 +1,6 @@
+im linker MUSS unbedingt zusätzlich mmcu gesetzt werden! sonst können falsche Interrupt-tables erzeugt werden
+
+Module können auf 3 verschiedene wege eincompiliert werden:
+1. Setzen des Defines MOD_XY VORM einbinden von modul_loader.h /.c (praktisch nur in conf.h)
+2. Includen einer Lokalen mod_xy_conf.h, auch vorm modul_loader
+3. Includen von mod_xy.h innerhalb eines modul headers

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/compatibility_pack/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/connections/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/core/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/dom4j/tags/1.6.1"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/eeprom_editor/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/isbd_connection/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/isb_protocol/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/jersey/tags/1.5"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/jsonsimple/trunk"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/message_debug/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/node_configurator/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/presettings_wizard/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/rxtx/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/serial_connection/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/settings_editor/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/simplecontrol/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/tcp_connection/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/updater/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/visualization/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/weather_warnings/trunk/src"/>
+	<classpathentry kind="lib" path="/home/adlerweb/Desktop/avr/isys/svn.isysbus.org/software/homecontrol/plugins/webclient/trunk/src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
